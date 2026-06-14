@@ -14,7 +14,7 @@ aliases:
 >
 > Los tipos de campo y reglas de mutabilidad viven en [[MODEL|MODEL.md]]. **Sincronía absoluta con [[MODEL|MODEL.md]].**
 >
-> Convenciones de payload: ver [[hoja-personaje|docs/hoja-personaje.md]] y [[sistema-tags|docs/sistema-tags.md]]. Castellano rioplatense, `snake_case_castellano`.
+> Convenciones de carga: ver [[hoja-personaje|docs/hoja-personaje.md]] y [[sistema-tags|docs/sistema-tags.md]]. Castellano rioplatense, `snake_case_castellano`.
 
 ---
 
@@ -22,15 +22,15 @@ aliases:
 
 `GET /meta/{categoria}` devuelve el catálogo curado de esa categoría de tag. La estructura de cada entrada es la definida en [[sistema-tags|docs/sistema-tags.md]].
 
-Las categorías curadas de referencia (`skill`, `trait`, `perk`, `rasgo`, `equipo`, `rol`, etc.) se detallan en [[sistema-tags#Categorías de referencia|docs/sistema-tags.md]]. Categorías nuevas se exponen automáticamente bajo `/meta/{categoria}` desde que existen — no requieren entry en este archivo.
+Las categorías curadas de referencia (`destreza`, `rasgo`, `ventaja`, `rasgo`, `equipo`, `rol`, etc.) se detallan en [[sistema-tags#Categorías de referencia|docs/sistema-tags.md]]. Categorías nuevas se exponen automáticamente bajo `/meta/{categoria}` desde que existen — no requieren entrada en este archivo.
 
-Para sub-categorías: `GET /meta/equipo/arma`, `GET /meta/rol/oficio`, etc. La notación de la URL usa barras (`/meta/equipo/arma`); la notación interna del tag usa punto (`equipo.arma`).
+Para sub-categorías: `GET /meta/equipo/arma`, `GET /meta/rol/oficio`, etc. La notación de la ruta usa barras (`/meta/equipo/arma`); la notación interna del tag usa punto (`equipo.arma`).
 
-**Casos que NO siguen la convención genérica** (el payload difiere o agrega datos derivados):
+**Casos que NO siguen la convención genérica** (la carga difiere o agrega datos derivados):
 
 - `GET /meta/facciones` — facciones con descriptor de lore corto (ver §5.1).
 - `GET /meta/rangos` — rangos con tabla determinística de atributos y rol cultural por facción (ver §5.2).
-- `GET /meta/tipos_hito` — enum sugerido de tipos de hito; catálogo abierto (ver §5.3).
+- `GET /meta/tipos_hito` — enumeración sugerida de tipos de hito; catálogo abierto (ver §5.3).
 - `GET /meta/encuentro/nuevo` — generador de patente de encuentro, no un catálogo (ver §6.1).
 
 ---

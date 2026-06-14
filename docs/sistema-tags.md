@@ -11,31 +11,31 @@ aliases:
 # Sistema de Tags
 
 > [!info] Propósito
-> Este documento describe el sistema de tags de syv-pj: qué es un tag, cómo se escribe, cómo se estructura su entrada en el catálogo y cómo se extiende sin migración.
-> En este documento se habla con frecuencia de [[habilidades]]. Bien: las habilidades son, en escencia, tags.
-> La relación entre los tags y Obisidian es absolutamente lineal e intencional.
+> Este documento describe el sistema de etiquetas de syv-pj: qué es una etiqueta, cómo se escribe, cómo se estructura su entrada en el catálogo y cómo se extiende sin migración.
+> En este documento se habla con frecuencia de [[habilidades]]. Bien: las habilidades son, en esencia, etiquetas.
+> La relación entre las etiquetas y Obsidian es absolutamente lineal e intencional.
 ---
 
-## §1 — Mecánica universal del tag
+## §1 — Mecánica universal de la etiqueta
 
-Un **tag** es la unidad atómica del schema. Es un identificador discreto que se aplica a un personaje y comunica una cosa concreta: una habilidad ganada, un estado de pánico, un fusil al hombro, una lealtad jurada, una cicatriz en la mejilla.
+Una **etiqueta** es la unidad atómica del esquema. Es un identificador discreto que se aplica a un personaje y comunica una cosa concreta: una habilidad ganada, un estado de pánico, un fusil al hombro, una lealtad jurada, una cicatriz en la mejilla.
 
 > [!tip] Regla rectora
-> Todo lo que es discreto y no es identidad, atributo, prosa, auditoría o vínculo-personal-con-prosa **es tag**.
+> Todo lo que es discreto y no es identidad, atributo, prosa, auditoría o vínculo-personal-con-prosa **es etiqueta**.
 
-Esta regla es expansiva por diseño. El sistema no predice los tipos de tag que existirán; provee una notación plana y declarativa para que cualquier hecho futuro encaje sin migración.
+Esta regla es expansiva por diseño. El sistema no predice los tipos de etiqueta que existirán; provee una notación plana y declarativa para que cualquier hecho futuro encaje sin migración.
 
-**Lo que NO es tag:**
+**Lo que NO es etiqueta:**
 
 - `identidad` — slug opaco, nombre, sobrenombre, rol, género, edad.
 - `atributos` — `fis`, `tac`, `men`. Magnitudes numéricas persistidas.
 - `historia` — prosa biográfica.
 - `historial` — eventos temporales estructurados (append-only).
-- `aliados` / `nemesis` — vínculos personales con prosa. Ver [[#§5 — Por qué aliados y némesis no son tags]].
-- `metadatos` — timestamps de auditoría.
+- `aliados` / `nemesis` — vínculos personales con prosa. Ver [[#§5 — Por qué aliados y némesis no son etiquetas]].
+- `metadatos` — marcas de tiempo de auditoría.
 - `extras` — diccionario libre para clientes externos.
 
-**Lo que SI es tag:**
+**Lo que SÍ es etiqueta:**
 
 - `habilidad.*`
 - `aspecto.*`
@@ -46,7 +46,7 @@ Esta regla es expansiva por diseño. El sistema no predice los tipos de tag que 
 
 ## §2 — Notación punto
 
-Un tag se escribe como string único: `<categoria>.<slug>`.
+Una etiqueta se escribe como string único: `<categoria>.<slug>`.
 
 También es perfectamente válido `<slug>`
 
@@ -57,21 +57,21 @@ En raras excepciones, se recurre al tercer segmento `<categoria>.<parent>.<slug>
 	- `aspecto.*`
 	- `equipo.*`
 	- ...
-- Los **segmentos intermedios** son sub-categorías anidadas, usualmente el segmento intermedio es el slug del tag padre.
+- Los **segmentos intermedios** son subcategorías anidadas, usualmente el segmento intermedio es el slug de la etiqueta padre.
 - El **último segmento** es el slug específico.
-	- `habilidades`.`nadar`
+	- `habilidad`.`nadar`
 	- `equipo`.`pistola_9mm`
 
-**Reglas del slug de tag:** lowercase, underscores como único separador, sin acentos, sin espacios, sin caracteres especiales. Ejemplos: `pistola`, `precision`, `ejercito_rojo`, `lider_de_escuadra`.
+**Reglas del slug de etiqueta:** minúsculas, guiones bajos como único separador, sin acentos, sin espacios, sin caracteres especiales. Ejemplos: `pistola`, `precision`, `ejercito_rojo`, `lider_de_escuadra`.
 
 > [!important] Asimetría de slugs
-> El slug de tag es **legible por diseño**. El slug de personaje (`identidad.slug`) es la antítesis: patente opaca `^[A-Z0-9]{8}$` (ej. `K9F2H3M4`), inmutable y no semántica. No confundir.
+> El slug de etiqueta es **legible por diseño**. El slug de personaje (`identidad.slug`) es la antítesis: patente opaca `^[A-Z0-9]{8}$` (ej. `K9F2H3M4`), inmutable y no semántica. No confundir.
 
-**Prohibido Multiset:** `tags[]` no puede funcionar como un multiset. Por ejemp. Tres `equipo.utilitario.cargador` **NO** significan tres cargadores físicos, el motor se queda con el último valor (que deberá estar en la referencia del tag, o será `vacío`)
+**Prohibido multiconjunto:** `tags[]` no puede funcionar como un multiconjunto. Por ejemplo, tres `equipo.utilitario.cargador` **NO** significan tres cargadores físicos; el motor se queda con el último valor (que deberá estar en la referencia de la etiqueta, o será `vacío`).
 
-**Huérfanos** Se invita a dejar tags huérfanos con conceptos que pueden llenarse luego, cuando el tag es suficientemente comunicativo, como "aspecto.cicatriz_perturbadora". Otro ejemplo más feliz de tags huérfanos: `habilidad.personal.pianista`, y no sabremos qué tan bueno es hasta que creemos la referencia del tag en la historia del personaje; es decir, un tag subjetivo.
+**Huérfanos:** se invita a dejar etiquetas huérfanas con conceptos que pueden llenarse luego, cuando la etiqueta es suficientemente comunicativa, como "aspecto.cicatriz_perturbadora". Otro ejemplo más feliz de etiquetas huérfanas: `habilidad.personal.pianista`, y no sabremos qué tan bueno es hasta que creemos la referencia de la etiqueta en la historia del personaje; es decir, una etiqueta subjetiva.
 
-**Resolución contra el catálogo:** el parser troza el tag por `.` y mapea segmentos a directorios. `equipo.arma.pistola` resuelve a `tags/equipo/arma/pistola.yaml`.
+**Resolución contra el catálogo:** el parser troza la etiqueta por `.` y mapea segmentos a directorios. `equipo.arma.pistola` resuelve a `tags/equipo/arma/pistola.yaml`.
 
 ---
 
@@ -172,7 +172,7 @@ peso:
 
 efecto:
   obligatorio_si: >
-    categoria = trait (salvo que declare trigger en su lugar)
+    categoria = aspecto (salvo que declare trigger en su lugar)
     o categoria = efecto
   uso: >
     String o lista de strings. Modificadores sobre el vocabulario canónico
@@ -237,14 +237,14 @@ requires:
     - rango.sargento
     - no:estado.baja
   require_any:
-    - skill.liderazgo_de_escuadra
+    - habilidad.liderazgo_de_escuadra
     - mando.oficial_de_campo
 ```
 
 > [!important] `requires` es documentación ejecutable, no validación dura
 > La API acepta personajes con tags incoherentes. La coherencia es responsabilidad del generador y del curador. Cualquier validador opcional puede consultar `requires`; el contrato duro no lo impone.
 
-**`perk` no usa `requires`.** Los perks son recompensas narrativas otorgadas al azar; no tienen pool por rango ni precondiciones. Ver [[habilidades]].
+**Los aspectos de origen narrativo no usan `requires`.** Son recompensas otorgadas al azar (lo que antes era *perk*); no tienen pool por rango ni precondiciones. Ver [[habilidades]].
 
 ---
 
@@ -252,7 +252,7 @@ requires:
 
 El catálogo es **andamiaje, no jaula**. Tres ejes de extensión sin permiso ni migración:
 
-1. **Nuevos valores dentro de una categoría existente** — `skill.tiro_de_precision`, `rasgo.cicatriz_quemadura`. Entran con `origen: emergente` la primera vez.
+1. **Nuevos valores dentro de una categoría existente** — `habilidad.tiro_de_precision`, `rasgo.cicatriz_quemadura`. Entran con `origen: emergente` la primera vez.
 2. **Nuevas sub-categorías dentro de una familia** — `equipo.montura.caballo_criollo` agrega un nivel a `equipo.*`. El día que aparezca el primer caso real, no antes.
 3. **Categorías nuevas enteras** — `oficio_civil.herrero`, `vicio.fuma`, `mascota.perro_pastor`. El parser solo necesita el primer segmento para enrutar.
 
@@ -291,4 +291,4 @@ trigger:
 > - Stats calculadas: `INICIATIVA`, `MORAL`, `FATIGA`, `MOVIMIENTO`, `ESTRESS`
 >
 > Ejemplos: `"(+1) MENTAL"`, `"(-1) FATIGA"`, `"-100% MOVIMIENTO"`, `"(+2) INICIATIVA"`.
-> Ver [[atributos-y-stats]] para la mecánica de cada variable.
+> Ver [[atributos]] para la mecánica de cada variable.

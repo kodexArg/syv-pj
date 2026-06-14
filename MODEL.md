@@ -14,7 +14,7 @@ aliases:
 >
 > Si una operación HTTP devuelve un campo, este documento lo tipifica. Si una operación lo muta, este documento fija la regla. **Sincronía absoluta con [[API|API.md]].**
 >
-> No prescribe stack. Castellano rioplatense, `snake_case_castellano`, tags en notación punto.
+> No prescribe tecnología. Castellano rioplatense, `snake_case_castellano`, tags en notación punto.
 
 ---
 
@@ -54,10 +54,10 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 - `es_canon` — `canonizado_en != null`.
 - `fatiga_max` = `fis + men`.
 - `moral_max` = `men`.
-- `fza_aportada` — desde tags `rol.combate.*` (`heroe: 3`, `lider: 2`, default `1`).
+- `fza_aportada` — desde tags `rol.combate.*` (`heroe: 3`, `lider: 2`, valor por defecto `1`).
 - `filiacion` — desde tags `rango.*` + `grupo.*`.
 
-Aparecen en la response de `GET /personaje` y `GET /personaje/{slug}` junto con los campos persistidos. Se recomputan en cada lectura; el cliente no los muta directamente.
+Aparecen en la respuesta de `GET /personaje` y `GET /personaje/{slug}` junto con los campos persistidos. Se recomputan en cada lectura; el cliente no los muta directamente.
 
 ### 1.1. `hito` (embebido en `personaje.historial[]`)
 
@@ -129,8 +129,8 @@ Agrupación táctica de personajes. Servido por `GET /grupos/{slug}`, modificado
 
 ### Campos derivados del grupo — computados al servir, no persistidos
 
-- `fza_total` — suma de `fza_aportada` de miembros activos (no KIA).
-- `cohesion_vigente` — promedio de `men` de miembros activos (redondeado hacia abajo). Penalizado con `(-2)` si el líder está KIA/licencia sin reemplazo; `(-1)` si el segundo al mando asume el mando vigente.
+- `fza_total` — suma de `fza_aportada` de miembros activos (no caídos).
+- `cohesion_vigente` — promedio de `men` de miembros activos (redondeado hacia abajo). Penalizado con `(-2)` si el líder está caído/en licencia sin reemplazo; `(-1)` si el segundo al mando asume el mando vigente.
 - `moral_promedio` — promedio entero de `moral_max` de todos los miembros activos.
 - `fatiga_promedio` — promedio entero de `fatiga_max` de todos los miembros activos.
 - `movimiento_tactico` — `min(MOVIMIENTO)` de los miembros activos.
@@ -167,11 +167,11 @@ Agrupación táctica de personajes. Servido por `GET /grupos/{slug}`, modificado
 
 | Campo | Tipo | Notas |
 |---|---|---|
-| `slug` | `str` lowercase + underscore | PK. |
+| `slug` | `str` minúscula + guion bajo | PK. |
 | `nombre` | `str` | Legible. |
 | `descripcion` | `str` | Descriptor de lore corto. |
 
-Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones canon (`confederacion_argentina`, `ejercito_rojo`), todas referenciadas por `grupo.identidad.faccion` y por la tabla de rangos.
+Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones canónicas (`confederacion_argentina`, `ejercito_rojo`), todas referenciadas por `grupo.identidad.faccion` y por la tabla de rangos.
 
 ### 4.1. Relación `faccion` ↔ `subfaccion` (asimetría deliberada)
 
@@ -182,21 +182,21 @@ Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones cano
 | Naturaleza | Entidad de primera clase (esta §4). | Categoría de `tag_catalogo` (§2). |
 | Cardinalidad | Cerrado-curado (2-3 hoy). | Abierto-emergente. |
 | Endpoint | `GET /meta/facciones` (dedicado). | `GET /meta/subfaccion` (genérico `/meta/{categoria}`). |
-| FK desde otras entidades | `grupo.identidad.faccion`; tabla de rangos. | Ninguna. Solo aparece en `personaje.tags[]`. |
+| Referencia desde otras entidades | `grupo.identidad.faccion`; tabla de rangos. | Ninguna. Solo aparece en `personaje.tags[]`. |
 | Membresía sobre personaje | Tag `faccion.{slug}` + `lealtad.faccion.{slug}`. | Tag `subfaccion.{slug}` + `lealtad.subfaccion.{slug}`. |
 
 `faccion` ancla la geometría operativa del juego (grupos pertenecen a una facción; los rangos canónicos están definidos por facción; las batallas tienen bandos). Necesita identidad estable y endpoint dedicado. `subfaccion` agrupa narrativamente — un tercio, una célula, un sindicato armado — y el catálogo crece por curaduría a demanda.
 
-**Dualidad entidad+tag**: tanto `faccion` como `grupo` son entidades persistidas y existen además como namespace de tag (`faccion.confederacion_argentina`, `grupo.{slug}`) para expresar membresía declarativa sobre `personaje.tags[]`. El slug del tag coincide con el PK de la entidad.
+**Dualidad entidad+tag**: tanto `faccion` como `grupo` son entidades persistidas y existen además como namespace de tag (`faccion.confederacion_argentina`, `grupo.{slug}`) para expresar membresía declarativa sobre `personaje.tags[]`. El slug del tag coincide con la clave primaria de la entidad.
 
 ---
 
 ## 5. Invariantes globales
 
-- **`historial[]` es append-only.** No hay reverso de hito.
-- **Efímeros no se persisten.** Un personaje generado pero no canonizado nunca toca la base.
-- **Canonización es idempotente con seed.** La tupla `(seed, faccion, rango)` actúa como llave única; reintentos no crean duplicados. Sin seed, cada `POST /canonizar` genera un personaje nuevo.
+- **`historial[]` es append-only.** No hay reversión de hito.
+- **Efímeros no se persisten.** Un personaje generado pero no canonizado nunca toca la base de datos.
+- **Canonización es idempotente con semilla.** La tupla `(semilla, faccion, rango)` actúa como clave única; reintentos no crean duplicados. Sin semilla, cada `POST /canonizar` genera un personaje nuevo.
 - **Tags fuera de catálogo se aceptan.** Cualquier valor en `personaje.tags[]` que no exista en `tag_catalogo` es legal — se persiste tal cual. La curaduría del catálogo se hace por proceso, no por constraint.
-- **Referencias en `aliados[]`/`nemesis[]` no son FK.** Se aceptan refs colgadas; la consistencia referencial no es responsabilidad de la capa de persistencia.
-- **Idioma de los datos**: castellano rioplatense. Tags en lowercase + underscore, sin acentos. Campos YAML en `snake_case_castellano`.
+- **Referencias en `aliados[]`/`nemesis[]` no son referencias de integridad.** Se aceptan referencias colgadas; la consistencia referencial no es responsabilidad de la capa de persistencia.
+- **Idioma de los datos**: castellano rioplatense. Tags en minúscula + guion bajo, sin acentos. Campos YAML en `snake_case_castellano`.
 - **`extras` es opaco.** La API lo acepta, almacena y devuelve tal cual, sin inspeccionar ni validar su contenido.

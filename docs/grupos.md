@@ -12,7 +12,7 @@ aliases:
 # Grupos — Sistema de grupos y escuadras
 
 > [!info] Alcance
-> Este documento define el **grupo** como unidad táctica y organizativa en SyV: su identidad, membresía, roles internos, stats derivadas y historial. El grupo es agnóstico al tipo — una escuadra de infantería, una célula miliciana y una patrulla de exploración son variantes del mismo patrón.
+> Este documento define el **grupo** como unidad táctica y organizativa en SyV: su identidad, membresía, roles internos, estadísticas derivadas e historial. El grupo es agnóstico al tipo — una escuadra de infantería, una célula miliciana y una patrulla de exploración son variantes del mismo patrón.
 
 ---
 
@@ -20,13 +20,13 @@ aliases:
 
 Un **grupo** es un conjunto de [[hoja-personaje|personajes]] que comparten una identidad operativa, una cadena de mando interna y un historial colectivo. El grupo tiene existencia propia: puede sobrevivir la baja de cualquiera de sus integrantes, incluso la del líder.
 
-La membresía de un personaje a un grupo se declara mediante el tag `grupo.<slug_del_grupo>` en su hoja. El grupo también lleva su propia entidad con la lista de miembros y el historial.
+La membresía de un personaje a un grupo se declara mediante la etiqueta `grupo.<slug_del_grupo>` en su hoja. El grupo también lleva su propia entidad con la lista de miembros y el historial.
 
 ```yaml
 grupo:
   identidad:  { slug, nombre, faccion, tipo }
-  miembros:   [...]   # lista de refs con rol y metadata operativa
-  historial:  [...]   # hitos del grupo, append-only
+  miembros:   [...]   # lista de referencias con rol y metadatos operativos
+  historial:  [...]   # hitos del grupo, de solo añadir
   extras:     object | null
 ```
 
@@ -36,13 +36,13 @@ grupo:
 
 | Campo | Tipo | Descripción |
 |---|---|---|
-| `slug` | `string` | PK del grupo. `lowercase_con_underscore`. Estable e inmutable. Ej.: `cazadores_de_ricardo`, `columna_mansilla`. Debe coincidir con el segmento final del tag `grupo.<slug>` en las hojas de sus miembros. |
-| `nombre` | `string` | Nombre legible. Ej.: "Cazadores de Ricardo". |
+| `slug` | `string` | Clave principal del grupo. `lowercase_con_underscore`. Estable e inmutable. P. ej.: `cazadores_de_ricardo`, `columna_mansilla`. Debe coincidir con el segmento final de la etiqueta `grupo.<slug>` en las hojas de sus miembros. |
+| `nombre` | `string` | Nombre legible. P. ej.: "Cazadores de Ricardo". |
 | `faccion` | `string` | Slug de facción: `confederacion_argentina` o `ejercito_rojo`. |
-| `tipo` | `string` | Tipo operativo. Enum abierto; el tipo de referencia para el MVP es `escuadra_de_infanteria`. |
+| `tipo` | `string` | Tipo operativo. Catálogo abierto; el tipo de referencia para el MVP es `escuadra_de_infanteria`. |
 
-> [!tip] Slug y tag en sintonía
-> Si el slug del grupo es `columna_mansilla`, el tag que cada miembro lleva en su hoja es exactamente `grupo.columna_mansilla`. El slug no cambia nunca; renombrar el grupo solo cambia `nombre`.
+> [!tip] Slug y etiqueta en sintonía
+> Si el slug del grupo es `columna_mansilla`, la etiqueta que cada miembro lleva en su hoja es exactamente `grupo.columna_mansilla`. El slug no cambia nunca; renombrar el grupo solo cambia `nombre`.
 
 ---
 
@@ -58,7 +58,7 @@ miembros:
     puntos:    int           # costo en puntos de reclutamiento
     nombre:    string        # nombre compuesto/de guerra del personaje
     aspectos:  list[string]  # descriptores narrativos del miembro en este grupo
-    activo:    bool          # false si KIA, capturado o transferido
+    activo:    bool          # falso si caído, capturado o transferido
 ```
 
 ### 3.1. Roles de grupo
@@ -75,17 +75,17 @@ Los roles dentro del grupo son independientes del rango del personaje. Un person
 | `cargador` | Municionero de arma de apoyo. |
 
 > [!note] Roles abiertos
-> `rol_grupo` es un enum sugerido, no cerrado. Un grupo de reconocimiento puede tener `explorador`, `radiotelegrafista` o cualquier otro rol que tenga sentido para su tipo operativo.
+> `rol_grupo` es un catálogo sugerido, no cerrado. Un grupo de reconocimiento puede tener `explorador`, `radiotelegrafista` o cualquier otro rol que tenga sentido para su tipo operativo.
 
 ### 3.2. Aspectos del miembro
 
-`aspectos[]` es una lista mutable de frases cortas que califican al personaje dentro del marco del grupo. No afectan stats derivadas — son material narrativo y táctico para el árbitro.
+`aspectos[]` es una lista mutable de frases cortas que califican al personaje dentro del marco del grupo. No afectan estadísticas derivadas — son material narrativo y táctico para el árbitro.
 
 Ejemplos: `"veterano del 12/15"`, `"mano firme bajo fuego"`, `"cojea por herida vieja"`.
 
 ---
 
-## §4 — Stats derivadas del grupo
+## §4 — Estadísticas derivadas del grupo
 
 Estas estadísticas se calculan en caliente a partir de los miembros activos (`activo: true`). No se persisten.
 
@@ -111,15 +111,17 @@ Promedio entero (redondeado hacia abajo) del atributo `MENTAL` de todos los miem
 Promedio entero (redondeado hacia abajo) del atributo `MENTAL` de todos los miembros activos. Mide la cohesión psicológica media del grupo.
 
 > [!note] Cohesión vs. Moral
-> `cohesion_vigente` incorpora el factor de mando; `moral_promedio` es la psicología bruta del grupo. Un grupo con alto `moral_promedio` pero sin líder tendrá baja `cohesion_vigente`.
+> `cohesion_vigente` incorpora el factor de mando; `moral_promedio` es la psicología bruta del grupo. Un grupo con alto `moral_promedio` pero sin líder tendrá baja `cohesion_vigente` por falta de mando.
 
 ### 4.4. Fatiga de grupo (`fatiga_promedio`)
 
 Promedio entero (redondeado hacia abajo) de `fatiga_max` (`fis + men`) de todos los miembros activos. Representa el desgaste físico-mental colectivo.
 
+
+
 ### 4.5. Movimiento táctico (`movimiento_tactico`)
 
-`min(MOVIMIENTO)` entre todos los miembros activos. **El grupo marcha al ritmo de su integrante más lento.** Esta regla no tiene excepción — si un miembro está herido y su MOVIMIENTO cayó, el grupo entero se ralentiza hasta que ese miembro sea retirado o su estado cambie.
+`mín(MOVIMIENTO)` entre todos los miembros activos. **El grupo marcha al ritmo de su integrante más lento.** Esta regla no tiene excepción — si un miembro está herido y su MOVIMIENTO cayó, el grupo entero se ralentiza hasta que ese miembro sea retirado o su estado cambie.
 
 ### 4.6. Puntos totales (`puntos_totales`)
 
@@ -142,16 +144,18 @@ El personaje que ejerce la autoridad táctica efectiva, evaluado en este orden e
 | `desmembrado` | `fza_total < 8` — baja operatividad, propenso a desintegración. |
 | `retirado` | Unidad fuera de combate. |
 
+
+
 ---
 
 ## §5 — Historial del grupo
 
-`historial[]` es append-only. Cada entrada registra un evento significativo para la unidad colectiva o para un integrante en el contexto del grupo.
+`historial[]` es de solo añadir. Cada entrada registra un evento significativo para la unidad colectiva o para un integrante en el contexto del grupo.
 
 ```yaml
 historial:
   - fecha:       string        # ISO-8601
-    tipo:        string        # enum abierto — ver §5.1
+    tipo:        string        # catálogo abierto — ver §5.1
     descripcion: string        # prosa descriptiva
     ref_miembro: string | null # patente del personaje si el hito es individual
     ref_batalla: string | null # patente de batalla si aplica
@@ -162,7 +166,7 @@ historial:
 
 | `tipo` | Descripción |
 |---|---|
-| `baja_miembro` | Un integrante pasa a estado inactivo (KIA, captura, traslado). |
+| `baja_miembro` | Un integrante pasa a estado inactivo (caído, captura, traslado). |
 | `ascenso_miembro` | Un integrante es promovido o asume mando. |
 | `incorporacion_miembro` | Un nuevo integrante se suma al grupo. |
 | `combate_finalizado` | Cierre de un encuentro operacional. |
@@ -188,16 +192,20 @@ Si el grupo viola alguna condición, las derivadas exponen:
 > [!note] Tipos alternativos
 > Otros tipos de grupo (`patrulla`, `celula_miliciana`, `columna_de_marcha`) tienen sus propias plantillas o ninguna. Un grupo sin plantilla definida siempre tiene `cumple_plantilla: true` por defecto.
 
+
+
 ---
 
 ## §7 — Relación entre hoja de personaje y grupo
 
 El vínculo es bidireccional pero asimétrico:
 
-- **En la hoja del personaje**: el tag `grupo.<slug>` declara la pertenencia. El tag `lealtad.<slug>` puede coexistir para vínculos más permanentes o afectivos que la membresía táctica.
+- **En la hoja del personaje**: la etiqueta `grupo.<slug>` declara la pertenencia. La etiqueta `lealtad.<slug>` puede coexistir para vínculos más permanentes o afectivos que la membresía táctica.
 - **En la entidad grupo**: `miembros[].ref` apunta a la patente del personaje.
 
 La fuente de verdad de la **composición táctica** es la entidad grupo. La fuente de verdad del **estado del personaje** es la hoja del personaje. Ninguna replica a la otra — se consultan en conjunto cuando hace falta.
 
 > [!warning] Estado volátil de combate
 > Las variables temporales de un encuentro activo (iniciativa, posición en grilla, orden de turno) viven en la entidad grupo bajo `miembros[].iniciativa`, **no en la hoja del personaje**. La hoja queda reservada para el estado permanente que sobrevive al encuentro.
+
+
