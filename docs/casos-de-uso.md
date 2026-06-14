@@ -22,7 +22,7 @@ aliases:
 |---|---|
 | **Diégesis** | Tags de lealtad, wikilinks a facción/grupo/ubicación, historia en prosa, historial como línea de tiempo. |
 | **Motor de estrategia** | Atributos base, estadísticas derivadas (`fza_aportada`, `MOVIMIENTO`, `MORAL`, `FATIGA`), tags de equipo y destrezas. |
-| **Motor de rol** | Tags de rasgos/ventajas/destrezas, contratos (efectos declarados), historial de hitos, vínculos (`aliados[]`, `nemesis[]`). |
+| **Motor de rol** | Tags de rasgos/ventajas/destrezas, contratos (efectos declarados), historial de hitos, vínculos (tags `aliado.*` / `nemesis.*`). |
 | **Generador visual** | Tags de vestidura, rango, facción, género, edad — suficiente para construir el indicador de imagen. |
 
 Ningún consumidor necesita el personaje completo. El esquema es único; la proyección varía.
@@ -94,7 +94,7 @@ Ningún consumidor necesita el personaje completo. El esquema es único; la proy
 | Declara `efecto[]` en contratos (rasgos/ventajas) | Aplica esos efectos durante la resolución del encuentro |
 | Persiste `historial[]` con hitos de solo añadir | Renderiza el historial como línea de tiempo o ficha de juego |
 | Expone atributos base `{fis, tac, men}` | Deriva `INICIATIVA`, `MORAL`, `FATIGA` para el turno actual |
-| Mantiene `aliados[]` y `nemesis[]` con prosa | Usa esos vínculos para preparar tensiones dramáticas |
+| Declara los vínculos como tags `aliado.*` / `nemesis.*` (prosa en su hito) | Usa esos vínculos para preparar tensiones dramáticas |
 
 ---
 
@@ -118,5 +118,5 @@ Comportamientos que todos los consumidores deben asumir.
 - **La canonización es idempotente.** `(semilla, faccion, rango)` no produce duplicados si ya existe. El consumidor puede reintentar sin riesgo.
 - **`?campos=` poda solo nivel superior.** El motor de estrategia puede pedir solo `atributos` y `tags`; el generador visual puede pedir solo `tags` e `identidad`. La poda no atraviesa subdocumentos.
 - **Filtros `?tag=` son Y lógico.** `?tag=A&tag=B` devuelve personajes que tienen ambos. O no está soportado en v1 — el consumidor hace N llamadas y une los resultados.
-- **Vínculos personales no son filtrables por tag.** `aliados[]` y `nemesis[]` llevan prosa — no están en `tags[]` y no se filtrán por `?tag=`.
+- **Vínculos personales sí son filtrables por tag.** Aliados y némesis son tags `aliado.*` / `nemesis.*` en `tags[]`: se filtran por `?tag=` y se cuentan como cualquier etiqueta. La prosa del vínculo vive en su hito (ver [[nemesis-y-aliados|nemesis-y-aliados.md]]).
 - **Hitos con `tipo` desconocido son legales.** El consumidor descendente los trata como operación-nula sobre los campos que conoce.

@@ -20,7 +20,7 @@ aliases:
 
 ## Entidades
 
-Tres entidades persistidas: `personaje`, `tag_catalogo`, `faccion`. Dos colecciones embebidas: `hito` y `vinculo`. Destrezas, rasgos, ventajas y equipo son **tags** y viven como entradas de `tag_catalogo`.
+Tres entidades persistidas: `personaje`, `tag_catalogo`, `faccion`. Una colección embebida: `hito`. Destrezas, rasgos, ventajas, equipo y los **vínculos** (lealtades, aliados, némesis) son **tags** y viven como entradas de `tag_catalogo` o como referencias relacionales en `personaje.tags[]`.
 
 ---
 
@@ -39,11 +39,9 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 | `atributos.fis` | `int` (2..5) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7; tope absoluto 5 al crear. |
 | `atributos.tac` | `int` (2..6) | vía hito `triple_cero` / `mejora_atributo` | Tope absoluto 6; creación máx 5; vía hito hasta tope. |
 | `atributos.men` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Tope absoluto 7; creación máx 6; vía hito hasta tope. |
-| `tags[]` | `list<str>` (no multiconjunto) | vía hito `agregar_tag` / `quitar_tag` | Notación punto `<categoria>[.<subcategoria>].<slug>`. NO admite repetidos: ante un repetido gana el último valor. |
+| `tags[]` | `list<str>` (no multiconjunto) | vía hito `agregar_tag` / `quitar_tag` | Notación punto `<categoria>[.<subcategoria>].<slug>`. NO admite repetidos: ante un repetido gana el último valor. Incluye los vínculos relacionales `lealtad.*` / `aliado.*` / `nemesis.*` (ver §1.2). |
 | `historia` | `str` | inmutable tras canonizar | 120–200 palabras. Congelada al canonizar. |
 | `historial[]` | `list<hito>` (embebida) | de solo añadir vía `POST /evento` | Ver §1.1. |
-| `aliados[]` | `list<vinculo>` | mutable vía hito `formacion_lealtad` | Ver §1.2. |
-| `nemesis[]` | `list<vinculo>` | mutable vía hito `identificacion_nemesis` | Misma forma que `aliados[]`. |
 | `metadatos.creado_en` | `str` ISO-8601 | inmutable | |
 | `metadatos.canonizado_en` | `str` ISO-8601 \| `null` | fijado una vez | `null` en efímeros. |
 | `metadatos.ultima_actualizacion` | `str` ISO-8601 | actualiza con cada hito | |
@@ -72,13 +70,19 @@ Aparecen en la respuesta de `GET /personaje` y `GET /personaje/{slug}` junto con
 
 Tipos de hito sugeridos (catálogo abierto): `combate`, `ascenso`, `cambio_rol`, `triple_cero`, `mejora_atributo`, `agregar_tag`, `quitar_tag`, `formacion_lealtad`, `identificacion_nemesis`, `licencia`, `desercion`, `muerte`.
 
-### 1.2. `vinculo` (embebido en `personaje.aliados[]` y `personaje.nemesis[]`)
+### 1.2. Vínculos relacionales (tags `lealtad.*` / `aliado.*` / `nemesis.*`)
 
-| Campo | Tipo | Notas |
+Los vínculos del personaje **no son una colección aparte**: son **tags relacionales** dentro de `personaje.tags[]`, en forma plana `<categoria>.<slug>`.
+
+| Categoría | Significado | Destino del `<slug>` |
 |---|---|---|
-| `ref` | `str` `^[A-Z0-9]{8}$` | Patente de otro `personaje`. Sin imposición de integridad referencial (ver §4). |
-| `descripcion` | `str` | Obligatorio. 1–3 frases sobre el vínculo. |
-| `desde` | `str` ISO-8601 \| `null` | Opcional. |
+| `lealtad` | Adhesión institucional o personal vigente. | Facción, subfacción, grupo, religión o personaje (patente). |
+| `aliado` | Alianza personal vigente. | Personaje (patente), facción, subfacción o grupo. |
+| `nemesis` | Enemistad vigente, sin restricción de bando. | Ídem `aliado`. |
+
+- El `<slug>` es una **referencia**: patente `^[A-Z0-9]{8}$` para personajes, slug legible de catálogo para entidades. Sin imposición de integridad referencial (ver §4).
+- La **prosa** del vínculo (cómo se formó) vive en el `hito` que lo introdujo (`formacion_lealtad` / `identificacion_nemesis`), no en el tag. La fecha del vínculo es la `fecha` de ese hito.
+- Se agregan/quitan como cualquier tag. Detalle en [[lealtad|docs/lealtad.md]] y [[nemesis-y-aliados|docs/nemesis-y-aliados.md]].
 
 ---
 
@@ -108,7 +112,7 @@ Catálogo curado de tags. Servido por `GET /meta/{categoria}`. El catálogo se s
 
 **Índice operativo**: índice invertido `tag_full → set<personaje.slug>` reconstruido desde `personaje.tags[]`.
 
-**Categorías de referencia** (abiertas — enumeradas en [[sistema-tags|docs/sistema-tags.md]]): `faccion`, `subfaccion`, `rango`, `mando`, `estado`, `salud`, `mental`, `rasgo`, `ventaja`, `destreza`, `efecto`, `equipo` (`.arma` / `.utilitario` / `.vestidura`), `rol` (`.oficio` / `.jerarquia` / `.narrativo` / `.combate`), `lealtad`.
+**Categorías de referencia** (abiertas — enumeradas en [[sistema-tags|docs/sistema-tags.md]]): `faccion`, `subfaccion`, `rango`, `mando`, `estado`, `salud`, `mental`, `rasgo`, `ventaja`, `destreza`, `efecto`, `equipo` (`.arma` / `.utilitario` / `.vestidura`), `rol` (`.oficio` / `.jerarquia` / `.narrativo` / `.combate`), y las relacionales `lealtad`, `aliado`, `nemesis`.
 
 ---
 
@@ -132,7 +136,7 @@ Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones can�
 | Cardinalidad | Cerrado-curado (2-3 hoy). | Abierto-emergente. |
 | Ruta | `GET /meta/facciones` (dedicado). | `GET /meta/subfaccion` (genérico `/meta/{categoria}`). |
 | Referencia desde otras entidades | Tabla de rangos. | Ninguna. Solo aparece en `personaje.tags[]`. |
-| Membresía sobre personaje | Tag `faccion.{slug}` + `lealtad.faccion.{slug}`. | Tag `subfaccion.{slug}` + `lealtad.subfaccion.{slug}`. |
+| Membresía sobre personaje | Tag `faccion.{slug}` + `lealtad.{slug}`. | Tag `subfaccion.{slug}` + `lealtad.{slug}`. |
 
 `faccion` ancla la geometría operativa del juego (los rangos canónicos están definidos por facción; las batallas tienen bandos). Necesita identidad estable y ruta dedicada. `subfaccion` agrupa narrativamente — un tercio, una célula, un sindicato armado — y el catálogo crece por curaduría a demanda.
 
@@ -146,6 +150,6 @@ Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones can�
 - **Efímeros no se persisten.** Un personaje generado pero no canonizado nunca toca la base de datos.
 - **Canonización es idempotente con semilla.** La tupla `(semilla, faccion, rango)` actúa como clave única; reintentos no crean duplicados. Sin semilla, cada `POST /canonizar` genera un personaje nuevo.
 - **Tags fuera de catálogo se aceptan.** Cualquier valor en `personaje.tags[]` que no exista en `tag_catalogo` es legal — se persiste tal cual. La curaduría del catálogo se hace por proceso, no por constraint.
-- **Referencias en `aliados[]`/`nemesis[]` y `historial[].actores[]` no son referencias de integridad.** Se aceptan referencias colgadas; la consistencia referencial no es responsabilidad de la capa de persistencia.
+- **Las referencias de los tags relacionales (`lealtad.*`/`aliado.*`/`nemesis.*`) y de `historial[].actores[]` no son referencias de integridad.** Se aceptan referencias colgadas; la consistencia referencial no es responsabilidad de la capa de persistencia.
 - **Idioma de los datos**: castellano rioplatense. Tags en minúscula + guion bajo, sin acentos. Campos YAML en `snake_case_castellano`.
 - **`extras` es opaco.** La API lo acepta, almacena y devuelve tal cual, sin inspeccionar ni validar su contenido.

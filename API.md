@@ -51,7 +51,7 @@ Genera un personaje **efímero**. Parámetros opcionales vía cadena de consulta
 
 Devuelve un `personaje` con:
 - `identidad.slug: null` (los efímeros no tienen slug hasta canonizarse).
-- `historial: []`, `aliados: []`, `nemesis: []`.
+- `historial: []` (sin tags de vínculo `aliado.*` / `nemesis.*` todavía).
 - `metadatos.canonizado_en: null`.
 - Tag mínimo `estado.disponible`.
 
@@ -85,8 +85,8 @@ Tipos de hito y sus efectos sobre la ficha:
 | `mejora_atributo` | Incrementa `atributos.{metadata.atributo}` en `metadata.delta`. |
 | `triple_cero` | Modifica `atributos.{metadata.atributo}` según la regla del triple-cero. |
 | `ascenso` / `cambio_rol` | Actualiza `identidad.rol`. |
-| `formacion_lealtad` | Añade entrada a `aliados[]`. |
-| `identificacion_nemesis` | Añade entrada a `nemesis[]`. |
+| `formacion_lealtad` | Añade el tag `aliado.<ref>` (o `lealtad.<ref>`) a `tags[]`; la prosa del vínculo viaja en `descripcion`. |
+| `identificacion_nemesis` | Añade el tag `nemesis.<ref>` a `tags[]`; la prosa del vínculo viaja en `descripcion`. |
 | Otros tipos | Solo añaden el hito. Los efectos colaterales son responsabilidad del cliente. |
 
 > [!note] `actores[]` y `encuentro` se registran tal cual

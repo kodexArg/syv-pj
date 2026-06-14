@@ -39,7 +39,7 @@ El personaje existe dentro de *Subordinación y Valor*:
 
 - **Documentación como contrato.** Este módulo define forma y alcance. La implementación es responsabilidad de quien lo consuma.
 - **Principio abierto/cerrado.** El esquema extiende verticalmente sin romper: nuevos tags, nuevos tipos de hito, nuevas categorías, nuevas facciones — sin migraciones, sin rupturas de compatibilidad.
-- **Tags como modelo de primera clase.** Todo lo que es discreto y no es identidad, atributo, prosa, auditoría o vínculo-personal-con-prosa es tag. La frontera está fijada en [[hoja-personaje]] y [[sistema-tags]].
+- **Tags como modelo de primera clase.** Todo lo que es discreto y no es identidad, atributo, prosa o auditoría es tag —incluidos los vínculos personales (aliados, némesis, lealtades). La frontera está fijada en [[hoja-personaje]] y [[sistema-tags]].
 - **Estadísticas determinísticas por rango; identidad sorteada.** En creación, los atributos base se derivan de tablas fijas por rol/rango. Cero azar en estadísticas. Nombre, género, edad, rasgos, destrezas, rasgos de clase, ventajas, equipo e historia sí se sortean.
 - **Memoria viva como naturaleza del canonizado.** Un canonizado existe en el tiempo: nace, pelea, cambia. La ficha vigente no es la original. Las mutaciones ocurren vía hitos en `historial[]`.
 - **Reproducibilidad por semilla para efímeros.** `(semilla, faccion, rango)` produce el mismo personaje efímero. Los canonizados pierden esta propiedad tras el primer hito.

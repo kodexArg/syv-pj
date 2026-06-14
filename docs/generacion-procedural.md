@@ -33,7 +33,7 @@ Fase 2 — Identidad     → nombre, sobrenombre, edad, género
 Fase 3 — Atributos     → fis, tac, men  (determinísticos por rango)
 Fase 4 — Tags          → tags adicionales sorteados ponderados
 Fase 5 — Prosa         → historia por LLM (congela al canonizar)
-Fase 6 — Relaciones    → aliados y nemesis sembrados
+Fase 6 — Relaciones    → tags aliado.* / nemesis.* sembrados
 ```
 
 Cada fase depende de la anterior. Las restricciones cruzadas (p. ej. rango → edad mínima) viajan como tabla de reglas consultada antes de sortear.
@@ -185,10 +185,11 @@ El generador compone un aviso con los datos ya fijados (rango, facción, atribut
 
 ## Fase 6 — Relaciones sembradas
 
-Siembra inicial de `aliados[]` y `nemesis[]`.
+Siembra inicial de los vínculos personales: tags `aliado.*` y `nemesis.*` (ver [[nemesis-y-aliados|nemesis-y-aliados.md]]).
 
-- En la generación procedural pura las colecciones arrancan **vacías** (listas vacías, no null).
-- Los vínculos de nemesis se siembran solo si el contexto de campaña lo requiere explícitamente.
+- En la generación procedural pura el personaje arranca **sin** tags de vínculo — los gana en campaña.
+- Cuando se siembra un vínculo, se agrega su tag (`aliado.<patente>` / `nemesis.<slug>`) y se registra el hito que lo funda (`formacion_lealtad` / `identificacion_nemesis`), cuya `descripcion` carga la prosa del lazo.
+- Los vínculos de némesis se siembran solo si el contexto de campaña lo requiere explícitamente.
 
 ---
 
@@ -228,7 +229,7 @@ semilla + (faccion, rol)
 [Fase 5] historia — modelo de lenguaje con aviso compuesto de fases 1-4
         │  (volátil hasta canonización)
         ▼
-[Fase 6] aliados[], nemesis[] sembrados
+[Fase 6] tags aliado.*, nemesis.* sembrados
         │
         ▼
    personaje efímero

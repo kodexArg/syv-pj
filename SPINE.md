@@ -38,7 +38,7 @@ personaje**. Documentación + reglas + especificación de diseño en **Markdown*
   `K9F2H3M4`). No es el nombre. Estable, inmutable, referenciable.
 - **Slug de tag / entidad de catálogo**: legible, `lowercase_con_underscore`, sin
   acentos (`pistola`, `lider_de_escuadra`, `ejercito_rojo`).
-- **Tags**: notación punto. Por defecto `<categoria>.<slug>` (2 segmentos); `<slug>` suelto es válido; el 3er segmento `<categoria>.<parent>.<slug>` es rareza (huérfanos subjetivos, `lealtad.*`). **NO es multiconjunto**: ante repetidos, el motor se queda con el último valor.
+- **Tags**: notación punto. Por defecto `<categoria>.<slug>` (2 segmentos); `<slug>` suelto es válido; el 3er segmento `<categoria>.<parent>.<slug>` es rareza (huérfanos subjetivos). Los vínculos relacionales (`lealtad.*`/`aliado.*`/`nemesis.*`) son planos: `<categoria>.<slug>`. **NO es multiconjunto**: ante repetidos, el motor se queda con el último valor.
 - **Campos YAML**: `snake_case_castellano`.
 - **Azar portable**: probabilidades en **porcentaje**; modificadores sobre
   atributos/estadísticas como **delta entero** (`(+1) MENTAL`); modificadores sobre
@@ -46,29 +46,30 @@ personaje**. Documentación + reglas + especificación de diseño en **Markdown*
 
 ## La hoja de personaje — estructura canónica (NO cambiar nombres de bloques)
 
-Seis bloques estructurales + dos colecciones persistidas + la lista plana de tags:
+Seis bloques estructurales + la lista plana de tags:
 
 ```yaml
 personaje:
   identidad:  { slug, nombre, sobrenombre, rol, genero, edad }
   atributos:  { fis, tac, men }      # únicas magnitudes numéricas PERSISTIDAS
   tags:       [...]                   # lista plana, notación punto, NO multiconjunto (último valor gana)
+                                      # incluye los vínculos: lealtad.* / aliado.* / nemesis.*
   historia:   str                     # prosa biográfica, congelada al canonizar
   historial:  [...]                   # hitos temporales (registro de eventos, de solo añadir)
-  aliados:    [...]                   # {ref, descripcion, desde?} — vínculos con prosa
-  nemesis:    [...]                   # {ref, descripcion, desde?}
   metadatos:  { creado_en, canonizado_en, ultima_actualizacion }
   extras:     object | null           # válvula de escape para clientes
 ```
 
-**Regla rectora**: todo lo que es discreto y no es identidad, atributo, prosa,
-auditoría o vínculo-personal-con-prosa → **es tag**.
+**Regla rectora**: todo lo que es discreto y no es identidad, atributo, prosa o
+auditoría → **es tag**. Sin excepciones: los vínculos personales también.
 
 - Atributos base `fis, tac, men` en escala `2..7` (determinísticos por rol/rango
   en creación; mutables solo vía hito). Todo otro número (fatiga_max, moral_max,
   fza_aportada, etc.) es **derivado en caliente, no persistido** (evita desincronización).
-- `aliados[]`/`nemesis[]` son colecciones (no tags) porque llevan prosa por
-  entrada. Las lealtades a facción/subfacción SÍ son tags (`lealtad.*`).
+- Los vínculos —lealtades, aliados, némesis— son **tags relacionales planos**
+  (`lealtad.*`/`aliado.*`/`nemesis.*`); el slug referencia una entidad o un
+  personaje. La prosa de un vínculo vive en su hito, no en el tag. Ver
+  [[lealtad|docs/lealtad.md]] y [[nemesis-y-aliados|docs/nemesis-y-aliados.md]].
 - `historial[]` es **de solo añadir**; `tipo` de hito es catálogo **sugerido, abierto**.
 - Canonicidad: `es_canon` se deriva de `canonizado_en != null` (no se persiste).
 
@@ -87,7 +88,8 @@ auditoría o vínculo-personal-con-prosa → **es tag**.
 - Categorías de referencia (abiertas, ilustrativas — el universo de tags es abierto e
   infinito): `faccion, subfaccion, rango, mando, estado, salud, moral, mental,
   rasgo, aspecto, habilidad, entrenamiento, efecto, equipo(.arma/.utilitario/
-  .vestidura), rol(.oficio/.jerarquia/.narrativo/.combate), lealtad`.
+  .vestidura), rol(.oficio/.jerarquia/.narrativo/.combate)`, y las relacionales
+  `lealtad, aliado, nemesis`.
 
 ## Contratos: aspecto, habilidad, efecto (eje del usuario)
 

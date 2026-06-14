@@ -30,7 +30,7 @@ nemesis.<slug>
 - `aliado.K9F2H3M4` — aliado: apunta a otro personaje por su patente.
 - `nemesis.ejercito_rojo` — némesis: apunta a una facción por su slug de catálogo.
 
-Son etiquetas **relacionales**, de la misma familia que `lealtad.*`: su slug no es libre, es una **referencia** al destino del vínculo (ver [[sistema-tags|sistema-tags.md §4]]). El motor las enruta por el primer segmento —`aliado` / `nemesis`— igual que enruta cualquier tag.
+Son etiquetas **relacionales**, de la misma familia que [[lealtad|lealtad.md]]: su slug no es libre, es una **referencia** al destino del vínculo (ver [[sistema-tags|sistema-tags.md §4]]). El motor las enruta por el primer segmento —`aliado` / `nemesis`— igual que enruta cualquier tag.
 
 ---
 

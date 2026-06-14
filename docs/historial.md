@@ -55,7 +55,7 @@ Se lee de arriba hacia abajo como una línea de tiempo: primero el entrenamiento
 > [!warning] De solo añadir
 > El historial no se reescribe ni se borra. Un error no se arregla tocando el hito viejo, sino **agregando un hito nuevo** que lo enmienda. La línea de tiempo es íntegra por construcción.
 
-- **`actores` no es lo mismo que `aliados[]`/`nemesis[]`.** `actores` solo lista quién estuvo en *ese* evento; los aliados y némesis son vínculos vigentes **con prosa** (ver [[hoja-personaje|hoja-personaje.md §3.4]]). Tampoco impone integridad referencial: se aceptan patentes colgadas, como en aquellos (ver [[MODEL|MODEL.md §4]]).
+- **`actores` no es lo mismo que los tags `aliado.*`/`nemesis.*`.** `actores` solo lista quién estuvo en *ese* evento; los aliados y némesis son **vínculos vigentes** del personaje, anotados como etiquetas (ver [[nemesis-y-aliados|nemesis-y-aliados.md]]). De hecho, la prosa de ese vínculo vive justamente en el hito que lo formó (`formacion_lealtad` / `identificacion_nemesis`): el tag afirma el lazo, el hito lo cuenta. `actores` tampoco impone integridad referencial: se aceptan patentes colgadas, como en aquellos (ver [[MODEL|MODEL.md §4]]).
 - **`metadata` podría portar adjuntos a futuro** (imágenes, documentos). Hoy es estructura libre; el contrato deja la puerta abierta sin comprometer una forma todavía.
 - **En Diégesis, `actores` y `encuentro` se muestran como wikilinks** `[[slug]]`, volviendo el historial una línea de tiempo navegable (ver [[diegesis-y-obsidian|diegesis-y-obsidian.md]]). La persistencia guarda patentes; la vista las enlaza.
 

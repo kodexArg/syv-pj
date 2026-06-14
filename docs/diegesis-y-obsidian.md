@@ -74,7 +74,7 @@ El cuerpo de la hoja tiene tres secciones con vínculos:
 - Cadena de mando: [[Mando Sur de la Zanja]]
 ```
 
-**Aliados y nemesis** (lista con prosa, vínculos anclados):
+**Aliados y nemesis** (proyectados desde los tags `aliado.*` / `nemesis.*`, con la prosa tomada del hito que formó cada vínculo — ver [[nemesis-y-aliados|nemesis-y-aliados.md]]):
 
 ```markdown
 ## Aliados

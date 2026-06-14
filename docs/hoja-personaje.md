@@ -20,6 +20,7 @@ aliases:
 > - [[contratos|contratos.md]] — aspectos, habilidades, destrezas y efectos como contratos.
 > - [[historial|historial.md]] — el registro `historial[]`: campos del hito, catálogo de tipos, `actores[]` y la regla de solo-añadir.
 > - [[nemesis-y-aliados|nemesis-y-aliados.md]] — los vínculos personales (`aliado.*` / `nemesis.*`) como etiquetas relacionales.
+> - [[lealtad|lealtad.md]] — la lealtad (`lealtad.*`) como etiqueta relacional plana.
 > - [[generacion-procedural|generacion-procedural.md]] — cómo se completa una hoja desde el azar portable.
 > - [[diegesis-y-obsidian|diegesis-y-obsidian.md]] — cómo la hoja se vuelve nodo navegable del vault de Diégesis.
 
@@ -159,7 +160,7 @@ Las fórmulas canónicas y sus escalas viven en [[atributos-y-habilidades|atribu
 
 Algunas etiquetas no describen un atributo del personaje sino un **vínculo dirigido** hacia otra entidad. El último segmento es la referencia al destino:
 
-- A una **entidad de catálogo** (facción, subfacción): el slug legible de esa entidad — `lealtad.faccion.ejercito_rojo`, `aliado.pelicanos`.
+- A una **entidad de catálogo** (facción, subfacción, grupo, religión): el slug legible de esa entidad — `lealtad.ejercito_rojo`, `aliado.pelicanos`.
 - A **otro personaje**: su patente — `aliado.K9F2H3M4`, `nemesis.R7T3W1X5`.
 
 Todas se cuentan y se filtran como cualquier tag. La prosa de un vínculo personal —cómo se formó— no vive en la etiqueta sino en su hito de [[historial|historial.md]]. Definición completa en [[nemesis-y-aliados|nemesis-y-aliados.md]].
@@ -168,30 +169,18 @@ Todas se cuentan y se filtran como cualquier tag. La prosa de un vínculo person
 
 El catálogo canónico es andamiaje, no jaula: etiqueta nueva, subcategoría nueva o categoría nueva entera entran **sin migración**. Una etiqueta desconocida no rompe la hoja. La mitigación es curaduría, no validación. Detalle en [[sistema-tags|sistema-tags.md]].
 
-### 3.4. Aliados y némesis
+### 3.4. Vínculos personales
 
-Vínculos dirigidos a otros personajes. **No son derivados de etiquetas** — son colecciones persistidas de primera clase, como `historial`. Cada entrada lleva referencia a la patente del otro personaje más prosa breve sobre el vínculo.
+Los aliados y los némesis de un personaje son **etiquetas**, no un bloque aparte de la hoja.
 
 ```yaml
-aliados:
-  tipo:    list[{ref, descripcion, desde?}]
-  default: []
-  forma:
-    ref:         patente ^[A-Z0-9]{8}$ del aliado
-    descripcion: 1-3 frases sobre cómo se formó el vínculo
-    desde:       ISO-8601 opcional
-
-nemesis:
-  tipo:    list[{ref, descripcion, desde?}]
-  default: []
-  nota:    Sin restricción de bando — un némesis del propio bando es legal (traición personal, vieja deuda).
-  forma:   { ref, descripcion, desde? }   # idéntica a aliados[]
+donde:   tags[]                       # conviven con el resto de las etiquetas
+forma:   aliado.<slug> | nemesis.<slug>
+slug:    patente del personaje, o slug de facción/subfacción/grupo
+prosa:   en el hito que formó el vínculo (historial[]), no en la etiqueta
 ```
 
-> [!note] Por qué colecciones y no etiquetas
-> La relación lleva **prosa** (la descripción del vínculo). Una etiqueta solo puede afirmar la relación; no puede contar cómo se formó. Las colecciones llevan la textura narrativa que el motor descendente necesita.
-> **Relación con `lealtad.*`**: las lealtades a facciones y subfacciones son etiquetas (`lealtad.*`) porque son membresías sin prosa. Los vínculos a otro personaje viven exclusivamente acá, con descripción obligatoria.
-> **Ciclo de vida**: ambas arrancan vacías. Se pueblan en caliente vía hito `formacion_lealtad` (aliado) / `identificacion_nemesis` (némesis), o por curaduría directa.
+El contrato del tag está en [[sistema-tags|sistema-tags.md §5]]; el porqué del cambio, los tipos de destino y el ciclo de vida, en [[nemesis-y-aliados|nemesis-y-aliados.md]]; la prosa del vínculo, en el hito de [[historial|historial.md]].
 
 ---
 
@@ -274,9 +263,8 @@ Qué cambia, y cómo:
 |---|---|---|
 | `atributos.{fis, tac, men}` | vía hito | `triple_cero` / `mejora_atributo` |
 | `tags[]` | vía hito | `agregar_tag` / `quitar_tag` (metadata `{tag}`) |
+| `tags[]` vínculos (`aliado.*`, `nemesis.*`) | vía hito | `formacion_lealtad` / `identificacion_nemesis` / `ruptura_lealtad` |
 | `identidad.rol` | vía hito | `ascenso` / `cambio_rol` |
-| `aliados[]` | vía hito | `formacion_lealtad` |
-| `nemesis[]` | vía hito | `identificacion_nemesis` |
 | `historial[]` | vía hito | de solo añadir (`POST /evento`) |
 | `metadatos.ultima_actualizacion` | automático | en cada hito |
 | `identidad.edad` | sin hito | decisión narrativa explícita |

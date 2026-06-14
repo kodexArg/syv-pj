@@ -95,7 +95,7 @@ Las categorías curadas a la fecha. La tabla es **ilustrativa, no exhaustiva**: 
 | `efecto` | Bloque estructurado referenciable por otros tags. |
 | `equipo` | Equipo cargado. Subcategorías: `arma`, `utilitario`, `vestidura`. |
 | `rol` | Roles operativos. Subcategorías: `oficio`, `jerarquia`, `narrativo`, `combate`. |
-| `lealtad` | Lealtad a facción o subfacción. Ver [[#§4 — Categoría relacional: `lealtad`]]. |
+| `lealtad` | Lealtad vigente. Apunta a cualquier entidad (facción, subfacción, grupo, religión, personaje…). Ver [[#§4 — Categoría relacional: `lealtad`]]. |
 | `aliado` | Vínculo de alianza vigente. Apunta a personaje, facción, subfacción o grupo. Ver [[#§5 — Categorías relacionales: `aliado` y `nemesis`]]. |
 | `nemesis` | Enemistad vigente. Mismo destino que `aliado`, sin restricción de bando. Ver [[#§5 — Categorías relacionales: `aliado` y `nemesis`]]. |
 
@@ -105,18 +105,9 @@ El motor acepta tags fuera del canon. La coherencia la sostiene la curaduría, n
 
 ## §4 — Categoría relacional: `lealtad`
 
-`lealtad` codifica vínculos dirigidos hacia una facción o subfacción. Su slug no es libre — es una **referencia compuesta** con prefijo que indica el tipo de entidad apuntada:
+`lealtad` codifica un vínculo de adhesión vigente, en forma **plana** `lealtad.{slug}`. El slug es una **referencia** al destino —facción, subfacción, grupo, religión o incluso otro personaje (por su patente)—, no un slug libre; sin segmento intermedio que anuncie el tipo. No tiene entradas propias en el catálogo: la resolución apunta al catálogo de la entidad referida.
 
-```
-lealtad.faccion.{slug}      →  apunta a una facción del catálogo
-lealtad.subfaccion.{slug}   →  apunta a una subfacción del catálogo
-```
-
-El prefijo es parte literal del slug compuesto. Un analizador que ve `lealtad.faccion.confederados` sabe que es una referencia a la facción de slug `confederados`.
-
-**La categoría `lealtad` no tiene entradas propias en el catálogo.** Su semántica está en el formato del tag; la resolución apunta a los catálogos de facción o subfacción según corresponda.
-
-Solo lealtades **declarables y vigentes**. Las latentes, aspiracionales o secretas se manejan por sistema aparte.
+Misma mecánica que `aliado` / `nemesis` (§5). Detalle en [[lealtad|lealtad.md]].
 
 ---
 
