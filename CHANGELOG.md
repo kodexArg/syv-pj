@@ -4,7 +4,7 @@
 
 - group: initial-release
   priority: high
-  commit: pending
+  commit: 903d4a1
   changes:
     - feat(root): PRD.md — especificación de producto; scope, usuarios, valor, restricciones
     - feat(root): MODEL.md — modelo conceptual; relaciones entity/attribute, cardinales, notación
