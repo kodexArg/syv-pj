@@ -29,8 +29,8 @@ El módulo es:
 El personaje existe dentro de *Subordinación y Valor*:
 
 - **Año 2178.** La guerra arrastra dieciocho años. El frente es la **Zanja de Alsina**, una franja arrasada que cruza la Patagonia. Niebla helada, comunicaciones rotas, ningún bando logra ruptura.
-- **Confederación Argentina.** Estado centralizado con base en Ciudad Dársena. Escuadras regulares de once, lideradas por un Sargento, cadena de mando formal.
-- **Ejército Rojo.** Conglomerado de milicias obreras y portuarias nacidas de la revolución fabril de Bahía Blanca. Sin uniformes estandarizados; cada célula obedece a un Camarada Puntero.
+- **Confederación Argentina.** Estado centralizado con base en Ciudad Dársena. Escuadras regulares de once soldados, militarizadas, lideradas por un Sargento, cadena de mando formal. Suelen estar acompañados por miembros del Clero, usualmente la S.I.A. Sagrada Inquisición Argentina y/o del cuerpo de Capellanes. Menos común pueden asistir ingenieros o técnicos especialistas.
+- **Ejército Rojo.** Conglomerado de milicias obreras y portuarias nacidas de la revolución fabril de Bahía Blanca. Sin uniformes estandarizados; cada célula obedece a un Camarada o Puntero, y las particularidades, armamento y tamaño varían enormemente de acuerdo a la facción interna que la lidere,.
 - **Anatema Mecánico.** Prohibición universal de tecnología avanzada. La coordinación es voz, gesto y banderín. No hay drones, no hay computación en campo, no hay armamento inteligente.
 
 ---
@@ -60,7 +60,7 @@ El personaje existe dentro de *Subordinación y Valor*:
 | [[AGENTS\|AGENTS.md]] | Política editorial y convenciones para colaboradores y agentes. |
 | [[hoja-personaje\|docs/hoja-personaje.md]] | Schema del personaje campo por campo. Núcleo del módulo. |
 | [[sistema-tags\|docs/sistema-tags.md]] | Sistema de tags: notación, categorías, catálogo, extensibilidad. |
-| [[perks-y-traits\|docs/perks-y-traits.md]] | Contratos de traits, perks, skills y efectos. |
+| [[habilidades\|docs/perks-y-traits.md]] | Contratos de traits, perks, skills y efectos. |
 | [[atributos-y-stats\|docs/atributos-y-stats.md]] | Vocabulario canónico de atributos y stats calculadas. |
 | [[generacion-procedural\|docs/generacion-procedural.md]] | Flujo obligatorio de creación: fases, sorteos, tabla determinística. |
 | [[open-close\|docs/open-close.md]] | Política de extensibilidad: cuándo extender, cómo, sin breaking changes. |

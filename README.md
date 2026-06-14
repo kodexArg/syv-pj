@@ -21,7 +21,7 @@ El universo en que habita este personaje es *Subordinación y Valor*: año 2178,
 | Qué es este módulo, sus principios y alcance | [[PRD\|PRD.md]] |
 | Qué campos tiene un personaje y cómo mutan | [[hoja-personaje\|docs/hoja-personaje.md]] |
 | Cómo funciona el sistema de tags | [[sistema-tags\|docs/sistema-tags.md]] |
-| Qué son los contratos (traits, perks, skills) | [[perks-y-traits\|docs/perks-y-traits.md]] |
+| Qué son los contratos (traits, perks, skills) | [[habilidades\|docs/perks-y-traits.md]] |
 | Qué son los atributos y las stats calculadas | [[atributos-y-stats\|docs/atributos-y-stats.md]] |
 | Cómo se genera un personaje proceduralmente | [[generacion-procedural\|docs/generacion-procedural.md]] |
 | Cómo extiender el schema sin romper nada | [[open-close\|docs/open-close.md]] |
@@ -47,7 +47,7 @@ El universo en que habita este personaje es *Subordinación y Valor*: año 2178,
 
 - [[hoja-personaje|docs/hoja-personaje.md]] — Schema del personaje campo por campo. Núcleo del módulo.
 - [[sistema-tags|docs/sistema-tags.md]] — Sistema de tags: notación punto, multiset, catálogo, extensibilidad.
-- [[perks-y-traits|docs/perks-y-traits.md]] — Contratos de traits, perks, skills y efectos.
+- [[habilidades|docs/perks-y-traits.md]] — Contratos de traits, perks, skills y efectos.
 - [[atributos-y-stats|docs/atributos-y-stats.md]] — Vocabulario canónico de atributos base y stats calculadas.
 - [[generacion-procedural|docs/generacion-procedural.md]] — Flujo de creación procedural: cuatro fases, sorteos, tabla determinística.
 - [[open-close|docs/open-close.md]] — Política de extensibilidad: cómo agregar sin romper.

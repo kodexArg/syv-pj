@@ -17,7 +17,7 @@ aliases:
 > **Docs hermanos**:
 > - [[sistema-tags|sistema-tags.md]] — la lista plana `tags[]`: notación, categorías, catálogo y curaduría.
 > - [[atributos-y-stats|atributos-y-stats.md]] — escalas de `fis/tac/men`, stats derivadas y vocabulario canónico de efectos.
-> - [[perks-y-traits|perks-y-traits.md]] — traits, perks, skills y efectos como contratos.
+> - [[habilidades|perks-y-traits.md]] — traits, perks, skills y efectos como contratos.
 > - [[generacion-procedural|generacion-procedural.md]] — cómo se completa una hoja desde el azar portable.
 > - [[diegesis-y-obsidian|diegesis-y-obsidian.md]] — cómo la hoja se vuelve nodo navegable del vault de Diégesis.
 

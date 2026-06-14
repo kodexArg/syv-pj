@@ -1,16 +1,13 @@
 ---
-title: "Atributos y Stats Calculadas"
+title: atributos
 tags:
   - syv/pj/atributos
-  - syv/pj/mecanicas
 aliases:
-  - atributos
   - stats
 ---
+# Atributos
 
-# Atributos y Stats Calculadas
-
-Vocabulario canónico de variables numéricas del personaje. Los `efecto` de tags — sean `trait.*`, `perk.*` o `efecto.*` — solo pueden apuntar a las variables listadas acá. Ver [[hoja-personaje]], [[sistema-tags]], [[perks-y-traits]].
+_Ver [[hoja-personaje]], [[sistema-tags]],
 
 ---
 
@@ -25,7 +22,8 @@ Las **únicas** magnitudes numéricas de capacidad que se guardan en la hoja. To
 | `men` | **MENTAL** | Fortaleza psicológica, moral base, resistencia al estrés, liderazgo. | 2..7 |
 
 > [!info] Escala unificada
-> La escala 2..7 es la misma para los tres atributos. Los valores que un rol puede alcanzar en creación son menores al tope absoluto (ver [[generacion-procedural#fase-3-atributos|Fase 3]]); el tope solo se alcanza vía hito narrativo.
+> La escala 2..7 es la misma para los tres atributos. Estos son los valores que un rol puede alcanzar en creación (ver [[generacion-procedural#fase-3-atributos|Fase 3]]); el uno o el tope solo se alcanza vía hito narrativo. 
+
 
 ### 1.1. Mutabilidad
 

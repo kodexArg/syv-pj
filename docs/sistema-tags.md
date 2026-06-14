@@ -11,8 +11,9 @@ aliases:
 # Sistema de Tags
 
 > [!info] Propósito
-> Este documento describe el sistema de tags de syv-pj: qué es un tag, cómo se escribe, cómo se estructura su entrada en el catálogo y cómo se extiende sin migración. Es independiente del doc de [[perks-y-traits]], que profundiza en los contratos de identidad mecánica.
-
+> Este documento describe el sistema de tags de syv-pj: qué es un tag, cómo se escribe, cómo se estructura su entrada en el catálogo y cómo se extiende sin migración.
+> En este documento se habla con frecuencia de [[habilidades]]. Bien: las habilidades son, en escencia, tags.
+> La relación entre los tags y Obisidian es absolutamente lineal e intencional.
 ---
 
 ## §1 — Mecánica universal del tag
@@ -34,22 +35,41 @@ Esta regla es expansiva por diseño. El sistema no predice los tipos de tag que 
 - `metadatos` — timestamps de auditoría.
 - `extras` — diccionario libre para clientes externos.
 
+**Lo que SI es tag:**
+
+- `habilidad.*`
+- `aspecto.*`
+- `entrenamiento.*`
+- y muchos otros más
+  
 ---
 
 ## §2 — Notación punto
 
-Un tag se escribe como string único: `<categoria>[.<subcategoria>].<slug>`.
+Un tag se escribe como string único: `<categoria>.<slug>`.
 
-- El **primer segmento** es la categoría (eje semántico mayor).
-- Los **segmentos intermedios** son sub-categorías anidadas (opcionales).
+También es perfectamente válido `<slug>`
+
+En raras excepciones, se recurre al tercer segmento `<categoria>.<parent>.<slug>`.
+
+- El **primer segmento** es la categoría (eje semántico mayor):
+	- `habilidad.*`
+	- `aspecto.*`
+	- `equipo.*`
+	- ...
+- Los **segmentos intermedios** son sub-categorías anidadas, usualmente el segmento intermedio es el slug del tag padre.
 - El **último segmento** es el slug específico.
+	- `habilidades`.`nadar`
+	- `equipo`.`pistola_9mm`
 
 **Reglas del slug de tag:** lowercase, underscores como único separador, sin acentos, sin espacios, sin caracteres especiales. Ejemplos: `pistola`, `precision`, `ejercito_rojo`, `lider_de_escuadra`.
 
 > [!important] Asimetría de slugs
 > El slug de tag es **legible por diseño**. El slug de personaje (`identidad.slug`) es la antítesis: patente opaca `^[A-Z0-9]{8}$` (ej. `K9F2H3M4`), inmutable y no semántica. No confundir.
 
-**Multiset:** `tags[]` es un multiset. Tres `equipo.utilitario.cargador` significan tres cargadores físicos. El motor itera; no deduplica.
+**Prohibido Multiset:** `tags[]` no puede funcionar como un multiset. Por ejemp. Tres `equipo.utilitario.cargador` **NO** significan tres cargadores físicos, el motor se queda con el último valor (que deberá estar en la referencia del tag, o será `vacío`)
+
+**Huérfanos** Se invita a dejar tags huérfanos con conceptos que pueden llenarse luego, cuando el tag es suficientemente comunicativo, como "aspecto.cicatriz_perturbadora". Otro ejemplo más feliz de tags huérfanos: `habilidad.personal.pianista`, y no sabremos qué tan bueno es hasta que creemos la referencia del tag en la historia del personaje; es decir, un tag subjetivo.
 
 **Resolución contra el catálogo:** el parser troza el tag por `.` y mapea segmentos a directorios. `equipo.arma.pistola` resuelve a `tags/equipo/arma/pistola.yaml`.
 
@@ -65,14 +85,14 @@ Las categorías curadas a la fecha. **No son un canon cerrado** — el sistema a
 | `subfaccion` | Grupo militar o político subordinado a una facción. |
 | `rango` | Designación operativa jerárquica de campo. |
 | `grupo` | Asignación a un grupo o escuadra concreta. |
-| `mando` | Capacidad de mando dentro de la facción. |
+| `mando` | Capacidad de mando (extra al rango) dentro de la facción. |
 | `estado` | Disponibilidad operativa. Exactamente uno por personaje. |
 | `salud` | Estado físico actual. Acumulable. |
-| `mental` | Estado anímico actual. Acumulable. |
+| `moral` | Estado anímico actual. Acumulable. |
+| `mental` | Estado de foco actual. Acumulable. |
 | `rasgo` | Rasgo físico observable (cicatriz, tatuaje, constitución). |
-| `trait` | Identidad mecánicamente activa. Ver [[perks-y-traits]]. |
-| `perk` | Ventaja narrativa otorgada al azar. Ver [[perks-y-traits]]. |
-| `skill` | Habilitador de tirada contra atributo dominante. Ver [[perks-y-traits]]. |
+| `aspecto` | Identidad mecánicamente activa. Ver [[habilidades]]. |
+| `habilidad` | Habilitador de tirada contra atributo dominante. Ver [[habilidades]]. |
 | `efecto` | Bloque estructurado referenciable por otros tags. |
 | `equipo` | Equipo cargado. Sub-categorías: `arma`, `utilitario`, `vestidura`. |
 | `rol` | Roles operativos. Sub-categorías: `oficio`, `jerarquia`, `narrativo`, `combate`. |
@@ -224,7 +244,7 @@ requires:
 > [!important] `requires` es documentación ejecutable, no validación dura
 > La API acepta personajes con tags incoherentes. La coherencia es responsabilidad del generador y del curador. Cualquier validador opcional puede consultar `requires`; el contrato duro no lo impone.
 
-**`perk` no usa `requires`.** Los perks son recompensas narrativas otorgadas al azar; no tienen pool por rango ni precondiciones. Ver [[perks-y-traits]].
+**`perk` no usa `requires`.** Los perks son recompensas narrativas otorgadas al azar; no tienen pool por rango ni precondiciones. Ver [[habilidades]].
 
 ---
 

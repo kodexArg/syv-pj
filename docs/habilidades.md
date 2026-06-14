@@ -1,20 +1,19 @@
 ---
-title: "Perks y Traits como Contratos"
+title: Habilidades como Contratos
 tags:
   - syv/pj/docs
-  - syv/traits
-  - syv/perks
   - syv/contratos
+  - syv/habilidades
+  - syv/atributos
 aliases:
   - Perks y Traits
   - perks-y-traits
   - Contratos
 ---
-
-# Perks y Traits como Contratos
+# Habilidades como Contratos
 
 > [!info] Concepto central
-> Un **contrato** es una palabra o frase corta que, al aplicarse a un personaje, entrega un **paquete declarado**: habilidades habilitadas, modificadores numéricos y/o penalizaciones. El nombre es la cara legible. El efecto es la letra chica. Traits, perks, skills y efectos son variantes del mismo patrón.
+> Un **contrato** es una palabra o frase corta que, al aplicarse a un personaje, entrega un **paquete declarado**: modificadores numéricos y/o penalizaciones. El nombre es la cara legible. El efecto es la letra chica. Modificadores a los atributos, o nuevas habilidades que pueden ser utilizadas por el personaje.
 
 ---
 
