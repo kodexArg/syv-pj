@@ -99,7 +99,6 @@ MOVIMIENTO = FISICO × factor_orden + Σ modificadores_tags
 ```
 
 - `factor_orden`: multiplicador entero definido por la orden táctica del turno (caminar, correr, reptar, etc.). Lo define el motor de batalla, no esta hoja.
-- Si el personaje integra una escuadra, la velocidad grupal queda limitada por el menor `MOVIMIENTO` individual entre los miembros activos.
 
 ### 2.5. ESTRESS
 

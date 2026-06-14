@@ -43,7 +43,7 @@ Toda la documentación de `syv-pj` es **de versión única**: refleja solo el es
 ## Convenciones de identificadores
 
 - **Slug de personaje** (`identidad.slug`): ==patente opaca== `^[A-Z0-9]{8}$` (ej. `K9F2H3M4`). No es el nombre. Estable, inmutable, referenciable. Ver [[hoja-personaje#1.1. slug — la patente del personaje|docs/hoja-personaje.md §1.1]].
-- **Slug de catálogo** (tag, facción, escuadra, grupo): legible, `lowercase_con_underscore`, sin acentos, sin guiones (`pistola`, `lider_de_escuadra`, `ejercito_rojo`). El separador uniforme es `_` para componer en notación punto sin ambigüedad.
+- **Slug de catálogo** (tag, facción): legible, `lowercase_con_underscore`, sin acentos, sin guiones (`pistola`, `lider_de_escuadra`, `ejercito_rojo`). El separador uniforme es `_` para componer en notación punto sin ambigüedad.
 - **Tags**: notación punto `<categoria>[.<subcategoria>].<slug>`. **NO** es multiconjunto: ante repetidos gana el último valor. Ver [[sistema-tags|sistema-tags.md]].
 - **Campos estructurales en YAML**: `snake_case_castellano` (`atributos`, `historial`, `ultima_actualizacion`).
 

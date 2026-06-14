@@ -20,7 +20,7 @@ aliases:
 
 ## Entidades
 
-Cuatro entidades persistidas: `personaje`, `tag_catalogo`, `grupo`, `faccion`. Dos colecciones embebidas: `hito` y `vinculo`. Destrezas, rasgos, ventajas y equipo son **tags** y viven como entradas de `tag_catalogo`.
+Tres entidades persistidas: `personaje`, `tag_catalogo`, `faccion`. Dos colecciones embebidas: `hito` y `vinculo`. Destrezas, rasgos, ventajas y equipo son **tags** y viven como entradas de `tag_catalogo`.
 
 ---
 
@@ -55,7 +55,7 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 - `fatiga_max` = `fis + men`.
 - `moral_max` = `men`.
 - `fza_aportada` — desde tags `rol.combate.*` (`heroe: 3`, `lider: 2`, valor por defecto `1`).
-- `filiacion` — desde tags `rango.*` + `grupo.*`.
+- `filiacion` — desde tags `rango.*` + `faccion.*`.
 
 Aparecen en la respuesta de `GET /personaje` y `GET /personaje/{slug}` junto con los campos persistidos. Se recomputan en cada lectura; el cliente no los muta directamente.
 
@@ -65,7 +65,7 @@ Aparecen en la respuesta de `GET /personaje` y `GET /personaje/{slug}` junto con
 |---|---|---|
 | `fecha` | `str` ISO-8601 | |
 | `tipo` | `str` | Catálogo abierto sugerido. Ver [[historial|docs/historial.md]]. |
-| `actores` | `list<str>` (patentes `^[A-Z0-9]{8}$`) | Personajes involucrados en el evento. Por defecto `[]`. Sin integridad referencial (ver §5). |
+| `actores` | `list<str>` (patentes `^[A-Z0-9]{8}$`) | Personajes involucrados en el evento. Por defecto `[]`. Sin integridad referencial (ver §4). |
 | `descripcion` | `str` | Obligatorio. |
 | `encuentro` | `str \| null` | Patente de batalla/encuentro externo; referencia narrativa. |
 | `metadata` | `object` | Libre. Convención: `{ atributo, delta, valor_anterior, valor_nuevo }` para mejoras; `{ categoria, valor }` para agregar/quitar tag. A futuro puede portar adjuntos. |
@@ -76,7 +76,7 @@ Tipos de hito sugeridos (catálogo abierto): `combate`, `ascenso`, `cambio_rol`,
 
 | Campo | Tipo | Notas |
 |---|---|---|
-| `ref` | `str` `^[A-Z0-9]{8}$` | Patente de otro `personaje`. Sin imposición de integridad referencial (ver §5). |
+| `ref` | `str` `^[A-Z0-9]{8}$` | Patente de otro `personaje`. Sin imposición de integridad referencial (ver §4). |
 | `descripcion` | `str` | Obligatorio. 1–3 frases sobre el vínculo. |
 | `desde` | `str` ISO-8601 \| `null` | Opcional. |
 
@@ -108,63 +108,11 @@ Catálogo curado de tags. Servido por `GET /meta/{categoria}`. El catálogo se s
 
 **Índice operativo**: índice invertido `tag_full → set<personaje.slug>` reconstruido desde `personaje.tags[]`.
 
-**Categorías de referencia** (abiertas — enumeradas en [[sistema-tags|docs/sistema-tags.md]]): `faccion`, `subfaccion`, `rango`, `grupo`, `mando`, `estado`, `salud`, `mental`, `rasgo`, `ventaja`, `destreza`, `efecto`, `equipo` (`.arma` / `.utilitario` / `.vestidura`), `rol` (`.oficio` / `.jerarquia` / `.narrativo` / `.combate`), `lealtad`.
+**Categorías de referencia** (abiertas — enumeradas en [[sistema-tags|docs/sistema-tags.md]]): `faccion`, `subfaccion`, `rango`, `mando`, `estado`, `salud`, `mental`, `rasgo`, `ventaja`, `destreza`, `efecto`, `equipo` (`.arma` / `.utilitario` / `.vestidura`), `rol` (`.oficio` / `.jerarquia` / `.narrativo` / `.combate`), `lealtad`.
 
 ---
 
-## 3. `grupo`
-
-Agrupación táctica de personajes. Servido por `GET /grupos/{slug}`, modificado por altas/bajas de miembros.
-
-| Campo | Tipo | Mutable | Notas |
-|---|---|---|---|
-| `identidad.slug` | `str` minúsculas + guion bajo | inmutable | PK. Coincide con el segmento final del tag `grupo.{slug}`. |
-| `identidad.nombre` | `str` | mutable | Nombre del grupo. |
-| `identidad.faccion` | `str` (slug de `faccion`) | inmutable | Referencia a la facción. |
-| `identidad.tipo` | `str` | inmutable | Tipo (ej. `escuadra_de_infanteria`, `celula_obrera`). |
-| `miembros[]` | `list<miembro>` (embebida) | mutable | Lista ordenada de integrantes. |
-| `historial[]` | `list<hito_grupo>` (embebida) | de solo añadir | Registro de eventos del grupo. |
-| `metadatos.creado_en` | `str` ISO-8601 | inmutable | |
-| `metadatos.ultima_actualizacion` | `str` ISO-8601 | actualiza con cada cambio | |
-| `extras` | `object \| null` | libre | Válvula de escape. |
-
-### Campos derivados del grupo — computados al servir, no persistidos
-
-- `fza_total` — suma de `fza_aportada` de miembros activos (no caídos).
-- `cohesion_vigente` — promedio de `men` de miembros activos (redondeado hacia abajo). Penalizado con `(-2)` si el líder está caído/en licencia sin reemplazo; `(-1)` si el segundo al mando asume el mando vigente.
-- `moral_promedio` — promedio entero de `moral_max` de todos los miembros activos.
-- `fatiga_promedio` — promedio entero de `fatiga_max` de todos los miembros activos.
-- `movimiento_tactico` — `min(MOVIMIENTO)` de los miembros activos.
-- `puntos_totales` — suma de `puntos` de todos los miembros.
-- `lider_vigente` — patente del personaje actualmente al mando.
-- `estado_grupo` — `operativo | decapitado | desmembrado | retirado`.
-- `cumple_template` — `bool`. Indica si la composición respeta las restricciones estructurales del `tipo`.
-- `errores_validacion[]` — `list<str>`. Infracciones si `cumple_template` es `false`.
-
-### 3.1. `miembro` (embebido en `grupo.miembros[]`)
-
-| Campo | Tipo | Notas |
-|---|---|---|
-| `ref` | `str` `^[A-Z0-9]{8}$` | Patente del personaje. FK virtual. |
-| `pos` | `int` | Orden táctico en la formación. |
-| `puntos` | `int` | Costo en puntos de reclutamiento (escala 1..5). |
-| `rango` | `str` | Slug de rango del personaje. |
-| `nombre` | `str` | Nombre compuesto / de guerra. |
-| `aspectos` | `list<str>` | Descriptores narrativos del miembro dentro del grupo. Mutable. Por defecto `[]`. |
-
-### 3.2. `hito_grupo` (embebido en `grupo.historial[]`)
-
-| Campo | Tipo | Notas |
-|---|---|---|
-| `fecha` | `str` ISO-8601 | |
-| `tipo` | `str` | Catálogo abierto: `baja_miembro`, `ascenso_miembro`, `combate_finalizado`, `reorganizacion`. |
-| `descripcion` | `str` | Obligatorio. |
-| `encuentro` | `str \| null` | Patente de batalla/encuentro de referencia si aplica. |
-| `metadata` | `object` | Libre. |
-
----
-
-## 4. `faccion`
+## 3. `faccion`
 
 | Campo | Tipo | Notas |
 |---|---|---|
@@ -172,27 +120,27 @@ Agrupación táctica de personajes. Servido por `GET /grupos/{slug}`, modificado
 | `nombre` | `str` | Legible. |
 | `descripcion` | `str` | Descriptor de lore corto. |
 
-Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones canónicas (`confederacion_argentina`, `ejercito_rojo`), todas referenciadas por `grupo.identidad.faccion` y por la tabla de rangos.
+Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones canónicas (`confederacion_argentina`, `ejercito_rojo`), todas referenciadas por la tabla de rangos.
 
-### 4.1. Relación `faccion` ↔ `subfaccion` (asimetría deliberada)
+### 3.1. Relación `faccion` ↔ `subfaccion` (asimetría deliberada)
 
 `faccion` y `subfaccion` no son simétricas:
 
 | Aspecto | `faccion` | `subfaccion` |
 |---|---|---|
-| Naturaleza | Entidad de primera clase (esta §4). | Categoría de `tag_catalogo` (§2). |
+| Naturaleza | Entidad de primera clase (esta §3). | Categoría de `tag_catalogo` (§2). |
 | Cardinalidad | Cerrado-curado (2-3 hoy). | Abierto-emergente. |
 | Ruta | `GET /meta/facciones` (dedicado). | `GET /meta/subfaccion` (genérico `/meta/{categoria}`). |
-| Referencia desde otras entidades | `grupo.identidad.faccion`; tabla de rangos. | Ninguna. Solo aparece en `personaje.tags[]`. |
+| Referencia desde otras entidades | Tabla de rangos. | Ninguna. Solo aparece en `personaje.tags[]`. |
 | Membresía sobre personaje | Tag `faccion.{slug}` + `lealtad.faccion.{slug}`. | Tag `subfaccion.{slug}` + `lealtad.subfaccion.{slug}`. |
 
-`faccion` ancla la geometría operativa del juego (grupos pertenecen a una facción; los rangos canónicos están definidos por facción; las batallas tienen bandos). Necesita identidad estable y ruta dedicada. `subfaccion` agrupa narrativamente — un tercio, una célula, un sindicato armado — y el catálogo crece por curaduría a demanda.
+`faccion` ancla la geometría operativa del juego (los rangos canónicos están definidos por facción; las batallas tienen bandos). Necesita identidad estable y ruta dedicada. `subfaccion` agrupa narrativamente — un tercio, una célula, un sindicato armado — y el catálogo crece por curaduría a demanda.
 
-**Dualidad entidad+tag**: tanto `faccion` como `grupo` son entidades persistidas y existen además como namespace de tag (`faccion.confederacion_argentina`, `grupo.{slug}`) para expresar membresía declarativa sobre `personaje.tags[]`. El slug del tag coincide con la clave primaria de la entidad.
+**Dualidad entidad+tag**: `faccion` es entidad persistida y existe además como namespace de tag (`faccion.confederacion_argentina`) para expresar membresía declarativa sobre `personaje.tags[]`. El slug del tag coincide con la clave primaria de la entidad.
 
 ---
 
-## 5. Invariantes globales
+## 4. Invariantes globales
 
 - **`historial[]` es de solo añadir.** No hay reversión de hito.
 - **Efímeros no se persisten.** Un personaje generado pero no canonizado nunca toca la base de datos.

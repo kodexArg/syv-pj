@@ -68,7 +68,7 @@ auditoría o vínculo-personal-con-prosa → **es tag**.
   en creación; mutables solo vía hito). Todo otro número (fatiga_max, moral_max,
   fza_aportada, etc.) es **derivado en caliente, no persistido** (evita desincronización).
 - `aliados[]`/`nemesis[]` son colecciones (no tags) porque llevan prosa por
-  entrada. Las lealtades a facción/subfacción/grupo SÍ son tags (`lealtad.*`).
+  entrada. Las lealtades a facción/subfacción SÍ son tags (`lealtad.*`).
 - `historial[]` es **de solo añadir**; `tipo` de hito es catálogo **sugerido, abierto**.
 - Canonicidad: `es_canon` se deriva de `canonizado_en != null` (no se persiste).
 
@@ -85,7 +85,7 @@ auditoría o vínculo-personal-con-prosa → **es tag**.
   catálogo todavía (`habilidad.personal.pianista`); su referencia se completa luego
   en la historia del personaje.
 - Categorías de referencia (abiertas, ilustrativas — el universo de tags es abierto e
-  infinito): `faccion, subfaccion, rango, grupo, mando, estado, salud, moral, mental,
+  infinito): `faccion, subfaccion, rango, mando, estado, salud, moral, mental,
   rasgo, aspecto, habilidad, entrenamiento, efecto, equipo(.arma/.utilitario/
   .vestidura), rol(.oficio/.jerarquia/.narrativo/.combate), lealtad`.
 
@@ -122,7 +122,7 @@ Modelar aspecto/habilidad/efecto como variantes del mismo patrón-contrato:
 ## Diégesis y Obsidian (eje del usuario)
 
 El personaje se conecta al resto del mundo SyV por **tags y wikilinks Obsidian**:
-lealtades, grupo, facción, ubicaciones, otros personajes. **Las etiquetas SON tags
+lealtades, facción, ubicaciones, otros personajes. **Las etiquetas SON tags
 de Obsidian**: la relación es lineal e intencional — cada tag de la hoja es
 directamente un tag del vault. Un doc dedicado
 (`docs/diegesis-y-obsidian.md`) define la convención de linkeo para que una hoja
@@ -159,7 +159,7 @@ efímero; el canonizado pierde reproducibilidad tras el primer hito.
 - `README.md`, `PRD.md`, `MODEL.md`, `API.md`, `AGENTS.md` (raíz)
 - `docs/hoja-personaje.md` (núcleo), `docs/sistema-tags.md`,
   `docs/habilidades.md`, `docs/atributos.md`,
-  `docs/generacion-procedural.md`, `docs/open-close.md`, `docs/grupos.md`,
+  `docs/generacion-procedural.md`, `docs/open-close.md`,
   `docs/diegesis-y-obsidian.md`, `docs/casos-de-uso.md`
 
 `SPINE.md` y `ORCHESTRATOR.md` NO se publican como entregables; quedan o se borran

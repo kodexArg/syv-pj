@@ -63,7 +63,6 @@ El personaje existe dentro de *Subordinación y Valor*:
 | [[contratos\|docs/contratos.md]] | Contratos de rasgos, ventajas, destrezas y efectos. |
 | [[atributos-y-habilidades\|docs/atributos-y-habilidades.md]] | Vocabulario canónico de atributos y estadísticas calculadas. |
 | [[generacion-procedural\|docs/generacion-procedural.md]] | Flujo obligatorio de creación: fases, sorteos, tabla determinística. |
-| [[grupos\|docs/grupos.md]] | Esquema de grupos y escuadras; agrupaciones tácticas. |
 | [[diegesis-y-obsidian\|docs/diegesis-y-obsidian.md]] | Convención de linkeo Obsidian para la diégesis de SyV. |
 | [[casos-de-uso\|docs/casos-de-uso.md]] | Catálogo de casos de uso y su mapeo a operaciones. |
 
@@ -84,18 +83,17 @@ El personaje existe dentro de *Subordinación y Valor*:
 - Dos facciones jugables: `confederacion_argentina` y `ejercito_rojo`.
 - Rangos operativos canon de ambas facciones.
 - Diégesis: convención de linkeo Obsidian para integrar el personaje al vault de SyV.
-- Grupos y escuadras como agrupación táctica.
 - Contrato de API HTTP ([[API|API.md]]).
 - Contrato de persistencia ([[MODEL|MODEL.md]]).
 - Catálogos `/meta/*` dinámicos por categoría de tag.
 
 ### Pendiente
 
-- Motor de batalla escuadra vs escuadra (reglas completas de combate).
-- Datos de ejemplo (personajes maqueta de las dos escuadras canon).
+- Datos de ejemplo (personajes maqueta canon de ambas facciones).
 
 ### Fuera de este módulo
 
+- El alcance de este módulo es **un único personaje**. Las agrupaciones de personajes (grupos, escuadras) y su simulación táctica pertenecen a otra herramienta del ecosistema; acá, a lo sumo, un personaje puede portar un tag opcional de pertenencia sin que el módulo lo defina.
 - Implementación de la API en cualquier lenguaje, framework o pila tecnológica.
 - Persistencia concreta (motor de base, hosting, despliegue).
 - Autenticación, autorización, limitación de peticiones.

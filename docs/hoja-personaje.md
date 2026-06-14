@@ -19,6 +19,7 @@ aliases:
 > - [[atributos-y-habilidades|atributos-y-habilidades.md]] — escalas de `fis/tac/men`, estadísticas derivadas y vocabulario canónico de efectos.
 > - [[contratos|contratos.md]] — aspectos, habilidades, destrezas y efectos como contratos.
 > - [[historial|historial.md]] — el registro `historial[]`: campos del hito, catálogo de tipos, `actores[]` y la regla de solo-añadir.
+> - [[nemesis-y-aliados|nemesis-y-aliados.md]] — los vínculos personales (`aliado.*` / `nemesis.*`) como etiquetas relacionales.
 > - [[generacion-procedural|generacion-procedural.md]] — cómo se completa una hoja desde el azar portable.
 > - [[diegesis-y-obsidian|diegesis-y-obsidian.md]] — cómo la hoja se vuelve nodo navegable del vault de Diégesis.
 
@@ -28,28 +29,27 @@ aliases:
 
 La hoja del personaje es la **entidad mínima** de *Subordinación y Valor*. Un mismo personaje homogeneizado sirve para Diégesis, estrategia, rol y generación visual sin cambiar de forma: la hoja clasifica, almacena y entrega; el consumidor decide el uso.
 
-Seis bloques estructurales, dos colecciones persistidas y una lista plana de tags:
+Seis bloques estructurales y una lista plana de tags:
 
 ```yaml
 personaje:
   identidad:    { slug, nombre, sobrenombre, rol, genero, edad }
   atributos:    { fis, tac, men }   # únicas magnitudes numéricas persistidas
   tags:         [...]               # lista plana, notación punto, NO multiconjunto (último valor gana)
+                                    # incluye los vínculos personales: aliado.* / nemesis.*
   historia:     str                 # prosa biográfica, congelada al canonizar
   historial:    [...]               # hitos temporales (registro de eventos, de solo añadir)
-  aliados:      [...]               # {ref, descripcion, desde?} — vínculo con prosa
-  nemesis:      [...]               # {ref, descripcion, desde?}
   metadatos:    { creado_en, canonizado_en, ultima_actualizacion }
   extras:       object | null       # válvula de escape para clientes
 ```
 
 > [!tip] Regla rectora — lo discreto es etiqueta
-> Todo lo que es **discreto** y no es identidad, atributo, prosa, auditoría o vínculo-personal-con-prosa → ==es etiqueta==.
+> Todo lo que es **discreto** y no es identidad, atributo, prosa o auditoría → ==es etiqueta==. Sin excepciones: incluso los vínculos personales (aliados, némesis) son etiquetas.
 > Esa única regla decide dónde va cada dato nuevo. Si dudás entre crear un campo o una etiqueta, casi siempre es etiqueta. La justificación detallada vive en [[sistema-tags|sistema-tags.md]].
 
 > [!note] Tres clases de dato
 > La hoja distingue tres clases que no hay que confundir:
-> - **Persistido** — se guarda al canonizar y solo cambia por las reglas de su bloque (`identidad`, `atributos`, `tags`, `historia`, `historial`, `aliados`, `nemesis`, `metadatos`, `extras`).
+> - **Persistido** — se guarda al canonizar y solo cambia por las reglas de su bloque (`identidad`, `atributos`, `tags`, `historia`, `historial`, `metadatos`, `extras`).
 > - **Derivado-no-persistido** — se calcula en caliente al servir y nunca se guarda, para evitar desincronización (`filiacion`, `fatiga_max`, `moral_max`, `fza_aportada`, `sobrenombre` cuando es derivable, `es_canon`).
 > - **Volátil** — vive solo durante un encuentro y no es parte de la hoja persistida (estados de combate; viven en el motor de batalla, no acá).
 
@@ -57,11 +57,11 @@ personaje:
 
 ## §1 — Identidad
 
-Quién es el personaje, fuera de su contexto operativo. La capa operativa (rango, escuadra, mando, equipo, lealtades) vive en `tags[]`, no acá.
+Quién es el personaje, fuera de su contexto operativo. La capa operativa (rango, mando, equipo, lealtades) vive en `tags[]`, no acá.
 
 ### 1.1. `slug` — la patente del personaje
 
-El `slug` es la ==patente opaca== del personaje. **No es su nombre.** Es el identificador estable que el sistema usa para referenciarlo en cualquier vínculo: entradas de `aliados[].ref` y `nemesis[].ref` (ver [[#§3.4 — Aliados y némesis|§3.4]]), refs de hitos, ediciones por API, nodos del vault.
+El `slug` es la ==patente opaca== del personaje. **No es su nombre.** Es el identificador estable que el sistema usa para referenciarlo en cualquier vínculo: como destino de un tag `aliado.*` / `nemesis.*` (ver [[#§3.4 — Vínculos personales|§3.4]]), en los `actores[]` de un hito, en ediciones por API, en nodos del vault.
 
 ```yaml
 slug:
@@ -76,7 +76,7 @@ slug:
 > Dos personajes pueden llamarse igual; sus patentes no colisionan. Una refactorización narrativa (cambio de apellido por casamiento, alias revolucionario) no invalida refs existentes. Los renderers muestran `nombre`; los sistemas guardan `slug`.
 
 > [!info] Patente opaca ≠ slug de catálogo
-> El `slug` del personaje es opaco (`^[A-Z0-9]{8}$`) precisamente para ser estable y predecible a escala. Los slugs de catálogo (tags, facciones, escuadras) son legibles (`lowercase_con_underscore`, ej. `pistola`, `ejercito_rojo`). La asimetría es deliberada: la patente es para máquinas; el slug legible es la pieza humana de la notación punto. Ver [[sistema-tags|sistema-tags.md]].
+> El `slug` del personaje es opaco (`^[A-Z0-9]{8}$`) precisamente para ser estable y predecible a escala. Los slugs de catálogo (tags, facciones) son legibles (`lowercase_con_underscore`, ej. `pistola`, `ejercito_rojo`). La asimetría es deliberada: la patente es para máquinas; el slug legible es la pieza humana de la notación punto. Ver [[sistema-tags|sistema-tags.md]].
 
 ### 1.2. Resto del bloque
 
@@ -131,7 +131,7 @@ men:  { significado: "Liderazgo, moral base, resistencia psíquica.",  rango: 2.
 
 ## §3 — Tags
 
-Lista plana de cadenas en notación punto. Es la **fuente de verdad de todo lo discreto** del personaje: rango, escuadra, mando, equipo, salud, estado mental, rasgos, lealtades a facción/subfacción/grupo, destrezas, ventajas, rasgos.
+Lista plana de cadenas en notación punto. Es la **fuente de verdad de todo lo discreto** del personaje: rango, mando, equipo, salud, estado mental, rasgos, lealtades a facción/subfacción, destrezas, ventajas y los **vínculos personales** —aliados y némesis— como etiquetas relacionales.
 
 > [!important] El contrato vive en sistema-tags.md
 > La definición completa, las categorías canónicas, el formato y las reglas de catálogo viven en [[sistema-tags|sistema-tags.md]]. Acá solo se fija el contrato con la hoja.
@@ -147,7 +147,7 @@ default: []
 El motor calcula al servir, sin persistir, para evitar desincronización:
 
 ```yaml
-filiacion:    { fuente: "tags rango.* + escuadra.*",  nota: "null si falta alguno" }
+filiacion:    { fuente: "tags rango.* + faccion.*",   nota: "null si falta alguno" }
 fatiga_max:   { fuente: "fis + men",                  tipo: int }
 moral_max:    { fuente: "men",                        tipo: int }
 fza_aportada: { fuente: "tags rol.combate.*",         valores: "{heroe: 3, lider: 2, default: 1}" }
@@ -155,11 +155,14 @@ fza_aportada: { fuente: "tags rol.combate.*",         valores: "{heroe: 3, lider
 
 Las fórmulas canónicas y sus escalas viven en [[atributos-y-habilidades|atributos-y-habilidades.md]]. Cambios post-creación en `tags[]` se registran como hito `agregar_tag` / `quitar_tag` con metadatos `{tag}`.
 
-### 3.2. Etiqueta relacional vs. vínculo personal
+### 3.2. Etiquetas relacionales
 
-Cuando una etiqueta referencia una **entidad de catálogo** (facción, subfacción, escuadra, grupo), el último segmento es el slug legible de esa entidad: `lealtad.faccion.ejercito_rojo`, `lealtad.escuadra.columna_mansilla`. Son membresías declarativas, se leen sin prosa.
+Algunas etiquetas no describen un atributo del personaje sino un **vínculo dirigido** hacia otra entidad. El último segmento es la referencia al destino:
 
-Cuando el vínculo apunta a **otro personaje**, ==no se usa etiqueta==: se usa una entrada en `aliados[]` o `nemesis[]` con `ref` a la patente del otro. La distinción operativa: la etiqueta afirma la relación; la colección la **cuenta** (lleva prosa). Ver [[#§3.4 — Aliados y némesis|§3.4]].
+- A una **entidad de catálogo** (facción, subfacción): el slug legible de esa entidad — `lealtad.faccion.ejercito_rojo`, `aliado.pelicanos`.
+- A **otro personaje**: su patente — `aliado.K9F2H3M4`, `nemesis.R7T3W1X5`.
+
+Todas se cuentan y se filtran como cualquier tag. La prosa de un vínculo personal —cómo se formó— no vive en la etiqueta sino en su hito de [[historial|historial.md]]. Definición completa en [[nemesis-y-aliados|nemesis-y-aliados.md]].
 
 ### 3.3. Extensibilidad
 
@@ -187,7 +190,7 @@ nemesis:
 
 > [!note] Por qué colecciones y no etiquetas
 > La relación lleva **prosa** (la descripción del vínculo). Una etiqueta solo puede afirmar la relación; no puede contar cómo se formó. Las colecciones llevan la textura narrativa que el motor descendente necesita.
-> **Relación con `lealtad.*`**: las lealtades a facciones, subfacciones y grupos son etiquetas (`lealtad.*`) porque son membresías sin prosa. Los vínculos a otro personaje viven exclusivamente acá, con descripción obligatoria.
+> **Relación con `lealtad.*`**: las lealtades a facciones y subfacciones son etiquetas (`lealtad.*`) porque son membresías sin prosa. Los vínculos a otro personaje viven exclusivamente acá, con descripción obligatoria.
 > **Ciclo de vida**: ambas arrancan vacías. Se pueblan en caliente vía hito `formacion_lealtad` (aliado) / `identificacion_nemesis` (némesis), o por curaduría directa.
 
 ---
@@ -226,7 +229,7 @@ metadata:    object          # libre (a futuro puede portar adjuntos)
 ```
 
 > [!info] Tipos de hito — sugeridos, abiertos
-> Catálogo sugerido: `triple_cero`, `ascenso`, `herida`, `recuperacion`, `agregar_tag`, `quitar_tag`, `traslado`, `condecoracion`, `mejora_atributo`, `cambio_rango`, `cambio_mando`, `cambio_estado`, `cambio_salud`, `cambio_mental`, `asignacion_escuadra`, `identificacion_nemesis`, `formacion_lealtad`, `ruptura_lealtad`.
+> Catálogo sugerido: `triple_cero`, `ascenso`, `herida`, `recuperacion`, `agregar_tag`, `quitar_tag`, `traslado`, `condecoracion`, `mejora_atributo`, `cambio_rango`, `cambio_mando`, `cambio_estado`, `cambio_salud`, `cambio_mental`, `identificacion_nemesis`, `formacion_lealtad`, `ruptura_lealtad`.
 > El catálogo es **sugerido, no cerrado**: tipos personalizados son legítimos. La mitigación es curaduría, no validación. Personajes recién creados arrancan con `historial: []`.
 
 > [!note] De solo añadir

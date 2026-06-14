@@ -28,10 +28,10 @@ Para sub-categorías: `GET /meta/equipo/arma`, `GET /meta/rol/oficio`, etc. La n
 
 **Casos que NO siguen la convención genérica** (la carga difiere o agrega datos derivados):
 
-- `GET /meta/facciones` — facciones con descriptor de lore corto (ver §5.1).
-- `GET /meta/rangos` — rangos con tabla determinística de atributos y rol cultural por facción (ver §5.2).
-- `GET /meta/tipos_hito` — enumeración sugerida de tipos de hito; catálogo abierto (ver §5.3).
-- `GET /meta/encuentro/nuevo` — generador de patente de encuentro, no un catálogo (ver §6.1).
+- `GET /meta/facciones` — facciones con descriptor de lore corto (ver §4.1).
+- `GET /meta/rangos` — rangos con tabla determinística de atributos y rol cultural por facción (ver §4.2).
+- `GET /meta/tipos_hito` — enumeración sugerida de tipos de hito; catálogo abierto (ver §4.3).
+- `GET /meta/encuentro/nuevo` — generador de patente de encuentro, no un catálogo (ver §5.1).
 
 ---
 
@@ -53,7 +53,7 @@ Devuelve un `personaje` con:
 - `identidad.slug: null` (los efímeros no tienen slug hasta canonizarse).
 - `historial: []`, `aliados: []`, `nemesis: []`.
 - `metadatos.canonizado_en: null`.
-- Tags mínimos `estado.disponible` y `grupo.*` si corresponde.
+- Tag mínimo `estado.disponible`.
 
 Si la combinación de tags exigidos es inviable, devuelve **409**.
 
@@ -102,56 +102,7 @@ Idempotente por `(semilla, faccion, rango)`: si ya existe un canonizado con esa 
 
 ---
 
-## 2. Grupos
-
-### `GET /grupos`
-
-Lista todos los grupos persistidos. Acepta parámetro opcional `faccion` para filtrar por slug de facción.
-
-### `GET /grupos/{slug}`
-
-Devuelve la ficha detallada del grupo. Incluye `identidad`, `miembros[]`, `historial[]` y todos los campos derivados (`fza_total`, `cohesion_vigente`, `moral_promedio`, `fatiga_promedio`, `movimiento_tactico`, `puntos_totales`, `lider_vigente`, `estado_grupo`, `cumple_template`, `errores_validacion[]`).
-
-### `POST /grupos`
-
-Crea y persiste un nuevo grupo. Cuerpo:
-
-```yaml
-identidad:
-  nombre: str
-  faccion: str          # slug de facción
-  tipo: str             # tipo de grupo (ej. escuadra_de_infanteria)
-miembros: []            # opcional; lista inicial de miembro
-```
-
-### `POST /grupos/{slug}/miembro`
-
-Añade un personaje como miembro del grupo. Cuerpo:
-
-```yaml
-ref: str                # patente del personaje ^[A-Z0-9]{8}$
-pos: int                # orden táctico en la formación
-puntos: int             # costo en puntos de reclutamiento (1..5)
-aspectos: []            # opcional; valor por defecto []
-```
-
-Efectos colaterales:
-- Añade la entrada de `miembro` a `grupo.miembros[]`.
-- Añade los tags `grupo.{slug}` y `lealtad.grupo.{slug}` a la ficha del personaje.
-- Registra un hito `asignacion_grupo` en `personaje.historial[]` y un hito `incorporacion_miembro` en `grupo.historial[]`.
-
-### `DELETE /grupos/{slug}/miembro/{slug_personaje}`
-
-Remueve a un miembro del grupo.
-
-Efectos colaterales:
-- Quita la referencia de `grupo.miembros[]`.
-- Elimina los tags `grupo.{slug}` y `lealtad.grupo.{slug}` del personaje.
-- Registra un hito `traslado` en `personaje.historial[]` y un hito `reorganizacion` en `grupo.historial[]`.
-
----
-
-## 3. Generación procedural
+## 2. Generación procedural
 
 ### `GET /generar`
 
@@ -168,7 +119,7 @@ Devuelve la misma carga que `GET /personaje`: un efímero listo para ser canoniz
 
 ---
 
-## 4. Canonización
+## 3. Canonización
 
 ### `POST /canonizar`
 
@@ -176,9 +127,9 @@ Ver §1 — la ruta vive bajo personajes porque la canonización es el acto de p
 
 ---
 
-## 5. Catálogos `/meta/*`
+## 4. Catálogos `/meta/*`
 
-### 5.1. `GET /meta/facciones`
+### 4.1. `GET /meta/facciones`
 
 Devuelve las facciones canónicas. Cada entrada:
 
@@ -188,7 +139,7 @@ nombre: str
 descripcion: str        # descriptor de lore corto
 ```
 
-### 5.2. `GET /meta/rangos`
+### 4.2. `GET /meta/rangos`
 
 Devuelve los rangos operativos con su tabla determinística de atributos base y rol cultural por facción. Cada entrada:
 
@@ -204,21 +155,21 @@ mando_default: str      # slug de rango inmediato superior
 rol_cultural: str       # título usado por esa facción (ej. "Camarada Puntero" vs "Sargento")
 ```
 
-### 5.3. `GET /meta/tipos_hito`
+### 4.3. `GET /meta/tipos_hito`
 
 Devuelve la enumeración sugerida de tipos de hito. Lista abierta — el servidor la sirve, el cliente puede usar tipos fuera de esta lista.
 
-### 5.4. `GET /meta/{categoria}`
+### 4.4. `GET /meta/{categoria}`
 
 Ver convención genérica al inicio de este documento. Devuelve las entradas de `tag_catalogo` para esa categoría.
 
 ---
 
-## 6. Encuentro (entidad implícita)
+## 5. Encuentro (entidad implícita)
 
-### 6.1. `GET /meta/encuentro/nuevo`
+### 5.1. `GET /meta/encuentro/nuevo`
 
-Genera y devuelve una patente opaca de encuentro para uso en el estado volátil de combate de los miembros del grupo.
+Genera y devuelve una patente opaca de encuentro, referenciable desde el campo `encuentro` de un hito de `personaje.historial[]` (ver [[historial|docs/historial.md]]).
 
 Respuesta:
 
@@ -230,7 +181,7 @@ Sin parámetros. Sin efectos colaterales: `syv-pj` no persiste la patente en una
 
 ---
 
-## 7. Tabla plana de endpoints
+## 6. Tabla plana de endpoints
 
 | Método | Ruta | Descripción |
 |---|---|---|
@@ -240,11 +191,6 @@ Sin parámetros. Sin efectos colaterales: `syv-pj` no persiste la patente en una
 | POST | `/personaje/{slug}/evento` | Registra un hito |
 | POST | `/canonizar` | Persiste un efímero como canonizado |
 | GET | `/generar` | Flujo completo de generación procedural |
-| GET | `/grupos` | Lista grupos persistidos |
-| GET | `/grupos/{slug}` | Ficha detallada del grupo |
-| POST | `/grupos` | Crea un grupo |
-| POST | `/grupos/{slug}/miembro` | Añade un miembro al grupo |
-| DELETE | `/grupos/{slug}/miembro/{slug_personaje}` | Remueve un miembro del grupo |
 | GET | `/meta/{categoria}` | Catálogo de una categoría de tag |
 | GET | `/meta/facciones` | Facciones canónicas con lore |
 | GET | `/meta/rangos` | Rangos con tabla determinística de atributos |

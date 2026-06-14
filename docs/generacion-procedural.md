@@ -10,9 +10,9 @@ aliases:
 
 # Generación Procedural de Personajes
 
-Flujo canónico para construir un personaje de *Subordinación y Valor*. El orden **no sigue la hoja terminada**: la afiliación operativa va primero porque determina qué es válido en cada fase siguiente. Todo está basado en configuración; ningún valor está codificado directamente en el generador.
+Flujo canónico para construir un personaje de *Subordinación y Valor*.
 
-Ver [[hoja-personaje]], [[sistema-tags]], [[atributos-y-habilidades]].
+Ver [[hoja-personaje]]
 
 ---
 
@@ -28,7 +28,7 @@ Ver [[hoja-personaje]], [[sistema-tags]], [[atributos-y-habilidades]].
 ## Orden de fases
 
 ```
-Fase 1 — Afiliación    → rango, facción, subfacción, escuadra
+Fase 1 — Afiliación    → rango, facción, subfacción
 Fase 2 — Identidad     → nombre, sobrenombre, edad, género
 Fase 3 — Atributos     → fis, tac, men  (determinísticos por rango)
 Fase 4 — Tags          → tags adicionales sorteados ponderados
@@ -72,11 +72,7 @@ Exactamente un tag `faccion.*`. Sorteo uniforme 50/50 por defecto; excepción po
 
 Exactamente un tag `subfaccion.*`. Se sortea entre las subfacciones **compatibles con la facción** de §1.2 (cada subfacción declara su `faccion_padre` en el catálogo).
 
-### 1.4. Escuadra
-
-Exactamente un tag `escuadra.*`. Si la escuadra nombrada no existe en el almacenamiento, se crea en tiempo real: slug heredado del tag, facción heredada del personaje, tipo inicializado a `escuadra_de_infanteria`, historial con hito `reorganizacion`.
-
-### 1.5. Restricciones que esta fase puede imponer
+### 1.4. Restricciones que esta fase puede imponer
 
 Esta fase puede acotar el rango de edad o el conjunto de géneros válidos en Fase 2. Ejemplos:
 
@@ -156,7 +152,7 @@ Esta tabla vive en configuración (no en código). Cambiar un valor de rango es 
 
 ## Fase 4 — Tags adicionales
 
-Con rango, facción, subfacción y escuadra ya fijados, el generador sortea **etiquetas adicionales ponderadas** desde el catálogo.
+Con rango, facción y subfacción ya fijados, el generador sortea **etiquetas adicionales ponderadas** desde el catálogo.
 
 ### 4.1. Procedimiento
 
@@ -192,7 +188,6 @@ El generador compone un aviso con los datos ya fijados (rango, facción, atribut
 Siembra inicial de `aliados[]` y `nemesis[]`.
 
 - En la generación procedural pura las colecciones arrancan **vacías** (listas vacías, no null).
-- En el autofill de escuadra (cuando se generan varios personajes en lote), el generador puede sembrar vínculos de alianza entre miembros de la misma escuadra: un hito `formacion_vinculo` en el historial de cada uno y la entrada correspondiente en `aliados[]`.
 - Los vínculos de nemesis se siembran solo si el contexto de campaña lo requiere explícitamente.
 
 ---
@@ -212,24 +207,13 @@ Siembra inicial de `aliados[]` y `nemesis[]`.
 
 ---
 
-## Autofill de escuadra
-
-Cuando una escuadra no alcanza el mínimo reglamentario, el sistema ofrece completarla automáticamente:
-
-1. Lee el template de la escuadra para saber qué roles faltan.
-2. Para cada rol faltante, ejecuta las fases 1–4 con `faccion` y `escuadra` fijados, `rango` determinado por el rol requerido, y una semilla nueva.
-3. La prosa (Fase 5) puede omitirse en el autofill rápido; el campo `historia` queda vacío hasta que el usuario canonice cada personaje.
-4. Los personajes generados se persisten como efímeros hasta canonización individual.
-
----
-
 ## Resumen del flujo
 
 ```
 semilla + (faccion, rol)
         │
         ▼
-[Fase 1] rango → facción → subfacción → escuadra
+[Fase 1] rango → facción → subfacción
         │  (tablas de pesos en configuración)
         ▼
 [Fase 2] género → edad → nombre → sobrenombre
