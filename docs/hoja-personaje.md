@@ -1,12 +1,12 @@
 ---
 title: "Hoja de Personaje — el documento núcleo"
 tags:
-  - syv/pj/schema
+  - syv/pj/esquema
   - syv/pj/nucleo
 aliases:
   - Hoja de Personaje
   - hoja-personaje
-  - schema del personaje
+  - esquema del personaje
 ---
 
 # Hoja de Personaje
@@ -17,7 +17,7 @@ aliases:
 > **Documentos hermanos**:
 > - [[sistema-tags|sistema-tags.md]] — la lista plana `tags[]`: notación, categorías, catálogo y curaduría.
 > - [[atributos-y-habilidades|atributos-y-habilidades.md]] — escalas de `fis/tac/men`, estadísticas derivadas y vocabulario canónico de efectos.
-> - [[habilidades|rasgos-y-ventajas.md]] — aspectos, habilidades, destrezas y efectos como contratos.
+> - [[contratos|contratos.md]] — aspectos, habilidades, destrezas y efectos como contratos.
 > - [[generacion-procedural|generacion-procedural.md]] — cómo se completa una hoja desde el azar portable.
 > - [[diegesis-y-obsidian|diegesis-y-obsidian.md]] — cómo la hoja se vuelve nodo navegable del vault de Diégesis.
 
@@ -39,7 +39,7 @@ personaje:
   aliados:      [...]               # {ref, descripcion, desde?} — vínculo con prosa
   nemesis:      [...]               # {ref, descripcion, desde?}
   metadatos:    { creado_en, canonizado_en, ultima_actualizacion }
-  extras:       object | null       # escape hatch para clientes
+  extras:       object | null       # válvula de escape para clientes
 ```
 
 > [!tip] Regla rectora — lo discreto es etiqueta
@@ -162,7 +162,7 @@ Cuando el vínculo apunta a **otro personaje**, ==no se usa etiqueta==: se usa u
 
 ### 3.3. Extensibilidad
 
-El catálogo canónico es andamiaje, no jaula: etiqueta nueva, subcategoría nueva o categoría nueva entera entran **sin migración**. Una etiqueta desconocida no rompe la hoja. La mitigación es curaduría, no validación. Detalle en [[sistema-tags|sistema-tags.md]] y [[open-close|open-close.md]].
+El catálogo canónico es andamiaje, no jaula: etiqueta nueva, subcategoría nueva o categoría nueva entera entran **sin migración**. Una etiqueta desconocida no rompe la hoja. La mitigación es curaduría, no validación. Detalle en [[sistema-tags|sistema-tags.md]].
 
 ### 3.4. Aliados y némesis
 
@@ -254,7 +254,7 @@ reglas:    El motor no inspecciona ni valida su contenido.
 proposito: Que un cliente externo persista metadatos propios sin romper el esquema.
 ```
 
-Soporta cualquier llave y estructura anidada. Si un cliente necesita guardar algo que no encaja en etiquetas ni en los bloques canónicos, va acá. Esto mantiene el núcleo estable mientras el ecosistema crece (ver [[open-close|open-close.md]]).
+Soporta cualquier llave y estructura anidada. Si un cliente necesita guardar algo que no encaja en etiquetas ni en los bloques canónicos, va acá. Esto mantiene el núcleo estable mientras el ecosistema crece.
 
 ---
 

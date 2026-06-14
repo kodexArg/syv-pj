@@ -18,7 +18,7 @@ Ver [[hoja-personaje]], [[sistema-tags]], [[atributos-y-habilidades]].
 
 ## Principios rectores
 
-- **Determinismo de stats**: los atributos base (`fis`, `tac`, `men`) se leen de tablas de configuración por `(rol, rango)`. Cero azar en esa fase.
+- **Determinismo de estadísticas**: los atributos base (`fis`, `tac`, `men`) se leen de tablas de configuración por `(rol, rango)`. Cero azar en esa fase.
 - **Azar portable**: toda probabilidad se expresa en porcentaje; todo modificador como delta entero o porcentaje. Nunca un número mágico insertado en código.
 - **Reproducibilidad por semilla**: `(semilla, faccion, rol)` reproduce el mismo personaje efímero. El canonizado pierde esa propiedad tras el primer hito (la historia narrada ya es irrepetible).
 - **Basado en configuración**: pesos de sorteo, tablas de atributos, restricciones cruzadas, depósitos de nombres — todo vive en archivos de configuración externos al generador. Cambiar una regla es editar la configuración, no código.

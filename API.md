@@ -47,7 +47,7 @@ Genera un personaje **efímero**. Parámetros opcionales vía cadena de consulta
 | `rango` | `str` | Slug de rango. |
 | `semilla` | `str` | Semilla para reproducibilidad. `(semilla, faccion, rango)` reproduce el mismo efímero. |
 | `campos` | `str` CSV de rutas de punto | Poda la respuesta. Ej: `campos=identidad.slug,atributos.fis`. |
-| `tag` | `str` (repetible) | Filtrado en AND lógico. El efímero debe portar todos los tags exigidos. OR no está soportado — el cliente lo resuelve con N llamadas + unión. |
+| `tag` | `str` (repetible) | Filtrado en Y lógico. El efímero debe portar todos los tags exigidos. OR no está soportado — el cliente lo resuelve con N llamadas + unión. |
 
 Devuelve un `personaje` con:
 - `identidad.slug: null` (los efímeros no tienen slug hasta canonizarse).
@@ -169,7 +169,7 @@ Devuelve la misma carga que `GET /personaje`: un efímero listo para ser canoniz
 
 ### `POST /canonizar`
 
-Ver §1 — el endpoint vive bajo personajes porque la canonización es el acto de persistir un personaje.
+Ver §1 — la ruta vive bajo personajes porque la canonización es el acto de persistir un personaje.
 
 ---
 

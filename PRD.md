@@ -42,7 +42,7 @@ El personaje existe dentro de *Subordinación y Valor*:
 - **Tags como modelo de primera clase.** Todo lo que es discreto y no es identidad, atributo, prosa, auditoría o vínculo-personal-con-prosa es tag. La frontera está fijada en [[hoja-personaje]] y [[sistema-tags]].
 - **Estadísticas determinísticas por rango; identidad sorteada.** En creación, los atributos base se derivan de tablas fijas por rol/rango. Cero azar en estadísticas. Nombre, género, edad, rasgos, destrezas, rasgos de clase, ventajas, equipo e historia sí se sortean.
 - **Memoria viva como naturaleza del canonizado.** Un canonizado existe en el tiempo: nace, pelea, cambia. La ficha vigente no es la original. Las mutaciones ocurren vía hitos en `historial[]`.
-- **Reproducibilidad por seed para efímeros.** `(seed, faccion, rango)` produce el mismo personaje efímero. Los canonizados pierden esta propiedad tras el primer hito.
+- **Reproducibilidad por semilla para efímeros.** `(semilla, faccion, rango)` produce el mismo personaje efímero. Los canonizados pierden esta propiedad tras el primer hito.
 - **LLM solo para prosa, solo una vez.** El modelo generativo escribe `historia` durante la creación; al canonizar, se congela.
 - **Agnosis al renderizador.** El esquema describe qué tiene un personaje, no cómo se muestra.
 - **Contratos sobre convenciones.** Los rasgos, ventajas y destrezas son contratos: un nombre legible que entrega un paquete declarado de efectos, modificadores y habilitaciones.
@@ -60,10 +60,9 @@ El personaje existe dentro de *Subordinación y Valor*:
 | [[AGENTS\|AGENTS.md]] | Política editorial y convenciones para colaboradores y agentes. |
 | [[hoja-personaje\|docs/hoja-personaje.md]] | Esquema del personaje campo por campo. Núcleo del módulo. |
 | [[sistema-tags\|docs/sistema-tags.md]] | Sistema de tags: notación, categorías, catálogo, extensibilidad. |
-| [[habilidades\|docs/rasgos-y-ventajas.md]] | Contratos de rasgos, ventajas, destrezas y efectos. |
+| [[contratos\|docs/contratos.md]] | Contratos de rasgos, ventajas, destrezas y efectos. |
 | [[atributos-y-habilidades\|docs/atributos-y-habilidades.md]] | Vocabulario canónico de atributos y estadísticas calculadas. |
 | [[generacion-procedural\|docs/generacion-procedural.md]] | Flujo obligatorio de creación: fases, sorteos, tabla determinística. |
-| [[open-close\|docs/open-close.md]] | Política de extensibilidad: cuándo extender, cómo, sin rupturas de compatibilidad. |
 | [[grupos\|docs/grupos.md]] | Esquema de grupos y escuadras; agrupaciones tácticas. |
 | [[diegesis-y-obsidian\|docs/diegesis-y-obsidian.md]] | Convención de linkeo Obsidian para la diégesis de SyV. |
 | [[casos-de-uso\|docs/casos-de-uso.md]] | Catálogo de casos de uso y su mapeo a operaciones. |

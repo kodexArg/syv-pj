@@ -7,7 +7,7 @@ aliases:
 ---
 # Atributos
 
-_Ver [[hoja-personaje]], [[sistema-tags]], [[habilidades]]._
+_Ver [[hoja-personaje]], [[sistema-tags]], [[contratos]]._
 
 ---
 

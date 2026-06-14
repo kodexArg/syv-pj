@@ -30,7 +30,7 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 
 | Campo | Tipo | Mutable | Notas |
 |---|---|---|---|
-| `identidad.slug` | `str` `^[A-Z0-9]{8}$` \| `null` | set una vez | PK. `null` en efímeros. Asignada por el servidor al canonizar. |
+| `identidad.slug` | `str` `^[A-Z0-9]{8}$` \| `null` | fijado una vez | PK. `null` en efímeros. Asignada por el servidor al canonizar. |
 | `identidad.nombre` | `str` | inmutable | Legible. No único. |
 | `identidad.sobrenombre` | `str \| null` | mutable (sin hito) | `null` si no aplica. |
 | `identidad.rol` | `str` | mutable vía hito `ascenso` / `cambio_rol` | Por defecto `"ciudadano"`. Narrativo. |
@@ -45,9 +45,9 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 | `aliados[]` | `list<vinculo>` | mutable vía hito `formacion_lealtad` | Ver §1.2. |
 | `nemesis[]` | `list<vinculo>` | mutable vía hito `identificacion_nemesis` | Misma forma que `aliados[]`. |
 | `metadatos.creado_en` | `str` ISO-8601 | inmutable | |
-| `metadatos.canonizado_en` | `str` ISO-8601 \| `null` | set una vez | `null` en efímeros. |
+| `metadatos.canonizado_en` | `str` ISO-8601 \| `null` | fijado una vez | `null` en efímeros. |
 | `metadatos.ultima_actualizacion` | `str` ISO-8601 | actualiza con cada hito | |
-| `extras` | `object \| null` | libre | Escape hatch. La API no inspecciona. |
+| `extras` | `object \| null` | libre | Válvula de escape. La API no inspecciona. |
 
 ### Campos derivados — computados al servir, no persistidos
 
@@ -75,7 +75,7 @@ Tipos de hito sugeridos (catálogo abierto): `combate`, `ascenso`, `cambio_rol`,
 
 | Campo | Tipo | Notas |
 |---|---|---|
-| `ref` | `str` `^[A-Z0-9]{8}$` | Patente de otro `personaje`. Sin FK enforcement (ver §5). |
+| `ref` | `str` `^[A-Z0-9]{8}$` | Patente de otro `personaje`. Sin imposición de integridad referencial (ver §5). |
 | `descripcion` | `str` | Obligatorio. 1–3 frases sobre el vínculo. |
 | `desde` | `str` ISO-8601 \| `null` | Opcional. |
 
@@ -87,8 +87,8 @@ Catálogo curado de tags. Servido por `GET /meta/{categoria}`. El catálogo se s
 
 | Campo | Tipo | Obligatorio | Notas |
 |---|---|---|---|
-| `slug` | `str` lowercase + underscore | sí | Último segmento del tag. Sin acentos. |
-| `nombre` | `str` | sí | Label humano legible. |
+| `slug` | `str` minúsculas + guion bajo | sí | Último segmento del tag. Sin acentos. |
+| `nombre` | `str` | sí | Nombre legible para humanos. |
 | `categoria` | `str` | sí | Primer segmento del tag en notación punto. |
 | `subcategoria` | `str \| null` | condicional | Obligatorio si `categoria ∈ {equipo, rol}`. Segmento intermedio. |
 | `descripcion` | `str` | sí | 1–3 frases. |
@@ -98,14 +98,14 @@ Catálogo curado de tags. Servido por `GET /meta/{categoria}`. El catálogo se s
 | `requires` | `object \| null` | no | `{ require_all[], require_any[] }`. Prefijo `"no:"` para NOT. Documentación ejecutable, no validación dura. |
 | `excluye` | `list<str> \| null` | no | Tags incompatibles. |
 | `peso` | `int` (0..50) | si `categoria = equipo` | Unidad: kg. |
-| `peso_narrativo` | `int` (1..5) | no | Hint al sorteador procedural. |
+| `peso_narrativo` | `int` (1..5) | no | Pista al sorteador procedural. |
 | `atributo_dominante` | `str` \| `null` | si `categoria = destreza` | `fis \| tac \| men`. |
 | `tags_relacionados` | `list<str>` | no | Informativo. |
 | `metadatos` | `object` | no | `{ creado_en, ultima_actualizacion }`. |
 
 **Clave primaria sugerida**: tag completo en notación punto como cadena, o tupla `(categoria, subcategoria, slug)`.
 
-**Índice operativo**: inverted index `tag_full → set<personaje.slug>` reconstruido desde `personaje.tags[]`.
+**Índice operativo**: índice invertido `tag_full → set<personaje.slug>` reconstruido desde `personaje.tags[]`.
 
 **Categorías de referencia** (abiertas — enumeradas en [[sistema-tags|docs/sistema-tags.md]]): `faccion`, `subfaccion`, `rango`, `grupo`, `mando`, `estado`, `salud`, `mental`, `rasgo`, `ventaja`, `destreza`, `efecto`, `equipo` (`.arma` / `.utilitario` / `.vestidura`), `rol` (`.oficio` / `.jerarquia` / `.narrativo` / `.combate`), `lealtad`.
 
@@ -117,7 +117,7 @@ Agrupación táctica de personajes. Servido por `GET /grupos/{slug}`, modificado
 
 | Campo | Tipo | Mutable | Notas |
 |---|---|---|---|
-| `identidad.slug` | `str` lowercase + underscore | inmutable | PK. Coincide con el segmento final del tag `grupo.{slug}`. |
+| `identidad.slug` | `str` minúsculas + guion bajo | inmutable | PK. Coincide con el segmento final del tag `grupo.{slug}`. |
 | `identidad.nombre` | `str` | mutable | Nombre del grupo. |
 | `identidad.faccion` | `str` (slug de `faccion`) | inmutable | Referencia a la facción. |
 | `identidad.tipo` | `str` | inmutable | Tipo (ej. `escuadra_de_infanteria`, `celula_obrera`). |
@@ -125,7 +125,7 @@ Agrupación táctica de personajes. Servido por `GET /grupos/{slug}`, modificado
 | `historial[]` | `list<hito_grupo>` (embebida) | de solo añadir | Registro de eventos del grupo. |
 | `metadatos.creado_en` | `str` ISO-8601 | inmutable | |
 | `metadatos.ultima_actualizacion` | `str` ISO-8601 | actualiza con cada cambio | |
-| `extras` | `object \| null` | libre | Escape hatch. |
+| `extras` | `object \| null` | libre | Válvula de escape. |
 
 ### Campos derivados del grupo — computados al servir, no persistidos
 
@@ -181,11 +181,11 @@ Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones can�
 |---|---|---|
 | Naturaleza | Entidad de primera clase (esta §4). | Categoría de `tag_catalogo` (§2). |
 | Cardinalidad | Cerrado-curado (2-3 hoy). | Abierto-emergente. |
-| Endpoint | `GET /meta/facciones` (dedicado). | `GET /meta/subfaccion` (genérico `/meta/{categoria}`). |
+| Ruta | `GET /meta/facciones` (dedicado). | `GET /meta/subfaccion` (genérico `/meta/{categoria}`). |
 | Referencia desde otras entidades | `grupo.identidad.faccion`; tabla de rangos. | Ninguna. Solo aparece en `personaje.tags[]`. |
 | Membresía sobre personaje | Tag `faccion.{slug}` + `lealtad.faccion.{slug}`. | Tag `subfaccion.{slug}` + `lealtad.subfaccion.{slug}`. |
 
-`faccion` ancla la geometría operativa del juego (grupos pertenecen a una facción; los rangos canónicos están definidos por facción; las batallas tienen bandos). Necesita identidad estable y endpoint dedicado. `subfaccion` agrupa narrativamente — un tercio, una célula, un sindicato armado — y el catálogo crece por curaduría a demanda.
+`faccion` ancla la geometría operativa del juego (grupos pertenecen a una facción; los rangos canónicos están definidos por facción; las batallas tienen bandos). Necesita identidad estable y ruta dedicada. `subfaccion` agrupa narrativamente — un tercio, una célula, un sindicato armado — y el catálogo crece por curaduría a demanda.
 
 **Dualidad entidad+tag**: tanto `faccion` como `grupo` son entidades persistidas y existen además como namespace de tag (`faccion.confederacion_argentina`, `grupo.{slug}`) para expresar membresía declarativa sobre `personaje.tags[]`. El slug del tag coincide con la clave primaria de la entidad.
 

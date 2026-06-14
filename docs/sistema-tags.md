@@ -12,7 +12,7 @@ aliases:
 
 > [!info] Propósito
 > Este documento describe el sistema de etiquetas de syv-pj: qué es una etiqueta, cómo se escribe, cómo se estructura su entrada en el catálogo y cómo se extiende sin migración.
-> En este documento se habla con frecuencia de [[habilidades]]. Bien: las habilidades son, en esencia, etiquetas.
+> En este documento se habla con frecuencia de [[contratos]]. Bien: las habilidades son, en esencia, etiquetas.
 > La relación entre las etiquetas y Obsidian es absolutamente lineal e intencional.
 ---
 
@@ -77,7 +77,7 @@ En raras excepciones, se recurre al tercer segmento `<categoria>.<parent>.<slug>
 
 ## §3 — Categorías de referencia
 
-Las categorías curadas a la fecha. La tabla es **ilustrativa, no exhaustiva**: por el principio [[open-close|open/close]], el universo de etiquetas es **abierto e infinito** — el sistema acepta categorías nuevas sin migración ni rupturas (ver [[#§7 — Extensibilidad]]). Son puntos de referencia, no menú restrictivo.
+Las categorías curadas a la fecha. La tabla es **ilustrativa, no exhaustiva**: por el principio abierto/cerrado, el universo de etiquetas es **abierto e infinito** — el sistema acepta categorías nuevas sin migración ni rupturas (ver [[#§7 — Extensibilidad]]). Son puntos de referencia, no menú restrictivo.
 
 | Categoría | Significado |
 |---|---|
@@ -91,8 +91,8 @@ Las categorías curadas a la fecha. La tabla es **ilustrativa, no exhaustiva**: 
 | `moral` | Estado anímico actual. Acumulable. |
 | `mental` | Estado de concentración actual. Acumulable. |
 | `rasgo` | Rasgo físico observable (cicatriz, tatuaje, constitución). |
-| `aspecto` | Identidad mecánicamente activa. Ver [[habilidades]]. |
-| `habilidad` | Habilitador de tirada contra atributo dominante. Ver [[habilidades]]. |
+| `aspecto` | Identidad mecánicamente activa. Ver [[contratos]]. |
+| `habilidad` | Habilitador de tirada contra atributo dominante. Ver [[contratos]]. |
 | `entrenamiento` | Adiestramiento o formación recibida (militar, sanitaria, técnica). |
 | `efecto` | Bloque estructurado referenciable por otras etiquetas. |
 | `equipo` | Equipo cargado. Subcategorías: `arma`, `utilitario`, `vestidura`. |
@@ -245,7 +245,7 @@ requires:
 > [!important] `requires` es documentación ejecutable, no validación dura
 > La API acepta personajes con etiquetas incoherentes. La coherencia es responsabilidad del generador y del curador. Cualquier validador opcional puede consultar `requires`; el contrato duro no lo impone.
 
-**Los aspectos de origen narrativo no usan `requires`.** Son recompensas otorgadas al azar (lo que antes era *ventaja*); no tienen depósito por rango ni precondiciones. Ver [[habilidades]].
+**Los aspectos de origen narrativo no usan `requires`.** Son recompensas otorgadas al azar (lo que antes era *ventaja*); no tienen depósito por rango ni precondiciones. Ver [[contratos]].
 
 ---
 
