@@ -14,10 +14,10 @@ aliases:
 # Aspectos, Habilidades y Efectos como Contratos
 
 > [!info] Concepto central
-> Un **contrato** es una palabra o frase corta que, al aplicarse a un personaje, entrega un **paquete declarado**: modificadores numéricos, habilitadores de tirada y/o efectos referenciables. El nombre es la cara legible; el efecto es la letra chica. Todo contrato es, en esencia, un [[sistema-tags|tag]].
+> Un **contrato** es una palabra o frase corta que, al aplicarse a un personaje, entrega un **paquete declarado**: modificadores numéricos, habilitadores de tirada y/o efectos referenciables. El nombre es la cara legible; el efecto es la letra chica. Todo contrato es, en esencia, una [[sistema-tags|etiqueta]].
 
 > [!warning] Vocabulario unificado
-> *trait*, *perk* y *skill* **ya no existen como categorías.** Quedaron fundidos en tres: **`aspecto`** (lo que era *trait* **y** *perk*), **`habilidad`** (lo que era *skill*) y **`efecto`**. Si encontrás `trait.*`, `perk.*` o `skill.*` en una hoja vieja, son legacy a migrar.
+> *rasgo*, *ventaja* y *destreza* **ya no existen como categorías.** Quedaron fundidos en tres: **`aspecto`** (lo que era *rasgo* **y** *ventaja*), **`habilidad`** (lo que era *destreza*) y **`efecto`**. Si encontrás `rasgo.*`, `ventaja.*` o `destreza.*` en una hoja vieja, son legado a migrar.
 
 ---
 
@@ -31,13 +31,13 @@ nombre legible  →  paquete declarado
 
 El **nombre** es el identificador humano del contrato — la etiqueta que el motor, el narrador y el jugador ven. Corto, evocador y estable.
 
-El **paquete** es lo que ese nombre promete mecánicamente: modificadores sobre el vocabulario canónico (`FISICO`, `TACTICO`, `MENTAL`, `INICIATIVA`, `MORAL`, `FATIGA`, `MOVIMIENTO`, `ESTRESS`), habilitadores de tirada, o efectos referenciales. El paquete puede ser positivo, negativo o mixto.
+El **paquete** es lo que ese nombre promete mecánicamente: modificadores sobre el vocabulario canónico (`FISICO`, `TACTICO`, `MENTAL`, `INICIATIVA`, `MORAL`, `FATIGA`, `MOVIMIENTO`, `ESTRESS`), habilitadores de tirada, o efectos referenciables. El paquete puede ser positivo, negativo o mixto.
 
 Este patrón tiene tres variantes según el **tipo de contrato:**
 
 | Tipo | Naturaleza | Efecto | `requires` | Polaridad |
 |---|---|---|---|---|
-| `aspecto` | Identidad mecánicamente activa | pasivo o gatillado | condicional (salvo origen narrativo) | mixta |
+| `aspecto` | Identidad mecánicamente activa | pasivo o disparado | condicional (salvo origen narrativo) | mixta |
 | `habilidad` | Habilitador de tirada | ninguno directo | condicional | neutra |
 | `efecto` | Bloque referenciable | pasivo o externo | no aplica | mixta |
 
@@ -47,7 +47,7 @@ La categoría en el tag sigue el mismo patrón: `aspecto.vanguardia`, `habilidad
 
 ## §2 — Aspecto: identidad mecánicamente activa
 
-Un **aspecto** es un rasgo de carácter, condición física, marca de comportamiento o ventaja ganada que tiene peso mecánico. No es solo flavor — declara un efecto que el motor aplica mientras el personaje lo lleve. Absorbe lo que antes se partía en *trait* (identidad con peso) y *perk* (recompensa narrativa): la diferencia ya no es de categoría, sino de **origen** (ver §2.4).
+Un **aspecto** es un rasgo de carácter, condición física, marca de comportamiento o ventaja ganada que tiene peso mecánico. No es solo sabor narrativo — declara un efecto que el motor aplica mientras el personaje lo lleve. Absorbe lo que antes se partía en *rasgo* (identidad con peso) y *ventaja* (recompensa narrativa): la diferencia ya no es de categoría, sino de **origen** (ver §2.4).
 
 ### 2.1. Estructura
 
@@ -129,9 +129,9 @@ requires:
 
 Esto es documentación ejecutable. El motor no lo impone; el generador y el curador lo respetan. Ver [[sistema-tags#§6.4 Sistema requires|§6.4 de sistema-tags]].
 
-### 2.4. Origen narrativo (lo que antes era *perk*)
+### 2.4. Origen narrativo (lo que antes era *ventaja*)
 
-Un aspecto de **origen narrativo** es una ventaja otorgada al azar como sorpresa — un hito en campo, una jugada extraordinaria, un momento de suerte. Es la antigua noción de *perk*, ahora un aspecto con tres marcas características:
+Un aspecto de **origen narrativo** es una ventaja otorgada al azar como sorpresa — un hito en campo, una jugada extraordinaria, un momento de suerte. Es la antigua noción de *ventaja*, ahora un aspecto con tres marcas características:
 
 - **`origen: narrativo`** en el catálogo (frente a `canon`/`emergente`/`custom`).
 - **Sin `requires` nunca.** Cualquier aspecto narrativo puede aparecer sobre cualquier personaje; la sorpresa es parte de su naturaleza.
@@ -156,7 +156,7 @@ La vía canónica para ganar un aspecto narrativo es el `historial[]`: un hito (
 
 ## §3 — Habilidad: habilitador de tirada
 
-Una **habilidad** (lo que antes era *skill*) no modifica atributos ni stats directamente. Su función es binaria: **habilitar un chequeo** contra el `atributo_dominante` declarado en su entrada de catálogo.
+Una **habilidad** (lo que antes era *destreza*) no modifica atributos ni estadísticas directamente. Su función es binaria: **habilitar un chequeo** contra el `atributo_dominante` declarado en su entrada de catálogo.
 
 El motor pregunta: ¿el personaje tiene `habilidad.X`? Si sí, puede hacer la tirada. Si no, la acción no es posible (o se resuelve con penalización según regla del motor).
 
@@ -182,17 +182,17 @@ descripcion: >
 atributo_dominante: tac
 ```
 
-### 3.2. Por qué la habilidad no modifica stats
+### 3.2. Por qué la habilidad no modifica estadísticas
 
 Una habilidad habilitada no te hace mejor en el atributo; te da acceso a aplicarlo. La diferencia importa: un personaje con `TACTICO 3` y `habilidad.tiro_de_precision` puede intentar ese disparo. Uno con `TACTICO 5` sin la habilidad no puede. El nivel del atributo determina qué tan bien saldrá la tirada; la habilidad determina si puede hacerse.
 
-Esto evita inflación de stats por acumulación de habilidades y mantiene limpia la separación entre **capacidad** (atributos) y **conocimiento** (habilidades).
+Esto evita inflación de estadísticas por acumulación de habilidades y mantiene limpia la separación entre **capacidad** (atributos) y **conocimiento** (habilidades).
 
 ---
 
 ## §4 — Efecto: bloque estructurado referenciable
 
-Un **efecto** (`efecto.*`) es un bloque de consecuencias mecánicas que puede ser aplicado por referencia desde otros tags — principalmente desde los `trigger-action` de aspectos reactivos, pero también inline en cualquier tag que declare efectos permanentes.
+Un **efecto** (`efecto.*`) es un bloque de consecuencias mecánicas que puede ser aplicado por referencia desde otras etiquetas — principalmente desde los `trigger-action` de aspectos reactivos, pero también inline en cualquier etiqueta que declare efectos permanentes.
 
 ### 4.1. Efecto externo (archivo propio)
 
@@ -225,14 +225,14 @@ efecto:
 
 ### 4.2. Efecto inline
 
-Cuando el modificador es permanente y simple, no necesita archivo propio. Se declara directamente en el tag que lo aplica (típicamente un `aspecto` pasivo). Ver [[#§2 — Aspecto identidad mecánicamente activa]].
+Cuando el modificador es permanente y simple, no necesita archivo propio. Se declara directamente en la etiqueta que lo aplica (típicamente un `aspecto` pasivo). Ver [[#§2 — Aspecto identidad mecánicamente activa]].
 
 ### 4.3. Vocabulario canónico
 
 Los modificadores de cualquier efecto — externo o inline — solo pueden apuntar a las siguientes variables:
 
 - **Atributos base:** `FISICO`, `TACTICO`, `MENTAL`
-- **Stats calculadas:** `INICIATIVA`, `MORAL`, `FATIGA`, `MOVIMIENTO`, `ESTRESS`
+- **Estadísticas calculadas:** `INICIATIVA`, `MORAL`, `FATIGA`, `MOVIMIENTO`, `ESTRESS`
 
 Formatos válidos: `"(+1) MENTAL"`, `"(-2) MORAL"`, `"-100% MOVIMIENTO"`, `"(+2) INICIATIVA"`. Ver [[atributos]] para la mecánica de cada variable.
 
@@ -240,14 +240,14 @@ Formatos válidos: `"(+1) MENTAL"`, `"(-2) MORAL"`, `"-100% MOVIMIENTO"`, `"(+2)
 
 ## §5 — El patrón en práctica: lectura de una hoja
 
-Cuando el motor sirve un personaje, recorre sus tags y aplica contratos:
+Cuando el motor sirve un personaje, recorre sus etiquetas y aplica contratos:
 
-1. **Aspectos pasivos** — suma sus `efecto` al cálculo de stats en caliente (incluye los de origen narrativo: sin diferencia mecánica en tiempo de ejecución).
+1. **Aspectos pasivos** — suma sus `efecto` al cálculo de estadísticas en caliente (incluye los de origen narrativo: sin diferencia mecánica en tiempo de ejecución).
 2. **Aspectos reactivos** — registra sus `trigger` para evaluarlos ante eventos de partida.
 3. **Habilidades** — marca el habilitador binario. El motor lo consulta cuando una acción requiere la habilidad.
 4. **Efectos activos** — aplicados directamente o referenciados vía `trigger-action`.
 
-Ningún contrato modifica la hoja persistida. Todo cálculo es **en caliente** sobre los atributos base `fis`, `tac`, `men`. Los stats (`INICIATIVA`, `MORAL`, etc.) no se guardan — se derivan al servir. Ver [[hoja-personaje]] para la estructura de la hoja y [[atributos]] para las fórmulas de derivación.
+Ningún contrato modifica la hoja persistida. Todo cálculo es **en caliente** sobre los atributos base `fis`, `tac`, `men`. Las estadísticas (`INICIATIVA`, `MORAL`, etc.) no se guardan — se derivan al servir. Ver [[hoja-personaje]] para la estructura de la hoja y [[atributos]] para las fórmulas de derivación.
 
 ---
 
@@ -330,10 +330,10 @@ atributo_dominante: tac
 
 ## §7 — Extensión del catálogo de contratos
 
-Los contratos se extienden igual que cualquier tag — sin migración, sin permiso:
+Los contratos se extienden igual que cualquier etiqueta — sin migración, sin permiso:
 
 - **Nuevo aspecto:** agregar `tags/aspecto/{slug}.yaml` con los cuatro campos obligatorios y el campo `efecto` (o `trigger`). Marcá `origen: narrativo` si es una recompensa de hito (sin `requires`, positivo).
 - **Nueva habilidad:** agregar `tags/habilidad/{slug}.yaml` con `atributo_dominante`.
 - **Nuevo efecto:** agregar `tags/efecto/{slug}.yaml` con la lista de instrucciones.
 
-Un contrato desconocido no rompe la hoja. La coherencia la garantiza la curaduría del catálogo, no la validación de schema.
+Un contrato desconocido no rompe la hoja. La coherencia la garantiza la curaduría del catálogo, no la validación de esquema.

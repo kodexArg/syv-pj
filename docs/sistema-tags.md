@@ -59,8 +59,8 @@ En raras excepciones, se recurre al tercer segmento `<categoria>.<parent>.<slug>
 	- ...
 - Los **segmentos intermedios** son subcategorías anidadas, usualmente el segmento intermedio es el slug de la etiqueta padre.
 - El **último segmento** es el slug específico.
-	- `habilidad`.`nadar`
-	- `equipo`.`pistola_9mm`
+	- `habilidad.nadar`
+	- `arma.pistola_9mm`
 
 **Reglas del slug de etiqueta:** minúsculas, guiones bajos como único separador, sin acentos, sin espacios, sin caracteres especiales. Ejemplos: `pistola`, `precision`, `ejercito_rojo`, `lider_de_escuadra`.
 
@@ -71,13 +71,13 @@ En raras excepciones, se recurre al tercer segmento `<categoria>.<parent>.<slug>
 
 **Huérfanos:** se invita a dejar etiquetas huérfanas con conceptos que pueden llenarse luego, cuando la etiqueta es suficientemente comunicativa, como "aspecto.cicatriz_perturbadora". Otro ejemplo más feliz de etiquetas huérfanas: `habilidad.personal.pianista`, y no sabremos qué tan bueno es hasta que creemos la referencia de la etiqueta en la historia del personaje; es decir, una etiqueta subjetiva.
 
-**Resolución contra el catálogo:** el parser troza la etiqueta por `.` y mapea segmentos a directorios. `equipo.arma.pistola` resuelve a `tags/equipo/arma/pistola.yaml`.
+**Resolución contra el catálogo:** el parser troza la etiqueta por `.` y mapea segmentos a directorios. `arma.pistola_9mm` resuelve a `tags/arma/pistola_9mm.yaml`.
 
 ---
 
 ## §3 — Categorías de referencia
 
-Las categorías curadas a la fecha. **No son un canon cerrado** — el sistema acepta categorías nuevas sin migración (ver [[#§7 — Extensibilidad]]). Son puntos de referencia, no menú restrictivo.
+Las categorías curadas a la fecha. La tabla es **ilustrativa, no exhaustiva**: por el principio [[open-close|open/close]], el universo de etiquetas es **abierto e infinito** — el sistema acepta categorías nuevas sin migración ni rupturas (ver [[#§7 — Extensibilidad]]). Son puntos de referencia, no menú restrictivo.
 
 | Categoría | Significado |
 |---|---|
@@ -89,16 +89,17 @@ Las categorías curadas a la fecha. **No son un canon cerrado** — el sistema a
 | `estado` | Disponibilidad operativa. Exactamente uno por personaje. |
 | `salud` | Estado físico actual. Acumulable. |
 | `moral` | Estado anímico actual. Acumulable. |
-| `mental` | Estado de foco actual. Acumulable. |
+| `mental` | Estado de concentración actual. Acumulable. |
 | `rasgo` | Rasgo físico observable (cicatriz, tatuaje, constitución). |
 | `aspecto` | Identidad mecánicamente activa. Ver [[habilidades]]. |
 | `habilidad` | Habilitador de tirada contra atributo dominante. Ver [[habilidades]]. |
-| `efecto` | Bloque estructurado referenciable por otros tags. |
-| `equipo` | Equipo cargado. Sub-categorías: `arma`, `utilitario`, `vestidura`. |
-| `rol` | Roles operativos. Sub-categorías: `oficio`, `jerarquia`, `narrativo`, `combate`. |
+| `entrenamiento` | Adiestramiento o formación recibida (militar, sanitaria, técnica). |
+| `efecto` | Bloque estructurado referenciable por otras etiquetas. |
+| `equipo` | Equipo cargado. Subcategorías: `arma`, `utilitario`, `vestidura`. |
+| `rol` | Roles operativos. Subcategorías: `oficio`, `jerarquia`, `narrativo`, `combate`. |
 | `lealtad` | Lealtad a facción, subfacción o escuadra. Ver [[#§4 — Categoría relacional lealtad]]. |
 
-El motor acepta tags fuera del canon. La coherencia la sostiene la curaduría, no la integridad referencial.
+El motor acepta etiquetas fuera del canon. La coherencia la sostiene la curaduría, no la integridad referencial.
 
 ---
 
@@ -112,50 +113,50 @@ lealtad.subfaccion.{slug}   →  apunta a una subfacción del catálogo
 lealtad.escuadra.{slug}     →  apunta a una escuadra del catálogo
 ```
 
-El prefijo es parte literal del slug compuesto. Un parser que ve `lealtad.faccion.confederados` sabe que es una ref a la facción de slug `confederados`.
+El prefijo es parte literal del slug compuesto. Un analizador que ve `lealtad.faccion.confederados` sabe que es una referencia a la facción de slug `confederados`.
 
-**La categoría `lealtad` no tiene entradas propias en el catálogo.** Su semántica está en el formato del tag; la resolución apunta a los catálogos de facción, subfacción o escuadra según corresponda.
+**La categoría `lealtad` no tiene entradas propias en el catálogo.** Su semántica está en el formato de la etiqueta; la resolución apunta a los catálogos de facción, subfacción o escuadra según corresponda.
 
 Solo lealtades **declarables y vigentes**. Las latentes, aspiracionales o secretas se manejan por sistema aparte.
 
 ---
 
-## §5 — Por qué aliados y némesis no son tags
+## §5 — Por qué aliados y némesis no son etiquetas
 
-Los vínculos personales (relaciones con otros personajes específicos) **no se expresan como tags**. Viven en colecciones persistidas de primera clase sobre la [[hoja-personaje]]:
+Los vínculos personales (relaciones con otros personajes específicos) **no se expresan como etiquetas**. Viven en colecciones persistidas de primera clase sobre la [[hoja-personaje]]:
 
 - `personaje.aliados[]` — lista de `{ref, descripcion, desde?}`.
 - `personaje.nemesis[]` — lista de `{ref, descripcion, desde?}`.
 
-**Por qué no son tags:** un vínculo personal lleva prosa — la historia de ese vínculo, su textura narrativa, el momento que lo fundó. Un tag puede afirmar la existencia de una relación pero no contarla. Las colecciones `aliados[]`/`nemesis[]` cargan esa textura. Un tag `aliado.srg1h4f9` no diría nada; `aliados[].ref: SRG1H4F9` con su `descripcion` sí lo dice todo.
+**Por qué no son etiquetas:** un vínculo personal lleva prosa — la historia de ese vínculo, su textura narrativa, el momento que lo fundó. Una etiqueta puede afirmar la existencia de una relación pero no contarla. Las colecciones `aliados[]`/`nemesis[]` cargan esa textura. Una etiqueta `aliado.srg1h4f9` no diría nada; `aliados[].ref: SRG1H4F9` con su `descripcion` sí lo dice todo.
 
-Además, las lealtades a facción o escuadra **sí son tags** (`lealtad.*`): son vínculos institucionales sin prosa propia. La línea divisoria es la prosa, no la dirección del vínculo.
+Además, las lealtades a facción o escuadra **sí son etiquetas** (`lealtad.*`): son vínculos institucionales sin prosa propia. La línea divisoria es la prosa, no la dirección del vínculo.
 
 ---
 
 ## §6 — Campos del archivo de catálogo
 
-Cada tag canon o emergente tiene una entrada en el catálogo. Cuatro campos son siempre obligatorios; el resto es condicional u opcional y se declara solo si suma información real.
+Cada etiqueta canónica o emergente tiene una entrada en el catálogo. Cuatro campos son siempre obligatorios; el resto es condicional u opcional y se declara solo si suma información real.
 
 ### 6.1. Campos obligatorios siempre
 
 ```yaml
 slug:
   tipo: string
-  regla: Último segmento del tag. Lowercase + underscore, sin acentos.
+  regla: Último segmento de la etiqueta. Minúsculas + guion bajo, sin acentos.
 
 nombre:
   tipo: string
   regla: Etiqueta legible, 1-3 palabras, sin slugificar.
-  proposito: Lo que el renderer muestra como label.
+  proposito: Lo que la vista muestra como etiqueta.
 
 categoria:
   tipo: string
-  regla: Primer segmento del tag. Solo la raíz; `subcategoria` lleva el intermedio.
+  regla: Primer segmento de la etiqueta. Solo la raíz; `subcategoria` lleva el intermedio.
 
 descripcion:
   tipo: string
-  regla: 1-3 frases canónicas sobre el significado del tag.
+  regla: 1-3 frases canónicas sobre el significado de la etiqueta.
 ```
 
 ### 6.2. Campos obligatorios condicionales
@@ -188,7 +189,7 @@ equipo_arma.alcance:
 
 subfaccion.faccion_padre:
   obligatorio_si: categoria = subfaccion
-  tipo: tag faccion.*
+  tipo: etiqueta faccion.*
 ```
 
 ### 6.3. Campos opcionales
@@ -204,14 +205,14 @@ requires:
   uso: Precondiciones de coherencia documentada. Ver §6.4.
 
 excluye:
-  uso: Tags incompatibles con este. Simétrico al prefijo no: de requires.
+  uso: Etiquetas incompatibles con esta. Simétrico al prefijo no: de requires.
 
-tags_relacionados:
-  uso: Tags que típicamente acompañan a este. Informativo, no normativo.
+etiquetas_relacionadas:
+  uso: Etiquetas que típicamente acompañan a esta. Informativo, no normativo.
 
 peso_narrativo:
   tipo: int (1..5)
-  uso: Hint al sorteador sobre frecuencia apropiada. No es probabilidad estricta.
+  uso: Sugerencia al sorteador sobre frecuencia apropiada. No es probabilidad estricta.
 
 metadatos:
   campos: [version_introducida, creado_en, ultima_actualizacion]
@@ -219,17 +220,17 @@ metadatos:
 
 ### 6.4. Sistema `requires`
 
-El bloque `requires` declara cuándo un tag es coherente sobre un personaje. Tiene dos sub-bloques combinables:
+El bloque `requires` declara cuándo una etiqueta es coherente sobre un personaje. Tiene dos subbloques combinables:
 
 ```yaml
 require_all:
-  semantica: El personaje debe tener TODOS estos tags.
+  semantica: El personaje debe tener TODAS estas etiquetas.
 
 require_any:
-  semantica: Basta con UNO de estos tags.
+  semantica: Basta con UNA de estas etiquetas.
 ```
 
-**Modificador NOT:** prefijá cualquier entrada con `"no:"` para invertir la condición. Es un string con prefijo literal — queryable con `startswith("no:")`, obvio a la lectura humana.
+**Modificador NOT:** prefijá cualquier entrada con `"no:"` para invertir la condición. Es un string con prefijo literal — consultable con `startswith("no:")`, obvio a la lectura humana.
 
 ```yaml
 requires:
@@ -242,9 +243,9 @@ requires:
 ```
 
 > [!important] `requires` es documentación ejecutable, no validación dura
-> La API acepta personajes con tags incoherentes. La coherencia es responsabilidad del generador y del curador. Cualquier validador opcional puede consultar `requires`; el contrato duro no lo impone.
+> La API acepta personajes con etiquetas incoherentes. La coherencia es responsabilidad del generador y del curador. Cualquier validador opcional puede consultar `requires`; el contrato duro no lo impone.
 
-**Los aspectos de origen narrativo no usan `requires`.** Son recompensas otorgadas al azar (lo que antes era *perk*); no tienen pool por rango ni precondiciones. Ver [[habilidades]].
+**Los aspectos de origen narrativo no usan `requires`.** Son recompensas otorgadas al azar (lo que antes era *ventaja*); no tienen pool por rango ni precondiciones. Ver [[habilidades]].
 
 ---
 
@@ -253,20 +254,20 @@ requires:
 El catálogo es **andamiaje, no jaula**. Tres ejes de extensión sin permiso ni migración:
 
 1. **Nuevos valores dentro de una categoría existente** — `habilidad.tiro_de_precision`, `rasgo.cicatriz_quemadura`. Entran con `origen: emergente` la primera vez.
-2. **Nuevas sub-categorías dentro de una familia** — `equipo.montura.caballo_criollo` agrega un nivel a `equipo.*`. El día que aparezca el primer caso real, no antes.
-3. **Categorías nuevas enteras** — `oficio_civil.herrero`, `vicio.fuma`, `mascota.perro_pastor`. El parser solo necesita el primer segmento para enrutar.
+2. **Nuevas subcategorías dentro de una familia** — `equipo.montura.caballo_criollo` agrega un nivel a `equipo.*`. El día que aparezca el primer caso real, no antes.
+3. **Categorías nuevas enteras** — `oficio_civil.herrero`, `vicio.fuma`, `mascota.perro_pastor`. El analizador solo necesita el primer segmento para enrutar.
 
-**Garantía:** un tag desconocido no rompe la hoja.
+**Garantía:** una etiqueta desconocida no rompe la hoja.
 
-**Regla de espera:** no se anticipan templates para tipos de tag que aún no existen. El catálogo crece por curaduría ante necesidades reales, no por especulación.
+**Regla de espera:** no se anticipan plantillas para tipos de etiqueta que aún no existen. El catálogo crece por curaduría ante necesidades reales, no por especulación.
 
 ---
 
-## §8 — Efectos y triggers en el catálogo
+## §8 — Efectos y disparadores en el catálogo
 
-Los efectos mecánicos de un tag se declaran de dos maneras según su naturaleza:
+Los efectos mecánicos de una etiqueta se declaran de dos maneras según su naturaleza:
 
-**Efecto pasivo / permanente (inline):** mientras el personaje tenga el tag, el efecto está activo. Se declara en el campo `efecto` a nivel raíz.
+**Efecto pasivo / permanente (inline):** mientras el personaje tenga la etiqueta, el efecto está activo. Se declara en el campo `efecto` a nivel raíz.
 
 ```yaml
 efecto:
@@ -274,7 +275,7 @@ efecto:
   - "(+1) MORAL"
 ```
 
-**Efecto reactivo / gatillado (trigger):** el efecto se aplica ante un evento en partida. Se declara en un bloque `trigger` con `trigger-action` apuntando a entradas del catálogo `efecto.*`.
+**Efecto reactivo / disparado (trigger):** el efecto se aplica ante un evento en partida. Se declara en un bloque `trigger` con `trigger-action` apuntando a entradas del catálogo `efecto.*`.
 
 ```yaml
 trigger:
@@ -288,7 +289,7 @@ trigger:
 > [!tip] Vocabulario canónico de efectos
 > Los modificadores solo pueden apuntar a:
 > - Atributos base: `FISICO`, `TACTICO`, `MENTAL`
-> - Stats calculadas: `INICIATIVA`, `MORAL`, `FATIGA`, `MOVIMIENTO`, `ESTRESS`
+> - Estadísticas calculadas: `INICIATIVA`, `MORAL`, `FATIGA`, `MOVIMIENTO`, `ESTRESS`
 >
 > Ejemplos: `"(+1) MENTAL"`, `"(-1) FATIGA"`, `"-100% MOVIMIENTO"`, `"(+2) INICIATIVA"`.
 > Ver [[atributos]] para la mecánica de cada variable.
