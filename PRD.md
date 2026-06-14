@@ -63,7 +63,8 @@ El personaje existe dentro de *Subordinación y Valor*:
 | [[contratos\|docs/contratos.md]] | Contratos de rasgos, ventajas, destrezas y efectos. |
 | [[atributos-y-habilidades\|docs/atributos-y-habilidades.md]] | Vocabulario canónico de atributos y estadísticas calculadas. |
 | [[generacion-procedural\|docs/generacion-procedural.md]] | Flujo obligatorio de creación: fases, sorteos, tabla determinística. |
-| [[diegesis-y-obsidian\|docs/diegesis-y-obsidian.md]] | Convención de linkeo Obsidian para la diégesis de SyV. |
+| [[diegesis\|docs/diegesis.md]] | Puntero al universo SyV: el lore (facciones, lugares, nombres) vive en `syv-docs`. |
+| [[obsidian\|docs/obsidian.md]] | Cómo se escribe la documentación: OFM y los skills de Obsidian. |
 | [[casos-de-uso\|docs/casos-de-uso.md]] | Catálogo de casos de uso y su mapeo a operaciones. |
 
 > [!note] Wikilinks
@@ -82,7 +83,7 @@ El personaje existe dentro de *Subordinación y Valor*:
 - Flujo de generación procedural (fases 1–4).
 - Dos facciones jugables: `confederacion_argentina` y `ejercito_rojo`.
 - Rangos operativos canon de ambas facciones.
-- Diégesis: convención de linkeo Obsidian para integrar el personaje al vault de SyV.
+- Diégesis: puntero al universo — el contexto (facciones, lugares, lore) vive en el vault `syv-docs`, no acá.
 - Contrato de API HTTP ([[API|API.md]]).
 - Contrato de persistencia ([[MODEL|MODEL.md]]).
 - Catálogos `/meta/*` dinámicos por categoría de tag.

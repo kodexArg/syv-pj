@@ -20,7 +20,7 @@ Ver [[hoja-personaje]]
 
 - **Determinismo de estadísticas**: los atributos base (`fis`, `tac`, `men`) se leen de tablas de configuración por `(rol, rango)`. Cero azar en esa fase.
 - **Azar portable**: toda probabilidad se expresa en porcentaje; todo modificador como delta entero o porcentaje. Nunca un número mágico insertado en código.
-- **Reproducibilidad por semilla**: `(semilla, faccion, rol)` reproduce el mismo personaje efímero. El canonizado pierde esa propiedad tras el primer hito (la historia narrada ya es irrepetible).
+- **Reproducibilidad por semilla**: reproduce el mismo personaje efímero. El canonizado pierde esa propiedad tras el primer hito (la historia narrada ya es irrepetible).
 - **Basado en configuración**: pesos de sorteo, tablas de atributos, restricciones cruzadas, depósitos de nombres — todo vive en archivos de configuración externos al generador. Cambiar una regla es editar la configuración, no código.
 
 ---
@@ -28,9 +28,9 @@ Ver [[hoja-personaje]]
 ## Orden de fases
 
 ```
-Fase 1 — Afiliación    → rango, facción, subfacción
+Fase 1 — Afiliación    → rol, facción, subfacción, grupo, rango, mando
 Fase 2 — Identidad     → nombre, sobrenombre, edad, género
-Fase 3 — Atributos     → fis, tac, men  (determinísticos por rango)
+Fase 3 — Atributos     → fis, tac, men
 Fase 4 — Tags          → tags adicionales sorteados ponderados
 Fase 5 — Prosa         → historia por LLM (congela al canonizar)
 Fase 6 — Relaciones    → tags aliado.* / nemesis.* sembrados

@@ -171,8 +171,8 @@ efecto:
     categoria = aspecto (salvo que declare trigger en su lugar)
     o categoria = efecto
   uso: >
-    Cadena o lista de cadenas. Modificadores sobre el vocabulario canónico
-    (FISICO/TACTICO/MENTAL/INICIATIVA/MORAL/FATIGA/MOVIMIENTO/ESTRESS).
+    Lista de modificadores estructurados. Cada uno con `objetivo` (attr.* / stat.*),
+    un valor (`mod` entero o `pct` porcentaje) y una `nota` opcional. Ver [[contratos]].
 
 equipo_arma.tipo_accion:
   obligatorio_si: subcategoria = arma
@@ -262,12 +262,14 @@ El catálogo es **andamiaje, no jaula**. Tres ejes de extensión sin permiso ni 
 
 Los efectos mecánicos de un tag se declaran de dos maneras según su naturaleza:
 
-**Efecto pasivo / permanente (inline):** mientras el personaje tenga el tag, el efecto está activo. Se declara en el campo `efecto` a nivel raíz.
+**Efecto pasivo / permanente (inline):** mientras el personaje tenga el tag, el efecto está activo. Se declara en el campo `efecto` a nivel raíz, como lista de modificadores estructurados.
 
 ```yaml
 efecto:
-  - "(+2) INICIATIVA"
-  - "(+1) MORAL"
+  - objetivo: stat.iniciativa
+    mod: +2
+  - objetivo: stat.moral
+    mod: +1
 ```
 
 **Efecto reactivo / disparado (trigger):** el efecto se aplica ante un evento en partida. Se declara en un bloque `trigger` con `trigger-action` apuntando a entradas del catálogo `efecto.*`.
@@ -282,9 +284,9 @@ trigger:
 ```
 
 > [!tip] Vocabulario canónico de efectos
-> Los modificadores solo pueden apuntar a:
-> - Atributos base: `FISICO`, `TACTICO`, `MENTAL`
-> - Estadísticas calculadas: `INICIATIVA`, `MORAL`, `FATIGA`, `MOVIMIENTO`, `ESTRESS`
+> El campo `objetivo` de cada modificador apunta a una variable en notación punto:
+> - Atributos base: `attr.fisico`, `attr.tactico`, `attr.mental`
+> - Estadísticas calculadas: `stat.iniciativa`, `stat.moral`, `stat.fatiga`, `stat.movimiento`, `stat.estress`
 >
-> Ejemplos: `"(+1) MENTAL"`, `"(-1) FATIGA"`, `"-100% MOVIMIENTO"`, `"(+2) INICIATIVA"`.
-> Ver [[atributos]] para la mecánica de cada variable.
+> El valor va en `mod` (delta entero) o `pct` (porcentaje), con `nota` opcional.
+> Ver [[contratos]] para la forma completa y [[atributos]] para la mecánica de cada variable.

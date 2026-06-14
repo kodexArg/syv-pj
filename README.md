@@ -24,7 +24,8 @@ El universo en que habita este personaje es *Subordinación y Valor*: año 2178,
 | Qué son los contratos (rasgos, ventajas, destrezas) | [[contratos\|docs/contratos.md]] |
 | Qué son los atributos y las estadísticas calculadas | [[atributos-y-habilidades\|docs/atributos-y-habilidades.md]] |
 | Cómo se genera un personaje proceduralmente | [[generacion-procedural\|docs/generacion-procedural.md]] |
-| Cómo conectar el personaje al vault de diégesis | [[diegesis-y-obsidian\|docs/diegesis-y-obsidian.md]] |
+| De dónde sale el contexto del universo (lore, facciones, lugares) | [[diegesis\|docs/diegesis.md]] |
+| Cómo se escribe la documentación (Obsidian, OFM) | [[obsidian\|docs/obsidian.md]] |
 | Casos de uso concretos | [[casos-de-uso\|docs/casos-de-uso.md]] |
 | Entidades, tipos y reglas de persistencia | [[MODEL\|MODEL.md]] |
 | Operaciones, cargas y contratos HTTP | [[API\|API.md]] |
@@ -48,5 +49,6 @@ El universo en que habita este personaje es *Subordinación y Valor*: año 2178,
 - [[contratos|docs/contratos.md]] — Contratos de rasgos, ventajas, destrezas y efectos.
 - [[atributos-y-habilidades|docs/atributos-y-habilidades.md]] — Vocabulario canónico de atributos base y estadísticas calculadas.
 - [[generacion-procedural|docs/generacion-procedural.md]] — Flujo de creación procedural: cuatro fases, sorteos, tabla determinística.
-- [[diegesis-y-obsidian|docs/diegesis-y-obsidian.md]] — Convención de linkeo para integrar el personaje al vault Obsidian de SyV.
+- [[diegesis|docs/diegesis.md]] — Puntero al universo: el lore (facciones, lugares, lore) vive en `syv-docs`, no acá.
+- [[obsidian|docs/obsidian.md]] — Cómo se escribe la documentación: OFM y los skills `/obsidian-markdown` y `/obsidian-bases`.
 - [[casos-de-uso|docs/casos-de-uso.md]] — Catálogo de casos de uso con mapeo a operaciones.

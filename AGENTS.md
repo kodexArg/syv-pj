@@ -55,7 +55,7 @@ Toda la documentación de `syv-pj` es **de versión única**: refleja solo el es
 ## Idioma y estilo
 
 - **Castellano rioplatense, voseo sobrio.** Sin emojis salvo pedido explícito del usuario.
-- **Obsidian Flavored Markdown**: frontmatter con `title`, `tags`, `aliases`; wikilinks `[[archivo|alias]]` entre docs; callouts `> [!info]` / `> [!tip]` / `> [!warning]` / `> [!note]`. Resaltado `==así==` para términos que fijan contrato.
+- **Obsidian Flavored Markdown**: la sintaxis (frontmatter, wikilinks, callouts, resaltado `==así==`) y los skills `/obsidian-markdown` y `/obsidian-bases` viven en [[obsidian|docs/obsidian.md]] — única referencia, no se repite acá.
 - Razonamiento interno en inglés; salida en castellano.
 
 ---

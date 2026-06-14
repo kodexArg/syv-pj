@@ -52,7 +52,7 @@ base = max(FISICO, TACTICO, MENTAL)
 INICIATIVA = clamp(base + Σ modificadores_tags, 0, 5)
 ```
 
-- `Σ modificadores_tags`: suma algebraica de todos los `efecto` sobre `INICIATIVA` de los tags activos (ej. `(+2) INICIATIVA`, `(-1) INICIATIVA`).
+- `Σ modificadores_tags`: suma algebraica de todos los `efecto` sobre `INICIATIVA` de los tags activos (ej. modificadores con `objetivo: stat.iniciativa`).
 - `clamp(x, 0, 5)`: el resultado no puede caer por debajo de 0 ni superar 5.
 
 La iniciativa alta actúa primero en la grilla de combate, pero también queda expuesta antes. Actuar primero no es ventaja por sí sola: una ficha mal armada o sin cobertura adelanta su turno sin sacar provecho.
@@ -118,34 +118,46 @@ ESTRESS_max = MENTAL + Σ modificadores_tags   (mínimo 1)
 
 ## 3. Sistema de efectos: cómo los tags modifican atributos y estadísticas
 
-Un `efecto` es un paquete declarativo dentro de un tag (`aspecto.*`, `efecto.*`) que apunta al vocabulario canónico de esta sección. Dos formatos:
+Un `efecto` es un paquete declarativo dentro de un contrato (`aspecto.*`, `efecto.*`) que apunta al vocabulario canónico de esta sección. Cada modificador es un objeto con datos **separados y extraíbles**: el **objetivo** (la variable), el **valor** y una **nota** opcional. La forma completa del contrato vive en [[contratos]].
 
-### 3.1. Delta entero
+### 3.1. Objetivo en notación punto
+
+El campo `objetivo` nombra la variable afectada con prefijo:
+
+- `attr.*` — atributos base: `attr.fisico`, `attr.tactico`, `attr.mental`.
+- `stat.*` — estadísticas calculadas: `stat.iniciativa`, `stat.moral`, `stat.fatiga`, `stat.movimiento`, `stat.estress`.
+
+### 3.2. Delta entero (`mod`)
 
 Suma o resta un valor fijo a la variable objetivo.
 
-```
-"(+2) INICIATIVA"    → +2 al cálculo de INICIATIVA
-"(-1) FATIGA"        → -1 al depósito máximo de FATIGA
-"(+1) MENTAL"        → +1 al atributo MENTAL (solo para derivar estadísticas; no altera el atributo persistido salvo hito)
+```yaml
+- objetivo: stat.iniciativa
+  mod: +2            # +2 al cálculo de INICIATIVA
+- objetivo: stat.fatiga
+  mod: -1            # -1 al depósito máximo de FATIGA
+- objetivo: attr.mental
+  mod: +1            # +1 a MENTAL (solo para derivar estadísticas; no altera el atributo persistido salvo hito)
 ```
 
-Notación: `(+N)` o `(-N)` seguido del nombre en mayúsculas.
+`mod` es un entero con signo.
 
-### 3.2. Porcentaje
+### 3.3. Porcentaje (`pct`)
 
 Multiplica (o reduce) la variable por un porcentaje del valor base calculado en ese momento.
 
+```yaml
+- objetivo: stat.movimiento
+  pct: -100          # inmoviliza al personaje (MOVIMIENTO × 0)
+- objetivo: stat.fatiga
+  pct: +50           # aumenta el depósito máximo en 50% del valor base
 ```
-"-100% MOVIMIENTO"   → inmoviliza al personaje (MOVIMIENTO × 0)
-"+50% FATIGA"        → aumenta el depósito máximo en 50% del valor base
-```
 
-Notación: `+N%` o `-N%` seguido del nombre en mayúsculas. Los porcentajes se aplican **después** de sumar los deltas enteros.
+`pct` es un entero con signo, sin el símbolo `%`. Cada modificador lleva `mod` **o** `pct`, nunca ambos. Los porcentajes se aplican **después** de sumar los deltas enteros.
 
-### 3.3. Portabilidad
+### 3.4. Portabilidad
 
-Tanto los deltas como los porcentajes son **portables**: el mismo formato funciona para cualquier variable del vocabulario canónico presente o futuro. Si se agrega un nuevo atributo o estadística, basta nombrarlo en mayúsculas y el sistema de efectos ya sabe cómo procesarlo.
+Tanto los deltas como los porcentajes son **portables**: el mismo formato funciona para cualquier variable del vocabulario canónico presente o futuro. Si se agrega un nuevo atributo o estadística, basta nombrarlo con su prefijo (`attr.*` / `stat.*`) y el sistema de efectos ya sabe cómo procesarlo.
 
 > [!tip] Acumulación
 > Varios tags activos con efectos sobre la misma variable se acumulan algebraicamente. No existe límite de acumulación salvo el que imponga el `clamp` de cada estadística (donde corresponda).

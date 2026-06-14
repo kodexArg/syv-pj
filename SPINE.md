@@ -26,9 +26,10 @@ personaje**. Documentación + reglas + especificación de diseño en **Markdown*
 - **Castellano voseo sobrio.** (NO inglés — esto corrige el
   `ORCHESTRATOR.md` sembrado, que pedía inglés/universo-agnóstico; el líder asume
   esta divergencia siguiendo la orden viva del usuario.)
-- Markdown con **Markdown de Obsidian**: frontmatter con `title`, `tags:
-  [syv/pj/...]`, `aliases`. Wikilinks `[[archivo|alias]]` entre docs. Callouts
-  `> [!info]` / `> [!tip]` / `> [!warning]`. Sin emojis salvo pedido.
+- Markdown con **Markdown de Obsidian (OFM)**: cómo se escribe (frontmatter,
+  wikilinks, callouts, resaltado, skills `/obsidian-markdown` y `/obsidian-bases`)
+  es la única referencia `docs/obsidian.md` — no se repite en otros docs. Sin
+  emojis salvo pedido.
 - Sin versionado ni changelog dentro de los docs (lanzamiento continuo). El historial
   vive en git.
 
@@ -126,9 +127,10 @@ Modelar aspecto/habilidad/efecto como variantes del mismo patrón-contrato:
 El personaje se conecta al resto del mundo SyV por **tags y wikilinks Obsidian**:
 lealtades, facción, ubicaciones, otros personajes. **Las etiquetas SON tags
 de Obsidian**: la relación es lineal e intencional — cada tag de la hoja es
-directamente un tag del vault. Un doc dedicado
-(`docs/diegesis-y-obsidian.md`) define la convención de linkeo para que una hoja
-sea a la vez dato de juego y nodo navegable del vault de Diégesis.
+directamente un tag del vault. El **lore del universo no vive en syv-pj**: vive en
+`syv-docs` (SSOT). Dos docs separan la responsabilidad: `docs/diegesis.md` es el
+puntero a `syv-docs` (hoy un stub; crecerá con la convención de linkeo
+personaje↔vault), y `docs/obsidian.md` es la única referencia de cómo se escribe en OFM.
 
 ## Abierto/Cerrado
 
@@ -162,7 +164,7 @@ efímero; el canonizado pierde reproducibilidad tras el primer hito.
 - `docs/hoja-personaje.md` (núcleo), `docs/sistema-tags.md`,
   `docs/habilidades.md`, `docs/atributos.md`,
   `docs/generacion-procedural.md`, `docs/open-close.md`,
-  `docs/diegesis-y-obsidian.md`, `docs/casos-de-uso.md`
+  `docs/diegesis.md`, `docs/obsidian.md`, `docs/casos-de-uso.md`
 
 `SPINE.md` y `ORCHESTRATOR.md` NO se publican como entregables; quedan o se borran
 al cierre según decida el líder.

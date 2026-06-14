@@ -22,7 +22,7 @@ aliases:
 > - [[nemesis-y-aliados|nemesis-y-aliados.md]] — los vínculos personales (`aliado.*` / `nemesis.*`) como etiquetas relacionales.
 > - [[lealtad|lealtad.md]] — la lealtad (`lealtad.*`) como etiqueta relacional plana.
 > - [[generacion-procedural|generacion-procedural.md]] — cómo se completa una hoja desde el azar portable.
-> - [[diegesis-y-obsidian|diegesis-y-obsidian.md]] — cómo la hoja se vuelve nodo navegable del vault de Diégesis.
+> - [[diegesis|diegesis.md]] — el contexto del universo (facciones, lugares, lore) vive en `syv-docs`; este doc redirige.
 
 ---
 

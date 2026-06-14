@@ -102,4 +102,4 @@ La división del trabajo es limpia: la **etiqueta** afirma el vínculo vigente (
 
 ---
 
-En Diégesis, los tags `aliado.*` / `nemesis.*` se proyectan como secciones **Aliados** y **Némesis** de la nota del personaje, con la prosa tomada del hito correspondiente (ver [[diegesis-y-obsidian|diegesis-y-obsidian.md]]).
+En Diégesis, los tags `aliado.*` / `nemesis.*` se proyectan como secciones **Aliados** y **Némesis** de la nota del personaje, con la prosa tomada del hito correspondiente (ver [[diegesis|diegesis.md]]).
