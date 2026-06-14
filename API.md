@@ -39,15 +39,15 @@ Para sub-categorías: `GET /meta/equipo/arma`, `GET /meta/rol/oficio`, etc. La n
 
 ### `GET /personaje`
 
-Genera un personaje **efímero**. Parámetros opcionales vía query string:
+Genera un personaje **efímero**. Parámetros opcionales vía cadena de consulta:
 
 | Parámetro | Tipo | Notas |
 |---|---|---|
 | `faccion` | `str` | Slug de facción. |
 | `rango` | `str` | Slug de rango. |
-| `seed` | `str` | Semilla para reproducibilidad. `(seed, faccion, rango)` reproduce el mismo efímero. |
-| `fields` | `str` CSV de dot-paths | Poda la response. Ej: `fields=identidad.slug,atributos.fis`. |
-| `tag` | `str` (repetible) | Filtrado en AND lógico. El efímero debe portar todos los tags exigidos. OR no está soportado — el cliente lo resuelve con N calls + unión. |
+| `semilla` | `str` | Semilla para reproducibilidad. `(semilla, faccion, rango)` reproduce el mismo efímero. |
+| `campos` | `str` CSV de rutas de punto | Poda la respuesta. Ej: `campos=identidad.slug,atributos.fis`. |
+| `tag` | `str` (repetible) | Filtrado en AND lógico. El efímero debe portar todos los tags exigidos. OR no está soportado — el cliente lo resuelve con N llamadas + unión. |
 
 Devuelve un `personaje` con:
 - `identidad.slug: null` (los efímeros no tienen slug hasta canonizarse).
@@ -57,11 +57,11 @@ Devuelve un `personaje` con:
 
 Si la combinación de tags exigidos es inviable, devuelve **409**.
 
-Incluye los campos derivados (`es_canon`, `fatiga_max`, `moral_max`, `fza_aportada`, `filiacion`) calculados en caliente.
+Incluye los campos derivados (`es_canon`, `fatiga_max`, `moral_max`, `fza_aportada`, `filiacion`) calculados en tiempo real.
 
 ### `GET /personaje/{slug}`
 
-Devuelve la ficha vigente del personaje con `identidad.slug` exacto. 404 si no existe. Acepta `fields=` (dot-paths CSV) para podar la response. Incluye los campos derivados definidos en [[MODEL#1. personaje|MODEL.md §1]].
+Devuelve la ficha vigente del personaje con `identidad.slug` exacto. 404 si no existe. Acepta `campos=` (rutas de punto CSV) para podar la respuesta. Incluye los campos derivados definidos en [[MODEL#1. personaje|MODEL.md §1]].
 
 ### `GET /personaje/{slug}/historial`
 
@@ -69,12 +69,12 @@ Devuelve solo `historial[]` del personaje. Sin paginación en v1.
 
 ### `POST /personaje/{slug}/evento`
 
-Registra un hito sobre un personaje canonizado. Body: una entrada de `hito` (estructura en [[hoja-personaje#Historial|docs/hoja-personaje.md]]).
+Registra un hito sobre un personaje canonizado. Cuerpo: una entrada de `hito` (estructura en [[hoja-personaje#Historial|docs/hoja-personaje.md]]).
 
-Efecto: apendea el hito, aplica su efecto sobre los campos vigentes, actualiza `metadatos.ultima_actualizacion`, devuelve la ficha actualizada.
+Efecto: añade el hito, aplica su efecto sobre los campos vigentes, actualiza `metadatos.ultima_actualizacion`, devuelve la ficha actualizada.
 
 - **404** si el slug no existe.
-- **409** si el personaje es un fixture inmutable (mocks).
+- **409** si el personaje es una prueba inmutable (mocks).
 
 Tipos de hito y sus efectos sobre la ficha:
 
@@ -87,15 +87,15 @@ Tipos de hito y sus efectos sobre la ficha:
 | `ascenso` / `cambio_rol` | Actualiza `identidad.rol`. |
 | `formacion_lealtad` | Añade entrada a `aliados[]`. |
 | `identificacion_nemesis` | Añade entrada a `nemesis[]`. |
-| Otros tipos | Solo apendean el hito. Los efectos colaterales son responsabilidad del cliente. |
+| Otros tipos | Solo añaden el hito. Los efectos colaterales son responsabilidad del cliente. |
 
 ### `POST /canonizar`
 
-Persiste un personaje efímero como canonizado. Body: el payload del efímero (resultado de `GET /personaje`).
+Persiste un personaje efímero como canonizado. Cuerpo: la carga del efímero (resultado de `GET /personaje`).
 
-Efecto: asigna `identidad.slug` (patente `^[A-Z0-9]{8}$` generada en el servidor), congela `historia`, fija `metadatos.canonizado_en` con el timestamp actual. Devuelve la ficha canonizada.
+Efecto: asigna `identidad.slug` (patente `^[A-Z0-9]{8}$` generada en el servidor), congela `historia`, fija `metadatos.canonizado_en` con la marca de tiempo actual. Devuelve la ficha canonizada.
 
-Idempotente por `(seed, faccion, rango)`: si ya existe un canonizado con esa combinación, devuelve el existente sin crear duplicado.
+Idempotente por `(semilla, faccion, rango)`: si ya existe un canonizado con esa combinación, devuelve el existente sin crear duplicado.
 
 ---
 
@@ -111,7 +111,7 @@ Devuelve la ficha detallada del grupo. Incluye `identidad`, `miembros[]`, `histo
 
 ### `POST /grupos`
 
-Crea y persiste un nuevo grupo. Body:
+Crea y persiste un nuevo grupo. Cuerpo:
 
 ```yaml
 identidad:
@@ -123,18 +123,18 @@ miembros: []            # opcional; lista inicial de miembro
 
 ### `POST /grupos/{slug}/miembro`
 
-Añade un personaje como miembro del grupo. Body:
+Añade un personaje como miembro del grupo. Cuerpo:
 
 ```yaml
 ref: str                # patente del personaje ^[A-Z0-9]{8}$
 pos: int                # orden táctico en la formación
 puntos: int             # costo en puntos de reclutamiento (1..5)
-aspectos: []            # opcional; default []
+aspectos: []            # opcional; valor por defecto []
 ```
 
 Efectos colaterales:
 - Añade la entrada de `miembro` a `grupo.miembros[]`.
-- Añade los tags `grupo.{slug}` y `lealtad.grupo.{slug}` a la hoja del personaje.
+- Añade los tags `grupo.{slug}` y `lealtad.grupo.{slug}` a la ficha del personaje.
 - Registra un hito `asignacion_grupo` en `personaje.historial[]` y un hito `incorporacion_miembro` en `grupo.historial[]`.
 
 ### `DELETE /grupos/{slug}/miembro/{char_slug}`
@@ -152,7 +152,7 @@ Efectos colaterales:
 
 ### `GET /generar`
 
-Equivalente semántico de `GET /personaje` con énfasis en el flujo completo de generación. Acepta los mismos parámetros (`faccion`, `rango`, `seed`, `fields`, `tag`).
+Equivalente semántico de `GET /personaje` con énfasis en el flujo completo de generación. Acepta los mismos parámetros (`faccion`, `rango`, `semilla`, `campos`, `tag`).
 
 Internamente ejecuta las cuatro fases de generación procedural documentadas en [[generacion-procedural|docs/generacion-procedural.md]]:
 
@@ -161,7 +161,7 @@ Internamente ejecuta las cuatro fases de generación procedural documentadas en 
 3. Tags sorteados ponderados desde catálogo.
 4. Prosa generada por LLM (120–200 palabras).
 
-Devuelve el mismo payload que `GET /personaje`: un efímero listo para ser canonizado con `POST /canonizar`.
+Devuelve la misma carga que `GET /personaje`: un efímero listo para ser canonizado con `POST /canonizar`.
 
 ---
 
@@ -177,7 +177,7 @@ Ver §1 — el endpoint vive bajo personajes porque la canonización es el acto 
 
 ### 5.1. `GET /meta/facciones`
 
-Devuelve las facciones canon. Cada entrada:
+Devuelve las facciones canónicas. Cada entrada:
 
 ```yaml
 slug: str
@@ -192,7 +192,7 @@ Devuelve los rangos operativos con su tabla determinística de atributos base y 
 ```yaml
 slug: str
 nombre: str
-faccion: str            # slug de facción; rangos son facción-específicos
+faccion: str            # slug de facción; rangos son específicos de facción
 atributos_base:
   fis: int
   tac: int
@@ -203,7 +203,7 @@ rol_cultural: str       # título usado por esa facción (ej. "Camarada Puntero"
 
 ### 5.3. `GET /meta/tipos_hito`
 
-Devuelve el enum sugerido de tipos de hito. Lista abierta — el servidor la sirve, el cliente puede usar tipos fuera de esta lista.
+Devuelve la enumeración sugerida de tipos de hito. Lista abierta — el servidor la sirve, el cliente puede usar tipos fuera de esta lista.
 
 ### 5.4. `GET /meta/{categoria}`
 
@@ -217,19 +217,19 @@ Ver convención genérica al inicio de este documento. Devuelve las entradas de 
 
 Genera y devuelve una patente opaca de encuentro para uso en el estado volátil de combate de los miembros del grupo.
 
-Response:
+Respuesta:
 
 ```yaml
 patente: str            # ^[A-Z0-9]{8}$; único contra patentes ya vistas
 ```
 
-Sin parámetros. Sin efectos colaterales: `syv-pj` no persiste la patente en una tabla de encuentros; solo garantiza no repetirla. El motor de batalla downstream es responsable de modelar el encuentro como entidad si lo necesita.
+Sin parámetros. Sin efectos colaterales: `syv-pj` no persiste la patente en una tabla de encuentros; solo garantiza no repetirla. El motor de batalla que consume esta API es responsable de modelar el encuentro como entidad si lo necesita.
 
 ---
 
 ## 7. Tabla plana de endpoints
 
-| Método | Path | Descripción |
+| Método | Ruta | Descripción |
 |---|---|---|
 | GET | `/personaje` | Genera un personaje efímero |
 | GET | `/personaje/{slug}` | Ficha vigente del canonizado |
@@ -243,9 +243,9 @@ Sin parámetros. Sin efectos colaterales: `syv-pj` no persiste la patente en una
 | POST | `/grupos/{slug}/miembro` | Añade un miembro al grupo |
 | DELETE | `/grupos/{slug}/miembro/{char_slug}` | Remueve un miembro del grupo |
 | GET | `/meta/{categoria}` | Catálogo de una categoría de tag |
-| GET | `/meta/facciones` | Facciones canon con lore |
+| GET | `/meta/facciones` | Facciones canónicas con lore |
 | GET | `/meta/rangos` | Rangos con tabla determinística de atributos |
-| GET | `/meta/tipos_hito` | Enum sugerido de tipos de hito |
+| GET | `/meta/tipos_hito` | Enumeración sugerida de tipos de hito |
 | GET | `/meta/encuentro/nuevo` | Genera patente de encuentro |
 
 Catálogo completo de casos de uso en [[casos-de-uso|docs/casos-de-uso.md]].

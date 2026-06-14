@@ -22,7 +22,7 @@ El módulo es:
 
 - **Independiente** — no referencia ni depende de ningún otro repo. Es la evolución limpia y autónoma de bosquejos previos.
 - **Fiel a SyV** — usa los términos, la nomenclatura y captura el espíritu del universo: Anatema Mecánico, voz/gesto/banderín, milicias vs. ejército regular, voseo sobrio.
-- **Agnóstico al uso, no al universo** — un mismo personaje homogeneizado sirve para diégesis (Obsidian, wikilinks, narrativa), juego de estrategia (stats numéricas para combate), juego de rol, y generación de fichas visuales. `syv-pj` clasifica, almacena y entrega; el consumidor decide el uso.
+- **Agnóstico al uso, no al universo** — un mismo personaje homogeneizado sirve para diégesis (Obsidian, wikilinks, narrativa), juego de estrategia (estadísticas numéricas para combate), juego de rol, y generación de fichas visuales. `syv-pj` clasifica, almacena y entrega; el consumidor decide el uso.
 
 ### 1.1. Contexto de universo
 
