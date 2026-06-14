@@ -1,11 +1,11 @@
 ---
-title: Open/Closed — Extensión sin migración
+title: Abierto/Cerrado — Extensión sin migración
 tags:
   - syv/pj/arquitectura
   - syv/pj/schema
 aliases:
   - open-close
-  - Principio Open/Closed
+  - Principio Abierto/Cerrado
 ---
 
 # Abierto/Cerrado — Extensión sin migración
@@ -90,7 +90,7 @@ El campo `extras: object | null` en la raíz de la hoja es la válvula de extens
 
 Las estadísticas (`INICIATIVA`, `MORAL`, `FATIGA`, `MOVIMIENTO`, `ESTRESS`) se calculan en tiempo real desde los atributos base y los efectos de los tags activos. Agregar una estadística nueva sigue el mismo patrón:
 
-1. Definir la fórmula en [[atributos-y-stats|docs/atributos.md]].
+1. Definir la fórmula en [[atributos|docs/atributos.md]].
 2. Referenciarla desde los tags que la modifican.
 3. Ningún dato persistido cambia.
 

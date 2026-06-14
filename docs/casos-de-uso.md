@@ -25,7 +25,7 @@ aliases:
 | **Motor de rol** | Tags de rasgos/ventajas/destrezas, contratos (efectos declarados), historial de hitos, vínculos (`aliados[]`, `nemesis[]`). |
 | **Generador visual** | Tags de vestidura, rango, facción, género, edad — suficiente para construir el indicador de imagen. |
 
-Ningún consumidor necesita el personaje completo. El schema es único; la proyección varía.
+Ningún consumidor necesita el personaje completo. El esquema es único; la proyección varía.
 
 ---
 

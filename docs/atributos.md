@@ -118,7 +118,7 @@ ESTRESS_max = MENTAL + Σ modificadores_tags   (mínimo 1)
 
 ---
 
-## 3. Sistema de efectos: cómo los tags modifican atributos y stats
+## 3. Sistema de efectos: cómo los tags modifican atributos y estadísticas
 
 Un `efecto` es un paquete declarativo dentro de un tag (`aspecto.*`, `efecto.*`) que apunta al vocabulario canónico de esta sección. Dos formatos:
 
@@ -129,7 +129,7 @@ Suma o resta un valor fijo a la variable objetivo.
 ```
 "(+2) INICIATIVA"    → +2 al cálculo de INICIATIVA
 "(-1) FATIGA"        → -1 al pool máximo de FATIGA
-"(+1) MENTAL"        → +1 al atributo MENTAL (solo para derivar stats; no altera el atributo persistido salvo hito)
+"(+1) MENTAL"        → +1 al atributo MENTAL (solo para derivar estadísticas; no altera el atributo persistido salvo hito)
 ```
 
 Notación: `(+N)` o `(-N)` seguido del nombre en mayúsculas.
@@ -150,4 +150,4 @@ Notación: `+N%` o `-N%` seguido del nombre en mayúsculas. Los porcentajes se a
 Tanto los deltas como los porcentajes son **portables**: el mismo formato funciona para cualquier variable del vocabulario canónico presente o futuro. Si se agrega un nuevo atributo o estadística, basta nombrarlo en mayúsculas y el sistema de efectos ya sabe cómo procesarlo.
 
 > [!tip] Acumulación
-> Varios tags activos con efectos sobre la misma variable se acumulan algebraicamente. No existe límite de acumulación salvo el que imponga el `clamp` de cada stat (donde corresponda).
+> Varios tags activos con efectos sobre la misma variable se acumulan algebraicamente. No existe límite de acumulación salvo el que imponga el `clamp` de cada estadística (donde corresponda).
