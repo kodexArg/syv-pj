@@ -12,7 +12,7 @@ aliases:
 
 Flujo canónico para construir un personaje de *Subordinación y Valor*. El orden **no sigue la hoja terminada**: la afiliación operativa va primero porque determina qué es válido en cada fase siguiente. Todo está basado en configuración; ningún valor está codificado directamente en el generador.
 
-Ver [[hoja-personaje]], [[sistema-tags]], [[atributos-y-stats]].
+Ver [[hoja-personaje]], [[sistema-tags]], [[atributos-y-habilidades]].
 
 ---
 
@@ -150,7 +150,7 @@ Topes absolutos de la escala: `fis 7`, `tac 7`, `men 7`. Los valores de creació
 Esta tabla vive en configuración (no en código). Cambiar un valor de rango es editar la tabla; el generador la lee en tiempo de ejecución.
 
 > [!info] Inmutabilidad práctica
-> Un ascenso posterior cambia el tag `rango.*` pero no los atributos. El progreso real es el equipo, los perks y los vínculos ganados en campaña. Mutación solo vía hito `triple_cero` o `mejora_atributo`.
+> Un ascenso posterior cambia el tag `rango.*` pero no los atributos. El progreso real es el equipo, las ventajas y los vínculos ganados en campaña. Mutación solo vía hito `triple_cero` o `mejora_atributo`.
 
 ---
 

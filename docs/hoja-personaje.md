@@ -16,8 +16,8 @@ aliases:
 >
 > **Documentos hermanos**:
 > - [[sistema-tags|sistema-tags.md]] — la lista plana `tags[]`: notación, categorías, catálogo y curaduría.
-> - [[atributos-y-stats|atributos-y-stats.md]] — escalas de `fis/tac/men`, estadísticas derivadas y vocabulario canónico de efectos.
-> - [[habilidades|perks-y-traits.md]] — aspectos, habilidades, destrezas y efectos como contratos.
+> - [[atributos-y-habilidades|atributos-y-habilidades.md]] — escalas de `fis/tac/men`, estadísticas derivadas y vocabulario canónico de efectos.
+> - [[habilidades|rasgos-y-ventajas.md]] — aspectos, habilidades, destrezas y efectos como contratos.
 > - [[generacion-procedural|generacion-procedural.md]] — cómo se completa una hoja desde el azar portable.
 > - [[diegesis-y-obsidian|diegesis-y-obsidian.md]] — cómo la hoja se vuelve nodo navegable del vault de Diégesis.
 
@@ -33,9 +33,9 @@ Seis bloques estructurales, dos colecciones persistidas y una lista plana de tag
 personaje:
   identidad:    { slug, nombre, sobrenombre, rol, genero, edad }
   atributos:    { fis, tac, men }   # únicas magnitudes numéricas persistidas
-  tags:         [...]               # lista plana, notación punto, multiset
+  tags:         [...]               # lista plana, notación punto, NO multiconjunto (último valor gana)
   historia:     str                 # prosa biográfica, congelada al canonizar
-  historial:    [...]               # hitos temporales (event log, append-only)
+  historial:    [...]               # hitos temporales (registro de eventos, de solo añadir)
   aliados:      [...]               # {ref, descripcion, desde?} — vínculo con prosa
   nemesis:      [...]               # {ref, descripcion, desde?}
   metadatos:    { creado_en, canonizado_en, ultima_actualizacion }
@@ -67,7 +67,7 @@ slug:
   formato:     ^[A-Z0-9]{8}$          # patente opaca, ej. K9F2H3M4
   ejemplos:    [K9F2H3M4, SLG3D7K2, NMC8H5P9]
   generacion:  El servidor genera al persistir (random + chequeo de colisión).
-  custom:      Admitido para mock data o curaduría manual; mismo regex, mismo check.
+  custom:      Admitido para datos de ejemplo o curaduría manual; mismo regex, mismo chequeo.
   mutable:     false
 ```
 
@@ -121,23 +121,23 @@ men:  { significado: "Liderazgo, moral base, resistencia psíquica.",  rango: 2.
 
 > [!tip] Determinísticos en creación, mutables solo vía hito
 > En creación los atributos son **determinísticos por rol/rango** desde tablas de configuración (cero azar en estadísticas). Después solo cambian vía hito (`triple_cero` o `mejora_atributo`).
-> Toda otra capacidad numérica (fatiga máxima, moral máxima, fuerza aportada, mando vigente) es **derivada en caliente con fórmulas fijas y no se persiste**, para evitar desincronización. Topes, fórmulas y el vocabulario canónico de estadísticas viven en [[atributos-y-stats|atributos-y-stats.md]].
+> Toda otra capacidad numérica (fatiga máxima, moral máxima, fuerza aportada, mando vigente) es **derivada en caliente con fórmulas fijas y no se persiste**, para evitar desincronización. Topes, fórmulas y el vocabulario canónico de estadísticas viven en [[atributos-y-habilidades|atributos-y-habilidades.md]].
 
 > [!info] Azar portable
-> Las magnitudes se expresan en formato portable, agnóstico al sistema de resolución: probabilidades en **porcentaje** (`40% de fallar`), modificadores sobre atributos/estadísticas como **delta entero** (`(+1) MENTAL`), modificadores sobre magnitudes continuas en **porcentaje** (`-100% MOVIMIENTO`). Detalle en [[atributos-y-stats|atributos-y-stats.md]] y la política editorial en [[AGENTS|AGENTS.md]].
+> Las magnitudes se expresan en formato portable, agnóstico al sistema de resolución: probabilidades en **porcentaje** (`40% de fallar`), modificadores sobre atributos/estadísticas como **delta entero** (`(+1) MENTAL`), modificadores sobre magnitudes continuas en **porcentaje** (`-100% MOVIMIENTO`). Detalle en [[atributos-y-habilidades|atributos-y-habilidades.md]] y la política editorial en [[AGENTS|AGENTS.md]].
 
 ---
 
 ## §3 — Tags
 
-Lista plana de strings en notación punto. Es la **fuente de verdad de todo lo discreto** del personaje: rango, escuadra, mando, equipo, salud, estado mental, rasgos, lealtades a facción/subfacción/grupo, skills, perks, traits.
+Lista plana de cadenas en notación punto. Es la **fuente de verdad de todo lo discreto** del personaje: rango, escuadra, mando, equipo, salud, estado mental, rasgos, lealtades a facción/subfacción/grupo, destrezas, ventajas, rasgos.
 
 > [!important] El contrato vive en sistema-tags.md
 > La definición completa, las categorías canónicas, el formato y las reglas de catálogo viven en [[sistema-tags|sistema-tags.md]]. Acá solo se fija el contrato con la hoja.
 
 ```yaml
 forma:   <categoria>[.<subcategoria>].<slug>
-tipo:    list[str]                # multiset, no set — admite repetidos
+tipo:    list[str]                # NO multiconjunto — ante repetidos gana el último valor
 default: []
 ```
 
@@ -152,7 +152,7 @@ moral_max:    { fuente: "men",                        tipo: int }
 fza_aportada: { fuente: "tags rol.combate.*",         valores: "{heroe: 3, lider: 2, default: 1}" }
 ```
 
-Las fórmulas canónicas y sus escalas viven en [[atributos-y-stats|atributos-y-stats.md]]. Cambios post-creación en `tags[]` se registran como hito `agregar_tag` / `quitar_tag` con metadatos `{tag}`.
+Las fórmulas canónicas y sus escalas viven en [[atributos-y-habilidades|atributos-y-habilidades.md]]. Cambios post-creación en `tags[]` se registran como hito `agregar_tag` / `quitar_tag` con metadatos `{tag}`.
 
 ### 3.2. Etiqueta relacional vs. vínculo personal
 
@@ -210,7 +210,7 @@ inmutable_tras:  Canonización. Se congela como artefacto.
 
 ## §5 — Historial
 
-Array de hitos. Cada entrada describe un evento temporal sobre el personaje ya canonizado. Es un **registro de eventos append-only**.
+Array de hitos. Cada entrada describe un evento temporal sobre el personaje ya canonizado. Es un **registro de eventos de solo añadir**.
 
 ```yaml
 fecha:       ISO-8601
@@ -224,7 +224,7 @@ metadata:    object          # libre
 > Catálogo sugerido: `triple_cero`, `ascenso`, `herida`, `recuperacion`, `agregar_tag`, `quitar_tag`, `traslado`, `condecoracion`, `mejora_atributo`, `cambio_rango`, `cambio_mando`, `cambio_estado`, `cambio_salud`, `cambio_mental`, `asignacion_escuadra`, `identificacion_nemesis`, `formacion_lealtad`, `ruptura_lealtad`.
 > El catálogo es **sugerido, no cerrado**: tipos personalizados son legítimos. La mitigación es curaduría, no validación. Personajes recién creados arrancan con `historial: []`.
 
-> [!note] Append-only
+> [!note] De solo añadir
 > No hay reverso de hito: un error se corrige con un hito compensatorio nuevo, no borrando el anterior. La línea de tiempo es íntegra por construcción.
 
 ---
@@ -269,17 +269,17 @@ Qué cambia, y cómo:
 | `identidad.rol` | vía hito | `ascenso` / `cambio_rol` |
 | `aliados[]` | vía hito | `formacion_lealtad` |
 | `nemesis[]` | vía hito | `identificacion_nemesis` |
-| `historial[]` | vía hito | append-only (`POST /event`) |
+| `historial[]` | vía hito | de solo añadir (`POST /evento`) |
 | `metadatos.ultima_actualizacion` | automático | en cada hito |
 | `identidad.edad` | sin hito | decisión narrativa explícita |
 | `identidad.sobrenombre` | sin hito | derivado al servir |
 | `extras` | sin hito | libre, escritura del cliente |
-| `identidad.slug` | inmutable | set una vez al canonizar |
+| `identidad.slug` | inmutable | fijado una vez al canonizar |
 | `identidad.nombre` | inmutable | — |
 | `identidad.genero` | inmutable | — |
 | `historia` | inmutable | congelada al canonizar |
 | `metadatos.creado_en` | inmutable | — |
-| `metadatos.canonizado_en` | inmutable | set una vez al canonizar |
+| `metadatos.canonizado_en` | inmutable | fijado una vez al canonizar |
 | `filiacion`, `fatiga_max`, `moral_max`, `fza_aportada` | derivado | recomputado al servir |
 | `sobrenombre` (cuando deriva), `es_canon` | derivado | recomputado al servir |
 

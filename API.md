@@ -10,7 +10,7 @@ aliases:
 # API — syv-pj
 
 > [!info] Fuente de Verdad del Contrato HTTP
-> Cualquier mención a rutas en [[PRD|PRD.md]], `docs/*` o fixtures se resuelve contra este archivo. Si una ruta no figura acá, no existe en el contrato.
+> Cualquier mención a rutas en [[PRD|PRD.md]], `docs/*` o datos de ejemplo se resuelve contra este archivo. Si una ruta no figura acá, no existe en el contrato.
 >
 > Los tipos de campo y reglas de mutabilidad viven en [[MODEL|MODEL.md]]. **Sincronía absoluta con [[MODEL|MODEL.md]].**
 >
@@ -22,7 +22,7 @@ aliases:
 
 `GET /meta/{categoria}` devuelve el catálogo curado de esa categoría de tag. La estructura de cada entrada es la definida en [[sistema-tags|docs/sistema-tags.md]].
 
-Las categorías curadas de referencia (`destreza`, `rasgo`, `ventaja`, `rasgo`, `equipo`, `rol`, etc.) se detallan en [[sistema-tags#Categorías de referencia|docs/sistema-tags.md]]. Categorías nuevas se exponen automáticamente bajo `/meta/{categoria}` desde que existen — no requieren entrada en este archivo.
+Las categorías curadas de referencia (`destreza`, `rasgo`, `ventaja`, `equipo`, `rol`, etc.) se detallan en [[sistema-tags#Categorías de referencia|docs/sistema-tags.md]]. Categorías nuevas se exponen automáticamente bajo `/meta/{categoria}` desde que existen — no requieren entrada en este archivo.
 
 Para sub-categorías: `GET /meta/equipo/arma`, `GET /meta/rol/oficio`, etc. La notación de la ruta usa barras (`/meta/equipo/arma`); la notación interna del tag usa punto (`equipo.arma`).
 
@@ -74,14 +74,14 @@ Registra un hito sobre un personaje canonizado. Cuerpo: una entrada de `hito` (e
 Efecto: añade el hito, aplica su efecto sobre los campos vigentes, actualiza `metadatos.ultima_actualizacion`, devuelve la ficha actualizada.
 
 - **404** si el slug no existe.
-- **409** si el personaje es una prueba inmutable (mocks).
+- **409** si el personaje es un personaje de ejemplo inmutable.
 
 Tipos de hito y sus efectos sobre la ficha:
 
 | Tipo | Efecto sobre la ficha |
 |---|---|
-| `agregar_tag` | Añade `metadata.valor` a `tags[]`. |
-| `quitar_tag` | Elimina primera ocurrencia de `metadata.valor` de `tags[]`. |
+| `agregar_tag` | Añade `metadata.valor` a `tags[]`; si ya existe, gana el último valor (no se duplica). |
+| `quitar_tag` | Elimina `metadata.valor` de `tags[]`. |
 | `mejora_atributo` | Incrementa `atributos.{metadata.atributo}` en `metadata.delta`. |
 | `triple_cero` | Modifica `atributos.{metadata.atributo}` según la regla del triple-cero. |
 | `ascenso` / `cambio_rol` | Actualiza `identidad.rol`. |
@@ -137,7 +137,7 @@ Efectos colaterales:
 - Añade los tags `grupo.{slug}` y `lealtad.grupo.{slug}` a la ficha del personaje.
 - Registra un hito `asignacion_grupo` en `personaje.historial[]` y un hito `incorporacion_miembro` en `grupo.historial[]`.
 
-### `DELETE /grupos/{slug}/miembro/{char_slug}`
+### `DELETE /grupos/{slug}/miembro/{slug_personaje}`
 
 Remueve a un miembro del grupo.
 
@@ -156,7 +156,7 @@ Equivalente semántico de `GET /personaje` con énfasis en el flujo completo de 
 
 Internamente ejecuta las cuatro fases de generación procedural documentadas en [[generacion-procedural|docs/generacion-procedural.md]]:
 
-1. Identidad sorteada (nombre, género, edad desde pools).
+1. Identidad sorteada (nombre, género, edad desde depósitos).
 2. Atributos determinísticos por rol/rango desde tabla de configuración.
 3. Tags sorteados ponderados desde catálogo.
 4. Prosa generada por LLM (120–200 palabras).
@@ -241,7 +241,7 @@ Sin parámetros. Sin efectos colaterales: `syv-pj` no persiste la patente en una
 | GET | `/grupos/{slug}` | Ficha detallada del grupo |
 | POST | `/grupos` | Crea un grupo |
 | POST | `/grupos/{slug}/miembro` | Añade un miembro al grupo |
-| DELETE | `/grupos/{slug}/miembro/{char_slug}` | Remueve un miembro del grupo |
+| DELETE | `/grupos/{slug}/miembro/{slug_personaje}` | Remueve un miembro del grupo |
 | GET | `/meta/{categoria}` | Catálogo de una categoría de tag |
 | GET | `/meta/facciones` | Facciones canónicas con lore |
 | GET | `/meta/rangos` | Rangos con tabla determinística de atributos |

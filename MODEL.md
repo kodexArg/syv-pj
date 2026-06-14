@@ -20,7 +20,7 @@ aliases:
 
 ## Entidades
 
-Cuatro entidades persistidas: `personaje`, `tag_catalogo`, `grupo`, `faccion`. Dos colecciones embebidas: `hito` y `vinculo`. Skills, traits, perks y equipo son **tags** y viven como entradas de `tag_catalogo`.
+Cuatro entidades persistidas: `personaje`, `tag_catalogo`, `grupo`, `faccion`. Dos colecciones embebidas: `hito` y `vinculo`. Destrezas, rasgos, ventajas y equipo son **tags** y viven como entradas de `tag_catalogo`.
 
 ---
 
@@ -33,15 +33,15 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 | `identidad.slug` | `str` `^[A-Z0-9]{8}$` \| `null` | set una vez | PK. `null` en efímeros. Asignada por el servidor al canonizar. |
 | `identidad.nombre` | `str` | inmutable | Legible. No único. |
 | `identidad.sobrenombre` | `str \| null` | mutable (sin hito) | `null` si no aplica. |
-| `identidad.rol` | `str` | mutable vía hito `ascenso` / `cambio_rol` | Default `"ciudadano"`. Narrativo. |
-| `identidad.genero` | `str` | inmutable | Enum abierto: `masculino \| femenino \| no_binario \| otro`. |
+| `identidad.rol` | `str` | mutable vía hito `ascenso` / `cambio_rol` | Por defecto `"ciudadano"`. Narrativo. |
+| `identidad.genero` | `str` | inmutable | Catálogo abierto: `masculino \| femenino \| no_binario \| otro`. |
 | `identidad.edad` | `int` | mutable (sin hito) | Decisión narrativa. |
 | `atributos.fis` | `int` (2..5) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7; tope absoluto 5 al crear. |
 | `atributos.tac` | `int` (2..6) | vía hito `triple_cero` / `mejora_atributo` | Tope absoluto 6; creación máx 5; vía hito hasta tope. |
 | `atributos.men` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Tope absoluto 7; creación máx 6; vía hito hasta tope. |
-| `tags[]` | `list<str>` (multiset) | vía hito `agregar_tag` / `quitar_tag` | Notación punto `<categoria>[.<subcategoria>].<slug>`. Admite repetidos. |
+| `tags[]` | `list<str>` (no multiconjunto) | vía hito `agregar_tag` / `quitar_tag` | Notación punto `<categoria>[.<subcategoria>].<slug>`. NO admite repetidos: ante un repetido gana el último valor. |
 | `historia` | `str` | inmutable tras canonizar | 120–200 palabras. Congelada al canonizar. |
-| `historial[]` | `list<hito>` (embebida) | append-only vía `POST /evento` | Ver §1.1. |
+| `historial[]` | `list<hito>` (embebida) | de solo añadir vía `POST /evento` | Ver §1.1. |
 | `aliados[]` | `list<vinculo>` | mutable vía hito `formacion_lealtad` | Ver §1.2. |
 | `nemesis[]` | `list<vinculo>` | mutable vía hito `identificacion_nemesis` | Misma forma que `aliados[]`. |
 | `metadatos.creado_en` | `str` ISO-8601 | inmutable | |
@@ -64,12 +64,12 @@ Aparecen en la respuesta de `GET /personaje` y `GET /personaje/{slug}` junto con
 | Campo | Tipo | Notas |
 |---|---|---|
 | `fecha` | `str` ISO-8601 | |
-| `tipo` | `str` | Enum abierto sugerido. Ver [[hoja-personaje#Historial|docs/hoja-personaje.md §Historial]]. |
+| `tipo` | `str` | Catálogo abierto sugerido. Ver [[hoja-personaje#Historial|docs/hoja-personaje.md §Historial]]. |
 | `descripcion` | `str` | Obligatorio. |
 | `ref_batalla` | `str \| null` | Slug de batalla externa; referencia narrativa. |
 | `metadata` | `object` | Libre. Convención: `{ atributo, delta, valor_anterior, valor_nuevo }` para mejoras; `{ categoria, valor }` para agregar/quitar tag. |
 
-Tipos de hito sugeridos (enum abierto): `combate`, `ascenso`, `cambio_rol`, `triple_cero`, `mejora_atributo`, `agregar_tag`, `quitar_tag`, `formacion_lealtad`, `identificacion_nemesis`, `licencia`, `desercion`, `muerte`.
+Tipos de hito sugeridos (catálogo abierto): `combate`, `ascenso`, `cambio_rol`, `triple_cero`, `mejora_atributo`, `agregar_tag`, `quitar_tag`, `formacion_lealtad`, `identificacion_nemesis`, `licencia`, `desercion`, `muerte`.
 
 ### 1.2. `vinculo` (embebido en `personaje.aliados[]` y `personaje.nemesis[]`)
 
@@ -92,22 +92,22 @@ Catálogo curado de tags. Servido por `GET /meta/{categoria}`. El catálogo se s
 | `categoria` | `str` | sí | Primer segmento del tag en notación punto. |
 | `subcategoria` | `str \| null` | condicional | Obligatorio si `categoria ∈ {equipo, rol}`. Segmento intermedio. |
 | `descripcion` | `str` | sí | 1–3 frases. |
-| `origen` | `str` | no (default `emergente`) | Enum: `canon \| emergente \| custom`. |
-| `efecto` | `str \| list<str> \| null` | condicional | Obligatorio si `categoria = trait` (sin `trigger`) o `categoria = efecto`. Modificadores sobre vocabulario canónico. Ver [[atributos-y-stats|docs/atributos-y-stats.md]]. |
+| `origen` | `str` | no (por defecto `emergente`) | Catálogo: `canon \| emergente \| custom`. |
+| `efecto` | `str \| list<str> \| null` | condicional | Obligatorio si `categoria = rasgo` (sin `trigger`) o `categoria = efecto`. Modificadores sobre vocabulario canónico. Ver [[atributos-y-habilidades|docs/atributos-y-habilidades.md]]. |
 | `trigger` | `object \| null` | no | `{ evento, condicion, probabilidad?, trigger_action[] }`. Efectos reactivos. |
 | `requires` | `object \| null` | no | `{ require_all[], require_any[] }`. Prefijo `"no:"` para NOT. Documentación ejecutable, no validación dura. |
 | `excluye` | `list<str> \| null` | no | Tags incompatibles. |
 | `peso` | `int` (0..50) | si `categoria = equipo` | Unidad: kg. |
 | `peso_narrativo` | `int` (1..5) | no | Hint al sorteador procedural. |
-| `atributo_dominante` | `str` \| `null` | si `categoria = skill` | `fis \| tac \| men`. |
+| `atributo_dominante` | `str` \| `null` | si `categoria = destreza` | `fis \| tac \| men`. |
 | `tags_relacionados` | `list<str>` | no | Informativo. |
 | `metadatos` | `object` | no | `{ creado_en, ultima_actualizacion }`. |
 
-**PK sugerida**: tag completo en notación punto como string, o tupla `(categoria, subcategoria, slug)`.
+**Clave primaria sugerida**: tag completo en notación punto como cadena, o tupla `(categoria, subcategoria, slug)`.
 
 **Índice operativo**: inverted index `tag_full → set<personaje.slug>` reconstruido desde `personaje.tags[]`.
 
-**Categorías de referencia** (abiertas — enumeradas en [[sistema-tags|docs/sistema-tags.md]]): `faccion`, `subfaccion`, `rango`, `grupo`, `mando`, `estado`, `salud`, `mental`, `rasgo`, `trait`, `perk`, `efecto`, `skill`, `equipo` (`.arma` / `.utilitario` / `.vestidura`), `rol` (`.oficio` / `.jerarquia` / `.narrativo` / `.combate`), `lealtad`.
+**Categorías de referencia** (abiertas — enumeradas en [[sistema-tags|docs/sistema-tags.md]]): `faccion`, `subfaccion`, `rango`, `grupo`, `mando`, `estado`, `salud`, `mental`, `rasgo`, `ventaja`, `destreza`, `efecto`, `equipo` (`.arma` / `.utilitario` / `.vestidura`), `rol` (`.oficio` / `.jerarquia` / `.narrativo` / `.combate`), `lealtad`.
 
 ---
 
@@ -122,7 +122,7 @@ Agrupación táctica de personajes. Servido por `GET /grupos/{slug}`, modificado
 | `identidad.faccion` | `str` (slug de `faccion`) | inmutable | Referencia a la facción. |
 | `identidad.tipo` | `str` | inmutable | Tipo (ej. `escuadra_de_infanteria`, `celula_obrera`). |
 | `miembros[]` | `list<miembro>` (embebida) | mutable | Lista ordenada de integrantes. |
-| `historial[]` | `list<hito_grupo>` (embebida) | append-only | Log de eventos del grupo. |
+| `historial[]` | `list<hito_grupo>` (embebida) | de solo añadir | Registro de eventos del grupo. |
 | `metadatos.creado_en` | `str` ISO-8601 | inmutable | |
 | `metadatos.ultima_actualizacion` | `str` ISO-8601 | actualiza con cada cambio | |
 | `extras` | `object \| null` | libre | Escape hatch. |
@@ -149,14 +149,14 @@ Agrupación táctica de personajes. Servido por `GET /grupos/{slug}`, modificado
 | `puntos` | `int` | Costo en puntos de reclutamiento (escala 1..5). |
 | `rango` | `str` | Slug de rango del personaje. |
 | `nombre` | `str` | Nombre compuesto / de guerra. |
-| `aspectos` | `list<str>` | Descriptores narrativos del miembro dentro del grupo. Mutable. Default `[]`. |
+| `aspectos` | `list<str>` | Descriptores narrativos del miembro dentro del grupo. Mutable. Por defecto `[]`. |
 
 ### 3.2. `hito_grupo` (embebido en `grupo.historial[]`)
 
 | Campo | Tipo | Notas |
 |---|---|---|
 | `fecha` | `str` ISO-8601 | |
-| `tipo` | `str` | Enum abierto: `baja_miembro`, `ascenso_miembro`, `combate_finalizado`, `reorganizacion`. |
+| `tipo` | `str` | Catálogo abierto: `baja_miembro`, `ascenso_miembro`, `combate_finalizado`, `reorganizacion`. |
 | `descripcion` | `str` | Obligatorio. |
 | `ref_batalla` | `str \| null` | Batalla de referencia si aplica. |
 | `metadata` | `object` | Libre. |
@@ -193,7 +193,7 @@ Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones can�
 
 ## 5. Invariantes globales
 
-- **`historial[]` es append-only.** No hay reversión de hito.
+- **`historial[]` es de solo añadir.** No hay reversión de hito.
 - **Efímeros no se persisten.** Un personaje generado pero no canonizado nunca toca la base de datos.
 - **Canonización es idempotente con semilla.** La tupla `(semilla, faccion, rango)` actúa como clave única; reintentos no crean duplicados. Sin semilla, cada `POST /canonizar` genera un personaje nuevo.
 - **Tags fuera de catálogo se aceptan.** Cualquier valor en `personaje.tags[]` que no exista en `tag_catalogo` es legal — se persiste tal cual. La curaduría del catálogo se hace por proceso, no por constraint.

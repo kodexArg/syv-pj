@@ -13,8 +13,8 @@
     - feat(root): README.md — punto de entrada; instrucciones de cómo usar syv-pj
     - feat(docs): hoja-personaje.md — núcleo del módulo; anatomía, campos, invariantes, ejemplos
     - feat(docs): sistema-tags.md — ontología de tags; jerarquía, reglas, casos de uso
-    - feat(docs): perks-y-traits.md — contratos nombre→paquete; mecánica, registro, propiedades dinámicas
-    - feat(docs): atributos-y-stats.md — estadísticas y atributos; rango, fórmulas, efectos
+    - feat(docs): rasgos-y-ventajas.md — contratos nombre→paquete; mecánica, registro, propiedades dinámicas
+    - feat(docs): atributos-y-habilidades.md — estadísticas y atributos; rango, fórmulas, efectos
     - feat(docs): generacion-procedural.md — algoritmo de generación; distribución, siembra, ejemplos
     - feat(docs): open-close.md — principios SOLID para extensión sin modificación; patrones
     - feat(docs): grupos.md — escuadra→grupo universalizado; jerarquía, composición, alcance

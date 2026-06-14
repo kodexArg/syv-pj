@@ -4,7 +4,7 @@
 Sos el orquestador del proyecto syv-pj. DEBES usar el sistema de subagentes de Claude Code (@agent o Task) para paralelizar el trabajo. NO hagas todo vos — delegá en subagentes especializados.
 
 ## CONTEXTO
-syv-character-kit en /home/kodex/Dev/SyV/syv-character-kit/ es un sistema de fichas específico del universo SyV con lore hardcodeado (Confederación Argentina, Ejército Rojo, año 2178, etc.). Tiene acoplamiento profundo al dominio.
+syv-character-kit en /home/kodex/Dev/SyV/syv-character-kit/ es un sistema de fichas específico del universo SyV con lore incrustado (Confederación Argentina, Ejército Rojo, año 2178, etc.). Tiene acoplamiento profundo al dominio.
 
 El nuevo proyecto syv-pj en /home/kodex/Dev/SyV/syv-pj/ debe ser una **especificación completamente agnóstica, agnóstica al framework, agnóstica al lenguaje** — una ficha de personaje universal que sirva para CUALQUIER universo de juego, cualquier sistema, cualquier género.
 
@@ -19,7 +19,7 @@ La ficha de personaje sigue el **principio Abierto/Cerrado**: abierto para exten
 - Visión: creador universal de personajes, agnóstico al universo
 - La ficha de personaje es un "documento vivo" — los personajes evolucionan vía eventos/historial
 - Abierto/cerrado: nuevas categorías de tag, nuevos tipos de evento, nuevos campos derivados — todo sin migración de esquema
-- Sin lore hardcodeado, sin facciones hardcodeadas, sin rangos hardcodeados
+- Sin lore incrustado, sin facciones incrustadas, sin rangos incrustados
 - Todos los patrones buenos de syv-character-kit (tags como primera clase, estadísticas determinísticas, generación procedural, reproducibilidad de semilla) — pero UNIVERSALIZADOS
 
 ### 2. MODEL.md — Contrato de Persistencia
@@ -38,7 +38,7 @@ La ficha de personaje sigue el **principio Abierto/Cerrado**: abierto para exten
 - Todas las cargas usan el esquema universal
 
 ### 4. docs/character-sheet.md — El Esquema de Ficha (EL DOCUMENTO NÚCLEO)
-Este es EL spec definitivo. Debe cubrir:
+Esta es LA especificación definitiva. Debe cubrir:
 - Los 6 bloques estructurales: identidad, atributos, historial, event_log, metadatos, extras
 - La colección plana de tags[] — el corazón del sistema
 - Notación de tags: `<categoria>[.<subcategoria>]<slug>`
@@ -67,7 +67,7 @@ Este es EL spec definitivo. Debe cubrir:
 - Fase 4: Narrativa (historia de trasfondo generada por LLM — congelada al canonizar)
 - Fase 5: Relaciones (aleatorio sembrado desde pool)
 - Reproducibilidad de semilla: (semilla, facción, rol) → mismo personaje
-- Todo impulsado por configuración, sin valores hardcodeados
+- Todo impulsado por configuración, sin valores incrustados
 
 ### 7. docs/open-close-principle.md — Documento de Diseño Abierto/Cerrado
 - Cómo el esquema se extiende sin romperse
@@ -90,10 +90,10 @@ Este es EL spec definitivo. Debe cubrir:
 - Sub-facciones como tags (diseño asimétrico de SyV)
 - Membresía en facción vía tags
 - Seguimiento de lealtad
-- Universalizado — sin facciones hardcodeadas
+- Universalizado — sin facciones incrustadas
 
 ### 10. docs/attribute-system.md — Sistema de Atributos y Estadísticas
-- Atributos núcleo: conjunto abierto (no hardcodeado a FIS/TAC/MEN)
+- Atributos núcleo: conjunto abierto (no incrustado a FIS/TAC/MEN)
 - Escalas de atributos configurables
 - Estadísticas derivadas: computadas desde atributos + tags
 - Sistema de efectos: tags modifican atributos vía deltas
@@ -124,7 +124,7 @@ Cada subagente lee los archivos fuente relevantes de syv-character-kit y produce
 
 ## REGLAS
 - TODA salida en español rioplatense (el universo SyV es castellano)
-- SIN lore hardcodeado, SIN facciones hardcodeadas, SIN rangos hardcodeados
+- SIN lore incrustado, SIN facciones incrustadas, SIN rangos incrustados
 - TODOS los patrones de syv-character-kit deben ser UNIVERSALIZADOS
 - Tags siempre de primera clase
 - Principio abierto/cerrado, siempre

@@ -36,7 +36,7 @@ grupo:
 
 | Campo | Tipo | Descripción |
 |---|---|---|
-| `slug` | `string` | Clave principal del grupo. `lowercase_con_underscore`. Estable e inmutable. P. ej.: `cazadores_de_ricardo`, `columna_mansilla`. Debe coincidir con el segmento final de la etiqueta `grupo.<slug>` en las hojas de sus miembros. |
+| `slug` | `string` | Clave primaria del grupo. `lowercase_con_underscore`. Estable e inmutable. P. ej.: `cazadores_de_ricardo`, `columna_mansilla`. Debe coincidir con el segmento final de la etiqueta `grupo.<slug>` en las hojas de sus miembros. |
 | `nombre` | `string` | Nombre legible. P. ej.: "Cazadores de Ricardo". |
 | `faccion` | `string` | Slug de facción: `confederacion_argentina` o `ejercito_rojo`. |
 | `tipo` | `string` | Tipo operativo. Catálogo abierto; el tipo de referencia para el MVP es `escuadra_de_infanteria`. |
@@ -125,7 +125,7 @@ Promedio entero (redondeado hacia abajo) de `fatiga_max` (`fis + men`) de todos 
 
 ### 4.6. Puntos totales (`puntos_totales`)
 
-Suma de `puntos` de todos los miembros del roster, incluidos inactivos. Mantiene la auditoría del costo inicial de la unidad.
+Suma de `puntos` de todos los miembros del elenco, incluidos inactivos. Mantiene la auditoría del costo inicial de la unidad.
 
 ### 4.7. Líder vigente (`lider_vigente`)
 
@@ -182,7 +182,7 @@ Para el tipo de referencia del MVP, una escuadra de infantería debe cumplir:
 1. Exactamente 1 miembro con `rol_grupo: lider` en posición `1`.
 2. Mínimo 1 mando (`lider` o `segundo`) por cada 4 soldados de línea (`tropa`).
 3. Exactamente 1 `especialista` con función de ametrallador, acompañado de 1 `apuntador` y 1 `cargador`.
-4. Tamaño de roster: mínimo 5, máximo 21 integrantes. Óptimo: 11.
+4. Tamaño de elenco: mínimo 5, máximo 21 integrantes. Óptimo: 11.
 
 Si el grupo viola alguna condición, las derivadas exponen:
 

@@ -92,9 +92,9 @@ Ningún consumidor necesita el personaje completo. El esquema es único; la proy
 |---|---|
 | Declara `tags[]` con equipo, rasgos y lealtades | Interpreta esos tags para armar el indicador visual |
 | Declara `efecto[]` en contratos (rasgos/ventajas) | Aplica esos efectos durante la resolución del encuentro |
-| Persiste `historial[]` con hitos de solo-agregación | Renderiza el historial como línea de tiempo o ficha de juego |
+| Persiste `historial[]` con hitos de solo añadir | Renderiza el historial como línea de tiempo o ficha de juego |
 | Expone atributos base `{fis, tac, men}` | Deriva `INICIATIVA`, `MORAL`, `FATIGA` para el turno actual |
-| Mantiene `aliados[]` y `enemigos[]` con prosa | Usa esos vínculos para preparar tensiones dramáticas |
+| Mantiene `aliados[]` y `nemesis[]` con prosa | Usa esos vínculos para preparar tensiones dramáticas |
 
 ---
 
@@ -103,7 +103,7 @@ Ningún consumidor necesita el personaje completo. El esquema es único; la proy
 | UC | Actor | Quiere | Para |
 |---|---|---|---|
 | UC-M01 | Cualquier cliente | Consultar el catálogo de una categoría de tag | Construir interfaces sin codificar enumeraciones |
-| UC-M02 | Tubería de control de calidad | Listar todos los mocks del elenco | Correr el motor sobre la población canónica |
+| UC-M02 | Tubería de control de calidad | Listar todos los personajes de ejemplo del elenco | Correr el motor sobre la población canónica |
 | UC-M03 | Control de calidad | Consultar `tag_categories` | Verificar que el generador no produce tags fuera del catálogo |
 | UC-M04 | Curador | Listar todos los `equipo.arma` del elenco | Auditar el inventario armamentístico |
 
@@ -113,10 +113,10 @@ Ningún consumidor necesita el personaje completo. El esquema es único; la proy
 
 Comportamientos que todos los consumidores deben asumir.
 
-- **Los mocks son inmutables.** Ningún consumidor puede registrar hitos sobre los 22 personajes simulados — son accesorios de referencia, no entidades vivas.
+- **Los personajes de ejemplo son inmutables.** Ningún consumidor puede registrar hitos sobre los 22 personajes de ejemplo — son fichas de referencia, no entidades vivas.
 - **Los efímeros no acumulan hitos.** Sin patente persistida, no hay historia que registrar. El consumidor que quiera evolucionar un efímero debe canonizarlo primero.
 - **La canonización es idempotente.** `(semilla, faccion, rango)` no produce duplicados si ya existe. El consumidor puede reintentar sin riesgo.
 - **`?campos=` poda solo nivel superior.** El motor de estrategia puede pedir solo `atributos` y `tags`; el generador visual puede pedir solo `tags` e `identidad`. La poda no atraviesa subdocumentos.
 - **Filtros `?tag=` son Y lógico.** `?tag=A&tag=B` devuelve personajes que tienen ambos. O no está soportado en v1 — el consumidor hace N llamadas y une los resultados.
-- **Vínculos personales no son filtrables por tag.** `aliados[]` y `enemigos[]` llevan prosa — no están en `tags[]` y no se filtrán por `?tag=`.
+- **Vínculos personales no son filtrables por tag.** `aliados[]` y `nemesis[]` llevan prosa — no están en `tags[]` y no se filtrán por `?tag=`.
 - **Hitos con `tipo` desconocido son legales.** El consumidor descendente los trata como operación-nula sobre los campos que conoce.

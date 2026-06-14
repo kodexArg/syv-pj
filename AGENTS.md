@@ -9,10 +9,21 @@ aliases:
 
 # AGENTS.md — syv-pj
 
-Política editorial y convenciones de trabajo de `syv-pj`, el módulo de la **entidad mínima** de *Subordinación y Valor*: el personaje. Para entender el esquema, leer [[hoja-personaje|docs/hoja-personaje.md]] (núcleo) y sus docs hermanos: [[sistema-tags|sistema-tags.md]], [[atributos-y-stats|atributos-y-stats.md]], [[habilidades|perks-y-traits.md]].
+Política editorial y convenciones de trabajo de `syv-pj`, el módulo de la **entidad mínima** de *Subordinación y Valor*: el personaje. Para entender el esquema, leer [[hoja-personaje|docs/hoja-personaje.md]] (núcleo) y sus docs hermanos: [[sistema-tags|sistema-tags.md]], [[atributos-y-habilidades|atributos-y-habilidades.md]], [[habilidades|rasgos-y-ventajas.md]].
 
 > [!info] Norte del proyecto
 > `syv-pj` clasifica, almacena y entrega un personaje homogeneizado; el consumidor decide el uso. Es **agnóstico al uso** (Diégesis, estrategia, rol, generación visual) pero **fiel al universo** SyV. No es un creador universal de cualquier mundo, y no inventa lore: la terminología del universo se respeta, no se amplía.
+
+---
+
+## SPINE es la fuente — mantenerlo actualizado es obligatorio
+
+> [!warning] Regla de precedencia
+> [[SPINE]] es el **contrato canónico interno**: fija las decisiones que todos los archivos del inventario respetan al pie de la letra. Es la **fuente del resto del proyecto** — los docs derivan de SPINE, no al revés.
+
+- **Toda decisión de diseño que cambie** (taxonomía de etiquetas, nombres canónicos, estructura de la hoja, vocabulario de atributos y estadísticas, convenciones) **se refleja en SPINE en el mismo turno**, antes de cerrar. Un cambio que no llegó a SPINE no está cerrado.
+- Ante conflicto entre un doc y SPINE no quedan divergentes en silencio: o se corrige el doc, o se actualiza SPINE explícitamente.
+- SPINE es interno (no se publica). Mantenerlo vivo es responsabilidad de cualquier redactor o agente que toque el esquema.
 
 ---
 
@@ -33,7 +44,7 @@ Toda la documentación de `syv-pj` es **de versión única**: refleja solo el es
 
 - **Slug de personaje** (`identidad.slug`): ==patente opaca== `^[A-Z0-9]{8}$` (ej. `K9F2H3M4`). No es el nombre. Estable, inmutable, referenciable. Ver [[hoja-personaje#1.1. slug — la patente del personaje|docs/hoja-personaje.md §1.1]].
 - **Slug de catálogo** (tag, facción, escuadra, grupo): legible, `lowercase_con_underscore`, sin acentos, sin guiones (`pistola`, `lider_de_escuadra`, `ejercito_rojo`). El separador uniforme es `_` para componer en notación punto sin ambigüedad.
-- **Tags**: notación punto `<categoria>[.<subcategoria>].<slug>`, multiset. Ver [[sistema-tags|sistema-tags.md]].
+- **Tags**: notación punto `<categoria>[.<subcategoria>].<slug>`. **NO** es multiconjunto: ante repetidos gana el último valor. Ver [[sistema-tags|sistema-tags.md]].
 - **Campos estructurales en YAML**: `snake_case_castellano` (`atributos`, `historial`, `ultima_actualizacion`).
 
 > [!note] Asimetría deliberada de slugs
@@ -49,16 +60,27 @@ Toda la documentación de `syv-pj` es **de versión única**: refleja solo el es
 
 ---
 
+## Frontmatter: los nombres de campo son contrato, no prosa
+
+> [!warning] Intocables en cualquier iteración
+> Los **nombres de campo** del frontmatter YAML son un **contrato programático** (los parsea el sitio Astro y los agentes). **Nunca se traducen, renombran ni acentúan** — ni en esta iteración ni en ninguna futura, incluidas auditorías o traducciones masivas de inglés a castellano. Esta regla **prevalece** sobre cualquier consigna de "traducir hasta el último término en inglés".
+
+- Quedan **siempre en inglés y minúscula**: `title`, `tags`, `aliases`, `folder`, `description`, `sidebar`, `order`, `hidden`, `slug`. Lista cerrada salvo decisión explícita del usuario en la conversación vigente.
+- Se traduce el **valor** de un campo cuando es prosa; **jamás su clave**. `description: Texto en castellano` ✓ — `descripcion:` ✗.
+- Los **valores** que son identificadores de herramienta no son prosa y se preservan tal cual: `slug` y los de control `sidebar` / `order` / `hidden`. Los valores de `aliases` sí pueden traducirse cuando no rompen la resolución de wikilinks.
+
+---
+
 ## Azar portable — agnóstico al sistema
 
 `syv-pj` **no fija** un sistema de resolución de azar. Para que fichas, tags y modificadores sean reutilizables entre sistemas, toda magnitud se expresa en una de **tres formas portables** según el tipo:
 
 - **Probabilidades de evento**: porcentaje. `40% de fallar el chequeo`, `5% de paniquear bajo fuego`. Nunca una expresión atada a un sistema concreto.
-- **Modificadores sobre atributos o estadísticas calculadas**: delta entero sobre la escala canónica. `(+1) MENTAL`, `(-1) INICIATIVA`, `(+2) FATIGA`. Las variables y sus escalas viven en [[atributos-y-stats|atributos-y-stats.md]].
+- **Modificadores sobre atributos o estadísticas calculadas**: delta entero sobre la escala canónica. `(+1) MENTAL`, `(-1) INICIATIVA`, `(+2) FATIGA`. Las variables y sus escalas viven en [[atributos-y-habilidades|atributos-y-habilidades.md]].
 - **Modificadores sobre tasas o magnitudes continuas**: porcentaje sobre la magnitud. `-100% MOVIMIENTO` (inmóvil), `+50% defensa por cobertura`.
 
 > [!info] Por qué portable
-> SyV es un universo, no un sistema. Atar el esquema a una mecánica concreta de dados amputa la portabilidad. El delta sobre escala canónica y el porcentaje sobre tasa son lingua franca: cualquier sistema downstream los convierte a su moneda local. Un documento auxiliar puede ilustrar mecánicas con un sistema concreto **como ejemplo didáctico**; el contrato son las tres formas de arriba.
+> SyV es un universo, no un sistema. Atar el esquema a una mecánica concreta de dados amputa la portabilidad. El delta sobre escala canónica y el porcentaje sobre tasa son lingua franca: cualquier sistema descendente los convierte a su moneda local. Un documento auxiliar puede ilustrar mecánicas con un sistema concreto **como ejemplo didáctico**; el contrato son las tres formas de arriba.
 
 ---
 

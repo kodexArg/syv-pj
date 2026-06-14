@@ -3,8 +3,7 @@ title: atributos
 tags:
   - syv/pj/atributos
 aliases:
-  - stats
-  - atributos-y-stats
+  - atributos-y-habilidades
 ---
 # Atributos
 
@@ -84,10 +83,10 @@ Recurso físico-mental que limita las acciones continuas. Principal eje de desga
 FATIGA_max = FISICO + MENTAL + Σ modificadores_tags
 ```
 
-- Pool inicial igual a `FATIGA_max`.
+- Depósito inicial igual a `FATIGA_max`.
 - Los puntos de `FISICO` se consumen primero. Al agotarse: el personaje gana `salud.cansado`.
 - Luego se consumen los de `MENTAL`. Al agotarse: gana `salud.exhausto` y queda inmovilizado.
-- Cada turno con orden ejecutada, o evento ambiental/mecánico, consume puntos del pool.
+- Cada turno con orden ejecutada, o evento ambiental/mecánico, consume puntos del depósito.
 
 ### 2.4. MOVIMIENTO
 
@@ -128,7 +127,7 @@ Suma o resta un valor fijo a la variable objetivo.
 
 ```
 "(+2) INICIATIVA"    → +2 al cálculo de INICIATIVA
-"(-1) FATIGA"        → -1 al pool máximo de FATIGA
+"(-1) FATIGA"        → -1 al depósito máximo de FATIGA
 "(+1) MENTAL"        → +1 al atributo MENTAL (solo para derivar estadísticas; no altera el atributo persistido salvo hito)
 ```
 
@@ -140,7 +139,7 @@ Multiplica (o reduce) la variable por un porcentaje del valor base calculado en 
 
 ```
 "-100% MOVIMIENTO"   → inmoviliza al personaje (MOVIMIENTO × 0)
-"+50% FATIGA"        → aumenta el pool máximo en 50% del valor base
+"+50% FATIGA"        → aumenta el depósito máximo en 50% del valor base
 ```
 
 Notación: `+N%` o `-N%` seguido del nombre en mayúsculas. Los porcentajes se aplican **después** de sumar los deltas enteros.

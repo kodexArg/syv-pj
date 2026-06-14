@@ -8,8 +8,8 @@ tags:
 aliases:
   - Contratos
   - Habilidades
-  - Perks y Traits
-  - perks-y-traits
+  - Rasgos y Ventajas
+  - rasgos-y-ventajas
 ---
 # Aspectos, Habilidades y Efectos como Contratos
 
@@ -150,7 +150,7 @@ efecto:
   - "(+1) INICIATIVA"
 ```
 
-La vía canónica para ganar un aspecto narrativo es el `historial[]`: un hito (p. ej. `aspecto_obtenido`) registra el evento y el tag se agrega a la hoja. El hito es append-only; el aspecto persiste. Mecánicamente, en tiempo de ejecución, un aspecto narrativo se aplica igual que cualquier aspecto pasivo — la diferencia es de **origen y semántica**, no de motor.
+La vía canónica para ganar un aspecto narrativo es el `historial[]`: un hito (p. ej. `aspecto_obtenido`) registra el evento y el tag se agrega a la hoja. El hito es de solo añadir; el aspecto persiste. Mecánicamente, en tiempo de ejecución, un aspecto narrativo se aplica igual que cualquier aspecto pasivo — la diferencia es de **origen y semántica**, no de motor.
 
 ---
 

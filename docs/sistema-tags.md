@@ -30,7 +30,7 @@ Esta regla es expansiva por diseño. El sistema no predice los tipos de etiqueta
 - `identidad` — slug opaco, nombre, sobrenombre, rol, género, edad.
 - `atributos` — `fis`, `tac`, `men`. Magnitudes numéricas persistidas.
 - `historia` — prosa biográfica.
-- `historial` — eventos temporales estructurados (append-only).
+- `historial` — eventos temporales estructurados (de solo añadir).
 - `aliados` / `nemesis` — vínculos personales con prosa. Ver [[#§5 — Por qué aliados y némesis no son etiquetas]].
 - `metadatos` — marcas de tiempo de auditoría.
 - `extras` — diccionario libre para clientes externos.
@@ -46,7 +46,7 @@ Esta regla es expansiva por diseño. El sistema no predice los tipos de etiqueta
 
 ## §2 — Notación punto
 
-Una etiqueta se escribe como string único: `<categoria>.<slug>`.
+Una etiqueta se escribe como cadena única: `<categoria>.<slug>`.
 
 También es perfectamente válido `<slug>`
 
@@ -176,7 +176,7 @@ efecto:
     categoria = aspecto (salvo que declare trigger en su lugar)
     o categoria = efecto
   uso: >
-    String o lista de strings. Modificadores sobre el vocabulario canónico
+    Cadena o lista de cadenas. Modificadores sobre el vocabulario canónico
     (FISICO/TACTICO/MENTAL/INICIATIVA/MORAL/FATIGA/MOVIMIENTO/ESTRESS).
 
 equipo_arma.tipo_accion:
@@ -230,7 +230,7 @@ require_any:
   semantica: Basta con UNA de estas etiquetas.
 ```
 
-**Modificador NOT:** prefijá cualquier entrada con `"no:"` para invertir la condición. Es un string con prefijo literal — consultable con `startswith("no:")`, obvio a la lectura humana.
+**Modificador NOT:** prefijá cualquier entrada con `"no:"` para invertir la condición. Es una cadena con prefijo literal — consultable con `startswith("no:")`, obvio a la lectura humana.
 
 ```yaml
 requires:
@@ -245,7 +245,7 @@ requires:
 > [!important] `requires` es documentación ejecutable, no validación dura
 > La API acepta personajes con etiquetas incoherentes. La coherencia es responsabilidad del generador y del curador. Cualquier validador opcional puede consultar `requires`; el contrato duro no lo impone.
 
-**Los aspectos de origen narrativo no usan `requires`.** Son recompensas otorgadas al azar (lo que antes era *ventaja*); no tienen pool por rango ni precondiciones. Ver [[habilidades]].
+**Los aspectos de origen narrativo no usan `requires`.** Son recompensas otorgadas al azar (lo que antes era *ventaja*); no tienen depósito por rango ni precondiciones. Ver [[habilidades]].
 
 ---
 

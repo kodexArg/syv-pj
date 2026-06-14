@@ -60,8 +60,8 @@ El personaje existe dentro de *Subordinación y Valor*:
 | [[AGENTS\|AGENTS.md]] | Política editorial y convenciones para colaboradores y agentes. |
 | [[hoja-personaje\|docs/hoja-personaje.md]] | Esquema del personaje campo por campo. Núcleo del módulo. |
 | [[sistema-tags\|docs/sistema-tags.md]] | Sistema de tags: notación, categorías, catálogo, extensibilidad. |
-| [[habilidades\|docs/perks-y-traits.md]] | Contratos de rasgos, ventajas, destrezas y efectos. |
-| [[atributos-y-stats\|docs/atributos-y-stats.md]] | Vocabulario canónico de atributos y estadísticas calculadas. |
+| [[habilidades\|docs/rasgos-y-ventajas.md]] | Contratos de rasgos, ventajas, destrezas y efectos. |
+| [[atributos-y-habilidades\|docs/atributos-y-habilidades.md]] | Vocabulario canónico de atributos y estadísticas calculadas. |
 | [[generacion-procedural\|docs/generacion-procedural.md]] | Flujo obligatorio de creación: fases, sorteos, tabla determinística. |
 | [[open-close\|docs/open-close.md]] | Política de extensibilidad: cuándo extender, cómo, sin rupturas de compatibilidad. |
 | [[grupos\|docs/grupos.md]] | Esquema de grupos y escuadras; agrupaciones tácticas. |
@@ -92,7 +92,7 @@ El personaje existe dentro de *Subordinación y Valor*:
 
 ### Pendiente
 
-- Motor de batalla squad vs squad (reglas completas de combate).
+- Motor de batalla escuadra vs escuadra (reglas completas de combate).
 - Datos de ejemplo (personajes maqueta de las dos escuadras canon).
 
 ### Fuera de este módulo

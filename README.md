@@ -21,8 +21,8 @@ El universo en que habita este personaje es *Subordinación y Valor*: año 2178,
 | Qué es este módulo, sus principios y alcance | [[PRD\|PRD.md]] |
 | Qué campos tiene un personaje y cómo mutan | [[hoja-personaje\|docs/hoja-personaje.md]] |
 | Cómo funciona el sistema de tags | [[sistema-tags\|docs/sistema-tags.md]] |
-| Qué son los contratos (rasgos, ventajas, destrezas) | [[habilidades\|docs/perks-y-traits.md]] |
-| Qué son los atributos y las estadísticas calculadas | [[atributos-y-stats\|docs/atributos-y-stats.md]] |
+| Qué son los contratos (rasgos, ventajas, destrezas) | [[habilidades\|docs/rasgos-y-ventajas.md]] |
+| Qué son los atributos y las estadísticas calculadas | [[atributos-y-habilidades\|docs/atributos-y-habilidades.md]] |
 | Cómo se genera un personaje proceduralmente | [[generacion-procedural\|docs/generacion-procedural.md]] |
 | Cómo extiender el esquema sin romper nada | [[open-close\|docs/open-close.md]] |
 | Cómo funcionan los grupos y escuadras | [[grupos\|docs/grupos.md]] |
@@ -46,9 +46,9 @@ El universo en que habita este personaje es *Subordinación y Valor*: año 2178,
 ### docs/
 
 - [[hoja-personaje|docs/hoja-personaje.md]] — Esquema del personaje campo por campo. Núcleo del módulo.
-- [[sistema-tags|docs/sistema-tags.md]] — Sistema de tags: notación punto, multiset, catálogo, extensibilidad.
-- [[habilidades|docs/perks-y-traits.md]] — Contratos de rasgos, ventajas, destrezas y efectos.
-- [[atributos-y-stats|docs/atributos-y-stats.md]] — Vocabulario canónico de atributos base y estadísticas calculadas.
+- [[sistema-tags|docs/sistema-tags.md]] — Sistema de tags: notación punto, NO multiconjunto, catálogo, extensibilidad.
+- [[habilidades|docs/rasgos-y-ventajas.md]] — Contratos de rasgos, ventajas, destrezas y efectos.
+- [[atributos-y-habilidades|docs/atributos-y-habilidades.md]] — Vocabulario canónico de atributos base y estadísticas calculadas.
 - [[generacion-procedural|docs/generacion-procedural.md]] — Flujo de creación procedural: cuatro fases, sorteos, tabla determinística.
 - [[open-close|docs/open-close.md]] — Política de extensibilidad: cómo agregar sin romper.
 - [[grupos|docs/grupos.md]] — Esquema de grupos y escuadras; campos derivados tácticos.
