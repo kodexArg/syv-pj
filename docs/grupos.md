@@ -158,7 +158,7 @@ historial:
     tipo:        string        # catálogo abierto — ver §5.1
     descripcion: string        # prosa descriptiva
     ref_miembro: string | null # patente del personaje si el hito es individual
-    ref_batalla: string | null # patente de batalla si aplica
+    encuentro:   string | null # patente de batalla/encuentro si aplica
     metadata:    object        # libre
 ```
 

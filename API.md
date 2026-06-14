@@ -69,7 +69,7 @@ Devuelve solo `historial[]` del personaje. Sin paginación en v1.
 
 ### `POST /personaje/{slug}/evento`
 
-Registra un hito sobre un personaje canonizado. Cuerpo: una entrada de `hito` (estructura en [[hoja-personaje#Historial|docs/hoja-personaje.md]]).
+Registra un hito sobre un personaje canonizado. Cuerpo: una entrada de `hito` (estructura en [[historial|docs/historial.md]]).
 
 Efecto: añade el hito, aplica su efecto sobre los campos vigentes, actualiza `metadatos.ultima_actualizacion`, devuelve la ficha actualizada.
 
@@ -88,6 +88,9 @@ Tipos de hito y sus efectos sobre la ficha:
 | `formacion_lealtad` | Añade entrada a `aliados[]`. |
 | `identificacion_nemesis` | Añade entrada a `nemesis[]`. |
 | Otros tipos | Solo añaden el hito. Los efectos colaterales son responsabilidad del cliente. |
+
+> [!note] `actores[]` y `encuentro` se registran tal cual
+> Ningún tipo de hito deriva efectos de `actores[]` ni de `encuentro`: se persisten en el hito sin tocar la ficha vigente. Alimentan la línea de tiempo y el grafo de Diégesis (ver [[historial#§4 — Proyección en Diégesis|docs/historial.md §4]]).
 
 ### `POST /canonizar`
 

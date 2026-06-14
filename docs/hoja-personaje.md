@@ -18,6 +18,7 @@ aliases:
 > - [[sistema-tags|sistema-tags.md]] — la lista plana `tags[]`: notación, categorías, catálogo y curaduría.
 > - [[atributos-y-habilidades|atributos-y-habilidades.md]] — escalas de `fis/tac/men`, estadísticas derivadas y vocabulario canónico de efectos.
 > - [[contratos|contratos.md]] — aspectos, habilidades, destrezas y efectos como contratos.
+> - [[historial|historial.md]] — el registro `historial[]`: campos del hito, catálogo de tipos, `actores[]` y la regla de solo-añadir.
 > - [[generacion-procedural|generacion-procedural.md]] — cómo se completa una hoja desde el azar portable.
 > - [[diegesis-y-obsidian|diegesis-y-obsidian.md]] — cómo la hoja se vuelve nodo navegable del vault de Diégesis.
 
@@ -212,12 +213,16 @@ inmutable_tras:  Canonización. Se congela como artefacto.
 
 Array de hitos. Cada entrada describe un evento temporal sobre el personaje ya canonizado. Es un **registro de eventos de solo añadir**.
 
+> [!important] El contrato detallado vive en historial.md
+> La definición campo por campo, el catálogo completo de tipos, la semántica de `actores[]` y la proyección en Diégesis viven en [[historial|historial.md]]. Acá solo se fija el contrato con la hoja.
+
 ```yaml
 fecha:       ISO-8601
 tipo:        string          # catálogo sugerido, abierto
+actores:     [string]        # patentes de personajes involucrados; [] válido, normalmente varios
 descripcion: string          # obligatorio
-ref_batalla: slug | null     # batalla externa, opcional
-metadata:    object          # libre
+encuentro:   slug | null     # batalla externa, opcional
+metadata:    object          # libre (a futuro puede portar adjuntos)
 ```
 
 > [!info] Tipos de hito — sugeridos, abiertos

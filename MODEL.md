@@ -64,10 +64,11 @@ Aparecen en la respuesta de `GET /personaje` y `GET /personaje/{slug}` junto con
 | Campo | Tipo | Notas |
 |---|---|---|
 | `fecha` | `str` ISO-8601 | |
-| `tipo` | `str` | Catálogo abierto sugerido. Ver [[hoja-personaje#Historial|docs/hoja-personaje.md §Historial]]. |
+| `tipo` | `str` | Catálogo abierto sugerido. Ver [[historial|docs/historial.md]]. |
+| `actores` | `list<str>` (patentes `^[A-Z0-9]{8}$`) | Personajes involucrados en el evento. Por defecto `[]`. Sin integridad referencial (ver §5). |
 | `descripcion` | `str` | Obligatorio. |
-| `ref_batalla` | `str \| null` | Slug de batalla externa; referencia narrativa. |
-| `metadata` | `object` | Libre. Convención: `{ atributo, delta, valor_anterior, valor_nuevo }` para mejoras; `{ categoria, valor }` para agregar/quitar tag. |
+| `encuentro` | `str \| null` | Patente de batalla/encuentro externo; referencia narrativa. |
+| `metadata` | `object` | Libre. Convención: `{ atributo, delta, valor_anterior, valor_nuevo }` para mejoras; `{ categoria, valor }` para agregar/quitar tag. A futuro puede portar adjuntos. |
 
 Tipos de hito sugeridos (catálogo abierto): `combate`, `ascenso`, `cambio_rol`, `triple_cero`, `mejora_atributo`, `agregar_tag`, `quitar_tag`, `formacion_lealtad`, `identificacion_nemesis`, `licencia`, `desercion`, `muerte`.
 
@@ -158,7 +159,7 @@ Agrupación táctica de personajes. Servido por `GET /grupos/{slug}`, modificado
 | `fecha` | `str` ISO-8601 | |
 | `tipo` | `str` | Catálogo abierto: `baja_miembro`, `ascenso_miembro`, `combate_finalizado`, `reorganizacion`. |
 | `descripcion` | `str` | Obligatorio. |
-| `ref_batalla` | `str \| null` | Batalla de referencia si aplica. |
+| `encuentro` | `str \| null` | Patente de batalla/encuentro de referencia si aplica. |
 | `metadata` | `object` | Libre. |
 
 ---
@@ -197,6 +198,6 @@ Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones can�
 - **Efímeros no se persisten.** Un personaje generado pero no canonizado nunca toca la base de datos.
 - **Canonización es idempotente con semilla.** La tupla `(semilla, faccion, rango)` actúa como clave única; reintentos no crean duplicados. Sin semilla, cada `POST /canonizar` genera un personaje nuevo.
 - **Tags fuera de catálogo se aceptan.** Cualquier valor en `personaje.tags[]` que no exista en `tag_catalogo` es legal — se persiste tal cual. La curaduría del catálogo se hace por proceso, no por constraint.
-- **Referencias en `aliados[]`/`nemesis[]` no son referencias de integridad.** Se aceptan referencias colgadas; la consistencia referencial no es responsabilidad de la capa de persistencia.
+- **Referencias en `aliados[]`/`nemesis[]` y `historial[].actores[]` no son referencias de integridad.** Se aceptan referencias colgadas; la consistencia referencial no es responsabilidad de la capa de persistencia.
 - **Idioma de los datos**: castellano rioplatense. Tags en minúscula + guion bajo, sin acentos. Campos YAML en `snake_case_castellano`.
 - **`extras` es opaco.** La API lo acepta, almacena y devuelve tal cual, sin inspeccionar ni validar su contenido.
