@@ -9,7 +9,7 @@ aliases:
 
 # AGENTS.md — syv-pj
 
-Política editorial y convenciones de trabajo de `syv-pj`, el módulo de la **entidad mínima** de *Subordinación y Valor*: el personaje. Para entender el schema, leer [[hoja-personaje|docs/hoja-personaje.md]] (núcleo) y sus docs hermanos: [[sistema-tags|sistema-tags.md]], [[atributos-y-stats|atributos-y-stats.md]], [[habilidades|perks-y-traits.md]].
+Política editorial y convenciones de trabajo de `syv-pj`, el módulo de la **entidad mínima** de *Subordinación y Valor*: el personaje. Para entender el esquema, leer [[hoja-personaje|docs/hoja-personaje.md]] (núcleo) y sus docs hermanos: [[sistema-tags|sistema-tags.md]], [[atributos-y-stats|atributos-y-stats.md]], [[habilidades|perks-y-traits.md]].
 
 > [!info] Norte del proyecto
 > `syv-pj` clasifica, almacena y entrega un personaje homogeneizado; el consumidor decide el uso. Es **agnóstico al uso** (Diégesis, estrategia, rol, generación visual) pero **fiel al universo** SyV. No es un creador universal de cualquier mundo, y no inventa lore: la terminología del universo se respeta, no se amplía.

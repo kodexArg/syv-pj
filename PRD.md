@@ -16,7 +16,7 @@ aliases:
 
 ## 1. Propósito
 
-`syv-pj` es el módulo de la **entidad mínima de SyV: el personaje**. Documenta su schema, su sistema de clasificación por tags, sus reglas de mutabilidad y generación, y los contratos de API que permiten operar sobre él.
+`syv-pj` es el módulo de la **entidad mínima de SyV: el personaje**. Documenta su esquema, su sistema de clasificación por tags, sus reglas de mutabilidad y generación, y los contratos de API que permiten operar sobre él.
 
 El módulo es:
 
