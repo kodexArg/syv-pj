@@ -17,9 +17,12 @@ Las **únicas** magnitudes numéricas de capacidad que se guardan en la hoja. To
 
 | Clave | Nombre | Semántica | Escala |
 | :--- | :--- | :--- | :---: |
-| `fis` | **FÍSICO** | Fuerza, resistencia orgánica, potencia muscular. | 2..7 |
-| `tac` | **TÁCTICO** | Puntería, coordinación, reflejos, destreza técnica. | 2..7 |
-| `men` | **MENTAL** | Fortaleza psicológica, moral base, resistencia al estrés, liderazgo. | 2..7 |
+| `cuerpo` | **CUERPO** | Fuerza, resistencia orgánica, potencia muscular. En prosa también **Físico**. | 2..7 |
+| `mente` | **MENTE** | Puntería, coordinación, reflejos, lectura táctica, destreza técnica. | 2..7 |
+| `alma` | **ALMA** | Aura, liderazgo, voluntad, temple ante el miedo. En prosa también **Espíritu**. | 2..7 |
+
+> [!info] Nombre determinista vs. nombre popular
+> En `yaml`/`json`/estadísticas la clave es **siempre** `cuerpo`, `mente`, `alma` —sin reducción a tres caracteres—. En prosa el trío se nombra **"Cuerpo, Mente y Alma"** (o **Espíritu** por Alma); **Físico ≡ Cuerpo** y **Espíritu ≡ Alma**. No existen más las claves `fis`/`tac`/`men`.
 
 > [!info] Escala unificada
 > La escala 2..7 es la misma para los tres atributos. Estos son los valores que un rol puede alcanzar en creación (ver [[generacion-procedural#fase-3-atributos|Fase 3]]); el uno o el tope solo se alcanza vía hito narrativo. 
@@ -33,7 +36,7 @@ Mutación permitida únicamente vía hito de tipo `triple_cero` o `mejora_atribu
 
 ### 1.2. Conjunto abierto
 
-El sistema de atributos es **abierto**: se puede introducir un cuarto atributo (ej. `liderazgo`, `sigilo`) sin migración. Basta definirlo en el catálogo canónico y referenciar su clave en las fórmulas que lo usen. Mientras no exista en la hoja, las fórmulas lo ignoran o lo tratan como `0`. No hay cambios que rompan compatibilidad.
+El sistema de atributos es **abierto**: se puede introducir un cuarto atributo (ej. `sigilo`) sin migración. Basta definirlo en el catálogo canónico y referenciar su clave en las fórmulas que lo usen. Mientras no exista en la hoja, las fórmulas lo ignoran o lo tratan como `0`. No hay cambios que rompan compatibilidad.
 
 ---
 
@@ -48,7 +51,7 @@ Capacidad para actuar primero en un encuentro. **Determinística, sin tiradas.**
 **Fórmula:**
 
 ```
-base = max(FISICO, TACTICO, MENTAL)
+base = max(CUERPO, MENTE, ALMA)
 INICIATIVA = clamp(base + Σ modificadores_tags, 0, 5)
 ```
 
@@ -59,15 +62,15 @@ La iniciativa alta actúa primero en la grilla de combate, pero también queda e
 
 ### 2.2. MORAL
 
-Estado de ánimo, voluntad de lucha y cohesión psicológica individual.
+Estado de ánimo, voluntad de lucha y cohesión psicológica individual. **`ALMA` es el atributo de los chequeos de miedo y voluntad.**
 
 **Fórmula:**
 
 ```
-MORAL = MENTAL + Σ modificadores_tags
+MORAL = ALMA + Σ modificadores_tags
 ```
 
-- Valor de referencia inicial: igual a `MENTAL`.
+- Valor de referencia inicial: igual a `ALMA`.
 - Cada fallo en tirada de moral resta 1 punto (fuera de esta fórmula — es consumo, no modificador de tag).
 
 > [!warning] Caída de moral
@@ -80,12 +83,12 @@ Recurso físico-mental que limita las acciones continuas. Principal eje de desga
 **Fórmula:**
 
 ```
-FATIGA_max = FISICO + MENTAL + Σ modificadores_tags
+FATIGA_max = CUERPO + ALMA + Σ modificadores_tags
 ```
 
 - Depósito inicial igual a `FATIGA_max`.
-- Los puntos de `FISICO` se consumen primero. Al agotarse: el personaje gana `salud.cansado`.
-- Luego se consumen los de `MENTAL`. Al agotarse: gana `salud.exhausto` y queda inmovilizado.
+- Los puntos de `CUERPO` se consumen primero. Al agotarse: el personaje gana `salud.cansado`.
+- Luego se consumen los de `ALMA`. Al agotarse: gana `salud.exhausto` y queda inmovilizado.
 - Cada turno con orden ejecutada, o evento ambiental/mecánico, consume puntos del depósito.
 
 ### 2.4. MOVIMIENTO
@@ -95,7 +98,7 @@ Velocidad y capacidad de desplazamiento táctico en el tablero.
 **Fórmula:**
 
 ```
-MOVIMIENTO = FISICO × factor_orden + Σ modificadores_tags
+MOVIMIENTO = CUERPO × factor_orden + Σ modificadores_tags
 ```
 
 - `factor_orden`: multiplicador entero definido por la orden táctica del turno (caminar, correr, reptar, etc.). Lo define el motor de batalla, no esta hoja.
@@ -107,12 +110,37 @@ Tensión acumulada a corto plazo. Actúa como amortiguador antes del colapso men
 **Fórmula:**
 
 ```
-ESTRESS_max = MENTAL + Σ modificadores_tags   (mínimo 1)
+ESTRESS_max = ALMA + Σ modificadores_tags   (mínimo 1)
 ```
 
-- Odómetro descendente: arranca en `ESTRESS_max` (valor típico: 3 para `men = 3`).
+- Odómetro descendente: arranca en `ESTRESS_max` (valor típico: 3 para `alma = 3`).
 - Cada evento estresante resta 1.
 - Al llegar a 0: el personaje recibe un tag mental negativo permanente por lo que resta del combate; el odómetro se reinicia a `ESTRESS_max`.
+
+### 2.6. SANAR
+
+Capacidad de estabilizar y atender heridas (propias o ajenas). No deriva de un atributo base: es una estadística **puramente aditiva**, sin valor de origen — su magnitud nace de los modificadores de tags activos.
+
+**Fórmula:**
+
+```
+SANAR = Σ modificadores_tags   (base 0)
+```
+
+- Sin contratos que la modifiquen, vale `0`: el personaje no sabe atender heridas.
+- La aportan aspectos y habilidades de competencia sanitaria (ver `primeros_auxilios`, `religioso` en [[contratos]]).
+
+### 2.7. PERCEPCION
+
+Agudeza para detectar lo que otros no ven —amenazas, emboscadas, detalles del terreno—. También **puramente aditiva**, base 0.
+
+**Fórmula:**
+
+```
+PERCEPCION = Σ modificadores_tags   (base 0)
+```
+
+- Es el blanco habitual de los modificadores **condicionales** (ver §3.5): un `+1 percepcion` siempre activo no es lo mismo que un `+1 percepcion` que solo cuenta al calcular encuentros.
 
 ---
 
@@ -124,8 +152,8 @@ Un `efecto` es un paquete declarativo dentro de un contrato (`aspecto.*`, `efect
 
 El campo `objetivo` nombra la variable afectada con prefijo:
 
-- `attr.*` — atributos base: `attr.fisico`, `attr.tactico`, `attr.mental`.
-- `stat.*` — estadísticas calculadas: `stat.iniciativa`, `stat.moral`, `stat.fatiga`, `stat.movimiento`, `stat.estress`.
+- `attr.*` — atributos base: `attr.cuerpo`, `attr.mente`, `attr.alma`.
+- `stat.*` — estadísticas calculadas: `stat.iniciativa`, `stat.moral`, `stat.fatiga`, `stat.movimiento`, `stat.estress`, `stat.sanar`, `stat.percepcion`.
 
 ### 3.2. Delta entero (`mod`)
 
@@ -136,8 +164,8 @@ Suma o resta un valor fijo a la variable objetivo.
   mod: +2            # +2 al cálculo de INICIATIVA
 - objetivo: stat.fatiga
   mod: -1            # -1 al depósito máximo de FATIGA
-- objetivo: attr.mental
-  mod: +1            # +1 a MENTAL (solo para derivar estadísticas; no altera el atributo persistido salvo hito)
+- objetivo: attr.alma
+  mod: +1            # +1 a ALMA (solo para derivar estadísticas; no altera el atributo persistido salvo hito)
 ```
 
 `mod` es un entero con signo.
@@ -158,6 +186,32 @@ Multiplica (o reduce) la variable por un porcentaje del valor base calculado en 
 ### 3.4. Portabilidad
 
 Tanto los deltas como los porcentajes son **portables**: el mismo formato funciona para cualquier variable del vocabulario canónico presente o futuro. Si se agrega un nuevo atributo o estadística, basta nombrarlo con su prefijo (`attr.*` / `stat.*`) y el sistema de efectos ya sabe cómo procesarlo.
+
+### 3.5. Bonificador condicional (`condicion`)
+
+Un modificador de `efecto` puede llevar un campo **opcional** `condicion: <keyword_slug>`. La `condicion` es una **palabra clave persistente** —un slug— que nombra el momento de juego en el que ese modificador cuenta. **Sin `condicion`, el modificador siempre está activo**; con ella, solo se suma cuando el motor evalúa esa palabra clave.
+
+```yaml
+efecto:
+  - objetivo: stat.percepcion
+    mod: +1                      # SIEMPRE activo: +1 percepción en todo momento
+  - objetivo: stat.percepcion
+    mod: +1
+    condicion: calcular_encuentros   # SOLO al calcular encuentros
+```
+
+> [!important] Por qué "+1 percepción" ≠ "+1 percepción para calcular encuentros"
+> El primero es un bono permanente: el personaje ve mejor siempre. El segundo es un bono **situacional**: solo pesa cuando el motor resuelve si hay un encuentro (una emboscada, un avistaje), y es invisible el resto del tiempo. Mismo número, alcance distinto. La `condicion` separa "es más perceptivo" de "es más perceptivo *para esto*".
+
+**Palabras clave iniciales** (catálogo abierto, igual que el resto):
+
+| `condicion` | Cuándo cuenta el modificador |
+| :--- | :--- |
+| `calcular_encuentros` | Al resolver si se produce un encuentro (avistaje, emboscada, detección). |
+| `tiradas_activas` | En tiradas que el personaje inicia activamente (acciones deliberadas). |
+| `chequeo_miedo` | En chequeos de miedo / voluntad (resueltos por `ALMA`). |
+
+Un modificador sin `condicion` es el caso por defecto y el más común. La palabra clave es un slug legible (minúsculas, guion bajo); el motor decide qué condiciones evalúa en cada momento de juego. Agregar una palabra clave nueva no rompe nada: un modificador con una `condicion` que el motor aún no evalúa simplemente no se aplica todavía.
 
 > [!tip] Acumulación
 > Varios tags activos con efectos sobre la misma variable se acumulan algebraicamente. No existe límite de acumulación salvo el que imponga el `clamp` de cada estadística (donde corresponda).

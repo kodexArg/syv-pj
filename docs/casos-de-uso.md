@@ -125,7 +125,7 @@ Cómo se completa una hoja desde el azar portable vive en [[generacion-procedura
 | Declara `tags[]` con equipo, rasgos y lealtades | Interpreta esos tags para su proyección visual |
 | Declara `efecto[]` en contratos (aspectos/habilidades) | Aplica esos efectos durante la resolución del encuentro |
 | Persiste `historial[]` con hitos de solo añadir | Renderiza el historial como línea de tiempo o ficha de juego |
-| Expone atributos base `{fis, tac, men}` | Deriva `iniciativa`, `moral`, `fatiga` para el turno actual |
+| Expone atributos base `{cuerpo, mente, alma}` | Deriva `iniciativa`, `moral`, `fatiga` para el turno actual |
 | Declara los vínculos como tags `aliado.*` / `nemesis.*` / `lealtad.*` (prosa en su hito) | Usa esos vínculos para preparar tensiones dramáticas |
 | Entrega **un** personaje a la vez | Compone grupos y calcula cohesión y movimiento de unidad (vive en el motor de batalla) |
 

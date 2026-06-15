@@ -35,7 +35,7 @@ El orden no es arbitrario: la **prosa es siempre la última fase**, porque el mo
 
 ## Principios rectores
 
-- **Determinismo de estadísticas**: los atributos base (`fis`, `tac`, `men`) se leen de tablas de configuración por rango. Cero azar en esa fase.
+- **Determinismo de estadísticas**: los atributos base (`cuerpo`, `mente`, `alma`) se leen de tablas de configuración por rango. Cero azar en esa fase.
 - **Azar portable**: toda probabilidad se expresa en porcentaje; todo modificador como delta entero o porcentaje. Nunca un número mágico insertado en código.
 - **Reproducibilidad por semilla**: la misma semilla reproduce el mismo personaje efímero. El canonizado pierde esa propiedad tras el primer hito (la historia narrada ya es irrepetible).
 - **Basado en configuración**: pesos de sorteo, tablas de atributos, restricciones cruzadas, depósitos de nombres — todo vive en archivos de configuración externos al generador. Cambiar una regla es editar la configuración, no código.
@@ -47,7 +47,7 @@ El orden no es arbitrario: la **prosa es siempre la última fase**, porque el mo
 ```
 Fase 1 — Afiliación   → facción, subfacción, rango, mando, rol operativo
 Fase 2 — Identidad    → género, edad, nombre, sobrenombre
-Fase 3 — Atributos    → fis, tac, men
+Fase 3 — Atributos    → cuerpo, mente, alma
 Fase 4 — Formación    → entrenamiento, habilidades
 Fase 5 — Aspectos     → aspecto.* (carácter mecánicamente activo)
 Fase 6 — Vínculos     → lealtad.*, aliado.*, nemesis.*
@@ -178,7 +178,7 @@ Probabilidad de emitir sobrenombre: **50%** por personaje. El apodo está curado
 
 **Cero aleatoriedad.** Lookup determinístico sobre el tag `rango.*` de Fase 1:
 
-| Rango | `fis` | `tac` | `men` |
+| Rango | `cuerpo` | `mente` | `alma` |
 | :--- | :---: | :---: | :---: |
 | `ciudadano` | 2 | 2 | 2 |
 | `militante` | 2 | 2 | 3 |
@@ -190,7 +190,10 @@ Probabilidad de emitir sobrenombre: **50%** por personaje. El apodo está curado
 | `segundo_al_mando` | 3 | 4 | 5 |
 | `lider_de_escuadra` | 3 | 5 | 6 |
 
-Topes absolutos de la escala: `fis 7`, `tac 7`, `men 7`. Los valores de creación quedan por debajo; el tope solo se alcanza vía hito narrativo. Si el personaje no tiene rango, los atributos caen a la línea base `ciudadano`.
+> [!note] `cuerpo` ← viejo `fis`, `mente` ← viejo `tac`, `alma` ← viejo `men`
+> El renombre es lineal columna a columna: `cuerpo` toma los valores del viejo `fis`, `mente` los del viejo `tac` y `alma` los del viejo `men` (era la columna de liderazgo, moral y temple — exactamente lo que ahora nombra `alma`). El viejo atributo "mental" se descartó; no tiene columna heredera.
+
+Topes absolutos de la escala: `cuerpo 7`, `mente 7`, `alma 7`. Los valores de creación quedan por debajo; el tope solo se alcanza vía hito narrativo. Si el personaje no tiene rango, los atributos caen a la línea base `ciudadano`.
 
 Esta tabla vive en configuración (no en código). Cambiar un valor de rango es editar la tabla; el generador la lee en tiempo de ejecución.
 
@@ -341,7 +344,7 @@ semilla  (+ campos provistos como entrada)
 [Fase 2] Identidad    género → edad → nombre → sobrenombre
         │  (depósitos en resources/nombres/, restricciones de Fase 1)
         ▼
-[Fase 3] Atributos    fis, tac, men
+[Fase 3] Atributos    cuerpo, mente, alma
         │  (tabla rango → atributos, cero azar)
         ▼
 [Fase 4] Formación    entrenamiento → habilidades

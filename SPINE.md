@@ -42,7 +42,7 @@ personaje**. Documentación + reglas + especificación de diseño en **Markdown*
 - **Tags**: notación punto. Por defecto `<categoria>.<slug>` (2 segmentos); `<slug>` suelto es válido; el 3er segmento `<categoria>.<parent>.<slug>` es rareza (huérfanos subjetivos). Los vínculos relacionales (`lealtad.*`/`aliado.*`/`nemesis.*`) son planos: `<categoria>.<slug>`. **NO es multiconjunto**: ante repetidos, el motor se queda con el último valor.
 - **Campos YAML**: `snake_case_castellano`.
 - **Azar portable**: probabilidades en **porcentaje**; modificadores sobre
-  atributos/estadísticas como **delta entero** (`(+1) MENTAL`); modificadores sobre
+  atributos/estadísticas como **delta entero** (`(+1) ALMA`); modificadores sobre
   magnitudes continuas en **porcentaje** (`-100% MOVIMIENTO`).
 
 ## La hoja de personaje — estructura canónica (NO cambiar nombres de bloques)
@@ -52,7 +52,7 @@ Seis bloques estructurales + la lista plana de tags:
 ```yaml
 personaje:
   identidad:  { slug, nombre, sobrenombre, rol, genero, edad }
-  atributos:  { fis, tac, men }      # únicas magnitudes numéricas PERSISTIDAS
+  atributos:  { cuerpo, mente, alma }  # únicas magnitudes numéricas PERSISTIDAS
   tags:       [...]                   # lista plana, notación punto, NO multiconjunto (último valor gana)
                                       # incluye los vínculos: lealtad.* / aliado.* / nemesis.*
   historia:   str                     # prosa biográfica, congelada al canonizar
@@ -64,7 +64,7 @@ personaje:
 **Regla rectora**: todo lo que es discreto y no es identidad, atributo, prosa o
 auditoría → **es tag**. Sin excepciones: los vínculos personales también.
 
-- Atributos base `fis, tac, men` en escala `2..7` (determinísticos por rol/rango
+- Atributos base `cuerpo, mente, alma` en escala `2..7` (determinísticos por rol/rango
   en creación; mutables solo vía hito). Todo otro número (fatiga_max, moral_max,
   fza_aportada, etc.) es **derivado en caliente, no persistido** (evita desincronización).
 - Los vínculos —lealtades, aliados, némesis— son **tags relacionales planos**
@@ -103,7 +103,7 @@ chica. Ver [[contratos|docs/habilidades.md]].
   mecánico). Declara `efecto` (pasivo, lista de deltas sobre el vocabulario canónico)
   o `trigger` + `trigger-action` (reactivo). Polaridad mixta. `requires` solo si
   asume una condición previa.
-- **habilidad** — habilitador de tirada contra su `atributo_dominante` (`fis|tac|men`);
+- **habilidad** — habilitador de tirada contra su `atributo_dominante` (`cuerpo|mente|alma`);
   nunca aplica modificador directo.
 - **efecto** — bloque estructurado referenciable (`efecto.*`); inline (pasivo) o
   externo (disparado por un disparador).
@@ -118,9 +118,17 @@ Modelar aspecto/habilidad/efecto como variantes del mismo patrón-contrato:
 
 ## Vocabulario canónico de atributos y estadísticas (efectos apuntan solo acá)
 
-- Atributos base: `FISICO`, `TACTICO`, `MENTAL`.
+- Atributos base: `CUERPO`, `MENTE`, `ALMA` (claves `cuerpo`/`mente`/`alma`; en prosa
+  Físico ≡ Cuerpo, Espíritu ≡ Alma). El viejo trío `FISICO/TACTICO/MENTAL` queda retirado:
+  `cuerpo` ← `fis`, `mente` ← `tac`, `alma` es nuevo (Aura, liderazgo, voluntad); el viejo
+  `mental` se descarta.
 - Estadísticas calculadas (en caliente): `INICIATIVA`, `MORAL`, `FATIGA`, `MOVIMIENTO`,
-  `ESTRESS`. Los `efecto` de tags solo pueden modificar estas variables.
+  `ESTRESS`, `SANAR`, `PERCEPCION`. Los `efecto` de tags solo pueden modificar estas variables.
+- Fórmulas: `FATIGA_max = cuerpo + alma`; `MORAL = alma`; `INICIATIVA = max(cuerpo, mente, alma)`.
+  `alma` es el atributo de chequeos de miedo/voluntad.
+- Un modificador de `efecto` admite `condicion: <keyword>` opcional (palabra clave persistente):
+  sin ella es permanente; con ella solo cuenta cuando el motor evalúa esa palabra clave.
+  Keywords iniciales: `calcular_encuentros`, `tiradas_activas`, `chequeo_miedo`.
 
 ## Diégesis y Obsidian (eje del usuario)
 
@@ -154,7 +162,7 @@ efímero; el canonizado pierde reproducibilidad tras el primer hito.
   por `origen`/polaridad, no por tipo. Hasta confirmar, no se escribe `ventaja` como categoría.
 - **`arma`/`utilitario`/`vestidura`**: ¿siguen como subcategorías de `equipo`
   (3 segmentos) o se promueven a categorías de primer nivel (`arma.*`)?
-- **Efecto → entidad `modificador`**: ¿`efecto` sigue como string-DSL (`(+1) MENTAL`)
+- **Efecto → entidad `modificador`**: ¿`efecto` sigue como string-DSL (`(+1) ALMA`)
   o migra a un mapa `{variable: delta}` en una entidad de modificadores? En
   exploración.
 

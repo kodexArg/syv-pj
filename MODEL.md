@@ -36,9 +36,9 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 | `identidad.rol` | `str` | mutable vía hito `ascenso` / `cambio_rol` | Por defecto `"ciudadano"`. Narrativo. |
 | `identidad.genero` | `str` | inmutable | Catálogo abierto: `masculino \| femenino \| no_binario \| otro`. |
 | `identidad.edad` | `int` | mutable (sin hito) | Decisión narrativa. |
-| `atributos.fis` | `int` (2..5) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7; tope absoluto 5 al crear. |
-| `atributos.tac` | `int` (2..6) | vía hito `triple_cero` / `mejora_atributo` | Tope absoluto 6; creación máx 5; vía hito hasta tope. |
-| `atributos.men` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Tope absoluto 7; creación máx 6; vía hito hasta tope. |
+| `atributos.cuerpo` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7. En prosa: Físico. (← viejo `fis`.) |
+| `atributos.mente` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7. Puntería, reflejos, lectura táctica. (← viejo `tac`.) |
+| `atributos.alma` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7. Aura, liderazgo, voluntad, temple. En prosa: Espíritu. (← viejo `men`.) |
 | `tags[]` | `list<str>` (no multiconjunto) | vía hito `agregar_tag` / `quitar_tag` | Notación punto `<categoria>[.<subcategoria>].<slug>`. NO admite repetidos: ante un repetido gana el último valor. Incluye los vínculos relacionales `lealtad.*` / `aliado.*` / `nemesis.*` (ver §1.2). |
 | `historia` | `str` | inmutable tras canonizar | 120–200 palabras. Congelada al canonizar. |
 | `historial[]` | `list<hito>` (embebida) | de solo añadir vía `POST /evento` | Ver §1.1. |
@@ -50,8 +50,8 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 ### Campos derivados — computados al servir, no persistidos
 
 - `es_canon` — `canonizado_en != null`.
-- `fatiga_max` = `fis + men`.
-- `moral_max` = `men`.
+- `fatiga_max` = `cuerpo + alma`.
+- `moral_max` = `alma`.
 - `fza_aportada` — desde tags `rol.combate.*` (`heroe: 3`, `lider: 2`, valor por defecto `1`).
 - `filiacion` — desde tags `rango.*` + `faccion.*`.
 
@@ -104,7 +104,7 @@ Catálogo curado de tags. Servido por `GET /meta/{categoria}`. El catálogo se s
 | `excluye` | `list<str> \| null` | no | Tags incompatibles. |
 | `peso` | `int` (0..50) | si `categoria = equipo` | Unidad: kg. |
 | `peso_narrativo` | `int` (1..5) | no | Pista al sorteador procedural. |
-| `atributo_dominante` | `str` \| `null` | si `categoria = destreza` | `fis \| tac \| men`. |
+| `atributo_dominante` | `str` \| `null` | si `categoria = habilidad` | `cuerpo \| mente \| alma`. |
 | `tags_relacionados` | `list<str>` | no | Informativo. |
 | `metadatos` | `object` | no | `{ creado_en, ultima_actualizacion }`. |
 

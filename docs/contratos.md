@@ -110,6 +110,7 @@ efecto:
 ```
 
   Cada modificador lleva `mod` **o** `pct`, nunca ambos.
+- **`condicion`** — opcional. Palabra clave persistente (slug) que restringe *cuándo* cuenta el modificador. Sin `condicion`, el modificador siempre está activo; con ella, solo se suma cuando el motor evalúa esa palabra clave. Ver §4.3 y [[atributos#3.5. Bonificador condicional condicion|atributos §3.5]].
 - **`nota`** — opcional. Descripción subjetiva de *este* modificador. No confundir con la `descripcion` del contrato, que describe el contrato entero.
 
 > [!warning] Por qué estructurado y no string
@@ -121,11 +122,11 @@ efecto:
 
 **Atributos base** (`attr.*`, persistidos):
 
-| `objetivo` | Variable | Clave de hoja |
-|---|---|---|
-| `attr.fisico` | FÍSICO | `fis` |
-| `attr.tactico` | TÁCTICO | `tac` |
-| `attr.mental` | MENTAL | `men` |
+| `objetivo`    | Variable | Clave de hoja |
+| ------------- | -------- | ------------- |
+| `attr.cuerpo` | CUERPO   | `cuerpo`      |
+| `attr.mente`  | MENTE    | `mente`       |
+| `attr.alma`   | ALMA     | `alma`        |
 
 **Estadísticas calculadas** (`stat.*`, derivadas al servir):
 
@@ -136,8 +137,27 @@ efecto:
 | `stat.fatiga` | FATIGA |
 | `stat.movimiento` | MOVIMIENTO |
 | `stat.estress` | ESTRESS |
+| `stat.sanar` | SANAR |
+| `stat.percepcion` | PERCEPCION |
 
 El conjunto es **abierto**: si [[atributos]] suma una variable nueva, basta nombrarla con su prefijo (`attr.*` / `stat.*`) y el sistema de efectos la procesa sin migración.
+
+### 4.3. Modificadores condicionales (`condicion`)
+
+Un modificador puede llevar un campo opcional `condicion: <keyword_slug>` — una **palabra clave persistente** que restringe el momento de juego en el que cuenta. Sin `condicion` el modificador es permanente; con ella, el motor solo lo suma cuando evalúa esa palabra clave.
+
+```yaml
+efecto:
+  - objetivo: stat.percepcion
+    mod: +1                        # permanente
+  - objetivo: stat.percepcion
+    mod: +1
+    condicion: calcular_encuentros # solo al resolver encuentros
+```
+
+"+1 percepción" (siempre) **no es** "+1 percepción para calcular encuentros" (`condicion: calcular_encuentros`): el primero mejora la percepción en todo momento; el segundo solo pesa cuando el motor decide si hay un encuentro. Mismo número, alcance distinto.
+
+Palabras clave iniciales (catálogo abierto): `calcular_encuentros`, `tiradas_activas`, `chequeo_miedo`. La mecánica completa vive en [[atributos#3.5. Bonificador condicional condicion|atributos §3.5]].
 
 ---
 
@@ -223,7 +243,7 @@ categoria: aspecto
 descripcion: >
   Años de práctica le dan una calma que los reclutas no pueden fingir.
 efecto:
-  - objetivo: attr.tactico
+  - objetivo: attr.mente
     mod: +2
 requires:
   require_any:
@@ -250,7 +270,7 @@ descripcion: >
   Ve lo que otros se pierden. Alcance visual y percepción táctica fuera
   de lo común — el tipo que avisa antes de que nadie más escuche nada.
 efecto:
-  - objetivo: attr.tactico
+  - objetivo: attr.mente
     mod: +2
   - objetivo: stat.iniciativa
     mod: +1
@@ -275,7 +295,7 @@ categoria: habilidad
 descripcion: >
   Sabe estabilizar una herida bajo presión. No es médico — pero mantiene
   al compañero con vida hasta que llegue alguien que lo sea.
-atributo_dominante: men
+atributo_dominante: alma
 ```
 
 ```yaml
@@ -285,12 +305,12 @@ categoria: habilidad
 descripcion: >
   Disparo deliberado a distancia con arma larga. Necesita tiempo,
   posición y visión — pero cuando conecta, conecta bien.
-atributo_dominante: tac
+atributo_dominante: mente
 ```
 
 ### 6.2. Por qué la habilidad no modifica estadísticas
 
-Una habilidad habilitada no te hace mejor en el atributo; te da acceso a aplicarlo. La diferencia importa: un personaje con `TACTICO 3` y `habilidad.tiro_de_precision` puede intentar ese disparo. Uno con `TACTICO 5` sin la habilidad no puede. El nivel del atributo determina qué tan bien saldrá la tirada; la habilidad determina si puede hacerse.
+Una habilidad habilitada no te hace mejor en el atributo; te da acceso a aplicarlo. La diferencia importa: un personaje con `MENTE 3` y `habilidad.tiro_de_precision` puede intentar ese disparo. Uno con `MENTE 5` sin la habilidad no puede. El nivel del atributo determina qué tan bien saldrá la tirada; la habilidad determina si puede hacerse.
 
 Esto evita inflación de estadísticas por acumulación de habilidades y mantiene limpia la separación entre **capacidad** (atributos) y **conocimiento** (habilidades).
 
@@ -326,9 +346,9 @@ descripcion: >
   Entra en un estado de ataque descontrolado. Sube la agresividad pero
   ignora la cobertura — potente y peligroso para él mismo.
 efecto:
-  - objetivo: attr.fisico
+  - objetivo: attr.cuerpo
     mod: +2
-  - objetivo: attr.tactico
+  - objetivo: attr.mente
     mod: -2
   - objetivo: stat.estress
     mod: -1
@@ -353,7 +373,7 @@ Cuando el motor sirve un personaje, recorre sus etiquetas y aplica contratos:
 3. **Habilidades** — marca el habilitador binario. El motor lo consulta cuando una acción requiere la habilidad.
 4. **Efectos activos** — aplicados directamente o referenciados vía `trigger-action`.
 
-Ningún contrato modifica la hoja persistida. Todo cálculo es **en caliente** sobre los atributos base `fis`, `tac`, `men`. Las estadísticas (`INICIATIVA`, `MORAL`, etc.) no se guardan — se derivan al servir. Ver [[hoja-personaje]] para la estructura de la hoja y [[atributos]] para las fórmulas de derivación.
+Ningún contrato modifica la hoja persistida. Todo cálculo es **en caliente** sobre los atributos base `cuerpo`, `mente`, `alma`. Las estadísticas (`INICIATIVA`, `MORAL`, etc.) no se guardan — se derivan al servir. Ver [[hoja-personaje]] para la estructura de la hoja y [[atributos]] para las fórmulas de derivación.
 
 ---
 
@@ -369,7 +389,7 @@ descripcion: >
   Lo ha visto todo. No se sorprende, no se paraliza, no abandona el puesto.
   Su presencia sola eleva a los que tiene al lado.
 efecto:
-  - objetivo: attr.mental
+  - objetivo: attr.alma
     mod: +1
   - objetivo: stat.moral
     mod: +1
@@ -387,7 +407,7 @@ descripcion: >
   Una lesión vieja que nunca cerró del todo. Aguanta en combate,
   pero no corre como antes.
 efecto:
-  - objetivo: attr.fisico
+  - objetivo: attr.cuerpo
     mod: -1
   - objetivo: stat.movimiento
     pct: -30
@@ -423,7 +443,7 @@ descripcion: >
 efecto:
   - objetivo: stat.iniciativa
     mod: +1
-  - objetivo: attr.fisico
+  - objetivo: attr.cuerpo
     mod: +1
 ```
 
@@ -436,7 +456,7 @@ categoria: habilidad
 descripcion: >
   Sabe preparar, colocar y detonar cargas. También sabe cuándo
   no hacerlo — que es la mitad del oficio.
-atributo_dominante: tac
+atributo_dominante: mente
 ```
 
 ---
@@ -450,3 +470,97 @@ Los contratos se extienden igual que cualquier etiqueta — sin migración, sin 
 - **Nuevo efecto:** agregar `tags/efecto/{slug}.yaml` con la lista de modificadores estructurados.
 
 Un contrato desconocido no rompe la hoja. La coherencia la garantiza la curaduría del catálogo, no la validación de esquema. Detalle de los campos de catálogo en [[sistema-tags#§6 — Campos del archivo de catálogo|§6 de sistema-tags]].
+
+---
+
+## §11 — Aspectos canónicos
+
+> [!info] Dónde vive el dato, dónde vive el contrato
+> El **motor** lee estos aspectos desde sus archivos de catálogo (`resources/tags/aspecto/*.yaml`). Pero el **contrato** —qué entrega cada uno, en vocabulario canónico— vive acá: es la referencia normativa contra la que se valida el catálogo. Si el archivo y esta sección divergen, esta sección manda.
+
+Cuatro aspectos forman el núcleo canónico. Ejercitan los tres atributos (`cuerpo`, `mente`, `alma`), las estadísticas aditivas (`stat.sanar`, `stat.percepcion`) y el mecanismo de `condicion`.
+
+### `aspecto.tactico`
+
+Lectura del campo y anticipación. Actúa siempre primero; ve la emboscada antes que nadie.
+
+```yaml
+slug: tactico
+nombre: "Táctico"
+categoria: aspecto
+descripcion: >
+  Lee el terreno y la intención del enemigo antes de que se manifieste.
+  Reacciona temprano y olfatea la trampa.
+efecto:
+  - objetivo: stat.iniciativa
+    mod: +1
+  - objetivo: stat.percepcion
+    mod: +1
+    condicion: calcular_encuentros
+```
+
+El `+1 percepcion` es **condicional**: solo pesa al calcular encuentros (no es una percepción mejor en todo momento, sino mejor *para detectar el encuentro*). Ver §4.3.
+
+### `aspecto.religioso`
+
+La fe como ancla. Sostiene a los suyos y no se quiebra ante el miedo — pero la mansedumbre le resta filo en combate.
+
+```yaml
+slug: religioso
+nombre: "Religioso"
+categoria: aspecto
+descripcion: >
+  Su fe lo sostiene y sostiene a los de al lado. Inquebrantable ante el
+  terror, pero el alma puesta en otra parte le quita filo con las armas.
+efecto:
+  - objetivo: stat.sanar
+    mod: +1
+  - objetivo: attr.alma
+    mod: +2
+    condicion: chequeo_miedo
+  - objetivo: stat.iniciativa
+    mod: -1
+    nota: "Penalización con armas: la mansedumbre resta agresividad."
+```
+
+El `+2 alma` solo cuenta en `chequeo_miedo`: no lo hace más perceptivo ni mejor líder en general, solo más firme ante el terror.
+
+### `aspecto.tecnico`
+
+Mente metódica para las acciones deliberadas — demolición, reparación, tiro calculado.
+
+```yaml
+slug: tecnico
+nombre: "Técnico"
+categoria: aspecto
+descripcion: >
+  Method y cabeza fría para lo que se hace a propósito: colocar una carga,
+  reparar bajo presión, calcular un disparo. Brilla cuando él decide la jugada.
+efecto:
+  - objetivo: attr.mente
+    mod: +3
+    condicion: tiradas_activas
+```
+
+El `+3 mente` solo aplica en `tiradas_activas` (acciones que el personaje inicia deliberadamente); no mejora su reacción ni su defensa pasiva.
+
+### `aspecto.primeros_auxilios`
+
+Sabe estabilizar una herida bajo fuego. Competencia sanitaria pura, siempre activa.
+
+```yaml
+slug: primeros_auxilios
+nombre: "Primeros auxilios"
+categoria: aspecto
+descripcion: >
+  Estabiliza una herida sin perder la calma. No es médico, pero mantiene
+  al compañero con vida hasta que llegue uno.
+efecto:
+  - objetivo: stat.sanar
+    mod: +2
+```
+
+`stat.sanar` arranca en `0`; este aspecto la lleva a `+2`. Sin `condicion`: la competencia sanitaria está siempre disponible.
+
+> [!note] Aspecto y habilidad homónimos
+> `aspecto.primeros_auxilios` (aporta `stat.sanar`) y `habilidad.primeros_auxilios` (habilita la tirada contra `alma`) coexisten: el aspecto entrega la capacidad numérica; la habilidad, el acceso a la tirada. Son contratos de tipo distinto sobre el mismo oficio.

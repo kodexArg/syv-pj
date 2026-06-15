@@ -28,7 +28,7 @@ Esta regla es expansiva por diseño. El sistema no predice los tipos de tag que 
 **Lo que NO es un tag:**
 
 - `identidad` — slug opaco, nombre, sobrenombre, rol, género, edad.
-- `atributos` — `fis`, `tac`, `men`. Magnitudes numéricas persistidas.
+- `atributos` — `cuerpo`, `mente`, `alma`. Magnitudes numéricas persistidas.
 - `historia` — prosa biográfica.
 - `historial` — eventos temporales estructurados (de solo añadir).
 - `metadatos` — marcas de tiempo de auditoría.
@@ -285,8 +285,8 @@ trigger:
 
 > [!tip] Vocabulario canónico de efectos
 > El campo `objetivo` de cada modificador apunta a una variable en notación punto:
-> - Atributos base: `attr.fisico`, `attr.tactico`, `attr.mental`
-> - Estadísticas calculadas: `stat.iniciativa`, `stat.moral`, `stat.fatiga`, `stat.movimiento`, `stat.estress`
+> - Atributos base: `attr.cuerpo`, `attr.mente`, `attr.alma`
+> - Estadísticas calculadas: `stat.iniciativa`, `stat.moral`, `stat.fatiga`, `stat.movimiento`, `stat.estress`, `stat.sanar`, `stat.percepcion`
 >
-> El valor va en `mod` (delta entero) o `pct` (porcentaje), con `nota` opcional.
+> El valor va en `mod` (delta entero) o `pct` (porcentaje). Un campo opcional `condicion` (palabra clave) restringe cuándo cuenta el modificador; `nota` es opcional.
 > Ver [[contratos]] para la forma completa y [[atributos]] para la mecánica de cada variable.

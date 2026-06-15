@@ -46,7 +46,7 @@ Genera un personaje **efímero**. Parámetros opcionales vía cadena de consulta
 | `faccion` | `str` | Slug de facción. |
 | `rango` | `str` | Slug de rango. |
 | `semilla` | `str` | Semilla para reproducibilidad. `(semilla, faccion, rango)` reproduce el mismo efímero. |
-| `campos` | `str` CSV de rutas de punto | Poda la respuesta. Ej: `campos=identidad.slug,atributos.fis`. |
+| `campos` | `str` CSV de rutas de punto | Poda la respuesta. Ej: `campos=identidad.slug,atributos.cuerpo`. |
 | `tag` | `str` (repetible) | Filtrado en Y lógico. El efímero debe portar todos los tags exigidos. OR no está soportado — el cliente lo resuelve con N llamadas + unión. |
 
 Devuelve un `personaje` con:
@@ -148,9 +148,9 @@ slug: str
 nombre: str
 faccion: str            # slug de facción; rangos son específicos de facción
 atributos_base:
-  fis: int
-  tac: int
-  men: int
+  cuerpo: int
+  mente: int
+  alma: int
 mando_default: str      # slug de rango inmediato superior
 rol_cultural: str       # título usado por esa facción (ej. "Camarada Puntero" vs "Sargento")
 ```

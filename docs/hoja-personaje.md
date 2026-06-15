@@ -16,7 +16,7 @@ aliases:
 >
 > **Documentos hermanos**:
 > - [[sistema-tags|sistema-tags.md]] — la lista plana `tags[]`: notación, categorías, catálogo y curaduría.
-> - [[atributos-y-habilidades|atributos-y-habilidades.md]] — escalas de `fis/tac/men`, estadísticas derivadas y vocabulario canónico de efectos.
+> - [[atributos-y-habilidades|atributos-y-habilidades.md]] — escalas de `cuerpo/mente/alma`, estadísticas derivadas y vocabulario canónico de efectos.
 > - [[contratos|contratos.md]] — aspectos, habilidades y efectos como contratos.
 > - [[historial|historial.md]] — el registro `historial[]`: campos del hito, catálogo de tipos, `actores[]` y la regla de solo-añadir.
 > - [[nemesis-y-aliados|nemesis-y-aliados.md]] — los vínculos personales (`aliado.*` / `nemesis.*`) como etiquetas relacionales.
@@ -35,7 +35,7 @@ Seis bloques estructurales y una lista plana de tags:
 ```yaml
 personaje:
   identidad:    { slug, nombre, sobrenombre, rol, genero, edad }
-  atributos:    { fis, tac, men }   # únicas magnitudes numéricas persistidas
+  atributos:    { cuerpo, mente, alma }   # únicas magnitudes numéricas persistidas
   tags:         [...]               # lista plana, notación punto, NO multiconjunto (último valor gana)
                                     # incluye los vínculos personales: aliado.* / nemesis.*
   historia:     str                 # prosa biográfica, congelada al canonizar
@@ -116,9 +116,9 @@ edad:
 Tres valores numéricos que definen la capacidad base, en escala `2..7` (entero, más es mejor). Son las ==únicas magnitudes numéricas persistidas== de la hoja.
 
 ```yaml
-fis:  { significado: "Resistencia, potencia bruta.",                  rango: 2..5 }
-tac:  { significado: "Precisión, coordinación, reflejos.",            rango: 2..6 }
-men:  { significado: "Liderazgo, moral base, resistencia psíquica.",  rango: 2..7 }
+cuerpo:  { significado: "Resistencia, potencia bruta. En prosa: Físico.",       rango: 2..7 }
+mente:   { significado: "Precisión, coordinación, reflejos, lectura táctica.",   rango: 2..7 }
+alma:    { significado: "Aura, liderazgo, voluntad, temple ante el miedo. En prosa: Espíritu.", rango: 2..7 }
 ```
 
 > [!tip] Determinísticos en creación, mutables solo vía hito
@@ -126,7 +126,7 @@ men:  { significado: "Liderazgo, moral base, resistencia psíquica.",  rango: 2.
 > Toda otra capacidad numérica (fatiga máxima, moral máxima, fuerza aportada, mando vigente) es **derivada en caliente con fórmulas fijas y no se persiste**, para evitar desincronización. Topes, fórmulas y el vocabulario canónico de estadísticas viven en [[atributos-y-habilidades|atributos-y-habilidades.md]].
 
 > [!info] Azar portable
-> Las magnitudes se expresan en formato portable, agnóstico al sistema de resolución: probabilidades en **porcentaje** (`40% de fallar`), modificadores sobre atributos/estadísticas como **delta entero** (`(+1) MENTAL`), modificadores sobre magnitudes continuas en **porcentaje** (`-100% MOVIMIENTO`). Detalle en [[atributos-y-habilidades|atributos-y-habilidades.md]] y la política editorial en [[AGENTS|AGENTS.md]].
+> Las magnitudes se expresan en formato portable, agnóstico al sistema de resolución: probabilidades en **porcentaje** (`40% de fallar`), modificadores sobre atributos/estadísticas como **delta entero** (`(+1) ALMA`), modificadores sobre magnitudes continuas en **porcentaje** (`-100% MOVIMIENTO`). Detalle en [[atributos-y-habilidades|atributos-y-habilidades.md]] y la política editorial en [[AGENTS|AGENTS.md]].
 
 ---
 
@@ -149,8 +149,8 @@ El motor calcula al servir, sin persistir, para evitar desincronización:
 
 ```yaml
 filiacion:    { fuente: "tags rango.* + faccion.*",   nota: "null si falta alguno" }
-fatiga_max:   { fuente: "fis + men",                  tipo: int }
-moral_max:    { fuente: "men",                        tipo: int }
+fatiga_max:   { fuente: "cuerpo + alma",              tipo: int }
+moral_max:    { fuente: "alma",                       tipo: int }
 fza_aportada: { fuente: "tags rol.combate.*",         valores: "{heroe: 3, lider: 2, default: 1}" }
 ```
 
@@ -261,7 +261,7 @@ Qué cambia, y cómo:
 
 | Campo | Mutabilidad | Mecanismo |
 |---|---|---|
-| `atributos.{fis, tac, men}` | vía hito | `triple_cero` / `mejora_atributo` |
+| `atributos.{cuerpo, mente, alma}` | vía hito | `triple_cero` / `mejora_atributo` |
 | `tags[]` | vía hito | `agregar_tag` / `quitar_tag` (metadata `{tag}`) |
 | `tags[]` vínculos (`aliado.*`, `nemesis.*`) | vía hito | `formacion_lealtad` / `identificacion_nemesis` / `ruptura_lealtad` |
 | `identidad.rol` | vía hito | `ascenso` / `cambio_rol` |
