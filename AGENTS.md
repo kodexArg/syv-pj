@@ -63,9 +63,9 @@ Toda la documentación de `syv-pj` es **de versión única**: refleja solo el es
 ## Frontmatter: los nombres de campo son contrato, no prosa
 
 > [!warning] Intocables en cualquier iteración
-> Los **nombres de campo** del frontmatter YAML son un **contrato programático** (los parsea el sitio Astro y los agentes). **Nunca se traducen, renombran ni acentúan** — ni en esta iteración ni en ninguna futura, incluidas auditorías o traducciones masivas de inglés a castellano. Esta regla **prevalece** sobre cualquier consigna de "traducir hasta el último término en inglés".
+> Los **nombres de campo** del frontmatter YAML son un **contrato programático** (los parsean los agentes y el tooling). **Nunca se traducen, renombran ni acentúan** — ni en esta iteración ni en ninguna futura, incluidas auditorías o traducciones masivas de inglés a castellano. Esta regla **prevalece** sobre cualquier consigna de "traducir hasta el último término en inglés".
 
-- Quedan **siempre en inglés y minúscula**: `title`, `tags`, `aliases`, `folder`, `description`, `sidebar`, `order`, `hidden`, `slug`. Lista cerrada salvo decisión explícita del usuario en la conversación vigente.
+- Quedan **siempre en inglés y minúscula**: `title`, `tags`, `aliases`, `folder`, `description`. Lista cerrada salvo decisión explícita del usuario en la conversación vigente.
 - Se traduce el **valor** de un campo cuando es prosa; **jamás su clave**. `description: Texto en castellano` ✓ — `descripcion:` ✗.
 - Los **valores** que son identificadores de herramienta no son prosa y se preservan tal cual: `slug` y los de control `sidebar` / `order` / `hidden`. Los valores de `aliases` sí pueden traducirse cuando no rompen la resolución de wikilinks.
 
