@@ -1,0 +1,43 @@
+---
+slug: yara-sacerdotisa-orixa
+nombre: Yara
+aliases:
+  - Yara
+  - Mãe Yara
+  - La de Iemanjá
+description: Pai/mãe de santo de un terreiro de los Barrios del Muro; sacerdotisa orixá que sincretiza la Virgen con Iemanjá entre la humedad del río.
+barrio: barrios-del-muro
+faccion: los_umbanda
+rango: pai_de_santo
+rol: rol-paranormal-medium
+atributos:
+  cuerpo: 2
+  mente: 4
+  alma: 7
+edad: 58
+genero: f
+aspectos:
+  - "[[expresion_trance]]"
+  - "[[veterano]]"
+rasgos:
+  - "[[afinidad_animal]]"
+  - "[[silencio_sagrado]]"
+equipo:
+  - "[[medalla_sincretica]]"
+  - "[[agogo]]"
+  - "[[tocado_de_plumas]]"
+tags:
+  - faccion.los_umbanda
+  - rango.pai_de_santo
+  - rol.paranormal.medium
+  - estado.disponible
+  - aspecto.expresion_trance
+  - aspecto.veterano
+  - rasgo.afinidad_animal
+  - rasgo.silencio_sagrado
+  - equipo.ritual.medalla_sincretica
+  - equipo.ritual.agogo
+  - equipo.vestidura.tocado_de_plumas
+---
+
+Yara dirige un terreiro escondido entre los callejones húmedos de [[barrios-del-muro|Barrios del Muro]], vestida de blanco y sedas del color de su orixá, con un escapulario católico sobre las cuentas africanas. Es [[los_umbanda|umbandista]] de rango [[pai_de_santo|pai de santo]] y [[rol-paranormal-medium|médium]]: cuando suena el [[agogo]] y el incienso satura el aire, su [[expresion_trance|cuerpo entra en trance]] y baja el santo. Lleva la [[medalla_sincretica]] —Virgen e Iemanjá en una sola cara— y un [[tocado_de_plumas]] que la [[iglesia]] llamaría herejía. Su [[silencio_sagrado]] guarda lo que el río le dice del Pantano.

@@ -1,0 +1,1579 @@
+# VARONES — Nombres masculinos argentinos (Rioplatense)
+# 96 nombres. Fuentes: tradición hispano-italiana, literatura argentina (Borges,
+# Cortázar, Sabato, Arlt), registros civiles RENAPER, uso coloquial porteño.
+# Pesos de apodos_patrones suman 1.0 por entrada.
+
+nombres:
+  - nombre: "Adrián"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Adriancito"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Adrianillo"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Adri"
+
+  - nombre: "Agustín"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Agustincito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Agus"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Agustinillo"
+
+  - nombre: "Alberto"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.45
+        ejemplo: "Albertito"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Beto"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Albertillo"
+
+  - nombre: "Alejandro"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.40
+        ejemplo: "Alejo"
+      - sufijo: "-ito"
+        peso: 0.35
+        ejemplo: "Alejandrito"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Ale"
+
+  - nombre: "Alfredo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Alfredito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Fredo"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Alfredillo"
+
+  - nombre: "Aníbal"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Aníbalito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Aníbalillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Ani"
+
+  - nombre: "Antonio"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.40
+        ejemplo: "Toni"
+      - sufijo: "-ito"
+        peso: 0.35
+        ejemplo: "Antoniito"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Toño"
+
+  - nombre: "Arturo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Arturito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Arturillo"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Artu"
+
+  - nombre: "Bautista"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.55
+        ejemplo: "Bauti"
+      - sufijo: "-ito"
+        peso: 0.30
+        ejemplo: "Bautistita"
+      - sufijo: "-illo"
+        peso: 0.15
+        ejemplo: "Bautistillo"
+
+  - nombre: "Benjamín"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.45
+        ejemplo: "Benja"
+      - sufijo: "-ito"
+        peso: 0.35
+        ejemplo: "Benjamincito"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Benjaminillo"
+
+  - nombre: "Bernardo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Bernardito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Berna"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Bernardillo"
+
+  - nombre: "Carlos"
+    apodos_patrones:
+      - sufijo: "-itos"
+        peso: 0.55
+        ejemplo: "Carlitos"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Carlillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Cachi"
+
+  - nombre: "César"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Cesarito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Cesarillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Cesa"
+
+  - nombre: "Claudio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Claudito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Clau"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Claudillo"
+
+  - nombre: "Cristian"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Cristiancito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Cris"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Cristianillo"
+
+  - nombre: "Cristóbal"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Cristobalito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Cristobalillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Cris"
+
+  - nombre: "Damián"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Damiancito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Damianillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Dami"
+
+  - nombre: "Daniel"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Danielito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Dani"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Danielillo"
+
+  - nombre: "Dante"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Dantecito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Dantillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Dan"
+
+  - nombre: "Diego"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Diegito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Diegillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Die"
+
+  - nombre: "Dmitri"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Dmitrircito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Dima"
+      - sufijo: "-illo"
+        peso: 0.15
+        ejemplo: "Dmitrillo"
+
+  - nombre: "Eduardo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.45
+        ejemplo: "Eduardito"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Eddy"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Eduardillo"
+
+  - nombre: "Emilio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Emiliito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Emilillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Emi"
+
+  - nombre: "Enrique"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Enriquito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Quique"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Enriquillo"
+
+  - nombre: "Ernesto"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.45
+        ejemplo: "Ernestito"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Néstor"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Ernestillo"
+
+  - nombre: "Esteban"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Estebanito"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Esteba"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Estebanillo"
+
+  - nombre: "Ezequiel"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Ezequielito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Eze"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Ezequielillo"
+
+  - nombre: "Fabián"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Fabiancito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Fabianillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Fabi"
+
+  - nombre: "Federico"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.45
+        ejemplo: "Fede"
+      - sufijo: "-ito"
+        peso: 0.35
+        ejemplo: "Federicito"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Federicillo"
+
+  - nombre: "Felipe"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Felipito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Feli"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Felipillo"
+
+  - nombre: "Fernando"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.45
+        ejemplo: "Fernandito"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Fer"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Fernandillo"
+
+  - nombre: "Francisco"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Pancho"
+      - sufijo: "-ito"
+        peso: 0.30
+        ejemplo: "Franciscito"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Paco"
+
+  - nombre: "Gastón"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Gastoncito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Gastonillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Gasti"
+
+  - nombre: "Gerardo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Gerardito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Gera"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Gerardillo"
+
+  - nombre: "Gonzalo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Gonzalito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Gonza"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Gonzalillo"
+
+  - nombre: "Gregorio"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.45
+        ejemplo: "Goyo"
+      - sufijo: "-ito"
+        peso: 0.35
+        ejemplo: "Gregoriito"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Gregorillo"
+
+  - nombre: "Guillermo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.45
+        ejemplo: "Guillermito"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Willy"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Guillermillo"
+
+  - nombre: "Gustavo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Gustavito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Gus"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Gustavillo"
+
+  - nombre: "Héctor"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Hectorito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Hectorillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Hecto"
+
+  - nombre: "Hernán"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Hernancito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Hernanillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Herny"
+
+  - nombre: "Hugo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.60
+        ejemplo: "Hugito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Hugillo"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Ugo"
+
+  - nombre: "Ignacio"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.55
+        ejemplo: "Nacho"
+      - sufijo: "-ito"
+        peso: 0.30
+        ejemplo: "Ignaciito"
+      - sufijo: "-illo"
+        peso: 0.15
+        ejemplo: "Ignacillo"
+
+  - nombre: "Iván"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Ivancito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Ivanillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Iva"
+
+  - nombre: "Javier"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Javierito"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Javi"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Javierillo"
+
+  - nombre: "Joaquín"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.55
+        ejemplo: "Joaco"
+      - sufijo: "-ito"
+        peso: 0.30
+        ejemplo: "Joaquincito"
+      - sufijo: "-illo"
+        peso: 0.15
+        ejemplo: "Joaquinillo"
+
+  - nombre: "Jorge"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Jorgito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Jorgillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Pololo"
+
+  - nombre: "José"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.45
+        ejemplo: "Josecito"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Pepe"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Josecillo"
+
+  - nombre: "Juan"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.45
+        ejemplo: "Juancho"
+      - sufijo: "-ito"
+        peso: 0.35
+        ejemplo: "Juancito"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Juanillo"
+
+  - nombre: "Julián"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Juliancito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Juli"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Julianillo"
+
+  - nombre: "Julio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Juliito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Julillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Juli"
+
+  - nombre: "Lautaro"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.55
+        ejemplo: "Lauti"
+      - sufijo: "-ito"
+        peso: 0.30
+        ejemplo: "Lautarito"
+      - sufijo: "-illo"
+        peso: 0.15
+        ejemplo: "Lautarillo"
+
+  - nombre: "Leandro"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.45
+        ejemplo: "Leandrito"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Lean"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Leandrillo"
+
+  - nombre: "Leonardo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.45
+        ejemplo: "Leonardito"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Leo"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Leonardillo"
+
+  - nombre: "Lorenzo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Lorencito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Lore"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Lorencillo"
+
+  - nombre: "Lucas"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Lucasito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Lucasillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Lu"
+
+  - nombre: "Luis"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Luisito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Luisillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Lucho"
+
+  - nombre: "Manuel"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.45
+        ejemplo: "Manuelito"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Manu"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Manuelillo"
+
+  - nombre: "Marco"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Marquito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Marquillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Marky"
+
+  - nombre: "Marcelo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Marcelito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Marce"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Marcelillo"
+
+  - nombre: "Martín"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Martincito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Marti"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Martinillo"
+
+  - nombre: "Mateo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Mateíto"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Mateillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Mate"
+
+  - nombre: "Matías"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Matiascito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Mati"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Matiasillo"
+
+  - nombre: "Mauricio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Mauriciito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Mauri"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Mauricillo"
+
+  - nombre: "Maximiliano"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Maxi"
+      - sufijo: "-ito"
+        peso: 0.35
+        ejemplo: "Maximilianito"
+      - sufijo: "-illo"
+        peso: 0.15
+        ejemplo: "Maximillano"
+
+  - nombre: "Miguel"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Miguelito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Miguelillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Migue"
+
+  - nombre: "Néstor"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Nestorito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Nestorillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Neco"
+
+  - nombre: "Nicolás"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Nico"
+      - sufijo: "-ito"
+        peso: 0.30
+        ejemplo: "Nicolasito"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Nicolasillo"
+
+  - nombre: "Omar"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.60
+        ejemplo: "Omarito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Omarillo"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Oma"
+
+  - nombre: "Orlando"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Orlandito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Orly"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Orlandillo"
+
+  - nombre: "Osvaldo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.45
+        ejemplo: "Osvaldito"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Vasco"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Osvaldillo"
+
+  - nombre: "Pablo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Pablito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Pablillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Pabli"
+
+  - nombre: "Patricio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Patriciito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Patri"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Patricillo"
+
+  - nombre: "Pedro"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Pedrito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Pedrillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Pepe"
+
+  - nombre: "Rafael"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Rafaelito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Rafa"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Rafaelillo"
+
+  - nombre: "Ramón"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Ramoncito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Ramonillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Rami"
+
+  - nombre: "Raúl"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.60
+        ejemplo: "Raulito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Raulillo"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Rau"
+
+  - nombre: "Ricardo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.45
+        ejemplo: "Ricardito"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Ricky"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Ricardillo"
+
+  - nombre: "Roberto"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Beto"
+      - sufijo: "-ito"
+        peso: 0.30
+        ejemplo: "Robertito"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Robertillo"
+
+  - nombre: "Rodrigo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.45
+        ejemplo: "Rodrigito"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Rodri"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Rodrigillo"
+
+  - nombre: "Rubén"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.60
+        ejemplo: "Rubencito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Rubenillo"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Rubi"
+
+  - nombre: "Santiago"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.55
+        ejemplo: "Santi"
+      - sufijo: "-ito"
+        peso: 0.30
+        ejemplo: "Santiaguito"
+      - sufijo: "-illo"
+        peso: 0.15
+        ejemplo: "Santiaguillo"
+
+  - nombre: "Sebastián"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Sebas"
+      - sufijo: "-ito"
+        peso: 0.30
+        ejemplo: "Sebastiancito"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Sebastianillo"
+
+  - nombre: "Sergio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Sergiito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Sergillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Ser"
+
+  - nombre: "Simón"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.60
+        ejemplo: "Simoncito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Simonillo"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Simo"
+
+  - nombre: "Teodoro"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Teodorito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Teo"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Teodorillo"
+
+  - nombre: "Tomás"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.45
+        ejemplo: "Tom"
+      - sufijo: "-ito"
+        peso: 0.35
+        ejemplo: "Tomasito"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Tomasillo"
+
+  - nombre: "Valentín"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Valentincito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Valentinillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Valen"
+
+  - nombre: "Víctor"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Victorito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Victorillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Victo"
+
+  - nombre: "Vicente"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Vicentito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Vicentillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Vince"
+
+  - nombre: "Walter"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Walterito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Walterillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Wally"
+
+  - nombre: "Xavier"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Xavierito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Xavierillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Xavi"
+
+  # --- Literarios / tradicionales ---
+
+  - nombre: "Adolfo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Adolfito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Adolfillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Adol"
+
+  - nombre: "Aldo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.60
+        ejemplo: "Aldito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Aldillo"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Al"
+
+  - nombre: "Aurelio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Aureliito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Aurelillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Aure"
+
+  - nombre: "Belisario"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Belisariito"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Beli"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Belisarillo"
+
+  - nombre: "Benigno"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Benignito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Benignillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Beni"
+
+  - nombre: "Casimiro"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Casimirito"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Casi"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Casimirillo"
+
+  - nombre: "Cipriano"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Ciprianito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Ciprianillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Cipri"
+
+  - nombre: "Ciro"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.60
+        ejemplo: "Cirito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Cirillo"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Ci"
+
+  - nombre: "Cornelio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Corneliito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Cornelillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Corne"
+
+  - nombre: "Dalmiro"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Dalmirito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Dalmirillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Dal"
+
+  - nombre: "Demetrio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Demetriito"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Deme"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Demetrillo"
+
+  - nombre: "Domingo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Dominguito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Mingo"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Dominguillo"
+
+  - nombre: "Edmundo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Edmundito"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Edmu"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Edmundillo"
+
+  - nombre: "Eugenio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Eugeniito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Eugenillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Eugy"
+
+  - nombre: "Ezio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.60
+        ejemplo: "Eziito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Ezillo"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Ez"
+
+  - nombre: "Félix"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.60
+        ejemplo: "Felixito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Felixillo"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Feli"
+
+  - nombre: "Florencio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Florenciito"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Flore"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Florencillo"
+
+  - nombre: "Galo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.60
+        ejemplo: "Galito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Galillo"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Ga"
+
+  - nombre: "Gumersindo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.45
+        ejemplo: "Gumersindito"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Gumer"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Gumersindillo"
+
+  - nombre: "Horacio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Horaciito"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Hora"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Horacillo"
+
+  - nombre: "Isidoro"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Isidorito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Isidro"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Isidorillo"
+
+  - nombre: "Jacinto"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Jacintito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Jacintillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Jaci"
+
+  - nombre: "Lisandro"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Lisandrito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Lisa"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Lisandrillo"
+
+  - nombre: "Luca"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.60
+        ejemplo: "Lucaito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Lucaillo"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Lu"
+
+  - nombre: "Macedonio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Macedoniito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Mace"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Macedonillo"
+
+  - nombre: "Maximiliano"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Maxi"
+      - sufijo: "-ito"
+        peso: 0.35
+        ejemplo: "Maximilianito"
+      - sufijo: "-illo"
+        peso: 0.15
+        ejemplo: "Maximillo"
+
+  - nombre: "Norberto"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Norbertito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Norbi"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Norbertillo"
+
+  - nombre: "Octavio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Octaviito"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Octa"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Octavillo"
+
+  - nombre: "Onofre"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Onofrito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Onofrillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Ono"
+
+  - nombre: "Orestes"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Orestecito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Orestillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Ore"
+
+  - nombre: "Pascual"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Pascualito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Pascualillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Pascu"
+
+  - nombre: "Porfirio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Porfiriito"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Porfi"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Porfirillo"
+
+  - nombre: "Rogelio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Rogeliito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Rogelillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Roge"
+
+  - nombre: "Romero"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Romerito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Romerillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Rome"
+
+  - nombre: "Rosendo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Rosendito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Rosendillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Rose"
+
+  - nombre: "Salvador"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Salvadorito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Salva"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Salvadorillo"
+
+  - nombre: "Silvano"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Silvanito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Silvanillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Silvi"
+
+  - nombre: "Silvio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Silviito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Silvillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Silvi"
+
+  - nombre: "Tiburcio"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.50
+        ejemplo: "Tiburciito"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Tibu"
+      - sufijo: "-illo"
+        peso: 0.20
+        ejemplo: "Tiburcillo"
+
+  - nombre: "Ulises"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Ulisecito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Ulisillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Uli"

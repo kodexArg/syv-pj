@@ -1,0 +1,1363 @@
+# MUJERES — Nombres femeninos argentinos (Rioplatense)
+# 95 nombres. Fuentes: tradición hispano-italiana, literatura argentina,
+# registros civiles RENAPER, devoción mariana, uso coloquial porteño.
+# Pesos de apodos_patrones suman 1.0 por entrada.
+
+nombres:
+  - nombre: "Adelaida"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Adelaidita"
+      - sufijo: ""
+        peso: 0.25
+        ejemplo: "Adela"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Adelaidilla"
+
+  - nombre: "Adriana"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Adrianita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Adrianilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Adri"
+
+  - nombre: "Agustina"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Agus"
+      - sufijo: "-ita"
+        peso: 0.35
+        ejemplo: "Agustinita"
+      - sufijo: "-illa"
+        peso: 0.15
+        ejemplo: "Agustinilla"
+
+  - nombre: "Alejandra"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.45
+        ejemplo: "Ale"
+      - sufijo: "-ita"
+        peso: 0.35
+        ejemplo: "Alejandrita"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Alejandrilla"
+
+  - nombre: "Alicia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Aliciita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Alicilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Ali"
+
+  - nombre: "Amanda"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Amandita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Amandilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Ama"
+
+  - nombre: "Amelia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Ameliita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Amelilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Ame"
+
+  - nombre: "Ana"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Anita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Anilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Ani"
+
+  - nombre: "Andrea"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Andreita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Andreilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Andre"
+
+  - nombre: "Antonia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.45
+        ejemplo: "Antoniita"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Toña"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Antonilla"
+
+  - nombre: "Beatriz"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Beatricita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Bea"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Beatricilla"
+
+  - nombre: "Brígida"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Brigidita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Brigidilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Bri"
+
+  - nombre: "Camila"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.55
+        ejemplo: "Cami"
+      - sufijo: "-ita"
+        peso: 0.30
+        ejemplo: "Camilita"
+      - sufijo: "-illa"
+        peso: 0.15
+        ejemplo: "Camililla"
+
+  - nombre: "Carmen"
+    apodos_patrones:
+      - sufijo: "-cita"
+        peso: 0.55
+        ejemplo: "Carmencita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Carmenilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Carme"
+
+  - nombre: "Carolina"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.45
+        ejemplo: "Caro"
+      - sufijo: "-ita"
+        peso: 0.35
+        ejemplo: "Carolinita"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Carolinilla"
+
+  - nombre: "Catalina"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Cata"
+      - sufijo: "-ita"
+        peso: 0.35
+        ejemplo: "Catalinita"
+      - sufijo: "-illa"
+        peso: 0.15
+        ejemplo: "Catalinilla"
+
+  - nombre: "Cecilia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Ceciliita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Ceci"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Cecililla"
+
+  - nombre: "Clara"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Clarita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Clarilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Cla"
+
+  - nombre: "Claudia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Claudiita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Clau"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Claudilla"
+
+  - nombre: "Cristina"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Cristinita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Cris"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Cristinilla"
+
+  - nombre: "Daniela"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Danielita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Dani"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Danielilla"
+
+  - nombre: "Delia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Deliita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Delilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Deli"
+
+  - nombre: "Elena"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Elenita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Elenilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Ele"
+
+  - nombre: "Elisa"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Elisita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Elisilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Eli"
+
+  - nombre: "Esther"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Esterita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Esterilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Este"
+
+  - nombre: "Eva"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Evita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Evilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Evi"
+
+  - nombre: "Fabiana"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Fabianita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Fabianilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Fabi"
+
+  - nombre: "Fernanda"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.45
+        ejemplo: "Fernandita"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Fer"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Fernandilla"
+
+  - nombre: "Florencia"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Flor"
+      - sufijo: "-ita"
+        peso: 0.35
+        ejemplo: "Florenciita"
+      - sufijo: "-illa"
+        peso: 0.15
+        ejemplo: "Florencilla"
+
+  - nombre: "Gabriela"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.45
+        ejemplo: "Gabrielita"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Gabi"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Gabrielilla"
+
+  - nombre: "Graciela"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Gracielita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Graci"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Gracielilla"
+
+  - nombre: "Inés"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Inesita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Inesilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Ine"
+
+  - nombre: "Irma"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Irmita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Irmilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Irmi"
+
+  - nombre: "Isabel"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Isabelita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Isa"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Isabelilla"
+
+  - nombre: "Jessica"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Jessicita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Jessicilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Jessi"
+
+  - nombre: "Josefina"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.45
+        ejemplo: "Josefinita"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Jose"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Josefinilla"
+
+  - nombre: "Juana"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Juanita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Juani"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Juanilla"
+
+  - nombre: "Julia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Juliita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Julilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Juli"
+
+  - nombre: "Julieta"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Julietita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Juli"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Julietilla"
+
+  - nombre: "Laura"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Laurita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Laurilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Lau"
+
+  - nombre: "Leticia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Leticiita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Leti"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Leticilla"
+
+  - nombre: "Lorena"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Lorenita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Lorenilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Lore"
+
+  - nombre: "Lucía"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.55
+        ejemplo: "Lu"
+      - sufijo: "-ita"
+        peso: 0.30
+        ejemplo: "Luciita"
+      - sufijo: "-illa"
+        peso: 0.15
+        ejemplo: "Lucilla"
+
+  - nombre: "Luisa"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Luisita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Luisilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Lucho"
+
+  - nombre: "Magdalena"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.45
+        ejemplo: "Magdalenita"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Magda"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Magdalenilla"
+
+  - nombre: "Marcela"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Marcelita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Marce"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Marcelilla"
+
+  - nombre: "María"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Marita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Mari"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Marilla"
+
+  - nombre: "Mariana"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Marianita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Mariana"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Marianilla"
+
+  - nombre: "Marina"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Marinita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Marinilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Mari"
+
+  - nombre: "Martina"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Martinita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Tina"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Martinilla"
+
+  - nombre: "Mercedes"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Mecha"
+      - sufijo: "-ita"
+        peso: 0.35
+        ejemplo: "Merceditas"
+      - sufijo: "-illa"
+        peso: 0.15
+        ejemplo: "Mercedilla"
+
+  - nombre: "Miriam"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Miriamita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Miriamilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Miri"
+
+  - nombre: "Mónica"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Monicita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Monicilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Moni"
+
+  - nombre: "Nadia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Nadiita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Nadilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Nadi"
+
+  - nombre: "Natalia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Nataliita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Nati"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Natalilla"
+
+  - nombre: "Norma"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Normita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Normilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Normi"
+
+  - nombre: "Olga"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Olgita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Olgilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Oli"
+
+  - nombre: "Patricia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Patriciita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Patri"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Patricilla"
+
+  - nombre: "Paula"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Paulita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Paulilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Pau"
+
+  - nombre: "Pilar"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Pilarita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Pili"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Pilarilla"
+
+  - nombre: "Renata"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Renatita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Renatilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Rena"
+
+  - nombre: "Rosa"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Rosita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Rosilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Rosi"
+
+  - nombre: "Rosario"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.45
+        ejemplo: "Rosariita"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Charo"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Rosarillo"
+
+  - nombre: "Sandra"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Sandrita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Sandrilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Sandy"
+
+  - nombre: "Silvia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Silviita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Silvilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Silvi"
+
+  - nombre: "Sofía"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Sofiita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Sofilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Sofi"
+
+  - nombre: "Soledad"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.45
+        ejemplo: "Soledadcita"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Sole"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Soledadilla"
+
+  - nombre: "Susana"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Susanita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Susy"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Susanilla"
+
+  - nombre: "Tamara"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Tamarita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Tamarilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Tami"
+
+  - nombre: "Teresa"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Teresita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Tere"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Teresilla"
+
+  - nombre: "Valentina"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Valen"
+      - sufijo: "-ita"
+        peso: 0.35
+        ejemplo: "Valentinita"
+      - sufijo: "-illa"
+        peso: 0.15
+        ejemplo: "Valentinilla"
+
+  - nombre: "Valeria"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Valeriita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Vale"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Valerilla"
+
+  - nombre: "Vanesa"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Vanesita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Vanesilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Vane"
+
+  - nombre: "Verónica"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Vero"
+      - sufijo: "-ita"
+        peso: 0.35
+        ejemplo: "Veronicita"
+      - sufijo: "-illa"
+        peso: 0.15
+        ejemplo: "Veronicilla"
+
+  - nombre: "Victoria"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Vicky"
+      - sufijo: "-ita"
+        peso: 0.35
+        ejemplo: "Victoriita"
+      - sufijo: "-illa"
+        peso: 0.15
+        ejemplo: "Victorilla"
+
+  - nombre: "Violeta"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Violetita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Violetilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Vio"
+
+  - nombre: "Virginia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Virginiita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Virgi"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Virginilla"
+
+  # --- Literarias / tradicionales ---
+
+  - nombre: "Adelina"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Adelinita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Adelinilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Adeli"
+
+  - nombre: "Agripina"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Agripinita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Agripinilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Agri"
+
+  - nombre: "Amparo"
+    apodos_patrones:
+      - sufijo: "-ito"
+        peso: 0.55
+        ejemplo: "Amparito"
+      - sufijo: "-illo"
+        peso: 0.25
+        ejemplo: "Amparillo"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Ampa"
+
+  - nombre: "Angélica"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Angelicita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Angelicilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Ange"
+
+  - nombre: "Asunción"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Asuncioncita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Asun"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Asuncionilla"
+
+  - nombre: "Aurora"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Aurorita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Aurorilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Auro"
+
+  - nombre: "Blanca"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Blanquita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Blanquilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Blan"
+
+  - nombre: "Clementina"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Clementinita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Cleme"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Clementinilla"
+
+  - nombre: "Concepción"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Concha"
+      - sufijo: "-ita"
+        peso: 0.35
+        ejemplo: "Concepcioncita"
+      - sufijo: "-illa"
+        peso: 0.15
+        ejemplo: "Concepcionilla"
+
+  - nombre: "Consuelo"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Consuelita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Consuelilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Consu"
+
+  - nombre: "Dolores"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Lola"
+      - sufijo: "-ita"
+        peso: 0.35
+        ejemplo: "Dolorcitas"
+      - sufijo: "-illa"
+        peso: 0.15
+        ejemplo: "Dolorcilla"
+
+  - nombre: "Emilia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Emiliita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Emililla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Emi"
+
+  - nombre: "Encarnación"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Encarni"
+      - sufijo: "-ita"
+        peso: 0.35
+        ejemplo: "Encarnacioncita"
+      - sufijo: "-illa"
+        peso: 0.15
+        ejemplo: "Encarnacionilla"
+
+  - nombre: "Estela"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Estelita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Estelilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Este"
+
+  - nombre: "Filomena"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Filomenita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Filo"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Filomenilla"
+
+  - nombre: "Guadalupe"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Guadalupita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Guada"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Guadalupilla"
+
+  - nombre: "Herminia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Herminiita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Herminilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Hermi"
+
+  - nombre: "Lilia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Liliita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Lililla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Lili"
+
+  - nombre: "Livia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Liviita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Livilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Livi"
+
+  - nombre: "Lucinda"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Lucindita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Lucindilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Luci"
+
+  - nombre: "Manuela"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Manuelita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Manu"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Manuelilla"
+
+  - nombre: "Margarita"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.50
+        ejemplo: "Margaritita"
+      - sufijo: ""
+        peso: 0.30
+        ejemplo: "Marga"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Margaritilla"
+
+  - nombre: "Merceditas"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Merceditas"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Merceditilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Merce"
+
+  - nombre: "Ofelia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Ofeliita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Ofelilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Ofe"
+
+  - nombre: "Olimpia"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Olimpiita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Olimpilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Oli"
+
+  - nombre: "Palmira"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Palmirita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Palmirilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Palmi"
+
+  - nombre: "Perla"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Perlita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Perlilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Perli"
+
+  - nombre: "Rebeca"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Rebequita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Rebequilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Rebe"
+
+  - nombre: "Regina"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Reginita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Reginilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Regi"
+
+  - nombre: "Remedios"
+    apodos_patrones:
+      - sufijo: ""
+        peso: 0.50
+        ejemplo: "Reme"
+      - sufijo: "-ita"
+        peso: 0.35
+        ejemplo: "Remedioscita"
+      - sufijo: "-illa"
+        peso: 0.15
+        ejemplo: "Remediosilla"
+
+  - nombre: "Rosalba"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Rosalbita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Rosalbilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Rosa"
+
+  - nombre: "Rosalía"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Rosaliita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Rosalilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Rosa"
+
+  - nombre: "Salomé"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Salomeita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Salomeilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Salo"
+
+  - nombre: "Trinidad"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.45
+        ejemplo: "Trinidadcita"
+      - sufijo: ""
+        peso: 0.35
+        ejemplo: "Trini"
+      - sufijo: "-illa"
+        peso: 0.20
+        ejemplo: "Trinidadilla"
+
+  - nombre: "Ximena"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.55
+        ejemplo: "Ximenita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Ximenilla"
+      - sufijo: ""
+        peso: 0.20
+        ejemplo: "Xime"
+
+  - nombre: "Zulma"
+    apodos_patrones:
+      - sufijo: "-ita"
+        peso: 0.60
+        ejemplo: "Zulmita"
+      - sufijo: "-illa"
+        peso: 0.25
+        ejemplo: "Zulmilla"
+      - sufijo: ""
+        peso: 0.15
+        ejemplo: "Zulmi"

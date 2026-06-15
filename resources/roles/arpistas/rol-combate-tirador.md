@@ -1,0 +1,9 @@
+---
+slug: rol.combate.tirador
+nombre: Tirador
+probabilidad: 8
+tags: ["rol/combate/tirador", "rol/combate", "pool/arpistas"]
+---
+Precisión sobre cantidad; elimina objetivos desde la distancia.
+
+[[arpistas]] [[tiro_de_precision]]

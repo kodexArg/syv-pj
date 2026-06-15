@@ -1,0 +1,94 @@
+---
+tags: ["rangos", "rangos/iglesia", "faccion/iglesia"]
+rangos:
+- slug: lego
+  nombre: Lego
+  faccion: iglesia
+  rol_cultural: Fiel Devoto
+  probabilidad: 24
+  atributos_base:
+    cuerpo: 2
+    mente: 2
+    alma: 2
+  edad_min: 16
+  edad_max: 60
+  mando_default: novicio
+- slug: novicio
+  nombre: Novicio
+  faccion: iglesia
+  rol_cultural: Novicio
+  probabilidad: 22
+  atributos_base:
+    cuerpo: 2
+    mente: 3
+    alma: 3
+  edad_min: 17
+  edad_max: 30
+  mando_default: hermano
+- slug: hermano
+  nombre: Hermano
+  faccion: iglesia
+  rol_cultural: Hermano de Orden
+  probabilidad: 20
+  atributos_base:
+    cuerpo: 3
+    mente: 3
+    alma: 3
+  edad_min: 20
+  edad_max: 55
+  mando_default: sacerdote
+- slug: sacerdote
+  nombre: Sacerdote
+  faccion: iglesia
+  rol_cultural: Padre
+  probabilidad: 15
+  atributos_base:
+    cuerpo: 3
+    mente: 4
+    alma: 6
+  edad_min: 28
+  edad_max: 65
+  mando_default: canonigo
+  mando: parroquia
+- slug: canonigo
+  nombre: Canónigo
+  faccion: iglesia
+  rol_cultural: Canónigo
+  probabilidad: 10
+  atributos_base:
+    cuerpo: 3
+    mente: 4
+    alma: 6
+  edad_min: 35
+  edad_max: 70
+  mando_default: obispo
+  mando: dicasterio
+- slug: obispo
+  nombre: Obispo
+  faccion: iglesia
+  rol_cultural: Obispo
+  probabilidad: 6
+  atributos_base:
+    cuerpo: 3
+    mente: 5
+    alma: 7
+  edad_min: 45
+  edad_max: 75
+  mando_default: cardenal
+  mando: diocesis
+- slug: cardenal
+  nombre: Cardenal
+  faccion: iglesia
+  rol_cultural: Cardenal
+  probabilidad: 3
+  atributos_base:
+    cuerpo: 2
+    mente: 5
+    alma: 7
+  edad_min: 50
+  edad_max: 80
+  mando_default: null
+  mando: curia
+---
+
+Escalera jerárquica de **Iglesia Católica** — [[iglesia]].
