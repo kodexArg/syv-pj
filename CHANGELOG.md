@@ -4,7 +4,7 @@
 
 - group: attributes-refactor-cuerpo-mente-alma
   priority: critical
-  commit: 8ed545c
+  commit: 8e33613
   changes:
     - feat(docs/atributos.md): Físico/Mental/Táctico → Cuerpo/Mente/Alma; nombres deterministas en yaml/json (cuerpo, mente, alma); mapeo (fisico→cuerpo, tactico→mente, mental→descartado)
     - feat(docs/atributos.md): Nueva derivada fatiga_max = cuerpo + alma; moral_max = alma; iniciativa = max(cuerpo, mente, alma)
