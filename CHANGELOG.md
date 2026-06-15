@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+- group: attributes-refactor-cuerpo-mente-alma
+  priority: critical
+  commit: pending
+  changes:
+    - feat(docs/atributos.md): Físico/Mental/Táctico → Cuerpo/Mente/Alma; nombres deterministas en yaml/json (cuerpo, mente, alma); mapeo (fisico→cuerpo, tactico→mente, mental→descartado)
+    - feat(docs/atributos.md): Nueva derivada fatiga_max = cuerpo + alma; moral_max = alma; iniciativa = max(cuerpo, mente, alma)
+    - feat(docs/contratos.md): Nuevo campo condicion en entradas de efecto; keywords: calcular_encuentros, tiradas_activas, chequeo_miedo
+    - feat(docs/contratos.md): Táctico deja de ser atributo, pasa a ser aspecto; 4 aspectos definidos (tactico, religioso, tecnico, primeros_auxilios)
+    - refactor(docs): Nombres populares en prosa: Cuerpo/Mente/Alma (o Espíritu); se elimina abreviatura de 3 chars (fis/tac/men)
+    - docs(SPINE.md): Atualizado con nueva nomenclatura y derivadas
+    - docs(MODEL.md): Atualizado con nueva nomenclatura y derivadas
 - group: initial-release
   priority: high
   commit: 903d4a1
