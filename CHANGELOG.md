@@ -2,6 +2,24 @@
 
 ## [Unreleased]
 
+- group: mocs-discoverable
+  priority: high
+  commit: 221a405
+  changes:
+    - docs(resources): MOCs de descubribilidad — índice maestro `_moc-resources` + 12 MOCs por categoría (aspectos, entrenamientos, equipos, facciones, habilidades, rasgos, roles, subfacciones, nombres, rangos, atributos, personajes)
+    - docs(resources): 381 recursos catalogados, cada uno enlazado vía wikilinks desde su MOC; path-qualified donde el basename es ambiguo (p.ej. 126 links en roles con path)
+    - docs(SPINE.md): enlazado desde SPINE.md; ningún recurso queda huérfano
+- group: resources-adoption
+  priority: critical
+  commit: 7294bee
+  changes:
+    - feat(resources): adoptado `resources/` (catálogos, rangos, personajes) como **SSOT de datos del universo**, externalizado desde syv-pj-api
+    - feat(resources/catalogos): aspectos, entrenamientos, equipo, habilidades, rasgos — estructura markdown con frontmatter per-entity en subfolders
+    - feat(resources/rangos): 20 tablas de atributos base, rúbrica de alma (líderes/clero alto, rasos bajo)
+    - feat(resources/personajes): 34 fichas de ejemplo — ejército rojo (29), iniciados inquisidores (2), capellán de batalla (1), 2 prueba (severo, yara)
+    - feat(resources): depósitos de nombres (nombres_mujeres.yaml, nombres_varones.yaml con apodos_patrones)
+    - feat(resources): nuevo `resources/reglas/` — per-key markdown (clave, valor) migrado desde YAML monolítico
+    - docs: repo hecho PÚBLICO en GitHub; datos universales ya accesibles vía submodule desde syv-pj-api
 - group: attributes-refactor-cuerpo-mente-alma
   priority: critical
   commit: 8e33613
