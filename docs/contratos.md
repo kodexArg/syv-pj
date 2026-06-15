@@ -17,7 +17,7 @@ aliases:
 > Un **contrato** es la información que vive **detrás** de ciertos tags. El [[sistema-tags|tag]] es el **link** —un puntero que puede o no llevar algo detrás—; el contrato es ese algo: un **paquete declarado** de modificadores numéricos, habilitadores de tirada y/o efectos referenciables. El nombre es la cara legible; el paquete es la letra chica. Tres categorías traen contrato siempre: **`aspecto`**, **`habilidad`** y **`efecto`**.
 
 > [!warning] Vocabulario unificado
-> *rasgo*, *ventaja* y *destreza* **ya no existen como categorías.** Quedaron fundidos en tres: **`aspecto`** (lo que era *rasgo* **y** *ventaja*), **`habilidad`** (lo que era *destreza*) y **`efecto`**. Si encontrás `rasgo.*`, `ventaja.*` o `destreza.*` en una hoja vieja, son legado a migrar.
+> *ventaja* y *destreza* **ya no existen como categorías**: *ventaja* → **`aspecto`** de origen narrativo (§5.4), *destreza* → **`habilidad`**. De *rasgo*, lo que tenía **peso mecánico** (identidad con efecto) pasó a **`aspecto`**; el *rasgo* **puramente cosmético** —cicatriz, tatuaje, constitución, sin efecto— sigue siendo categoría propia, un tag sin contrato (ver [[sistema-tags#§3 — Categorías de referencia|sistema-tags §3]]). Si encontrás `ventaja.*` o `destreza.*` en una hoja vieja, son legado a migrar.
 
 ---
 
@@ -52,7 +52,7 @@ De ahí se sigue lo central: **aspecto, habilidad y efecto son mecánicamente la
 | `efecto` | bloque referenciable | modificadores, aplicados por referencia o inline |
 
 > [!important] Agnóstico al sistema
-> No sabemos —ni nos importa todavía— cómo se implementará el motor. El contrato vive en la capa de **dominio**: promete data portable. Cómo cada cliente la consume (motor de rol, de estrategia, generador visual) es problema del cliente, no del contrato. Ver [[casos-de-uso|casos-de-uso.md]].
+> No sabemos —ni nos importa todavía— cómo se implementará el motor. El contrato vive en la capa de **dominio**: promete data portable. Cómo cada cliente la consume (motor de juego, motor de batalla, generador visual) es problema del cliente, no del contrato. Ver [[casos-de-uso|casos-de-uso.md]].
 
 ---
 
@@ -143,7 +143,7 @@ El conjunto es **abierto**: si [[atributos]] suma una variable nueva, basta nomb
 
 ## §5 — Aspecto: identidad mecánicamente activa
 
-Un **aspecto** es un rasgo de carácter, condición física, marca de comportamiento o ventaja ganada que tiene peso mecánico. No es solo sabor narrativo — declara un efecto que el motor aplica mientras el personaje lo lleve. Absorbe lo que antes se partía en *rasgo* (identidad con peso) y *ventaja* (recompensa narrativa): la diferencia ya no es de categoría, sino de **origen** (ver §5.4).
+Un **aspecto** es un rasgo de carácter, condición física, marca de comportamiento o ventaja ganada que tiene peso mecánico. No es solo sabor narrativo — declara un efecto que el motor aplica mientras el personaje lo lleve. Absorbe lo que antes se partía en *rasgo con peso mecánico* (identidad con efecto) y *ventaja* (recompensa narrativa): la diferencia ya no es de categoría, sino de **origen** (ver §5.4). El *rasgo* puramente cosmético —sin efecto— no es un aspecto: sigue siendo un tag `rasgo.*` sin contrato.
 
 ### 5.1. Estructura
 

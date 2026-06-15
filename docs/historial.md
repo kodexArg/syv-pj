@@ -23,7 +23,7 @@ historial:
   - fecha: 2024-03-12
     tipo: agregar_tag
     actores: []
-    descripcion: "Aprueba el curso de tirador; suma la destreza de francotirador."
+    descripcion: "Aprueba el curso de tirador; suma la habilidad de francotirador."
     encuentro: null
     metadata: { categoria: habilidad, valor: francotirador }
 

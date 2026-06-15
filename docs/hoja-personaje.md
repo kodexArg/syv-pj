@@ -17,7 +17,7 @@ aliases:
 > **Documentos hermanos**:
 > - [[sistema-tags|sistema-tags.md]] — la lista plana `tags[]`: notación, categorías, catálogo y curaduría.
 > - [[atributos-y-habilidades|atributos-y-habilidades.md]] — escalas de `fis/tac/men`, estadísticas derivadas y vocabulario canónico de efectos.
-> - [[contratos|contratos.md]] — aspectos, habilidades, destrezas y efectos como contratos.
+> - [[contratos|contratos.md]] — aspectos, habilidades y efectos como contratos.
 > - [[historial|historial.md]] — el registro `historial[]`: campos del hito, catálogo de tipos, `actores[]` y la regla de solo-añadir.
 > - [[nemesis-y-aliados|nemesis-y-aliados.md]] — los vínculos personales (`aliado.*` / `nemesis.*`) como etiquetas relacionales.
 > - [[lealtad|lealtad.md]] — la lealtad (`lealtad.*`) como etiqueta relacional plana.
@@ -28,7 +28,7 @@ aliases:
 
 ## §0 — Estructura de la hoja
 
-La hoja del personaje es la **entidad mínima** de *Subordinación y Valor*. Un mismo personaje homogeneizado sirve para Diégesis, estrategia, rol y generación visual sin cambiar de forma: la hoja clasifica, almacena y entrega; el consumidor decide el uso.
+La hoja del personaje es la **entidad mínima** de *Subordinación y Valor*. Un mismo personaje homogeneizado sirve a la Diégesis, al motor de batalla, al motor de juego y a la proyección visual sin cambiar de forma: la hoja clasifica, almacena y entrega; el consumidor decide el uso.
 
 Seis bloques estructurales y una lista plana de tags:
 
@@ -132,7 +132,7 @@ men:  { significado: "Liderazgo, moral base, resistencia psíquica.",  rango: 2.
 
 ## §3 — Tags
 
-Lista plana de cadenas en notación punto. Es la **fuente de verdad de todo lo discreto** del personaje: rango, mando, equipo, salud, estado mental, rasgos, lealtades a facción/subfacción, destrezas, ventajas y los **vínculos personales** —aliados y némesis— como etiquetas relacionales.
+Lista plana de cadenas en notación punto. Es la **fuente de verdad de todo lo discreto** del personaje: rango, mando, equipo, salud, estado mental, rasgos, aspectos, habilidades, lealtades a facción/subfacción y los **vínculos personales** —aliados y némesis— como etiquetas relacionales.
 
 > [!important] El contrato vive en sistema-tags.md
 > La definición completa, las categorías canónicas, el formato y las reglas de catálogo viven en [[sistema-tags|sistema-tags.md]]. Acá solo se fija el contrato con la hoja.
@@ -243,7 +243,7 @@ ultima_actualizacion: ISO-8601          # se actualiza con cada hito
 
 ## §7 — Extras
 
-Compuerta de escape para clientes del ecosistema (estrategia, rol, generador visual, Diégesis).
+Compuerta de escape para clientes del ecosistema (motor de batalla, motor de juego, generador visual, Diégesis).
 
 ```yaml
 tipo:      object | null

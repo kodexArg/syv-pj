@@ -10,7 +10,7 @@ aliases:
 
 # Generación Procedural de Personajes
 
-Flujo canónico para construir un personaje de *Subordinación y Valor* desde la nada: una secuencia de fases ordenadas que parte sin ningún dato y termina con una hoja completa —situada, equipada y con una historia propia.
+Flujo canónico para construir un personaje de *Subordinación y Valor* desde la nada: una secuencia de fases ordenadas que parte sin ningún dato y termina con una hoja completa —situada, equipada, con vínculos y con una historia propia.
 
 Ver [[hoja-personaje]].
 
@@ -19,6 +19,8 @@ Ver [[hoja-personaje]].
 ## Cómo leer este flujo
 
 El flujo es una **secuencia de fases en orden estricto**: cada una depende de lo que fijó la anterior y le pasa restricciones a la siguiente. Esa es la columna vertebral, y no cambia. Lo que sí cambia es **cuánto se llena**: no todo personaje pasa por todas las fases con la misma profundidad.
+
+El orden no es arbitrario: la **prosa es siempre la última fase**, porque el modelo de lenguaje necesita todo lo demás ya resuelto para escribir una historia coherente. Y el **equipo es la última capa antes de la prosa**: lo que el personaje carga se decide cuando ya sabemos quién es, qué sabe y a quién es leal.
 
 > [!info] El flujo es un esqueleto, no una jaula
 > El esquema es **abierto** (ver [[sistema-tags|sistema-tags.md §7]]). Se pueden crear personajes con campos que **no figuran en este flujo**, por tres vías especiales:
@@ -46,17 +48,17 @@ El flujo es una **secuencia de fases en orden estricto**: cada una depende de lo
 Fase 1 — Afiliación   → facción, subfacción, rango, mando, rol operativo
 Fase 2 — Identidad    → género, edad, nombre, sobrenombre
 Fase 3 — Atributos    → fis, tac, men
-Fase 4 — Equipo       → arma, utilitario, vestidura
-Fase 5 — Formación    → entrenamiento, habilidades
-Fase 6 — Aspectos     → aspecto.* (carácter mecánicamente activo)
-Fase 7 — Prosa        → historia por LLM (congela al canonizar)
-Fase 8 — Relaciones   → aliado.* / nemesis.* sembrados
+Fase 4 — Formación    → entrenamiento, habilidades
+Fase 5 — Aspectos     → aspecto.* (carácter mecánicamente activo)
+Fase 6 — Vínculos     → lealtad.*, aliado.*, nemesis.*
+Fase 7 — Equipo       → arma, utilitario, vestidura
+Fase 8 — Prosa        → historia por LLM (congela al canonizar)
 ```
 
 Cada fase depende de la anterior. Las restricciones cruzadas (p. ej. rango → edad mínima) viajan como tabla de reglas consultada antes de sortear.
 
 > [!danger] De acá en adelante: el flujo de ejemplo de un combatiente
-> Todo lo que sigue —Afiliación, Identidad, Atributos, Equipo, Formación, Aspectos— es **un recorrido de ejemplo: el de un combatiente**. Se elige un combatiente a propósito, porque es el caso que ejercita el flujo **completo** y los dos ejes del universo: la **subordinación** (facción, subfacción, rango, mando, lealtad — la cadena de obediencia) y el **valor** (atributos, equipo y aspectos en combate).
+> Todo lo que sigue —Afiliación, Identidad, Atributos, Formación, Aspectos, Vínculos, Equipo— es **un recorrido de ejemplo: el de un combatiente**. Se elige un combatiente a propósito, porque es el caso que ejercita el flujo **completo** y los dos ejes del universo: la **subordinación** (facción, subfacción, rango, mando, lealtad — la cadena de obediencia) y el **valor** (atributos, equipo y aspectos en combate).
 >
 > Para un **no-combatiente** el esqueleto es el mismo, pero se llena distinto: un civil no tiene rango ni mando, puede no tener facción, y varias fases se omiten o se relajan. Donde abajo se lee "el combatiente", entendé "el ejemplo que recorre todas las fases"; no es una obligación del esquema.
 
@@ -80,7 +82,7 @@ Las facciones canónicas vigentes del universo:
 
 ### 1.2. Subfacción
 
-Al menos un tag `subfaccion.*`, y puede tener varios. Se sortean entre las subfacciones **compatibles con la facción** de §1.1 que la documentación defina (cada subfacción declara su `faccion_padre` en el catálogo). La subfacción afina de qué tropa específica viene el combatiente, y más adelante sesga su equipo y su formación.
+Al menos un tag `subfaccion.*`, y puede tener varios. Se sortean entre las subfacciones **compatibles con la facción** de §1.1 que la documentación defina (cada subfacción declara su `faccion_padre` en el catálogo). La subfacción afina de qué tropa específica viene el combatiente, y más adelante sesga su formación y su equipo.
 
 ### 1.3. Rango
 
@@ -113,12 +115,11 @@ puede_liderar: true | false
 
 Algunos rangos **implican** mando (`lider_de_escuadra`, `segundo_al_mando` ⇒ `true` por defecto); en el resto el defecto es `false`, pero el contexto puede elevarlo. La regla rango → mando vive en configuración.
 
-### 1.5. Derivados deterministas: rol operativo y lealtad de base
+### 1.5. Rol operativo (determinístico)
 
-Cerrada la cadena de subordinación, dos etiquetas se derivan **sin azar**:
+Cerrada la cadena de subordinación, el rol operativo se deriva **sin azar**: mapeo directo desde rango (y mando). P. ej. `lider_de_escuadra` → `rol.jerarquia.lider`. No se sortea: es determinístico. (Este es el `rol.*` operativo de la hoja; no confundir con `identidad.rol`, que es narrativo — ver [[hoja-personaje|hoja-personaje.md §1.2]].)
 
-- **Rol operativo** (`rol.*`): mapeo directo desde rango (y mando). P. ej. `lider_de_escuadra` → `rol.jerarquia.lider`. No se sortea: es determinístico. (Este es el `rol.*` operativo de la hoja; no confundir con `identidad.rol`, que es narrativo — ver [[hoja-personaje|hoja-personaje.md §1.2]].)
-- **Lealtad de base** (`lealtad.*`): el combatiente arranca leal a su facción — `lealtad.<faccion>`. Es el piso de la subordinación; lealtades más finas (a un líder, a un credo, a una subfacción) y los vínculos `aliado.*` / `nemesis.*` se siembran en Fase 8 o se ganan en campaña.
+La **lealtad de base** del combatiente a su facción se siembra más adelante, en la fase de Vínculos (§6) — el hogar único de todas las etiquetas relacionales.
 
 ### 1.6. Restricciones que esta fase impone a Fase 2
 
@@ -198,107 +199,117 @@ Esta tabla vive en configuración (no en código). Cambiar un valor de rango es 
 
 ---
 
-## Fase 4 — Equipo
+## Fase 4 — Formación
 
-Acá el combatiente recibe **lo que carga**: arma, utilitarios y vestidura. Es la primera fase de etiquetas sorteadas, y la que arma el *kit* material.
+Lo que el combatiente **sabe hacer**: el adiestramiento recibido (`entrenamiento.*`) y las habilidades que habilita (`habilidad.*`). Es la primera capa de etiquetas sorteadas; define la competencia antes de que la prosa y el equipo la luzcan.
 
-> **Entrada:** rango, facción, subfacción, rol operativo (Fase 1). · **Salida:** etiquetas `equipo.*`.
+> **Entrada:** rango, rol, subfacción (Fase 1). · **Salida:** etiquetas `entrenamiento.*` y `habilidad.*`.
 
-### 4.1. Ejes del equipo
+### 4.1. Entrenamiento (`entrenamiento.*`)
+
+Adiestramiento o formación recibida (militar, sanitaria, técnica). Parte es **determinista** —un rango trae una base de entrenamiento implícita— y parte se **sortea** ponderado por la subfacción (una subfacción de zapadores sesga hacia `entrenamiento.demolicion`; una sanitaria, hacia `entrenamiento.medico_de_campo`).
+
+### 4.2. Habilidades (`habilidad.*`)
+
+Una **habilidad** habilita una tirada contra su `atributo_dominante`; no modifica atributos (ver [[contratos|contratos.md §6]]). Se asignan coherentes con el rango, el rol y el entrenamiento:
+
+- `tirador_designado` → `habilidad.tiro_de_precision`.
+- formación sanitaria → `habilidad.primeros_auxilios`.
+
+Algunas son determinísticas (el rol las implica), otras se sortean ponderado. Sus `requires` se anclan al rango, el rol y el entrenamiento —todo ya fijado—; el arma que las haga lucir se elige después, en Equipo (Fase 7), de forma coherente con ellas.
+
+---
+
+## Fase 5 — Aspectos
+
+Quién **es** el combatiente bajo presión: su carácter mecánicamente activo. Un **aspecto** declara un paquete de efectos que el motor aplica mientras el personaje lo lleve (ver [[contratos|contratos.md §5]]). Es la fase que le da textura: el veterano que no se quiebra, el cobarde, el terco, el de cólera ciega.
+
+> **Entrada:** afiliación, atributos, formación, edad. · **Salida:** etiquetas `aspecto.*` y `rasgo.*`.
+
+### 5.1. Sorteo de aspectos (`aspecto.*`)
+
+1. Cuota típica: **0–3** aspectos, según configuración por rango.
+2. Cada aspecto elegible se pondera por su `peso_narrativo` (1..5) — sugerencia de frecuencia, no probabilidad estricta (ver [[sistema-tags|sistema-tags.md §6.3]]).
+3. Se respetan `requires` y `excluye`: por eso esta fase va **después** de Formación — sus precondiciones (habilidades, rango, entrenamiento) ya están en la hoja. Y se evita lo incoherente (no se sortea `cobarde` junto a `vanguardia`).
+4. **Coherencia con la identidad**: la edad sesga el depósito. Un combatiente de 19 años no saca `aspecto.veterano_de_campo`; uno de 55, sí lo tiene a tiro.
+5. **Sorpresa narrativa**: con baja probabilidad puede caer un aspecto de `origen: narrativo` (siempre positivo, sin `requires`) — el golpe de suerte, el `ojo_de_aguila` (ver [[contratos|contratos.md §5.4]]).
+
+### 5.2. Rasgos físicos (`rasgo.*`)
+
+Marcas observables —cicatrices, tatuajes, constitución— sorteadas con baja cuota. Admiten **huérfanos**: `rasgo.cicatriz_perturbadora` afirma la marca sin explicarla; su origen lo salda la prosa (Fase 8).
+
+### 5.3. Lo que **no** se sortea al nacer
+
+> [!warning] Estados de campaña, no de creación
+> Estas categorías **no** entran a ningún sorteo de creación — son estados volátiles que se ganan en partida, no se nace con ellos:
+> - `salud.*`, `moral.*`, `mental.*` — arrancan limpios (depósitos llenos, sin condiciones).
+> - `estado.*` — se fija determinístico a `disponible`.
+
+---
+
+## Fase 6 — Vínculos
+
+Los lazos del personaje: a quién es **leal**, quién es su **aliado**, quién su **némesis**. En *Subordinación y Valor* esto no es decoración: la subordinación —por quién pelea, a quién obedece, a quién traicionaría— es la mitad del nombre del universo. La prosa no puede contar a un combatiente sin saber sus vínculos, por eso esta fase va **antes** del equipo y de la historia.
+
+Las tres son etiquetas **relacionales** de la misma familia: su slug referencia el destino del vínculo (ver [[sistema-tags|sistema-tags.md §4]], [[nemesis-y-aliados|nemesis-y-aliados.md]], [[lealtad|lealtad.md]]). Por eso viven juntas en una sola fase.
+
+> **Entrada:** afiliación (Fase 1), identidad, aspectos. · **Salida:** etiquetas `lealtad.*`, `aliado.*`, `nemesis.*`.
+
+### 6.1. Lealtades (`lealtad.*`)
+
+- **Lealtad de base**: todo combatiente arranca leal a su bando — `lealtad.<faccion>`, determinística desde la facción de Fase 1. Es el piso de la subordinación.
+- **Lealtades finas**: el contexto puede sembrar adhesiones más específicas — a un líder (`lealtad.<patente>`), a una subfacción o a un credo (`lealtad.<slug>`). Son opcionales, pero cuando existen pesan más que la lealtad de bando y abren conflicto narrativo (¿obedezco al credo o a la facción?).
+
+### 6.2. Aliados y némesis (`aliado.*` / `nemesis.*`)
+
+- En la generación procedural pura el personaje arranca **sin** `aliado.*` / `nemesis.*` — se ganan en campaña.
+- Cuando se siembra un vínculo, se agrega su tag (`aliado.<patente>` / `nemesis.<slug>`) y se registra el hito que lo funda (`formacion_lealtad` / `identificacion_nemesis`), cuya `descripcion` carga la prosa del lazo (ver [[historial|historial.md]]).
+- Un némesis del **propio bando** es legítimo (traición personal, vieja deuda): el vínculo no mira la facción, la mira la lealtad. Los vínculos de némesis se siembran solo si el contexto de campaña lo requiere explícitamente.
+
+---
+
+## Fase 7 — Equipo
+
+La **última capa material** antes de la prosa: lo que el combatiente carga. Se decide al final —cuando ya sabemos su rango, su formación y sus vínculos— para que el kit sea coherente con todo lo anterior (al `tirador_designado` con `habilidad.tiro_de_precision` le toca un arma de alcance largo, no un fusil de recluta).
+
+> **Entrada:** afiliación (Fase 1) y formación (Fase 4). · **Salida:** etiquetas `equipo.*`.
+
+### 7.1. Ejes del equipo
 
 El equipo se sortea **por eje**, con una cuota por eje definida en configuración — no como una bolsa indiferenciada. Así se garantiza un kit coherente (no tres armas y cero munición):
 
 | Eje | Subcategoría | Cuota típica | Regla |
 | :--- | :--- | :--- | :--- |
-| Arma principal | `equipo.arma.*` | exactamente 1 | acorde al rango/rol (un `tirador_designado` recibe arma de alcance largo; un `recluta`, fusil básico) |
+| Arma principal | `equipo.arma.*` | exactamente 1 | acorde al rango/rol/formación (alcance largo para el tirador; fusil básico para el recluta) |
 | Utilitario | `equipo.utilitario.*` | 0–N | granadas, botiquín, radio, prismáticos… según rol y cuota |
 | Vestidura | `equipo.vestidura.*` | 0–1 | uniforme o protección de la subfacción |
 
-### 4.2. Procedimiento
+### 7.2. Procedimiento
 
-1. Para cada eje, el catálogo filtra el equipo elegible para el rango, facción y subfacción del personaje (respetando `requires`).
+1. Para cada eje, el catálogo filtra el equipo elegible para el rango, facción, subfacción y formación del personaje (respetando `requires`).
 2. Cada entrada elegible tiene un `peso` de sorteo declarado (entero; ausente = 1).
 3. Se sortea sin reemplazo hasta cubrir la cuota del eje, o hasta agotar elegibles sin conflicto.
-4. Las armas declaran `tipo_accion` y `alcance` en el catálogo; el sorteo respeta lo que el rol exige. El `peso` físico (kg) de cada ítem es informativo en creación.
+4. Las armas declaran `tipo_accion` y `alcance` en el catálogo; el sorteo respeta lo que el rol y la habilidad exigen. El `peso` físico (kg) de cada ítem es informativo en creación.
 
 > [!note] El equipo es progreso, no nacimiento fijo
 > El equipo cargado al crear es el punto de partida; en campaña se gana, se pierde y se cambia. Por eso vive en `tags[]` como cualquier etiqueta, no en un bloque aparte.
 
 ---
 
-## Fase 5 — Formación
+## Fase 8 — Prosa por modelo de lenguaje
 
-Lo que el combatiente **sabe hacer**: el adiestramiento recibido (`entrenamiento.*`) y las habilidades que habilita (`habilidad.*`). Es un paso concreto y separado del equipo: una cosa es portar un arma, otra saber usarla con maestría.
-
-> **Entrada:** rango, rol, subfacción (Fase 1), equipo (Fase 4). · **Salida:** etiquetas `entrenamiento.*` y `habilidad.*`.
-
-### 5.1. Entrenamiento (`entrenamiento.*`)
-
-Adiestramiento o formación recibida (militar, sanitaria, técnica). Parte es **determinista** —un rango trae una base de entrenamiento implícita— y parte se **sortea** ponderado por la subfacción (una subfacción de zapadores sesga hacia `entrenamiento.demolicion`; una sanitaria, hacia `entrenamiento.medico_de_campo`).
-
-### 5.2. Habilidades (`habilidad.*`)
-
-Una **habilidad** habilita una tirada contra su `atributo_dominante`; no modifica atributos (ver [[contratos|contratos.md §6]]). Se asignan coherentes con el rango, el rol y el equipo ya cargado:
-
-- `tirador_designado` (+ arma larga) → `habilidad.tiro_de_precision`.
-- formación sanitaria → `habilidad.primeros_auxilios`.
-
-Algunas son determinísticas (el rol las implica), otras se sortean ponderado. Como el equipo ya está fijado, los `requires` de las habilidades que dependen de un arma o de un entrenamiento ya son satisfacibles.
-
----
-
-## Fase 6 — Aspectos
-
-Quién **es** el combatiente bajo presión: su carácter mecánicamente activo. Un **aspecto** declara un paquete de efectos que el motor aplica mientras el personaje lo lleve (ver [[contratos|contratos.md §5]]). Es la fase que le da textura: el veterano que no se quiebra, el cobarde, el terco, el de cólera ciega.
-
-> **Entrada:** todo lo anterior (afiliación, atributos, equipo, formación, edad). · **Salida:** etiquetas `aspecto.*` y `rasgo.*`.
-
-### 6.1. Sorteo de aspectos (`aspecto.*`)
-
-1. Cuota típica: **0–3** aspectos, según configuración por rango.
-2. Cada aspecto elegible se pondera por su `peso_narrativo` (1..5) — sugerencia de frecuencia, no probabilidad estricta (ver [[sistema-tags|sistema-tags.md §6.3]]).
-3. Se respetan `requires` y `excluye`: por eso esta fase va **después** de equipo y formación — sus precondiciones ya están en la hoja. Y se evita lo incoherente (no se sortea `cobarde` junto a `vanguardia`).
-4. **Coherencia con la identidad**: la edad sesga el depósito. Un combatiente de 19 años no saca `aspecto.veterano_de_campo`; uno de 55, sí lo tiene a tiro.
-5. **Sorpresa narrativa**: con baja probabilidad puede caer un aspecto de `origen: narrativo` (siempre positivo, sin `requires`) — el golpe de suerte, el `ojo_de_aguila` (ver [[contratos|contratos.md §5.4]]).
-
-### 6.2. Rasgos físicos (`rasgo.*`)
-
-Marcas observables —cicatrices, tatuajes, constitución— sorteadas con baja cuota. Admiten **huérfanos**: `rasgo.cicatriz_perturbadora` afirma la marca sin explicarla; su origen lo salda la prosa (Fase 7).
-
-### 6.3. Lo que **no** se sortea al nacer
-
-> [!warning] Estados de campaña, no de creación
-> Estas categorías **no** entran a ningún sorteo de creación — son estados volátiles que se ganan en partida, no se nace con ellos:
-> - `salud.*`, `moral.*`, `mental.*` — arrancan limpios (depósitos llenos, sin condiciones).
-> - `estado.*` — se fija determinístico a `disponible`.
-> - `aliado.*`, `nemesis.*` — vacíos; se siembran recién en Fase 8 o se ganan en campaña.
-
----
-
-## Fase 7 — Prosa por modelo de lenguaje
-
-Con todo lo anterior fijado, el generador compone un aviso y se lo pasa a un modelo de lenguaje para escribir el campo `personaje.historia`. La prosa es donde el personaje **se vuelve alguien**: no repite las etiquetas, las **explica y las ancla**.
+La **fase final**, y por eso la última: el modelo de lenguaje necesita **todo lo anterior** —afiliación, atributos, formación, aspectos, vínculos, equipo— para escribir una historia que cierre. Con todo fijado, el generador compone un aviso y genera el campo `personaje.historia`. La prosa es donde el personaje **se vuelve alguien**: no repite las etiquetas, las **explica y las ancla**.
 
 > [!important] La prosa carga los datos personales — incluida la procedencia
-> `historia` es un string estático, pero generado con un aviso muy específico. Todo el dato personal que no es etiqueta vive acá: de **dónde viene** el personaje (su lugar, su procedencia), por qué tiene la cicatriz, en qué guerra se hizo veterano, cómo aprendió a tirar. El aviso obliga a que la prosa **salde la referencia** de los tags subjetivos y huérfanos (ver [[sistema-tags|sistema-tags.md §2]]): el lugar y el pasado quedan en la historia, no en un campo aparte.
+> `historia` es un string estático, pero generado con un aviso muy específico. Todo el dato personal que no es etiqueta vive acá: de **dónde viene** el personaje (su lugar, su procedencia), por qué tiene la cicatriz, en qué guerra se hizo veterano, cómo aprendió a tirar, qué lo ata a sus lealtades. El aviso obliga a que la prosa **salde la referencia** de los tags subjetivos y huérfanos (ver [[sistema-tags|sistema-tags.md §2]]): el lugar y el pasado quedan en la historia, no en un campo aparte.
 
-- El aviso se compone con los datos ya fijados: afiliación, atributos, equipo, formación, aspectos, edad, género, nombre.
+- El aviso se compone con todos los datos ya fijados en las fases 1–7.
 - La prosa se trata como **borrador volátil** hasta la canonización.
 - Al canonizar: `historia` se congela (se persiste tal cual, inmutable desde ese momento). No se regenera ante cambios de etiquetas o atributos.
-- La reproducibilidad por semilla **no aplica a la prosa**: dos llamadas con la misma semilla pueden producir textos distintos por variabilidad del modelo. La semilla controla las fases 1–6; la prosa es inherentemente no determinística.
+- La reproducibilidad por semilla **no aplica a la prosa**: dos llamadas con la misma semilla pueden producir textos distintos por variabilidad del modelo. La semilla controla las fases 1–7; la prosa es inherentemente no determinística.
 
 > [!warning] Congelado canónico
 > Una vez que `canonizado_en` está presente en los metadatos, `historia` no se toca. Cualquier evolución posterior va al `historial[]` como hito narrativo.
-
----
-
-## Fase 8 — Relaciones sembradas
-
-Siembra inicial de los vínculos personales: tags `aliado.*` y `nemesis.*` (ver [[nemesis-y-aliados|nemesis-y-aliados.md]]).
-
-- En la generación procedural pura el personaje arranca **sin** tags de vínculo — los gana en campaña.
-- Cuando se siembra un vínculo, se agrega su tag (`aliado.<patente>` / `nemesis.<slug>`) y se registra el hito que lo funda (`formacion_lealtad` / `identificacion_nemesis`), cuya `descripcion` carga la prosa del lazo.
-- Los vínculos de némesis se siembran solo si el contexto de campaña lo requiere explícitamente.
 
 ---
 
@@ -308,9 +319,9 @@ Siembra inicial de los vínculos personales: tags `aliado.*` y `nemesis.*` (ver 
 semilla → personaje efímero determinístico
 ```
 
-- Las fases **1–6** son reproducibles: dada la misma `semilla` (y los campos provistos como entrada), la secuencia de sorteos ponderados produce idéntico resultado.
+- Las fases **1–7** son reproducibles: dada la misma `semilla` (y los campos provistos como entrada), la secuencia de sorteos ponderados produce idéntico resultado.
 - La `semilla` se guarda en `metadatos.extras.semilla` durante la vida efímera.
-- La **Fase 7 (prosa)** queda fuera: es no determinística por naturaleza del modelo.
+- La **Fase 8 (prosa)** queda fuera: es no determinística por naturaleza del modelo.
 - **Al canonizar**: el personaje gana identidad permanente (slug asignado, historia congelada, primer hito registrado). A partir del primer hito la reproducibilidad se pierde: el historial es de solo añadir y la historia no se regenera.
 
 > [!info] Propósito de la semilla
@@ -324,7 +335,7 @@ semilla → personaje efímero determinístico
 semilla  (+ campos provistos como entrada)
         │
         ▼
-[Fase 1] Afiliación   facción → subfacción → rango → mando → rol operativo + lealtad base
+[Fase 1] Afiliación   facción → subfacción → rango → mando → rol operativo
         │  (catálogo de la documentación SyV; subordinación)
         ▼
 [Fase 2] Identidad    género → edad → nombre → sobrenombre
@@ -333,20 +344,20 @@ semilla  (+ campos provistos como entrada)
 [Fase 3] Atributos    fis, tac, men
         │  (tabla rango → atributos, cero azar)
         ▼
-[Fase 4] Equipo       arma → utilitario → vestidura
-        │  (sorteo por eje con cuota, filtrado por rango/subfacción)
+[Fase 4] Formación    entrenamiento → habilidades
+        │  (determinista + ponderado por subfacción)
         ▼
-[Fase 5] Formación    entrenamiento → habilidades
-        │  (determinista + ponderado, requires ya satisfacibles)
-        ▼
-[Fase 6] Aspectos     aspecto.* (+ rasgo.*)   ·   estados de campaña NO se sortean
+[Fase 5] Aspectos     aspecto.* (+ rasgo.*)   ·   estados de campaña NO se sortean
         │  (ponderado por peso_narrativo, sesgado por edad)
         ▼
-[Fase 7] Prosa        historia — LLM ancla lugar, pasado y referencias de tags
-        │  (volátil hasta canonización, no determinística)
+[Fase 6] Vínculos     lealtad.* (base + finas) → aliado.* → nemesis.*
+        │  (etiquetas relacionales; la subordinación del universo)
         ▼
-[Fase 8] Relaciones   aliado.*, nemesis.* sembrados
-        │
+[Fase 7] Equipo       arma → utilitario → vestidura
+        │  (última capa material; sorteo por eje, coherente con formación)
+        ▼
+[Fase 8] Prosa        historia — el LLM ancla lugar, pasado, vínculos y referencias
+        │  (usa las fases 1–7; volátil hasta canonización, no determinística)
         ▼
    personaje efímero
         │

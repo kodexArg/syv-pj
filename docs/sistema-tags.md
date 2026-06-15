@@ -88,7 +88,7 @@ Las categorías curadas a la fecha. La tabla es **ilustrativa, no exhaustiva**: 
 | `salud` | Estado físico actual. Acumulable. |
 | `moral` | Estado anímico actual. Acumulable. |
 | `mental` | Estado de concentración actual. Acumulable. |
-| `rasgo` | Rasgo físico observable (cicatriz, tatuaje, constitución). |
+| `rasgo` | Rasgo físico observable y **sin efecto** (cicatriz, tatuaje, constitución). Si tiene peso mecánico es un `aspecto`, no un `rasgo` (ver [[contratos]]). |
 | `aspecto` | Identidad mecánicamente activa. Ver [[contratos]]. |
 | `habilidad` | Habilitador de tirada contra atributo dominante. Ver [[contratos]]. |
 | `entrenamiento` | Adiestramiento o formación recibida (militar, sanitaria, técnica). |
