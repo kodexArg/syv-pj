@@ -190,8 +190,8 @@ Probabilidad de emitir sobrenombre: **50%** por personaje. El apodo está curado
 | `segundo_al_mando` | 3 | 4 | 5 |
 | `lider_de_escuadra` | 3 | 5 | 6 |
 
-> [!note] `cuerpo` ← viejo `fis`, `mente` ← viejo `tac`, `alma` ← viejo `men`
-> El renombre es lineal columna a columna: `cuerpo` toma los valores del viejo `fis`, `mente` los del viejo `tac` y `alma` los del viejo `men` (era la columna de liderazgo, moral y temple — exactamente lo que ahora nombra `alma`). El viejo atributo "mental" se descartó; no tiene columna heredera.
+> [!note] `cuerpo` ← viejo `fis`, `mente` ← viejo `tac`, `alma` es nuevo
+> El renombre es lineal en dos columnas: `cuerpo` toma los valores del viejo `fis` y `mente` los del viejo `tac`. El tercer atributo viejo —`men` (mental)— se **descarta**: no tiene columna heredera. `alma` (Aura, liderazgo, voluntad, temple) es un atributo **nuevo**, **reasignado por clase** según rúbrica —no heredado de `men`—: altísimo en alto clero, chamanismo y líderes de escuadra; alto en militantes y fanáticos; bajo (2–3) en el resto.
 
 Topes absolutos de la escala: `cuerpo 7`, `mente 7`, `alma 7`. Los valores de creación quedan por debajo; el tope solo se alcanza vía hito narrativo. Si el personaje no tiene rango, los atributos caen a la línea base `ciudadano`.
 
