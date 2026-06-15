@@ -176,3 +176,7 @@ efímero; el canonizado pierde reproducibilidad tras el primer hito.
 
 `SPINE.md` y `ORCHESTRATOR.md` NO se publican como entregables; quedan o se borran
 al cierre según decida el líder.
+
+## Referencias
+
+- [[_moc-resources|Catálogo de recursos (mock data / guías)]]
