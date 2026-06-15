@@ -60,7 +60,7 @@ Ningún consumidor necesita el personaje completo. El esquema es único; la proy
 
 Cómo se completa una hoja desde el azar portable vive en [[generacion-procedural|generacion-procedural.md]].
 
-| UC | 🎭 | Quiere | Para |
+| UC | Actor | Quiere | Para |
 |---|---|---|---|
 | UC-G01 | 🎰 | ✨ un efímero por `(semilla, facción, rol)` | Poblar un contexto (combatientes, civiles, PNJ) con hojas válidas |
 | UC-G02 | 🎰 | ⚙️ restricciones cruzadas (p. ej. rango → edad mínima) | Sortear cada campo dentro del subconjunto válido |
@@ -70,7 +70,7 @@ Cómo se completa una hoja desde el azar portable vive en [[generacion-procedura
 
 ### Bloque B — Diégesis
 
-| UC | 🎭 | Quiere | Para |
+| UC | Actor | Quiere | Para |
 |---|---|---|---|
 | UC-D01 | 🪶 | 👁️ la hoja de un canonizado | Escribir una escena con coherencia de personaje |
 | UC-D02 | 🪶 | 📝 un hito narrativo | Registrar un evento que el personaje vivió |
@@ -82,7 +82,7 @@ Cómo se completa una hoja desde el azar portable vive en [[generacion-procedura
 
 ### Bloque C — Motor de batalla
 
-| UC | 🎭 | Quiere | Para |
+| UC | Actor | Quiere | Para |
 |---|---|---|---|
 | UC-B01 | ⚔️ | 📥 un combatiente por patente con sus estadísticas derivadas | Cargarlo al encuentro o recargarlo entre turnos |
 | UC-B02 | ⚔️ | 🔍 por `rango.tirador_designado` | Armar un pelotón de tiradores |
@@ -92,7 +92,7 @@ Cómo se completa una hoja desde el azar portable vive en [[generacion-procedura
 
 ### Bloque D — Motor de juego
 
-| UC | 🎭 | Quiere | Para |
+| UC | Actor | Quiere | Para |
 |---|---|---|---|
 | UC-J01 | 🎲 | 📥 un PNJ al azar por facción | Rellenar un encuentro improvisado |
 | UC-J02 | 🎲 | 📥 un personaje con `aspecto.miope` | Forzar una complicación narrativa específica |
@@ -104,7 +104,7 @@ Cómo se completa una hoja desde el azar portable vive en [[generacion-procedura
 
 ### Bloque E — Generador visual
 
-| UC | 🎭 | Quiere | Para |
+| UC | Actor | Quiere | Para |
 |---|---|---|---|
 | UC-V01 | 🎨 | 👁️ los tags de vestidura y equipo | Vestir al personaje fiel al lore, en el medio que sea |
 | UC-V02 | 🎨 | 👁️ facción, rango y género | Resolver la presentación según bando y jerarquía |
@@ -133,7 +133,7 @@ Cómo se completa una hoja desde el azar portable vive en [[generacion-procedura
 
 ## §4 — UCs sobre el catálogo y la meta-operación
 
-| UC | 🎭 | Quiere | Para |
+| UC | Actor | Quiere | Para |
 |---|---|---|---|
 | UC-M01 | 🔌 | 👁️ el catálogo de una categoría de tag | Construir interfaces sin codificar enumeraciones |
 | UC-M02 | 🧪 | 📋 todos los personajes de ejemplo | Correr el motor sobre la población de referencia |
