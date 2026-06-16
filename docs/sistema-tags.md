@@ -36,41 +36,41 @@ Esta regla es expansiva por diseño. El sistema no predice los tipos de tag que 
 
 **Lo que SÍ es un tag:**
 
-- `habilidad.*`
-- `aspecto.*`
-- `entrenamiento.*`
+- `habilidad/*`
+- `aspecto/*`
+- `entrenamiento/*`
 - y muchos otros más
   
 ---
 
-## §2 — Notación punto
+## §2 — Notación barra
 
-Un tag se escribe como cadena única: `<categoria>.<slug>`.
+Un tag se escribe como cadena única: `<categoria>/<slug>`.
 
 También es perfectamente válido `<slug>`
 
-En raras excepciones, se recurre al tercer segmento `<categoria>.<parent>.<slug>`.
+En raras excepciones, se recurre al tercer segmento `<categoria>/<parent>/<slug>`.
 
 - El **primer segmento** es la categoría (eje semántico mayor):
-	- `habilidad.*`
-	- `aspecto.*`
-	- `equipo.*`
+	- `habilidad/*`
+	- `aspecto/*`
+	- `equipo/*`
 	- ...
 - Los **segmentos intermedios** son subcategorías anidadas, usualmente el segmento intermedio es el slug del tag padre.
 - El **último segmento** es el slug específico.
-	- `habilidad.nadar`
-	- `arma.pistola_9mm`
+	- `habilidad/nadar`
+	- `arma/pistola_9mm`
 
 **Reglas del slug de tag:** minúsculas, guiones bajos como único separador, sin acentos, sin espacios, sin caracteres especiales. Ejemplos: `pistola`, `precision`, `ejercito_rojo`, `lider_de_escuadra`.
 
 > [!important] Asimetría de slugs
 > El slug de tag es **legible por diseño**. El slug de personaje (`identidad.slug`) es la antítesis: patente opaca `^[A-Z0-9]{8}$` (ej. `K9F2H3M4`), inmutable y no semántica. No confundir.
 
-**Prohibido multiconjunto:** `tags[]` no puede funcionar como un multiconjunto. Por ejemplo, tres `equipo.utilitario.cargador` **NO** significan tres cargadores físicos; el motor se queda con el último valor (que deberá estar en la referencia del tag, o será `vacío`).
+**Prohibido multiconjunto:** `tags[]` no puede funcionar como un multiconjunto. Por ejemplo, tres `equipo/utilitario/cargador` **NO** significan tres cargadores físicos; el motor se queda con el último valor (que deberá estar en la referencia del tag, o será `vacío`).
 
-**Huérfanos:** se invita a dejar tags huérfanos con conceptos que pueden llenarse luego, cuando el tag es suficientemente comunicativo, como "aspecto.cicatriz_perturbadora". Otro ejemplo más feliz de tags huérfanos: `habilidad.personal.pianista`, y no sabremos qué tan bueno es hasta que creemos la referencia del tag en la historia del personaje; es decir, un tag subjetivo.
+**Huérfanos:** se invita a dejar tags huérfanos con conceptos que pueden llenarse luego, cuando el tag es suficientemente comunicativo, como "aspecto/cicatriz_perturbadora". Otro ejemplo más feliz de tags huérfanos: `habilidad/personal/pianista`, y no sabremos qué tan bueno es hasta que creemos la referencia del tag en la historia del personaje; es decir, un tag subjetivo.
 
-**Resolución contra el catálogo:** el parser troza el tag por `.` y mapea segmentos a directorios. `arma.pistola_9mm` resuelve a `tags/arma/pistola_9mm.yaml`.
+**Resolución contra el catálogo:** el parser troza el tag por `/` y mapea segmentos a directorios. `arma/pistola_9mm` resuelve a `tags/arma/pistola_9mm.yaml`. La barra es deliberada: es **la misma notación que usa Obsidian**, de modo que la jerarquía del dominio y la del grafo del vault son una sola — el tag anida en el árbol de Obsidian exactamente como anida en el catálogo.
 
 ---
 
@@ -113,14 +113,14 @@ Misma mecánica que `aliado` / `nemesis` (§5). Detalle en [[lealtad|lealtad.md]
 
 ## §5 — Categorías relacionales: `aliado` y `nemesis`
 
-Los vínculos personales **son tags relacionales**, de la misma familia que `lealtad` (§4). `aliado.*` codifica una alianza vigente; `nemesis.*`, una enemistad vigente. Su slug es una **referencia** al destino del vínculo:
+Los vínculos personales **son tags relacionales**, de la misma familia que `lealtad` (§4). `aliado/*` codifica una alianza vigente; `nemesis/*`, una enemistad vigente. Su slug es una **referencia** al destino del vínculo:
 
 ```
 aliado.{slug}     →  personaje (patente), facción, subfacción o grupo
 nemesis.{slug}    →  ídem, sin restricción de bando
 ```
 
-A diferencia de `lealtad` —que solo apunta a entidades de catálogo— estos pueden apuntar también a **otro personaje**, por su patente (`aliado.K9F2H3M4`). La referencia carga el identificador literal del destino: patente opaca para personajes, slug legible para entidades de catálogo (la asimetría de §2).
+A diferencia de `lealtad` —que solo apunta a entidades de catálogo— estos pueden apuntar también a **otro personaje**, por su patente (`aliado/K9F2H3M4`). La referencia carga el identificador literal del destino: patente opaca para personajes, slug legible para entidades de catálogo (la asimetría de §2).
 
 **La prosa del vínculo no vive en el tag.** El tag afirma la relación; la **cuenta** el hito que la formó (`formacion_lealtad` / `identificacion_nemesis`) en el [[historial|historial.md]]. Así el vínculo se cuenta y se filtra como cualquier tag, sin perder su textura narrativa.
 
@@ -182,9 +182,9 @@ equipo_arma.alcance:
   obligatorio_si: subcategoria = arma
   enum: [corto, medio, largo]
 
-subfaccion.faccion_padre:
+subfaccion/faccion_padre:
   obligatorio_si: categoria = subfaccion
-  tipo: tag faccion.*
+  tipo: tag faccion/*
 ```
 
 ### 6.3. Campos opcionales
@@ -230,11 +230,11 @@ require_any:
 ```yaml
 requires:
   require_all:
-    - rango.sargento
-    - no:estado.baja
+    - rango/sargento
+    - no:estado/baja
   require_any:
-    - habilidad.liderazgo
-    - mando.oficial_de_campo
+    - habilidad/liderazgo
+    - mando/oficial_de_campo
 ```
 
 > [!important] `requires` es documentación ejecutable, no validación dura
@@ -248,8 +248,8 @@ requires:
 
 El catálogo es **andamiaje, no jaula**. Tres ejes de extensión sin permiso ni migración:
 
-1. **Nuevos valores dentro de una categoría existente** — `habilidad.tiro_de_precision`, `rasgo.cicatriz_quemadura`. Entran con `origen: emergente` la primera vez.
-2. **Nuevas subcategorías dentro de una familia** — `equipo.montura.caballo_criollo` agrega un nivel a `equipo.*`. El día que aparezca el primer caso real, no antes.
+1. **Nuevos valores dentro de una categoría existente** — `habilidad/tiro_de_precision`, `rasgo/cicatriz_quemadura`. Entran con `origen: emergente` la primera vez.
+2. **Nuevas subcategorías dentro de una familia** — `equipo/montura/caballo_criollo` agrega un nivel a `equipo/*`. El día que aparezca el primer caso real, no antes.
 3. **Categorías nuevas enteras** — `oficio_civil.herrero`, `vicio.fuma`, `mascota.perro_pastor`. El analizador solo necesita el primer segmento para enrutar.
 
 **Garantía:** un tag desconocido no rompe la hoja.

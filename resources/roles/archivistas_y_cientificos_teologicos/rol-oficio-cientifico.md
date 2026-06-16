@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.cientifico
+slug: rol/oficio/cientifico
 nombre: Científico Teológico
 probabilidad: 16
 tags: ["rol/oficio/cientifico", "rol/oficio", "pool/archivistas_y_cientificos_teologicos"]

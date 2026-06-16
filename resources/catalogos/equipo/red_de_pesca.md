@@ -7,13 +7,13 @@ descripcion: Red de fibra sintética reparada con nudos desiguales. Funciona; ca
 peso: 4
 peso_sorteo: 3
 sesgo_faccion:
-- gremio_de_pescadores
+  - gremio_de_pescadores
 sesgo_rol:
-- rol.oficio.pescador
-- rol.oficio.buzo
+  - rol/oficio/pescador
+  - rol/oficio/buzo
 tags:
-- catalogo/equipo
-- equipo/red_de_pesca
+  - catalogo/equipo
+  - equipo/red_de_pesca
 ---
 
 Red de fibra sintética reparada con nudos desiguales. Funciona; cada parche tiene historia. La lleva el pescador que trabaja desde antes del amanecer.

@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.archivista
+slug: rol/investigacion/archivista
 nombre: Archivista
 probabilidad: 34
 tags: ["rol/investigacion/archivista", "rol/investigacion", "pool/guardianes_de_la_memoria"]

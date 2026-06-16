@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.hacker
+slug: rol/oficio/hacker
 nombre: Hacker
 probabilidad: 40
 tags: ["rol/oficio/hacker", "rol/oficio", "pool/los_hackers"]

@@ -7,14 +7,14 @@ descripcion: "Lupa de bolsillo con montura de metal. Lee lo que el ojo no alcanz
 peso: 1
 peso_sorteo: 2
 sesgo_faccion:
-- arpistas
-- guardianes_de_la_memoria
+  - arpistas
+  - guardianes_de_la_memoria
 sesgo_rol:
-- rol.oficio.escriba
-- rol.investigacion.archivista
+  - rol/oficio/escriba
+  - rol/investigacion/archivista
 tags:
-- catalogo/equipo
-- equipo/lente_aumento
+  - catalogo/equipo
+  - equipo/lente_aumento
 ---
 
 Lupa de bolsillo con montura de metal. Lee lo que el ojo no alcanza: inscripciones, circuitos, heridas finas.

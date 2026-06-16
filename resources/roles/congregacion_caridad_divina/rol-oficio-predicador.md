@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.predicador
+slug: rol/oficio/predicador
 nombre: Predicador
 probabilidad: 19
 tags: ["rol/oficio/predicador", "rol/oficio", "pool/congregacion_caridad_divina"]

@@ -7,13 +7,13 @@ descripcion: Hoja templada para labrar piedra, sellos cerámicos y cierres oxida
 peso: 1
 peso_sorteo: 2
 sesgo_faccion:
-- arpistas
+  - arpistas
 sesgo_rol:
-- rol.oficio.arqueologo_tech
-- rol.oficio.tecnico
+  - rol/oficio/arqueologo_tech
+  - rol/oficio/tecnico
 tags:
-- catalogo/equipo
-- equipo/cincel_acero
+  - catalogo/equipo
+  - equipo/cincel_acero
 ---
 
 Hoja templada para labrar piedra, sellos cerámicos y cierres oxidados. Trabajo de precisión cuando hay que abrir sin romper.

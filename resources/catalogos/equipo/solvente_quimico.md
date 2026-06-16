@@ -7,13 +7,13 @@ descripcion: Frasco de disolvente industrial para desactivar adhesivos, cubierta
 peso: 2
 peso_sorteo: 2
 sesgo_faccion:
-- arpistas
+  - arpistas
 sesgo_rol:
-- rol.oficio.cientifico
-- rol.oficio.tecnico
+  - rol/oficio/cientifico
+  - rol/oficio/tecnico
 tags:
-- catalogo/equipo
-- equipo/solvente_quimico
+  - catalogo/equipo
+  - equipo/solvente_quimico
 ---
 
 Frasco de disolvente industrial para desactivar adhesivos, cubiertas selladas o residuos tóxicos. Olor inconfundible.

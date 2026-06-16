@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.tratante
+slug: rol/oficio/tratante
 nombre: Tratante
 probabilidad: 12
 tags: ["rol/oficio/tratante", "rol/oficio", "pool/punteros"]

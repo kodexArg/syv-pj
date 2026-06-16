@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.ocultista
+slug: rol/paranormal/ocultista
 nombre: Ocultista
 probabilidad: 16
 tags: ["rol/paranormal/ocultista", "rol/paranormal", "pool/masones"]

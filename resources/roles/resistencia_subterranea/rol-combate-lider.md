@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.lider
+slug: rol/combate/lider
 nombre: Cabecilla de Acción
 probabilidad: 8
 tags: ["rol/combate/lider", "rol/combate", "pool/resistencia_subterranea"]

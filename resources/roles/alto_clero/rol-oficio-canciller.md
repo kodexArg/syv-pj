@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.canciller
+slug: rol/oficio/canciller
 nombre: Canciller
 probabilidad: 10
 tags: ["rol/oficio/canciller", "rol/oficio", "pool/alto_clero"]

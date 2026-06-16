@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.negociador
+slug: rol/paranormal/negociador
 nombre: Negociador Paranormal
 probabilidad: 10
 tags: ["rol/paranormal/negociador", "rol/paranormal", "pool/traficantes_de_almas"]

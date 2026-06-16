@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.lider
+slug: rol/combate/lider
 nombre: Líder de Escuadra
 probabilidad: 8
 tags: ["rol/combate/lider", "rol/combate", "pool/fuerzas_armadas"]

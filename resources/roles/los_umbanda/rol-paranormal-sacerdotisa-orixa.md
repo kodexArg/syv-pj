@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.sacerdotisa_orixa
+slug: rol/paranormal/sacerdotisa_orixa
 nombre: Sacerdotisa Orixá
 probabilidad: 10
 tags: ["rol/paranormal/sacerdotisa-orixa", "rol/paranormal", "pool/los_umbanda"]

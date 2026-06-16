@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.heroe
+slug: rol/combate/heroe
 nombre: Heroína
 probabilidad: 8
 tags: ["rol/combate/heroe", "rol/combate", "pool/kuna_mbarete"]

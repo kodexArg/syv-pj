@@ -21,12 +21,12 @@ rasgos: []
 equipo:
   - "[[bombo]]"
 tags:
-  - faccion.resistencia_subterranea
-  - rango.simpatizante
-  - estado.disponible
-  - aspecto.vanguardia
-  - equipo.utilitario.bombo
-  - lealtad.ejercito_rojo
+  - faccion/resistencia_subterranea
+  - rango/simpatizante
+  - estado/disponible
+  - aspecto/vanguardia
+  - equipo/utilitario/bombo
+  - lealtad/ejercito_rojo
 ---
 
 Tobías es el Loco porque va adelante de todo sin un arma encima, golpeando el [[bombo]] como si el corazón del [[resistencia_subterranea|Ejército Rojo]] le colgara del pecho. [[simpatizante|Simpatizante]] [[sin_rol|sin rol asignado]], no dispara ni acuchilla, pero su fervor es [[vanguardia|punta de lanza]]: donde él entona, la columna lo sigue por [[barrios-del-muro|los barrios del muro]]. Dicen que en Bahía Blanca un bombo bien tocado vale más que un fusilero asustado, y Tobías se lo cree a muerte.

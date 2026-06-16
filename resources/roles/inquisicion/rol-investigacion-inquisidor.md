@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.inquisidor
+slug: rol/investigacion/inquisidor
 nombre: Inquisidor
 probabilidad: 30
 tags: ["rol/investigacion/inquisidor", "rol/investigacion", "pool/inquisicion"]

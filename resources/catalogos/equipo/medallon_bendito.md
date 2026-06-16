@@ -7,13 +7,13 @@ descripcion: Medalla de santo patrono colgada al cuello. Protección cotidiana m
 peso: 1
 peso_sorteo: 3
 sesgo_faccion:
-- iglesia
-- congregacion_caridad_divina
+  - iglesia
+  - congregacion_caridad_divina
 sesgo_rol:
-- rol.oficio.predicador
+  - rol/oficio/predicador
 tags:
-- catalogo/equipo
-- equipo/medallon_bendito
+  - catalogo/equipo
+  - equipo/medallon_bendito
 ---
 
 Medalla de santo patrono colgada al cuello. Protección cotidiana más que ceremonial.

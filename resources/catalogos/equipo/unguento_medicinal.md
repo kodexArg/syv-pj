@@ -7,17 +7,17 @@ descripcion: Pasta densa de hierbas procesadas y grasa. Cierra heridas menores, 
 peso: 1
 peso_sorteo: 3
 sesgo_faccion:
-- curatores
-- sanidad
-- congregacion_caridad_divina
+  - curatores
+  - sanidad
+  - congregacion_caridad_divina
 sesgo_rol:
-- rol.oficio.medico
-- rol.oficio.boticario
-- rol.oficio.cirujano
-- rol.paranormal.sanador
+  - rol/oficio/medico
+  - rol/oficio/boticario
+  - rol/oficio/cirujano
+  - rol/paranormal/sanador
 tags:
-- catalogo/equipo
-- equipo/unguento_medicinal
+  - catalogo/equipo
+  - equipo/unguento_medicinal
 ---
 
 Pasta densa de hierbas procesadas y grasa. Cierra heridas menores, alivia infección superficial. Lo preparan curanderas y médicos caídos.

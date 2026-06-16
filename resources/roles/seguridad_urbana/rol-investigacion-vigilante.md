@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.vigilante
+slug: rol/investigacion/vigilante
 nombre: Vigilante
 probabilidad: 30
 tags: ["rol/investigacion/vigilante", "rol/investigacion", "pool/seguridad_urbana"]

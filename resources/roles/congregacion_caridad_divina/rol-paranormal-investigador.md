@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.investigador
+slug: rol/paranormal/investigador
 nombre: Investigador Paranormal
 probabilidad: 10
 tags: ["rol/paranormal/investigador", "rol/paranormal", "pool/congregacion_caridad_divina"]

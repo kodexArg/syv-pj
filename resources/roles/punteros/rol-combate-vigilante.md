@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.vigilante
+slug: rol/combate/vigilante
 nombre: Vigilante de Barrio
 probabilidad: 10
 tags: ["rol/combate/vigilante", "rol/combate", "pool/punteros"]

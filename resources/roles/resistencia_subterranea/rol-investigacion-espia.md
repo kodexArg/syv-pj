@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.espia
+slug: rol/investigacion/espia
 nombre: Espía
 probabilidad: 22
 tags: ["rol/investigacion/espia", "rol/investigacion", "pool/resistencia_subterranea"]

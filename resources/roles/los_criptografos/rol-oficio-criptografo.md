@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.criptografo
+slug: rol/oficio/criptografo
 nombre: Criptógrafo
 probabilidad: 44
 tags: ["rol/oficio/criptografo", "rol/oficio", "pool/los_criptografos"]

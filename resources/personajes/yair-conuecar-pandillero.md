@@ -23,15 +23,15 @@ rasgos:
 equipo:
   - "[[machete]]"
 tags:
-  - faccion.resistencia_subterranea
-  - rango.militante_resistencia
-  - rol.combate.asalto
-  - estado.disponible
-  - aspecto.terco
-  - aspecto.tactico
-  - rasgo.tatuaje_de_unidad
-  - equipo.arma.machete
-  - lealtad.ejercito_rojo
+  - faccion/resistencia_subterranea
+  - rango/militante_resistencia
+  - rol/combate/asalto
+  - estado/disponible
+  - aspecto/terco
+  - aspecto/tactico
+  - rasgo/tatuaje_de_unidad
+  - equipo/arma/machete
+  - lealtad/ejercito_rojo
 ---
 
 Yair se sumó a la pandilla después que Brian, Maxi y Nahuel, pero llegó más curtido que ninguno: la calle de [[barrios-del-muro|los barrios del muro]] ya lo había masticado antes de que el [[resistencia_subterranea|Ejército Rojo]] le diera un lugar. Va de [[militante_resistencia|militante]] al frente como [[rol-combate-asalto|asaltante]], con un solo [[machete]] gastado y nada más, porque dice que el que carga de más corre de menos. Es [[terco]] como una mula contra la [[fuerzas_armadas|Confederación]] y lleva el [[tatuaje_de_unidad|tatuaje de la unidad]] como quien por fin encontró de qué lado del muro pertenece.

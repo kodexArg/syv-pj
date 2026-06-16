@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.criptoanalista
+slug: rol/investigacion/criptoanalista
 nombre: Criptoanalista
 probabilidad: 30
 tags: ["rol/investigacion/criptoanalista", "rol/investigacion", "pool/los_criptografos"]

@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.lider
+slug: rol/combate/lider
 nombre: Líder de Banda
 probabilidad: 7
 tags: ["rol/combate/lider", "rol/combate", "pool/punteros"]

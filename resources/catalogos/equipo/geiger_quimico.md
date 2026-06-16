@@ -7,13 +7,13 @@ descripcion: Detector portátil de radiación y contaminación química. Cuadran
 peso: 2
 peso_sorteo: 2
 sesgo_faccion:
-- arpistas
+  - arpistas
 sesgo_rol:
-- rol.oficio.cientifico
-- rol.oficio.tecnico
+  - rol/oficio/cientifico
+  - rol/oficio/tecnico
 tags:
-- catalogo/equipo
-- equipo/geiger_quimico
+  - catalogo/equipo
+  - equipo/geiger_quimico
 ---
 
 Detector portátil de radiación y contaminación química. Cuadrante analógico; lo calibran cada misión.

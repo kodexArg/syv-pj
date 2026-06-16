@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.enfermero
+slug: rol/oficio/enfermero
 nombre: Enfermero
 probabilidad: 10
 tags: ["rol/oficio/enfermero", "rol/oficio", "pool/congregacion_caridad_divina"]

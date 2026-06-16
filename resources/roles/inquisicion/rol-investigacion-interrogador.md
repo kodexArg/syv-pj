@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.interrogador
+slug: rol/investigacion/interrogador
 nombre: Interrogador
 probabilidad: 18
 tags: ["rol/investigacion/interrogador", "rol/investigacion", "pool/inquisicion"]

@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.medium
+slug: rol/paranormal/medium
 nombre: Médium
 probabilidad: 23
 tags: ["rol/paranormal/medium", "rol/paranormal", "pool/shipibo_conibo"]

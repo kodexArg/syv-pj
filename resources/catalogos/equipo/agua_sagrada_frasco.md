@@ -7,15 +7,15 @@ descripcion: Pequeño frasco de metal o vidrio con agua bendita. Herramienta bá
 peso: 1
 peso_sorteo: 3
 sesgo_faccion:
-- iglesia
-- exorcistas
-- congregacion_caridad_divina
+  - iglesia
+  - exorcistas
+  - congregacion_caridad_divina
 sesgo_rol:
-- rol.paranormal.exorcista
-- rol.oficio.predicador
+  - rol/paranormal/exorcista
+  - rol/oficio/predicador
 tags:
-- catalogo/equipo
-- equipo/agua_sagrada_frasco
+  - catalogo/equipo
+  - equipo/agua_sagrada_frasco
 ---
 
 Pequeño frasco de metal o vidrio con agua bendita. Herramienta básica del exorcista y el devoto.

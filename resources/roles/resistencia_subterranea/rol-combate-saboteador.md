@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.saboteador
+slug: rol/combate/saboteador
 nombre: Saboteador
 probabilidad: 30
 tags: ["rol/combate/saboteador", "rol/combate", "pool/resistencia_subterranea"]

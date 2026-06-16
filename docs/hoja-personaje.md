@@ -19,8 +19,8 @@ aliases:
 > - [[atributos-y-habilidades|atributos-y-habilidades.md]] — escalas de `cuerpo/mente/alma`, estadísticas derivadas y vocabulario canónico de efectos.
 > - [[contratos|contratos.md]] — aspectos, habilidades y efectos como contratos.
 > - [[historial|historial.md]] — el registro `historial[]`: campos del hito, catálogo de tipos, `actores[]` y la regla de solo-añadir.
-> - [[nemesis-y-aliados|nemesis-y-aliados.md]] — los vínculos personales (`aliado.*` / `nemesis.*`) como etiquetas relacionales.
-> - [[lealtad|lealtad.md]] — la lealtad (`lealtad.*`) como etiqueta relacional plana.
+> - [[nemesis-y-aliados|nemesis-y-aliados.md]] — los vínculos personales (`aliado/*` / `nemesis/*`) como etiquetas relacionales.
+> - [[lealtad|lealtad.md]] — la lealtad (`lealtad/*`) como etiqueta relacional plana.
 > - [[generacion-procedural|generacion-procedural.md]] — cómo se completa una hoja desde el azar portable.
 > - [[diegesis|diegesis.md]] — el contexto del universo (facciones, lugares, lore) vive en `syv-docs`; este doc redirige.
 
@@ -37,7 +37,7 @@ personaje:
   identidad:    { slug, nombre, sobrenombre, rol, genero, edad }
   atributos:    { cuerpo, mente, alma }   # únicas magnitudes numéricas persistidas
   tags:         [...]               # lista plana, notación punto, NO multiconjunto (último valor gana)
-                                    # incluye los vínculos personales: aliado.* / nemesis.*
+                                    # incluye los vínculos personales: aliado/* / nemesis/*
   historia:     str                 # prosa biográfica, congelada al canonizar
   historial:    [...]               # hitos temporales (registro de eventos, de solo añadir)
   metadatos:    { creado_en, canonizado_en, ultima_actualizacion }
@@ -62,7 +62,7 @@ Quién es el personaje, fuera de su contexto operativo. La capa operativa (rango
 
 ### 1.1. `slug` — la patente del personaje
 
-El `slug` es la ==patente opaca== del personaje. **No es su nombre.** Es el identificador estable que el sistema usa para referenciarlo en cualquier vínculo: como destino de un tag `aliado.*` / `nemesis.*` (ver [[#§3.4 — Vínculos personales|§3.4]]), en los `actores[]` de un hito, en ediciones por API, en nodos del vault.
+El `slug` es la ==patente opaca== del personaje. **No es su nombre.** Es el identificador estable que el sistema usa para referenciarlo en cualquier vínculo: como destino de un tag `aliado/*` / `nemesis/*` (ver [[#§3.4 — Vínculos personales|§3.4]]), en los `actores[]` de un hito, en ediciones por API, en nodos del vault.
 
 ```yaml
 slug:
@@ -97,7 +97,7 @@ rol:
   default:    ciudadano
   proposito:  Identidad narrativa base (no posición operativa).
   ejemplos:   ["Sargento Confederado", "Líder Revolucionario", "Médico de campaña"]
-  aclaracion: NO confundir con tags rol.* — esos viven en tags[] y expresan la capa operativa.
+  aclaracion: NO confundir con tags rol/* — esos viven en tags[] y expresan la capa operativa.
 
 género:
   tipo:        string
@@ -148,10 +148,10 @@ default: []
 El motor calcula al servir, sin persistir, para evitar desincronización:
 
 ```yaml
-filiacion:    { fuente: "tags rango.* + faccion.*",   nota: "null si falta alguno" }
+filiacion:    { fuente: "tags rango/* + faccion/*",   nota: "null si falta alguno" }
 fatiga_max:   { fuente: "cuerpo + alma",              tipo: int }
 moral_max:    { fuente: "alma",                       tipo: int }
-fza_aportada: { fuente: "tags rol.combate.*",         valores: "{heroe: 3, lider: 2, default: 1}" }
+fza_aportada: { fuente: "tags rol/combate/*",         valores: "{heroe: 3, lider: 2, default: 1}" }
 ```
 
 Las fórmulas canónicas y sus escalas viven en [[atributos-y-habilidades|atributos-y-habilidades.md]]. Cambios post-creación en `tags[]` se registran como hito `agregar_tag` / `quitar_tag` con metadatos `{tag}`.
@@ -160,8 +160,8 @@ Las fórmulas canónicas y sus escalas viven en [[atributos-y-habilidades|atribu
 
 Algunas etiquetas no describen un atributo del personaje sino un **vínculo dirigido** hacia otra entidad. El último segmento es la referencia al destino:
 
-- A una **entidad de catálogo** (facción, subfacción, grupo, religión): el slug legible de esa entidad — `lealtad.ejercito_rojo`, `aliado.pelicanos`.
-- A **otro personaje**: su patente — `aliado.K9F2H3M4`, `nemesis.R7T3W1X5`.
+- A una **entidad de catálogo** (facción, subfacción, grupo, religión): el slug legible de esa entidad — `lealtad/ejercito_rojo`, `aliado/pelicanos`.
+- A **otro personaje**: su patente — `aliado/K9F2H3M4`, `nemesis/R7T3W1X5`.
 
 Todas se cuentan y se filtran como cualquier tag. La prosa de un vínculo personal —cómo se formó— no vive en la etiqueta sino en su hito de [[historial|historial.md]]. Definición completa en [[nemesis-y-aliados|nemesis-y-aliados.md]].
 
@@ -263,7 +263,7 @@ Qué cambia, y cómo:
 |---|---|---|
 | `atributos.{cuerpo, mente, alma}` | vía hito | `triple_cero` / `mejora_atributo` |
 | `tags[]` | vía hito | `agregar_tag` / `quitar_tag` (metadata `{tag}`) |
-| `tags[]` vínculos (`aliado.*`, `nemesis.*`) | vía hito | `formacion_lealtad` / `identificacion_nemesis` / `ruptura_lealtad` |
+| `tags[]` vínculos (`aliado/*`, `nemesis/*`) | vía hito | `formacion_lealtad` / `identificacion_nemesis` / `ruptura_lealtad` |
 | `identidad.rol` | vía hito | `ascenso` / `cambio_rol` |
 | `historial[]` | vía hito | de solo añadir (`POST /evento`) |
 | `metadatos.ultima_actualizacion` | automático | en cada hito |

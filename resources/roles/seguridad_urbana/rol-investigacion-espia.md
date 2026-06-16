@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.espia
+slug: rol/investigacion/espia
 nombre: Soplón
 probabilidad: 22
 tags: ["rol/investigacion/espia", "rol/investigacion", "pool/seguridad_urbana"]

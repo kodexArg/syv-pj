@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.detective
+slug: rol/investigacion/detective
 nombre: Detective
 probabilidad: 28
 tags: ["rol/investigacion/detective", "rol/investigacion", "pool/direccion_nacional_de_seguridad"]

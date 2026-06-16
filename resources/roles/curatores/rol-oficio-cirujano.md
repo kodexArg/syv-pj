@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.cirujano
+slug: rol/oficio/cirujano
 nombre: Cirujano
 probabilidad: 22
 tags: ["rol/oficio/cirujano", "rol/oficio", "pool/curatores"]

@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.exorcista
+slug: rol/paranormal/exorcista
 nombre: Exorcista
 probabilidad: 36
 tags: ["rol/paranormal/exorcista", "rol/paranormal", "pool/exorcistas"]

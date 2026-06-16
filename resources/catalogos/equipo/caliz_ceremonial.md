@@ -7,15 +7,15 @@ descripcion: Copa litúrgica de metal para la eucaristía. Solo quien oficia la 
 peso: 2
 peso_sorteo: 1
 sesgo_faccion:
-- iglesia
-- alto_clero
-- curia_romana
+  - iglesia
+  - alto_clero
+  - curia_romana
 sesgo_rol:
-- rol.oficio.predicador
-- rol.oficio.prelado
+  - rol/oficio/predicador
+  - rol/oficio/prelado
 tags:
-- catalogo/equipo
-- equipo/caliz_ceremonial
+  - catalogo/equipo
+  - equipo/caliz_ceremonial
 ---
 
 Copa litúrgica de metal para la eucaristía. Solo quien oficia la misa lo toca.

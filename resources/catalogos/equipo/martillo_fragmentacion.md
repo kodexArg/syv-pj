@@ -9,13 +9,13 @@ peso_sorteo: 2
 tipo_accion: cuerpo_a_cuerpo
 alcance: corto
 sesgo_faccion:
-- arpistas
+  - arpistas
 sesgo_rol:
-- rol.combate.zapador
-- rol.oficio.arqueologo_tech
+  - rol/combate/zapador
+  - rol/oficio/arqueologo_tech
 tags:
-- catalogo/equipo
-- equipo/martillo_fragmentacion
+  - catalogo/equipo
+  - equipo/martillo_fragmentacion
 ---
 
 Martillo de punta de acero endurecido para fracturar sellos, cascos y muros delgados. Doble uso: trabajo y combate de necesidad.

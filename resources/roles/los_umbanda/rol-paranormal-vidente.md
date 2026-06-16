@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.vidente
+slug: rol/paranormal/vidente
 nombre: Vidente
 probabilidad: 11
 tags: ["rol/paranormal/vidente", "rol/paranormal", "pool/los_umbanda"]

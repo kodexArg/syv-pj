@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.informante
+slug: rol/investigacion/informante
 nombre: Informante
 probabilidad: 16
 tags: ["rol/investigacion/informante", "rol/investigacion", "pool/punteros"]

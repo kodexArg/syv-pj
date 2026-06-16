@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.traductor
+slug: rol/oficio/traductor
 nombre: Traductor
 probabilidad: 10
 tags: ["rol/oficio/traductor", "rol/oficio", "pool/archivistas_y_cientificos_teologicos"]

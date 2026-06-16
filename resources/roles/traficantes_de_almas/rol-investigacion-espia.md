@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.espia
+slug: rol/investigacion/espia
 nombre: Ojeador
 probabilidad: 14
 tags: ["rol/investigacion/espia", "rol/investigacion", "pool/traficantes_de_almas"]

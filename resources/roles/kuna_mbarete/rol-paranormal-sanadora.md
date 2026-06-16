@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.sanadora
+slug: rol/paranormal/sanadora
 nombre: Sanadora
 probabilidad: 16
 tags: ["rol/paranormal/sanadora", "rol/paranormal", "pool/kuna_mbarete"]

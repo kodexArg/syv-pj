@@ -23,19 +23,19 @@ aliases:
 
 ## §1 — Tag y contrato: el link y la información
 
-Un [[sistema-tags|tag]] es un **link**: un identificador discreto que se posa sobre el personaje y apunta a algo. Como todo link, puede llevar información detrás **o no llevarla** — un tag huérfano como `habilidad.personal.pianista` afirma el hecho sin describir su alcance hasta que alguien escriba su referencia en el catálogo.
+Un [[sistema-tags|tag]] es un **link**: un identificador discreto que se posa sobre el personaje y apunta a algo. Como todo link, puede llevar información detrás **o no llevarla** — un tag huérfano como `habilidad/personal/pianista` afirma el hecho sin describir su alcance hasta que alguien escriba su referencia en el catálogo.
 
-Un **contrato** es esa información: la entrada de catálogo (`tags/<categoria>/<slug>.yaml`) que vive detrás del link. **No todos los tags tienen contrato.** `rango.sargento`, `faccion.confederados`, `lealtad.ejercito_rojo` o `aliado.K9F2H3M4` son tags puros —clasificatorios o relacionales—, sin paquete mecánico. Pero los tags de tres categorías traen contrato **siempre**:
+Un **contrato** es esa información: la entrada de catálogo (`tags/<categoria>/<slug>.yaml`) que vive detrás del link. **No todos los tags tienen contrato.** `rango/sargento`, `faccion/confederados`, `lealtad/ejercito_rojo` o `aliado/K9F2H3M4` son tags puros —clasificatorios o relacionales—, sin paquete mecánico. Pero los tags de tres categorías traen contrato **siempre**:
 
 | | Tag | Contrato |
 |---|---|---|
 | Qué es | un link discreto sobre el personaje | la información detrás del link |
-| ¿Siempre presente? | sí — es la unidad atómica del esquema | no — solo bajo `aspecto.*`, `habilidad.*`, `efecto.*` |
+| ¿Siempre presente? | sí — es la unidad atómica del esquema | no — solo bajo `aspecto/*`, `habilidad/*`, `efecto.*` |
 | Dónde vive | en `tags[]` de la [[hoja-personaje\|hoja]] | en el catálogo `tags/<categoria>/<slug>.yaml` |
 | Qué entrega | la afirmación de un hecho | un **paquete**: modificadores, habilitadores, efectos |
 
 > [!tip] Lo que no trae contrato sigue siendo tag
-> `rango.*`, `faccion.*`, `lealtad.*`, `aliado.*`, `nemesis.*` no declaran paquete mecánico: son links puros (ver [[sistema-tags]], [[nemesis-y-aliados|nemesis-y-aliados.md]], [[lealtad|lealtad.md]]). Y un contrato puede, además del paquete, **referenciar información adicional** —incluso prosa: quién sabe lo que el contrato escriba detrás del tag.
+> `rango/*`, `faccion/*`, `lealtad/*`, `aliado/*`, `nemesis/*` no declaran paquete mecánico: son links puros (ver [[sistema-tags]], [[nemesis-y-aliados|nemesis-y-aliados.md]], [[lealtad|lealtad.md]]). Y un contrato puede, además del paquete, **referenciar información adicional** —incluso prosa: quién sabe lo que el contrato escriba detrás del tag.
 
 ---
 
@@ -58,9 +58,9 @@ De ahí se sigue lo central: **aspecto, habilidad y efecto son mecánicamente la
 
 ## §3 — El contrato como entidad: sin relación, un pool que crece
 
-El contrato es una **entidad** de relación **varios-a-varios** con los personajes — es decir, en la práctica, **sin relación**. Cualquier contrato puede posarse sobre cualquier personaje; no hay tabla de pertenencia ni dueño. Un `aspecto.veterano_de_campo` no "pertenece" a nadie: está definido una vez y queda disponible para todas las hojas.
+El contrato es una **entidad** de relación **varios-a-varios** con los personajes — es decir, en la práctica, **sin relación**. Cualquier contrato puede posarse sobre cualquier personaje; no hay tabla de pertenencia ni dueño. Un `aspecto/veterano_de_campo` no "pertenece" a nadie: está definido una vez y queda disponible para todas las hojas.
 
-Los contratos definidos se acumulan en un **pool** del que el generador y el curador van tirando (ver [[generacion-procedural#Fase 4 — Tags adicionales|Fase 4]]). El pool crece **abierto/cerrado, incrementalmente**: agregar un contrato nuevo nunca rompe los existentes ni exige migración. Un `aspecto.*` más en el catálogo es, simplemente, una opción más en el sorteo.
+Los contratos definidos se acumulan en un **pool** del que el generador y el curador van tirando (ver [[generacion-procedural#Fase 4 — Tags adicionales|Fase 4]]). El pool crece **abierto/cerrado, incrementalmente**: agregar un contrato nuevo nunca rompe los existentes ni exige migración. Un `aspecto/*` más en el catálogo es, simplemente, una opción más en el sorteo.
 
 ---
 
@@ -84,7 +84,7 @@ Este patrón tiene tres variantes según el **tipo de contrato:**
 | `habilidad` | Habilitador de tirada | ninguno directo | condicional | neutra |
 | `efecto` | Bloque referenciable | pasivo o externo | no aplica | mixta |
 
-La categoría en el tag sigue el mismo patrón: `aspecto.vanguardia`, `habilidad.tiro_de_precision`, `efecto.panico_momentaneo`.
+La categoría en el tag sigue el mismo patrón: `aspecto/vanguardia`, `habilidad/tiro_de_precision`, `efecto.panico_momentaneo`.
 
 ### 4.1. El paquete: `efecto[]` estructurado
 
@@ -163,7 +163,7 @@ Palabras clave iniciales (catálogo abierto): `calcular_encuentros`, `tiradas_ac
 
 ## §5 — Aspecto: identidad mecánicamente activa
 
-Un **aspecto** es un rasgo de carácter, condición física, marca de comportamiento o ventaja ganada que tiene peso mecánico. No es solo sabor narrativo — declara un efecto que el motor aplica mientras el personaje lo lleve. Absorbe lo que antes se partía en *rasgo con peso mecánico* (identidad con efecto) y *ventaja* (recompensa narrativa): la diferencia ya no es de categoría, sino de **origen** (ver §5.4). El *rasgo* puramente cosmético —sin efecto— no es un aspecto: sigue siendo un tag `rasgo.*` sin contrato.
+Un **aspecto** es un rasgo de carácter, condición física, marca de comportamiento o ventaja ganada que tiene peso mecánico. No es solo sabor narrativo — declara un efecto que el motor aplica mientras el personaje lo lleve. Absorbe lo que antes se partía en *rasgo con peso mecánico* (identidad con efecto) y *ventaja* (recompensa narrativa): la diferencia ya no es de categoría, sino de **origen** (ver §5.4). El *rasgo* puramente cosmético —sin efecto— no es un aspecto: sigue siendo un tag `rasgo/*` sin contrato.
 
 ### 5.1. Estructura
 
@@ -247,8 +247,8 @@ efecto:
     mod: +2
 requires:
   require_any:
-    - habilidad.tiro_de_precision
-    - rango.tirador_designado
+    - habilidad/tiro_de_precision
+    - rango/tirador_designado
 ```
 
 Esto es documentación ejecutable. El motor no lo impone; el generador y el curador lo respetan. Ver [[sistema-tags#6.4. Sistema requires|§6.4 de sistema-tags]].
@@ -284,7 +284,7 @@ La vía canónica para ganar un aspecto narrativo es el `historial[]`: un hito `
 
 Una **habilidad** (lo que antes era *destreza*) no modifica atributos ni estadísticas directamente. Su función es binaria: **habilitar un chequeo** contra el `atributo_dominante` declarado en su entrada de catálogo.
 
-El motor pregunta: ¿el personaje tiene `habilidad.X`? Si sí, puede hacer la tirada. Si no, la acción no es posible (o se resuelve con penalización según regla del motor).
+El motor pregunta: ¿el personaje tiene `habilidad/X`? Si sí, puede hacer la tirada. Si no, la acción no es posible (o se resuelve con penalización según regla del motor).
 
 ### 6.1. Estructura
 
@@ -310,7 +310,7 @@ atributo_dominante: mente
 
 ### 6.2. Por qué la habilidad no modifica estadísticas
 
-Una habilidad habilitada no te hace mejor en el atributo; te da acceso a aplicarlo. La diferencia importa: un personaje con `MENTE 3` y `habilidad.tiro_de_precision` puede intentar ese disparo. Uno con `MENTE 5` sin la habilidad no puede. El nivel del atributo determina qué tan bien saldrá la tirada; la habilidad determina si puede hacerse.
+Una habilidad habilitada no te hace mejor en el atributo; te da acceso a aplicarlo. La diferencia importa: un personaje con `MENTE 3` y `habilidad/tiro_de_precision` puede intentar ese disparo. Uno con `MENTE 5` sin la habilidad no puede. El nivel del atributo determina qué tan bien saldrá la tirada; la habilidad determina si puede hacerse.
 
 Esto evita inflación de estadísticas por acumulación de habilidades y mantiene limpia la separación entre **capacidad** (atributos) y **conocimiento** (habilidades).
 
@@ -480,7 +480,7 @@ Un contrato desconocido no rompe la hoja. La coherencia la garantiza la curadur�
 
 Cuatro aspectos forman el núcleo canónico. Ejercitan los tres atributos (`cuerpo`, `mente`, `alma`), las estadísticas aditivas (`stat.sanar`, `stat.percepcion`) y el mecanismo de `condicion`.
 
-### `aspecto.tactico`
+### `aspecto/tactico`
 
 Lectura del campo y anticipación. Actúa siempre primero; ve la emboscada antes que nadie.
 
@@ -501,7 +501,7 @@ efecto:
 
 El `+1 percepcion` es **condicional**: solo pesa al calcular encuentros (no es una percepción mejor en todo momento, sino mejor *para detectar el encuentro*). Ver §4.3.
 
-### `aspecto.religioso`
+### `aspecto/religioso`
 
 La fe como ancla. Sostiene a los suyos y no se quiebra ante el miedo — pero la mansedumbre le resta filo en combate.
 
@@ -525,7 +525,7 @@ efecto:
 
 El `+2 alma` solo cuenta en `chequeo_miedo`: no lo hace más perceptivo ni mejor líder en general, solo más firme ante el terror.
 
-### `aspecto.tecnico`
+### `aspecto/tecnico`
 
 Mente metódica para las acciones deliberadas — demolición, reparación, tiro calculado.
 
@@ -544,7 +544,7 @@ efecto:
 
 El `+3 mente` solo aplica en `tiradas_activas` (acciones que el personaje inicia deliberadamente); no mejora su reacción ni su defensa pasiva.
 
-### `aspecto.primeros_auxilios`
+### `aspecto/primeros_auxilios`
 
 Sabe estabilizar una herida bajo fuego. Competencia sanitaria pura, siempre activa.
 
@@ -563,4 +563,4 @@ efecto:
 `stat.sanar` arranca en `0`; este aspecto la lleva a `+2`. Sin `condicion`: la competencia sanitaria está siempre disponible.
 
 > [!note] Aspecto y habilidad homónimos
-> `aspecto.primeros_auxilios` (aporta `stat.sanar`) y `habilidad.primeros_auxilios` (habilita la tirada contra `alma`) coexisten: el aspecto entrega la capacidad numérica; la habilidad, el acceso a la tirada. Son contratos de tipo distinto sobre el mismo oficio.
+> `aspecto/primeros_auxilios` (aporta `stat.sanar`) y `habilidad/primeros_auxilios` (habilita la tirada contra `alma`) coexisten: el aspecto entrega la capacidad numérica; la habilidad, el acceso a la tirada. Son contratos de tipo distinto sobre el mismo oficio.

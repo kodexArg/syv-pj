@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.boticario
+slug: rol/oficio/boticario
 nombre: Boticario
 probabilidad: 16
 tags: ["rol/oficio/boticario", "rol/oficio", "pool/sanidad"]

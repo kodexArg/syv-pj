@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.erudito
+slug: rol/oficio/erudito
 nombre: Erudito
 probabilidad: 30
 tags: ["rol/oficio/erudito", "rol/oficio", "pool/masones"]

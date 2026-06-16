@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.asalto
+slug: rol/combate/asalto
 nombre: Asaltante
 probabilidad: 38
 tags: ["rol/combate/asalto", "rol/combate", "pool/rtu"]

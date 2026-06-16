@@ -7,14 +7,14 @@ descripcion: Sello de metal grabado con el símbolo de la orden archivista. Abre
 peso: 1
 peso_sorteo: 2
 sesgo_faccion:
-- archivistas_y_cientificos_teologicos
-- guardianes_de_la_memoria
+  - archivistas_y_cientificos_teologicos
+  - guardianes_de_la_memoria
 sesgo_rol:
-- rol.investigacion.archivista
-- rol.oficio.escriba
+  - rol/investigacion/archivista
+  - rol/oficio/escriba
 tags:
-- catalogo/equipo
-- equipo/anillo_archivista
+  - catalogo/equipo
+  - equipo/anillo_archivista
 ---
 
 Sello de metal grabado con el símbolo de la orden archivista. Abre ciertas puertas; lo ocultan en zonas de control.

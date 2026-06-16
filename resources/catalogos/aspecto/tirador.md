@@ -7,13 +7,13 @@ descripcion: Años de práctica le dan una calma que los reclutas no pueden fing
 peso_narrativo: 3
 requires:
   require_any:
-  - habilidad.tiro_de_precision
+    - habilidad/tiro_de_precision
 efecto:
-- objetivo: attr.mente
-  mod: 2
+  - objetivo: attr.mente
+    mod: 2
 tags:
-- catalogo/aspecto
-- aspecto/tirador
+  - catalogo/aspecto
+  - aspecto/tirador
 ---
 
 Años de práctica le dan una calma que los reclutas no pueden fingir.

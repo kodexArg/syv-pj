@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.tasador
+slug: rol/investigacion/tasador
 nombre: Tasador
 probabilidad: 13
 tags: ["rol/investigacion/tasador", "rol/investigacion", "pool/gremio_de_comercio"]

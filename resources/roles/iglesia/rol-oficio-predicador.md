@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.predicador
+slug: rol/oficio/predicador
 nombre: Predicador
 probabilidad: 21
 tags: ["rol/oficio/predicador", "rol/oficio", "pool/iglesia"]

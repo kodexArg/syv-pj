@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.propagandista
+slug: rol/oficio/propagandista
 nombre: Propagandista
 probabilidad: 16
 tags: ["rol/oficio/propagandista", "rol/oficio", "pool/resistencia_subterranea"]

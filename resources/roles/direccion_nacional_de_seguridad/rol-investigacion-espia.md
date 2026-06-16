@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.espia
+slug: rol/investigacion/espia
 nombre: Espía Interno
 probabilidad: 16
 tags: ["rol/investigacion/espia", "rol/investigacion", "pool/direccion_nacional_de_seguridad"]

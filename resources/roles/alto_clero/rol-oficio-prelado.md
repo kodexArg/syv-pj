@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.prelado
+slug: rol/oficio/prelado
 nombre: Prelado
 probabilidad: 35
 tags: ["rol/oficio/prelado", "rol/oficio", "pool/alto_clero"]

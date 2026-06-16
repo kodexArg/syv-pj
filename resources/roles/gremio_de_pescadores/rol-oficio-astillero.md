@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.astillero
+slug: rol/oficio/astillero
 nombre: Astillero
 probabilidad: 11
 tags: ["rol/oficio/astillero", "rol/oficio", "pool/gremio_de_pescadores"]

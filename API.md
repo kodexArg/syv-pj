@@ -24,7 +24,7 @@ aliases:
 
 Las categorías curadas de referencia (`destreza`, `rasgo`, `ventaja`, `equipo`, `rol`, etc.) se detallan en [[sistema-tags#Categorías de referencia|docs/sistema-tags.md]]. Categorías nuevas se exponen automáticamente bajo `/meta/{categoria}` desde que existen — no requieren entrada en este archivo.
 
-Para sub-categorías: `GET /meta/equipo/arma`, `GET /meta/rol/oficio`, etc. La notación de la ruta usa barras (`/meta/equipo/arma`); la notación interna del tag usa punto (`equipo.arma`).
+Para sub-categorías: `GET /meta/equipo/arma`, `GET /meta/rol/oficio`, etc. La ruta y el tag interno comparten la **misma notación de barras**: `/meta/equipo/arma` carga el catálogo del tag `equipo/arma`. (Los `campos=` de poda siguen usando puntos —`identidad.slug`—, porque direccionan el árbol de la respuesta, no tags.)
 
 **Casos que NO siguen la convención genérica** (la carga difiere o agrega datos derivados):
 
@@ -51,9 +51,9 @@ Genera un personaje **efímero**. Parámetros opcionales vía cadena de consulta
 
 Devuelve un `personaje` con:
 - `identidad.slug: null` (los efímeros no tienen slug hasta canonizarse).
-- `historial: []` (sin tags de vínculo `aliado.*` / `nemesis.*` todavía).
+- `historial: []` (sin tags de vínculo `aliado/*` / `nemesis/*` todavía).
 - `metadatos.canonizado_en: null`.
-- Tag mínimo `estado.disponible`.
+- Tag mínimo `estado/disponible`.
 
 Si la combinación de tags exigidos es inviable, devuelve **409**.
 

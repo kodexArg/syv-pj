@@ -7,15 +7,15 @@ descripcion: "Cruz de metal bendecida en rito mayor. Más que símbolo: herramie
 peso: 1
 peso_sorteo: 3
 sesgo_faccion:
-- iglesia
-- inquisicion
-- exorcistas
+  - iglesia
+  - inquisicion
+  - exorcistas
 sesgo_rol:
-- rol.paranormal.exorcista
-- rol.oficio.predicador
+  - rol/paranormal/exorcista
+  - rol/oficio/predicador
 tags:
-- catalogo/equipo
-- equipo/crucifijo_consagrado
+  - catalogo/equipo
+  - equipo/crucifijo_consagrado
 ---
 
 Cruz de metal bendecida en rito mayor. Más que símbolo: herramienta de protección para quien sabe usarla.

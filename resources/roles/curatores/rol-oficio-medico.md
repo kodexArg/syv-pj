@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.medico
+slug: rol/oficio/medico
 nombre: Médico
 probabilidad: 41
 tags: ["rol/oficio/medico", "rol/oficio", "pool/curatores"]

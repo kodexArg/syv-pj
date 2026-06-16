@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.herbolario
+slug: rol/oficio/herbolario
 nombre: Herbolario
 probabilidad: 20
 tags: ["rol/oficio/herbolario", "rol/oficio", "pool/shipibo_conibo"]

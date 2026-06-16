@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.espia
+slug: rol/investigacion/espia
 nombre: Espía Comercial
 probabilidad: 5
 tags: ["rol/investigacion/espia", "rol/investigacion", "pool/gremio_de_comercio"]

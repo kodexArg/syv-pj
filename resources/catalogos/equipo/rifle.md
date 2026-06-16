@@ -10,11 +10,11 @@ tipo_accion: cerrojo
 alcance: largo
 requires:
   require_any:
-  - rol.combate.tirador
-  - habilidad.tiro_de_precision
+    - rol/combate/tirador
+    - habilidad/tiro_de_precision
 tags:
-- catalogo/equipo
-- equipo/rifle
+  - catalogo/equipo
+  - equipo/rifle
 ---
 
 Rifle con mira para tiro a distancia. Pide pulso y posición.

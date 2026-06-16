@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.erudito
+slug: rol/oficio/erudito
 nombre: Erudito
 probabilidad: 26
 tags: ["rol/oficio/erudito", "rol/oficio", "pool/guardianes_de_la_memoria"]

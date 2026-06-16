@@ -53,8 +53,8 @@ Estos son los personajes canónicos de ejemplo del universo *Subordinación y Va
 
 ## Facciones menores y autónomas
 
-- [[iracema-chaman-pantano|Iracema]] — `faccion.shipibo_conibo`
-- [[luisa-pescadora|Luisa]] — `faccion.gremio_de_pescadores`
-- [[ramon-sosa-puntero|Ramón Sosa]] — `faccion.punteros`
-- [[severo-tratante-de-almas|Severo]] — `faccion.traficantes_de_almas`
-- [[yara-sacerdotisa-orixa|Yara]] — `faccion.los_umbanda`
+- [[iracema-chaman-pantano|Iracema]] — `faccion/shipibo_conibo`
+- [[luisa-pescadora|Luisa]] — `faccion/gremio_de_pescadores`
+- [[ramon-sosa-puntero|Ramón Sosa]] — `faccion/punteros`
+- [[severo-tratante-de-almas|Severo]] — `faccion/traficantes_de_almas`
+- [[yara-sacerdotisa-orixa|Yara]] — `faccion/los_umbanda`

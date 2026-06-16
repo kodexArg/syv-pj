@@ -7,12 +7,12 @@ descripcion: Cruz con arpa sin cuerdas grabada. Identificador de filiación para
 peso: 1
 peso_sorteo: 2
 sesgo_faccion:
-- arpistas
+  - arpistas
 sesgo_rol:
-- rol.investigacion.espia
+  - rol/investigacion/espia
 tags:
-- catalogo/equipo
-- equipo/cruz_arpista
+  - catalogo/equipo
+  - equipo/cruz_arpista
 ---
 
 Cruz con arpa sin cuerdas grabada. Identificador de filiación para los que saben leer el símbolo.

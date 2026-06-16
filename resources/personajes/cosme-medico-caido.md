@@ -26,17 +26,17 @@ equipo:
   - "[[botiquin]]"
   - "[[pocion_sanadora]]"
 tags:
-  - faccion.resistencia_subterranea
-  - rango.militante_resistencia
-  - rol.oficio.medico
-  - estado.disponible
-  - aspecto.veterano
-  - aspecto.manos_temblorosas
-  - rasgo.mirada_cansada
-  - rasgo.duda_teologica
-  - equipo.vestidura.delantal_manchado
-  - equipo.utilitario.botiquin
-  - equipo.medico.pocion_sanadora
+  - faccion/resistencia_subterranea
+  - rango/militante_resistencia
+  - rol/oficio/medico
+  - estado/disponible
+  - aspecto/veterano
+  - aspecto/manos_temblorosas
+  - rasgo/mirada_cansada
+  - rasgo/duda_teologica
+  - equipo/vestidura/delantal_manchado
+  - equipo/utilitario/botiquin
+  - equipo/medico/pocion_sanadora
 ---
 
 Cosme tuvo un puesto en la [[iglesia|Sanidad]] hasta que cosió la herida equivocada a la persona equivocada; ahora opera a la luz de un farol en [[tuberias|Las Tuberías]], donde nadie pregunta credenciales. Da cobijo a la [[resistencia_subterranea]] como [[militante_resistencia|militante]] y ejerce el [[rol-oficio-medico|oficio médico]] con [[delantal_manchado|delantal manchado]], un [[botiquin]] de instrumentos salvados y [[pocion_sanadora|viales]] turbios de procedencia dudosa. Sus [[manos_temblorosas]] delatan los años y algo más; su [[duda_teologica]] empezó el día que entendió qué eran de verdad las "posesiones".

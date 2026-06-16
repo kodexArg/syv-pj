@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.curandero
+slug: rol/oficio/curandero
 nombre: Curandero
 probabilidad: 20
 tags: ["rol/oficio/curandero", "rol/oficio", "pool/los_umbanda"]

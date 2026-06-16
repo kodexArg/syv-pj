@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.contable
+slug: rol/oficio/contable
 nombre: Contable
 probabilidad: 11
 tags: ["rol/oficio/contable", "rol/oficio", "pool/gremio_de_comercio"]

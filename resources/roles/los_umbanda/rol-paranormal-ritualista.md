@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.ritualista
+slug: rol/paranormal/ritualista
 nombre: Ritualista
 probabilidad: 21
 tags: ["rol/paranormal/ritualista", "rol/paranormal", "pool/los_umbanda"]

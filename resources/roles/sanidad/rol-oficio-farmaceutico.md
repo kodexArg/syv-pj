@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.farmaceutico
+slug: rol/oficio/farmaceutico
 nombre: Farmacéutico
 probabilidad: 10
 tags: ["rol/oficio/farmaceutico", "rol/oficio", "pool/sanidad"]

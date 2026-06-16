@@ -7,15 +7,15 @@ descripcion: Juego de palancas, cuñas y brocas talladas en madera dura sin meta
 peso: 2
 peso_sorteo: 2
 sesgo_faccion:
-- los_criptografos
-- los_hackers
-- resistencia_subterranea
+  - los_criptografos
+  - los_hackers
+  - resistencia_subterranea
 sesgo_rol:
-- rol.oficio.tecnico
-- rol.oficio.hacker
+  - rol/oficio/tecnico
+  - rol/oficio/hacker
 tags:
-- catalogo/equipo
-- equipo/herramientas_madera
+  - catalogo/equipo
+  - equipo/herramientas_madera
 ---
 
 Juego de palancas, cuñas y brocas talladas en madera dura sin metal. No activan los sensores SIA. Las fabrican los técnicos clandestinos de las Tuberías.

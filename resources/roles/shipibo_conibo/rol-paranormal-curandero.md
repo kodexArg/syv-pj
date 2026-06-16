@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.curandero
+slug: rol/paranormal/curandero
 nombre: Curandero
 probabilidad: 32
 tags: ["rol/paranormal/curandero", "rol/paranormal", "pool/shipibo_conibo"]

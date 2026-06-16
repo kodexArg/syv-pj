@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.canonista
+slug: rol/oficio/canonista
 nombre: Canonista
 probabilidad: 32
 tags: ["rol/oficio/canonista", "rol/oficio", "pool/curia_romana"]

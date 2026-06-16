@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.portuario
+slug: rol/oficio/portuario
 nombre: Portuario
 probabilidad: 10
 tags: ["rol/oficio/portuario", "rol/oficio", "pool/gremio_de_pescadores"]

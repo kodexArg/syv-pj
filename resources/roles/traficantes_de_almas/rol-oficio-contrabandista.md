@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.contrabandista
+slug: rol/oficio/contrabandista
 nombre: Contrabandista
 probabilidad: 14
 tags: ["rol/oficio/contrabandista", "rol/oficio", "pool/traficantes_de_almas"]

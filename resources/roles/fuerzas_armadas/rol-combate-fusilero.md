@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.fusilero
+slug: rol/combate/fusilero
 nombre: Fusilero
 probabilidad: 30
 tags: ["rol/combate/fusilero", "rol/combate", "pool/fuerzas_armadas"]

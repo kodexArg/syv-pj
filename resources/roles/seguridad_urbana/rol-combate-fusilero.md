@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.fusilero
+slug: rol/combate/fusilero
 nombre: Patrullero
 probabilidad: 14
 tags: ["rol/combate/fusilero", "rol/combate", "pool/seguridad_urbana"]

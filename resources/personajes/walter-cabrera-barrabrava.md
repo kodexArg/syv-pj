@@ -22,14 +22,14 @@ equipo:
   - "[[machete]]"
   - "[[capucha]]"
 tags:
-  - faccion.resistencia_subterranea
-  - rango.simpatizante
-  - rol.combate.asalto
-  - estado.disponible
-  - aspecto.terco
-  - equipo.arma.machete
-  - equipo.vestidura.capucha
-  - lealtad.ejercito_rojo
+  - faccion/resistencia_subterranea
+  - rango/simpatizante
+  - rol/combate/asalto
+  - estado/disponible
+  - aspecto/terco
+  - equipo/arma/machete
+  - equipo/vestidura/capucha
+  - lealtad/ejercito_rojo
 ---
 
 El Mono es de los pocos barrabravas que cruza al choque con algo más que un bombo: lleva el [[machete]] al cinto y la [[capucha]] calada, y cuando la columna del [[resistencia_subterranea|Ejército Rojo]] se trenza con la [[fuerzas_armadas|Confederación]], él va de [[rol-combate-asalto|asaltante]] en primera fila. Aunque sigue siendo [[simpatizante]] y nunca pidió galones, nadie le discute el lugar adelante por [[barrios-del-muro|los barrios del muro]]. Es [[terco]] hasta lo bestia — lo querés frenar y se enoja, y un Cabrera enojado con un machete es problema serio para cualquier conscripto de Bahía Blanca.

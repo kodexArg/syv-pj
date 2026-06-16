@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.tirador
+slug: rol/combate/tirador
 nombre: Tirador
 probabilidad: 18
 tags: ["rol/combate/tirador", "rol/combate", "pool/fuerzas_armadas"]

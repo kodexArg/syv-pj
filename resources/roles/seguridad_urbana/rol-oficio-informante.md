@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.informante
+slug: rol/oficio/informante
 nombre: Informante
 probabilidad: 10
 tags: ["rol/oficio/informante", "rol/oficio", "pool/seguridad_urbana"]

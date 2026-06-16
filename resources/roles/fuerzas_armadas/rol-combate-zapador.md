@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.zapador
+slug: rol/combate/zapador
 nombre: Zapador
 probabilidad: 10
 tags: ["rol/combate/zapador", "rol/combate", "pool/fuerzas_armadas"]

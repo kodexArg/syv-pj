@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.explorador_arqueologico
+slug: rol/oficio/explorador_arqueologico
 nombre: Explorador Arqueológico
 probabilidad: 10
 tags: ["rol/oficio/explorador-arqueologico", "rol/oficio", "pool/arpistas"]

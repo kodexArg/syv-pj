@@ -7,14 +7,14 @@ descripcion: Pinza quirúrgica de acero para trabajar en cavidades estrechas. Ta
 peso: 1
 peso_sorteo: 2
 sesgo_faccion:
-- arpistas
-- sanidad
+  - arpistas
+  - sanidad
 sesgo_rol:
-- rol.oficio.cirujano
-- rol.oficio.medico
+  - rol/oficio/cirujano
+  - rol/oficio/medico
 tags:
-- catalogo/equipo
-- equipo/pinza_hueso
+  - catalogo/equipo
+  - equipo/pinza_hueso
 ---
 
 Pinza quirúrgica de acero para trabajar en cavidades estrechas. Tan útil en un cuerpo como en un mecanismo.

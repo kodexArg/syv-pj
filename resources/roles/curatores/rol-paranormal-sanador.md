@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.sanador
+slug: rol/paranormal/sanador
 nombre: Sanador por Fe
 probabilidad: 9
 tags: ["rol/paranormal/sanador", "rol/paranormal", "pool/curatores"]

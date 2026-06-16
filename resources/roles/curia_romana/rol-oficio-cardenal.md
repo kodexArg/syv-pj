@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.cardenal
+slug: rol/oficio/cardenal
 nombre: Cardenal
 probabilidad: 10
 tags: ["rol/oficio/cardenal", "rol/oficio", "pool/curia_romana"]

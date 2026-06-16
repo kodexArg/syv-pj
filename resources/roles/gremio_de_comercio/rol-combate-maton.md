@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.maton
+slug: rol/combate/maton
 nombre: Matón
 probabilidad: 11
 tags: ["rol/combate/maton", "rol/combate", "pool/gremio_de_comercio"]

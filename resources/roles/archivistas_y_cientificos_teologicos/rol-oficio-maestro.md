@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.maestro
+slug: rol/oficio/maestro
 nombre: Maestro
 probabilidad: 12
 tags: ["rol/oficio/maestro", "rol/oficio", "pool/archivistas_y_cientificos_teologicos"]

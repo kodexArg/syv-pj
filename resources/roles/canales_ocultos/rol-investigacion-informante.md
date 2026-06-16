@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.informante
+slug: rol/investigacion/informante
 nombre: Informante
 probabilidad: 22
 tags: ["rol/investigacion/informante", "rol/investigacion", "pool/canales_ocultos"]

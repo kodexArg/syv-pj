@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.diplomatico
+slug: rol/oficio/diplomatico
 nombre: Diplomático
 probabilidad: 21
 tags: ["rol/oficio/diplomatico", "rol/oficio", "pool/alto_clero"]

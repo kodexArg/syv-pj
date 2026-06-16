@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.chamana
+slug: rol/paranormal/chamana
 nombre: Chamana
 probabilidad: 22
 tags: ["rol/paranormal/chamana", "rol/paranormal", "pool/kuna_mbarete"]

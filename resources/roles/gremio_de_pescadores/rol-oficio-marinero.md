@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.marinero
+slug: rol/oficio/marinero
 nombre: Marinero
 probabilidad: 19
 tags: ["rol/oficio/marinero", "rol/oficio", "pool/gremio_de_pescadores"]

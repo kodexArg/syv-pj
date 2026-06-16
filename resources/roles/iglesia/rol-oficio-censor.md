@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.censor
+slug: rol/oficio/censor
 nombre: Censor
 probabilidad: 10
 tags: ["rol/oficio/censor", "rol/oficio", "pool/iglesia"]

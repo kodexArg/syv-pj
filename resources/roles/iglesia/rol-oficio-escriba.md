@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.escriba
+slug: rol/oficio/escriba
 nombre: Escriba
 probabilidad: 14
 tags: ["rol/oficio/escriba", "rol/oficio", "pool/iglesia"]

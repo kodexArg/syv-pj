@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.medium
+slug: rol/paranormal/medium
 nombre: Médium
 probabilidad: 30
 tags: ["rol/paranormal/medium", "rol/paranormal", "pool/los_umbanda"]

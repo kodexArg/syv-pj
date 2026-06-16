@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.guerrera
+slug: rol/combate/guerrera
 nombre: Guerrera
 probabilidad: 26
 tags: ["rol/combate/guerrera", "rol/combate", "pool/kuna_mbarete"]

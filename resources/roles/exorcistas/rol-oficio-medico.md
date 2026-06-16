@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.medico
+slug: rol/oficio/medico
 nombre: Médico del Alma
 probabilidad: 11
 tags: ["rol/oficio/medico", "rol/oficio", "pool/exorcistas"]

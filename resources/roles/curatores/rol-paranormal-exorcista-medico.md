@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.exorcista_medico
+slug: rol/paranormal/exorcista_medico
 nombre: Exorcista Médico
 probabilidad: 10
 tags: ["rol/paranormal/exorcista-medico", "rol/paranormal", "pool/curatores"]

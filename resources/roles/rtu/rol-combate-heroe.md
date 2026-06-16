@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.heroe
+slug: rol/combate/heroe
 nombre: Punta de Lanza
 probabilidad: 12
 tags: ["rol/combate/heroe", "rol/combate", "pool/rtu"]

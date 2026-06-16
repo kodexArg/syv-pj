@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.oraculo
+slug: rol/paranormal/oraculo
 nombre: Oráculo
 probabilidad: 40
 tags: ["rol/paranormal/oraculo", "rol/paranormal", "pool/los_remanentes"]

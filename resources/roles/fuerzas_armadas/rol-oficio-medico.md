@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.medico
+slug: rol/oficio/medico
 nombre: Médico de Campo
 probabilidad: 6
 tags: ["rol/oficio/medico", "rol/oficio", "pool/fuerzas_armadas"]

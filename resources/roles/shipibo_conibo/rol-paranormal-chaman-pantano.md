@@ -1,5 +1,5 @@
 ---
-slug: rol.paranormal.chaman_pantano
+slug: rol/paranormal/chaman_pantano
 nombre: Chamán del Pantano
 probabilidad: 10
 tags: ["rol/paranormal/chaman-pantano", "rol/paranormal", "pool/shipibo_conibo"]

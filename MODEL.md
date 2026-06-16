@@ -39,7 +39,7 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 | `atributos.cuerpo` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7. En prosa: Físico. (← viejo `fis`.) |
 | `atributos.mente` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7. Puntería, reflejos, lectura táctica. (← viejo `tac`.) |
 | `atributos.alma` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7. Aura, liderazgo, voluntad, temple. En prosa: Espíritu. (← viejo `men`.) |
-| `tags[]` | `list<str>` (no multiconjunto) | vía hito `agregar_tag` / `quitar_tag` | Notación punto `<categoria>[.<subcategoria>].<slug>`. NO admite repetidos: ante un repetido gana el último valor. Incluye los vínculos relacionales `lealtad.*` / `aliado.*` / `nemesis.*` (ver §1.2). |
+| `tags[]` | `list<str>` (no multiconjunto) | vía hito `agregar_tag` / `quitar_tag` | Notación punto `<categoria>[.<subcategoria>].<slug>`. NO admite repetidos: ante un repetido gana el último valor. Incluye los vínculos relacionales `lealtad/*` / `aliado/*` / `nemesis/*` (ver §1.2). |
 | `historia` | `str` | inmutable tras canonizar | 120–200 palabras. Congelada al canonizar. |
 | `historial[]` | `list<hito>` (embebida) | de solo añadir vía `POST /evento` | Ver §1.1. |
 | `metadatos.creado_en` | `str` ISO-8601 | inmutable | |
@@ -52,8 +52,8 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 - `es_canon` — `canonizado_en != null`.
 - `fatiga_max` = `cuerpo + alma`.
 - `moral_max` = `alma`.
-- `fza_aportada` — desde tags `rol.combate.*` (`heroe: 3`, `lider: 2`, valor por defecto `1`).
-- `filiacion` — desde tags `rango.*` + `faccion.*`.
+- `fza_aportada` — desde tags `rol/combate/*` (`heroe: 3`, `lider: 2`, valor por defecto `1`).
+- `filiacion` — desde tags `rango/*` + `faccion/*`.
 
 Aparecen en la respuesta de `GET /personaje` y `GET /personaje/{slug}` junto con los campos persistidos. Se recomputan en cada lectura; el cliente no los muta directamente.
 
@@ -70,7 +70,7 @@ Aparecen en la respuesta de `GET /personaje` y `GET /personaje/{slug}` junto con
 
 Tipos de hito sugeridos (catálogo abierto): `combate`, `ascenso`, `cambio_rol`, `triple_cero`, `mejora_atributo`, `agregar_tag`, `quitar_tag`, `formacion_lealtad`, `identificacion_nemesis`, `licencia`, `desercion`, `muerte`.
 
-### 1.2. Vínculos relacionales (tags `lealtad.*` / `aliado.*` / `nemesis.*`)
+### 1.2. Vínculos relacionales (tags `lealtad/*` / `aliado/*` / `nemesis/*`)
 
 Los vínculos del personaje **no son una colección aparte**: son **tags relacionales** dentro de `personaje.tags[]`, en forma plana `<categoria>.<slug>`.
 
@@ -140,7 +140,7 @@ Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones can�
 
 `faccion` ancla la geometría operativa del juego (los rangos canónicos están definidos por facción; las batallas tienen bandos). Necesita identidad estable y ruta dedicada. `subfaccion` agrupa narrativamente — un tercio, una célula, un sindicato armado — y el catálogo crece por curaduría a demanda.
 
-**Dualidad entidad+tag**: `faccion` es entidad persistida y existe además como namespace de tag (`faccion.confederacion_argentina`) para expresar membresía declarativa sobre `personaje.tags[]`. El slug del tag coincide con la clave primaria de la entidad.
+**Dualidad entidad+tag**: `faccion` es entidad persistida y existe además como namespace de tag (`faccion/confederacion_argentina`) para expresar membresía declarativa sobre `personaje.tags[]`. El slug del tag coincide con la clave primaria de la entidad.
 
 ---
 
@@ -150,6 +150,6 @@ Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones can�
 - **Efímeros no se persisten.** Un personaje generado pero no canonizado nunca toca la base de datos.
 - **Canonización es idempotente con semilla.** La tupla `(semilla, faccion, rango)` actúa como clave única; reintentos no crean duplicados. Sin semilla, cada `POST /canonizar` genera un personaje nuevo.
 - **Tags fuera de catálogo se aceptan.** Cualquier valor en `personaje.tags[]` que no exista en `tag_catalogo` es legal — se persiste tal cual. La curaduría del catálogo se hace por proceso, no por constraint.
-- **Las referencias de los tags relacionales (`lealtad.*`/`aliado.*`/`nemesis.*`) y de `historial[].actores[]` no son referencias de integridad.** Se aceptan referencias colgadas; la consistencia referencial no es responsabilidad de la capa de persistencia.
+- **Las referencias de los tags relacionales (`lealtad/*`/`aliado/*`/`nemesis/*`) y de `historial[].actores[]` no son referencias de integridad.** Se aceptan referencias colgadas; la consistencia referencial no es responsabilidad de la capa de persistencia.
 - **Idioma de los datos**: castellano rioplatense. Tags en minúscula + guion bajo, sin acentos. Campos YAML en `snake_case_castellano`.
 - **`extras` es opaco.** La API lo acepta, almacena y devuelve tal cual, sin inspeccionar ni validar su contenido.

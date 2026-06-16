@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.cruzado
+slug: rol/combate/cruzado
 nombre: Cruzado
 probabilidad: 8
 tags: ["rol/combate/cruzado", "rol/combate", "pool/iglesia"]

@@ -1,5 +1,5 @@
 ---
-slug: rol.investigacion.inquisidor_menor
+slug: rol/investigacion/inquisidor_menor
 nombre: Familiar del Santo Oficio
 probabilidad: 11
 tags: ["rol/investigacion/inquisidor_menor", "rol/investigacion", "pool/iglesia"]

@@ -30,7 +30,7 @@ Las **únicas** magnitudes numéricas de capacidad que se guardan en la hoja. To
 
 ### 1.1. Mutabilidad
 
-Los atributos quedan **fijos al rango de creación**. Un ascenso posterior cambia el tag `rango.*` pero no los atributos: el progreso real es el equipo, los aspectos y los vínculos ganados en campaña.
+Los atributos quedan **fijos al rango de creación**. Un ascenso posterior cambia el tag `rango/*` pero no los atributos: el progreso real es el equipo, los aspectos y los vínculos ganados en campaña.
 
 Mutación permitida únicamente vía hito de tipo `triple_cero` o `mejora_atributo` — eventos narrativos costosos, no la norma.
 
@@ -87,8 +87,8 @@ FATIGA_max = CUERPO + ALMA + Σ modificadores_tags
 ```
 
 - Depósito inicial igual a `FATIGA_max`.
-- Los puntos de `CUERPO` se consumen primero. Al agotarse: el personaje gana `salud.cansado`.
-- Luego se consumen los de `ALMA`. Al agotarse: gana `salud.exhausto` y queda inmovilizado.
+- Los puntos de `CUERPO` se consumen primero. Al agotarse: el personaje gana `salud/cansado`.
+- Luego se consumen los de `ALMA`. Al agotarse: gana `salud/exhausto` y queda inmovilizado.
 - Cada turno con orden ejecutada, o evento ambiental/mecánico, consume puntos del depósito.
 
 ### 2.4. MOVIMIENTO
@@ -146,7 +146,7 @@ PERCEPCION = Σ modificadores_tags   (base 0)
 
 ## 3. Sistema de efectos: cómo los tags modifican atributos y estadísticas
 
-Un `efecto` es un paquete declarativo dentro de un contrato (`aspecto.*`, `efecto.*`) que apunta al vocabulario canónico de esta sección. Cada modificador es un objeto con datos **separados y extraíbles**: el **objetivo** (la variable), el **valor** y una **nota** opcional. La forma completa del contrato vive en [[contratos]].
+Un `efecto` es un paquete declarativo dentro de un contrato (`aspecto/*`, `efecto.*`) que apunta al vocabulario canónico de esta sección. Cada modificador es un objeto con datos **separados y extraíbles**: el **objetivo** (la variable), el **valor** y una **nota** opcional. La forma completa del contrato vive en [[contratos]].
 
 ### 3.1. Objetivo en notación punto
 

@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.buzo
+slug: rol/oficio/buzo
 nombre: Buzo
 probabilidad: 14
 tags: ["rol/oficio/buzo", "rol/oficio", "pool/gremio_de_pescadores"]

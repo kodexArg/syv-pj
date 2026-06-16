@@ -7,15 +7,15 @@ descripcion: Rollo de alambre conductor en la muñeca. Sin metal visible al ojo,
 peso: 1
 peso_sorteo: 3
 sesgo_faccion:
-- los_criptografos
-- los_hackers
-- resistencia_subterranea
+  - los_criptografos
+  - los_hackers
+  - resistencia_subterranea
 sesgo_rol:
-- rol.oficio.tecnico
-- rol.oficio.hacker
+  - rol/oficio/tecnico
+  - rol/oficio/hacker
 tags:
-- catalogo/equipo
-- equipo/alambre_cobre
+  - catalogo/equipo
+  - equipo/alambre_cobre
 ---
 
 Rollo de alambre conductor en la muñeca. Sin metal visible al ojo, pero suficiente para puentear un circuito, armar una trampa o reparar un PIA en campo.

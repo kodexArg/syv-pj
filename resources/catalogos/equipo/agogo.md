@@ -7,15 +7,15 @@ descripcion: Par de campanas de metal golpeadas con varilla. Ritmo de invocació
 peso: 1
 peso_sorteo: 2
 sesgo_faccion:
-- los_umbanda
-- shipibo_conibo
-- kuna_mbarete
+  - los_umbanda
+  - shipibo_conibo
+  - kuna_mbarete
 sesgo_rol:
-- rol.paranormal.ritualista
-- rol.paranormal.medium
+  - rol/paranormal/ritualista
+  - rol/paranormal/medium
 tags:
-- catalogo/equipo
-- equipo/agogo
+  - catalogo/equipo
+  - equipo/agogo
 ---
 
 Par de campanas de metal golpeadas con varilla. Ritmo de invocación para orixás y ceremonias sincrética. El sonido llega antes que el sacerdote.

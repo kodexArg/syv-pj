@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.pescador
+slug: rol/oficio/pescador
 nombre: Pescador
 probabilidad: 27
 tags: ["rol/oficio/pescador", "rol/oficio", "pool/gremio_de_pescadores"]

@@ -7,14 +7,14 @@ descripcion: Linterna de aceite con pantalla de latón. En las Tuberías es la �
 peso: 2
 peso_sorteo: 4
 sesgo_faccion:
-- resistencia_subterranea
-- traficantes_de_almas
+  - resistencia_subterranea
+  - traficantes_de_almas
 sesgo_rol:
-- rol.oficio.contrabandista
-- rol.investigacion.rastreador
+  - rol/oficio/contrabandista
+  - rol/investigacion/rastreador
 tags:
-- catalogo/equipo
-- equipo/farola_aceite
+  - catalogo/equipo
+  - equipo/farola_aceite
 ---
 
 Linterna de aceite con pantalla de latón. En las Tuberías es la única fuente de luz que no dispara los sensores de la SIA.

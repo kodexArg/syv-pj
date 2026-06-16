@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.escriba
+slug: rol/oficio/escriba
 nombre: Escriba
 probabilidad: 23
 tags: ["rol/oficio/escriba", "rol/oficio", "pool/archivistas_y_cientificos_teologicos"]

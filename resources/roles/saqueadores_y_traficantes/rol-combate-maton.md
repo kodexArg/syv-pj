@@ -1,5 +1,5 @@
 ---
-slug: rol.combate.maton
+slug: rol/combate/maton
 nombre: Matón
 probabilidad: 22
 tags: ["rol/combate/maton", "rol/combate", "pool/saqueadores_y_traficantes"]

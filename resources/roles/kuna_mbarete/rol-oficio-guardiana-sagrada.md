@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.guardiana_sagrada
+slug: rol/oficio/guardiana_sagrada
 nombre: Guardiana Sagrada
 probabilidad: 10
 tags: ["rol/oficio/guardiana-sagrada", "rol/oficio", "pool/kuna_mbarete"]

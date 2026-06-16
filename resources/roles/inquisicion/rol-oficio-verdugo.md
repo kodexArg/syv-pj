@@ -1,5 +1,5 @@
 ---
-slug: rol.oficio.verdugo
+slug: rol/oficio/verdugo
 nombre: Verdugo
 probabilidad: 8
 tags: ["rol/oficio/verdugo", "rol/oficio", "pool/inquisicion"]
