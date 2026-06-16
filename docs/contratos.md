@@ -43,9 +43,9 @@ Un **contrato** es esa información: la entrada de catálogo (`tags/<categoria>/
 
 Se llaman **contratos** porque cumplen una promesa fija: entregan **siempre los mismos datos**, sin importar quién los porte. Si `efecto.inmune_al_miedo` vuelve inmune al miedo, lo hace idéntico tanto si el portador es un **dron de guerra** como un **inquisidor**. El contrato no negocia con el personaje: declara un paquete y lo cumple igual sobre toda hoja.
 
-De ahí se sigue lo central: **aspecto, habilidad y efecto son mecánicamente la misma clase de objeto.** No tienen diferencia funcional — los tres son contratos que entregan datos extraíbles. Lo que los separa es el **rol semántico**, no el motor:
+De ahí se sigue lo central: **aspecto, habilidad y efecto son mecánicamente la misma clase de objeto.** No tienen diferencia funcional — los tres son contratos que entregan datos extraíbles. Lo que los separa es el **papel semántico**, no el motor:
 
-| Tipo | Rol semántico | Qué entrega |
+| Tipo | Papel semántico | Qué entrega |
 |---|---|---|
 | `aspecto` | identidad mecánicamente activa | modificadores (pasivos) o un disparador |
 | `habilidad` | habilitador de tirada | acceso binario a un chequeo |

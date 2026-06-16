@@ -16,4 +16,4 @@ tags:
 
 Enlace con el mando. La carga el que coordina.
 
-Sesgo: roles de liderazgo. Relacionado: [[liderazgo]].
+Sesgo: especialidades de liderazgo. Relacionado: [[liderazgo]].

@@ -4,7 +4,6 @@ rangos:
 - slug: adepto
   nombre: Adepto
   faccion: iluminati
-  rol_cultural: Adepto
   probabilidad: 72
   atributos_base:
     cuerpo: 2
@@ -16,7 +15,6 @@ rangos:
 - slug: iluminado
   nombre: Iluminado
   faccion: iluminati
-  rol_cultural: Iluminado
   probabilidad: 28
   atributos_base:
     cuerpo: 2

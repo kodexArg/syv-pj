@@ -25,7 +25,7 @@ Las **únicas** magnitudes numéricas de capacidad que se guardan en la hoja. To
 > En `yaml`/`json`/estadísticas la clave es **siempre** `cuerpo`, `mente`, `alma` —sin reducción a tres caracteres—. En prosa el trío se nombra **"Cuerpo, Mente y Alma"** (o **Espíritu** por Alma); **Físico ≡ Cuerpo** y **Espíritu ≡ Alma**. No existen más las claves `fis`/`tac`/`men`.
 
 > [!info] Escala unificada
-> La escala 2..7 es la misma para los tres atributos. Estos son los valores que un rol puede alcanzar en creación (ver [[generacion-procedural#fase-3-atributos|Fase 3]]); el uno o el tope solo se alcanza vía hito narrativo. 
+> La escala 2..7 es la misma para los tres atributos. Estos son los valores que un personaje puede alcanzar en creación (ver [[generacion-procedural#fase-3-atributos|Fase 3]]); el uno o el tope solo se alcanza vía hito narrativo. 
 
 
 ### 1.1. Mutabilidad

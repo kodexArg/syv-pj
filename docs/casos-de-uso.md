@@ -62,7 +62,7 @@ Cómo se completa una hoja desde el azar portable vive en [[generacion-procedura
 
 | UC | Actor | Quiere | Para |
 |---|---|---|---|
-| UC-G01 | 🎰 | ✨ un efímero por `(semilla, facción, rol)` | Poblar un contexto (combatientes, civiles, PNJ) con hojas válidas |
+| UC-G01 | 🎰 | ✨ un efímero por `(semilla, facción, especialidad)` | Poblar un contexto (combatientes, civiles, PNJ) con hojas válidas |
 | UC-G02 | 🎰 | ⚙️ restricciones cruzadas (p. ej. rango → edad mínima) | Sortear cada campo dentro del subconjunto válido |
 | UC-G03 | 🎰 | 🔄 un efímero con la misma semilla | Previsualizar variantes sin perder la versión original |
 | UC-G04 | 🎰 | 🌱 vínculos iniciales (`aliado/*` / `nemesis/*`) | Arrancar la red de relaciones del personaje en campaña |
@@ -74,7 +74,7 @@ Cómo se completa una hoja desde el azar portable vive en [[generacion-procedura
 |---|---|---|---|
 | UC-D01 | 🪶 | 👁️ la hoja de un canonizado | Escribir una escena con coherencia de personaje |
 | UC-D02 | 🪶 | 📝 un hito narrativo | Registrar un evento que el personaje vivió |
-| UC-D03 | 🪶 | 🔍 personajes por facción y rango | Encontrar candidatos para un rol narrativo |
+| UC-D03 | 🪶 | 🔍 personajes por facción y rango | Encontrar candidatos para un papel narrativo |
 | UC-D04 | 👓 | 🧭 desde una facción a sus personajes | Explorar quién pertenece a la Confederación Argentina |
 | UC-D05 | 👓 | 🧭 desde un personaje a sus aliados y enemigos | Entender la red de vínculos de un personaje |
 | UC-D06 | 👓 | 👁️ el `historial[]` de un personaje | Leer su evolución como línea de tiempo |
@@ -148,7 +148,7 @@ Comportamientos que todos los consumidores deben asumir.
 
 - **Los personajes de ejemplo son inmutables.** Ningún consumidor puede registrar hitos sobre los personajes de ejemplo — son fichas de referencia, no entidades vivas.
 - **Los efímeros no acumulan hitos.** Sin patente persistida, no hay historia que registrar. El consumidor que quiera evolucionar un efímero debe canonizarlo primero.
-- **La canonización es idempotente.** `(semilla, facción, rol)` no produce duplicados si ya existe. El consumidor puede reintentar sin riesgo.
+- **La canonización es idempotente.** `(semilla, facción, especialidad)` no produce duplicados si ya existe. El consumidor puede reintentar sin riesgo.
 - **`?campos=` poda solo nivel superior.** El motor de batalla puede pedir solo `atributos` y `tags`; el generador visual puede pedir solo `tags` e `identidad`. La poda no atraviesa subdocumentos.
 - **Filtros `?tag=` son Y lógico.** `?tag=A&tag=B` devuelve personajes que tienen ambos. O no está soportado en v1 — el consumidor hace N llamadas y une los resultados.
 - **Vínculos personales sí son filtrables por tag.** Aliados, némesis y lealtades son tags `aliado/*` / `nemesis/*` / `lealtad/*` en `tags[]`: se filtran por `?tag=` y se cuentan como cualquier etiqueta. La prosa del vínculo vive en su hito (ver [[nemesis-y-aliados|nemesis-y-aliados.md]]).

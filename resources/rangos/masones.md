@@ -4,7 +4,6 @@ rangos:
 - slug: aprendiz_mason
   nombre: Aprendiz
   faccion: masones
-  rol_cultural: Aprendiz Masón
   probabilidad: 50
   atributos_base:
     cuerpo: 2
@@ -16,7 +15,6 @@ rangos:
 - slug: companero_mason
   nombre: Compañero
   faccion: masones
-  rol_cultural: Compañero
   probabilidad: 32
   atributos_base:
     cuerpo: 2
@@ -28,7 +26,6 @@ rangos:
 - slug: maestro_mason
   nombre: Maestro
   faccion: masones
-  rol_cultural: Maestro Masón
   probabilidad: 18
   atributos_base:
     cuerpo: 2

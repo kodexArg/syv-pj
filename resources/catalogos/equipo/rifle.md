@@ -19,4 +19,4 @@ tags:
 
 Rifle con mira para tiro a distancia. Pide pulso y posición.
 
-Requiere: [[tiro_de_precision]] o rol tirador. Relacionado: [[tirador]].
+Requiere: [[tiro_de_precision]] o especialidad tirador. Relacionado: [[tirador]].

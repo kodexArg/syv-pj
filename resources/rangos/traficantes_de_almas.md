@@ -4,7 +4,6 @@ rangos:
 - slug: captador
   nombre: Captador
   faccion: traficantes_de_almas
-  rol_cultural: Captador
   probabilidad: 70
   atributos_base:
     cuerpo: 3
@@ -16,7 +15,6 @@ rangos:
 - slug: tratante
   nombre: Tratante
   faccion: traficantes_de_almas
-  rol_cultural: Tratante
   probabilidad: 30
   atributos_base:
     cuerpo: 3

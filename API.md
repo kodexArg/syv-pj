@@ -29,7 +29,7 @@ Para sub-categorías: `GET /meta/equipo/arma`, `GET /meta/especialidad/oficio`, 
 **Casos que NO siguen la convención genérica** (la carga difiere o agrega datos derivados):
 
 - `GET /meta/facciones` — facciones con descriptor de lore corto (ver §4.1).
-- `GET /meta/rangos` — rangos con tabla determinística de atributos y rol cultural por facción (ver §4.2).
+- `GET /meta/rangos` — rangos con tabla determinística de atributos por facción (ver §4.2).
 - `GET /meta/tipos_hito` — enumeración sugerida de tipos de hito; catálogo abierto (ver §4.3).
 - `GET /meta/encuentro/nuevo` — generador de patente de encuentro, no un catálogo (ver §5.1).
 
@@ -111,7 +111,7 @@ Equivalente semántico de `GET /personaje` con énfasis en el flujo completo de 
 Internamente ejecuta las cuatro fases de generación procedural documentadas en [[generacion-procedural|docs/generacion-procedural.md]]:
 
 1. Identidad sorteada (nombre, género, edad desde depósitos).
-2. Atributos determinísticos por rol/rango desde tabla de configuración.
+2. Atributos determinísticos por rango desde tabla de configuración.
 3. Tags sorteados ponderados desde catálogo.
 4. Prosa generada por LLM (120–200 palabras).
 
@@ -141,7 +141,7 @@ descripcion: str        # descriptor de lore corto
 
 ### 4.2. `GET /meta/rangos`
 
-Devuelve los rangos operativos con su tabla determinística de atributos base y rol cultural por facción. Cada entrada:
+Devuelve los rangos operativos con su tabla determinística de atributos base por facción. Cada entrada:
 
 ```yaml
 slug: str
@@ -152,7 +152,6 @@ atributos_base:
   mente: int
   alma: int
 mando_default: str      # slug de rango inmediato superior
-rol_cultural: str       # título usado por esa facción (ej. "Camarada Puntero" vs "Sargento")
 ```
 
 ### 4.3. `GET /meta/tipos_hito`

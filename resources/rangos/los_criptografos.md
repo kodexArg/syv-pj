@@ -4,7 +4,6 @@ rangos:
 - slug: analista_cripto
   nombre: Analista
   faccion: los_criptografos
-  rol_cultural: Analista
   probabilidad: 60
   atributos_base:
     cuerpo: 2
@@ -16,7 +15,6 @@ rangos:
 - slug: maestro_cifra
   nombre: Maestro de Cifra
   faccion: los_criptografos
-  rol_cultural: Maestro de Cifra
   probabilidad: 40
   atributos_base:
     cuerpo: 2

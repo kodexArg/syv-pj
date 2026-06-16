@@ -4,7 +4,6 @@ rangos:
 - slug: filho_de_santo
   nombre: Filho de Santo
   faccion: los_umbanda
-  rol_cultural: Filho de Santo
   probabilidad: 55
   atributos_base:
     cuerpo: 3
@@ -16,7 +15,6 @@ rangos:
 - slug: oga
   nombre: Ogã
   faccion: los_umbanda
-  rol_cultural: Ogã
   probabilidad: 30
   atributos_base:
     cuerpo: 3
@@ -28,7 +26,6 @@ rangos:
 - slug: pai_de_santo
   nombre: Pai de Santo
   faccion: los_umbanda
-  rol_cultural: Pai de Santo
   probabilidad: 15
   atributos_base:
     cuerpo: 2

@@ -4,7 +4,6 @@ rangos:
 - slug: aprendiz_meraya
   nombre: Aprendiz de Meraya
   faccion: shipibo_conibo
-  rol_cultural: Aprendiz
   probabilidad: 60
   atributos_base:
     cuerpo: 3
@@ -16,7 +15,6 @@ rangos:
 - slug: meraya
   nombre: Meraya
   faccion: shipibo_conibo
-  rol_cultural: Meraya
   probabilidad: 40
   atributos_base:
     cuerpo: 3

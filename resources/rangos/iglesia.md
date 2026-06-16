@@ -4,7 +4,6 @@ rangos:
 - slug: lego
   nombre: Lego
   faccion: iglesia
-  rol_cultural: Fiel Devoto
   probabilidad: 24
   atributos_base:
     cuerpo: 2
@@ -16,7 +15,6 @@ rangos:
 - slug: novicio
   nombre: Novicio
   faccion: iglesia
-  rol_cultural: Novicio
   probabilidad: 22
   atributos_base:
     cuerpo: 2
@@ -28,7 +26,6 @@ rangos:
 - slug: hermano
   nombre: Hermano
   faccion: iglesia
-  rol_cultural: Hermano de Orden
   probabilidad: 20
   atributos_base:
     cuerpo: 3
@@ -40,7 +37,6 @@ rangos:
 - slug: sacerdote
   nombre: Sacerdote
   faccion: iglesia
-  rol_cultural: Padre
   probabilidad: 15
   atributos_base:
     cuerpo: 3
@@ -53,7 +49,6 @@ rangos:
 - slug: canonigo
   nombre: Canónigo
   faccion: iglesia
-  rol_cultural: Canónigo
   probabilidad: 10
   atributos_base:
     cuerpo: 3
@@ -66,7 +61,6 @@ rangos:
 - slug: obispo
   nombre: Obispo
   faccion: iglesia
-  rol_cultural: Obispo
   probabilidad: 6
   atributos_base:
     cuerpo: 3
@@ -79,7 +73,6 @@ rangos:
 - slug: cardenal
   nombre: Cardenal
   faccion: iglesia
-  rol_cultural: Cardenal
   probabilidad: 3
   atributos_base:
     cuerpo: 2

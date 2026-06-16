@@ -29,4 +29,4 @@ tags:
   - lealtad/ejercito_rojo
 ---
 
-El Gordo Figueroa es el pulmón de la columna: su voz de cancha retumba sobre el tiroteo y, cuando se queda sin garganta, levanta la [[trompeta]] y sopla hasta ponerse violeta para que el [[resistencia_subterranea|Ejército Rojo]] no pierda el ánimo contra la [[fuerzas_armadas|Confederación]]. No carga fierro ni tiene rol de combate — es [[simpatizante]] de a pie por [[barrios-del-muro|los barrios del muro]] —, pero su arenga vale por diez fusiles. [[terco]] como pocos, jura que mientras él tenga aire la bandera de Bahía Blanca no baja.
+El Gordo Figueroa es el pulmón de la columna: su voz de cancha retumba sobre el tiroteo y, cuando se queda sin garganta, levanta la [[trompeta]] y sopla hasta ponerse violeta para que el [[resistencia_subterranea|Ejército Rojo]] no pierda el ánimo contra la [[fuerzas_armadas|Confederación]]. No carga fierro ni tiene especialidad de combate — es [[simpatizante]] de a pie por [[barrios-del-muro|los barrios del muro]] —, pero su arenga vale por diez fusiles. [[terco]] como pocos, jura que mientras él tenga aire la bandera de Bahía Blanca no baja.

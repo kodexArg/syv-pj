@@ -45,7 +45,7 @@ El orden no es arbitrario: la **prosa es siempre la última fase**, porque el mo
 ## Orden de fases
 
 ```
-Fase 1 — Afiliación   → facción, subfacción, rango, mando, rol operativo
+Fase 1 — Afiliación   → facción, subfacción, rango, mando, especialidad
 Fase 2 — Identidad    → género, edad, nombre, sobrenombre
 Fase 3 — Atributos    → cuerpo, mente, alma
 Fase 4 — Formación    → entrenamiento, habilidades
@@ -66,7 +66,7 @@ Cada fase depende de la anterior. Las restricciones cruzadas (p. ej. rango → e
 
 ## Fase 1 — Afiliación
 
-La **afiliación** sitúa al personaje dentro de la estructura de subordinación del universo. En el ejemplo del combatiente se llena **completa**: pertenece a un bando, a una subfacción, tiene un rango, una capacidad de mando definida y un rol operativo derivado.
+La **afiliación** sitúa al personaje dentro de la estructura de subordinación del universo. En el ejemplo del combatiente se llena **completa**: pertenece a un bando, a una subfacción, tiene un rango, una capacidad de mando definida y una especialidad derivada.
 
 > [!info] Por qué acá facción y subfacción **no** son opcionales
 > En el caso general la afiliación puede quedar vacía (ver el esqueleto de arriba). Pero hemos definido un **combatiente**: un combatiente pelea **por** algo y **dentro** de algo. Por eso, en este recorrido, facción y subfacción se fijan siempre — es lo que permite hacer el recorrido completo.
@@ -97,12 +97,12 @@ El combatiente recibe un rango: exactamente un tag `rango/*`. El catálogo de ra
 - `lider_de_escuadra`
 - `tirador_designado`
 
-La frecuencia relativa de cada rango (la escasez operativa: muchos reclutas, pocos líderes) es una **decisión de balance que vive en configuración**, no en este documento. Acá se fija qué rangos existen, no con qué probabilidad salen. El rango alimenta los atributos (Fase 3) y el rol operativo (§1.5).
+La frecuencia relativa de cada rango (la escasez operativa: muchos reclutas, pocos líderes) es una **decisión de balance que vive en configuración**, no en este documento. Acá se fija qué rangos existen, no con qué probabilidad salen. El rango alimenta los atributos (Fase 3) y la especialidad (§1.5).
 
 ### 1.4. Mando — ¿puede liderar?
 
 > [!tip] Decisión de diseño: el mando se decide en la Afiliación
-> El **mando** —la capacidad de liderar— es un eje **separado del rango** (ver [[sistema-tags|sistema-tags.md §3]]: `mando` es "capacidad de mando, extra al rango"). Por eso se decide acá, en Fase 1: es parte de la estructura de subordinación, debe quedar fijado antes de Identidad (un líder puede exigir edad mínima) y de él se deriva el rol operativo.
+> El **mando** —la capacidad de liderar— es un eje **separado del rango** (ver [[sistema-tags|sistema-tags.md §3]]: `mando` es "capacidad de mando, extra al rango"). Por eso se decide acá, en Fase 1: es parte de la estructura de subordinación, debe quedar fijado antes de Identidad (un líder puede exigir edad mínima) y de él se deriva la especialidad.
 
 El software produce un booleano explícito:
 
@@ -115,9 +115,9 @@ puede_liderar: true | false
 
 Algunos rangos **implican** mando (`lider_de_escuadra`, `segundo_al_mando` ⇒ `true` por defecto); en el resto el defecto es `false`, pero el contexto puede elevarlo. La regla rango → mando vive en configuración.
 
-### 1.5. Rol operativo (determinístico)
+### 1.5. Especialidad (determinístico)
 
-Cerrada la cadena de subordinación, el rol operativo se deriva **sin azar**: mapeo directo desde rango (y mando). P. ej. `lider_de_escuadra` → `especialidad/jerarquia/lider`. No se sortea: es determinístico. (Este es el `rol/*` operativo de la hoja; no confundir con `identidad.especialidad`, que es narrativo — ver [[hoja-personaje|hoja-personaje.md §1.2]].)
+Cerrada la cadena de subordinación, la especialidad se deriva **sin azar**: mapeo directo desde rango (y mando). P. ej. `lider_de_escuadra` → `especialidad/jerarquia/lider`. No se sortea: es determinístico. (Este es el tag `especialidad/*` de la hoja; no confundir con `identidad.especialidad`, que es narrativo — ver [[hoja-personaje|hoja-personaje.md §1.2]].)
 
 La **lealtad de base** del combatiente a su facción se siembra más adelante, en la fase de Vínculos (§6) — el hogar único de todas las etiquetas relacionales.
 
@@ -167,7 +167,7 @@ Composición: `{nombre} {apellido}`. Selección uniforme dentro del depósito de
 
 Probabilidad de emitir sobrenombre: **50%** por personaje. El apodo está curado en el depósito junto al nombre (`Francisco|Pancho`). Si no se emite, el campo queda `null`.
 
-### 2.5. `slug` y `rol`
+### 2.5. `slug` y `especialidad`
 
 - `slug`: diferido al servidor al persistir (patente `^[A-Z0-9]{8}$`); en memoria volátil queda `null`.
 - `especialidad`: arranca `null` (sin especialidad; la vocación de pertenencia la da el `rango`). La especialidad **operativa**, si la hay, se fijó además como tag `especialidad/*` en la Afiliación (§1.5).
@@ -206,7 +206,7 @@ Esta tabla vive en configuración (no en código). Cambiar un valor de rango es 
 
 Lo que el combatiente **sabe hacer**: el adiestramiento recibido (`entrenamiento/*`) y las habilidades que habilita (`habilidad/*`). Es la primera capa de etiquetas sorteadas; define la competencia antes de que la prosa y el equipo la luzcan.
 
-> **Entrada:** rango, rol, subfacción (Fase 1). · **Salida:** etiquetas `entrenamiento/*` y `habilidad/*`.
+> **Entrada:** rango, especialidad, subfacción (Fase 1). · **Salida:** etiquetas `entrenamiento/*` y `habilidad/*`.
 
 ### 4.1. Entrenamiento (`entrenamiento/*`)
 
@@ -214,12 +214,12 @@ Adiestramiento o formación recibida (militar, sanitaria, técnica). Parte es **
 
 ### 4.2. Habilidades (`habilidad/*`)
 
-Una **habilidad** habilita una tirada contra su `atributo_dominante`; no modifica atributos (ver [[contratos|contratos.md §6]]). Se asignan coherentes con el rango, el rol y el entrenamiento:
+Una **habilidad** habilita una tirada contra su `atributo_dominante`; no modifica atributos (ver [[contratos|contratos.md §6]]). Se asignan coherentes con el rango, la especialidad y el entrenamiento:
 
 - `tirador_designado` → `habilidad/tiro_de_precision`.
 - formación sanitaria → `habilidad/primeros_auxilios`.
 
-Algunas son determinísticas (el rol las implica), otras se sortean ponderado. Sus `requires` se anclan al rango, el rol y el entrenamiento —todo ya fijado—; el arma que las haga lucir se elige después, en Equipo (Fase 7), de forma coherente con ellas.
+Algunas son determinísticas (la especialidad las implica), otras se sortean ponderado. Sus `requires` se anclan al rango, la especialidad y el entrenamiento —todo ya fijado—; el arma que las haga lucir se elige después, en Equipo (Fase 7), de forma coherente con ellas.
 
 ---
 
@@ -283,8 +283,8 @@ El equipo se sortea **por eje**, con una cuota por eje definida en configuració
 
 | Eje | Subcategoría | Cuota típica | Regla |
 | :--- | :--- | :--- | :--- |
-| Arma principal | `equipo/arma/*` | exactamente 1 | acorde al rango/rol/formación (alcance largo para el tirador; fusil básico para el recluta) |
-| Utilitario | `equipo/utilitario/*` | 0–N | granadas, botiquín, radio, prismáticos… según rol y cuota |
+| Arma principal | `equipo/arma/*` | exactamente 1 | acorde al rango/especialidad/formación (alcance largo para el tirador; fusil básico para el recluta) |
+| Utilitario | `equipo/utilitario/*` | 0–N | granadas, botiquín, radio, prismáticos… según especialidad y cuota |
 | Vestidura | `equipo/vestidura/*` | 0–1 | uniforme o protección de la subfacción |
 
 ### 7.2. Procedimiento
@@ -292,7 +292,7 @@ El equipo se sortea **por eje**, con una cuota por eje definida en configuració
 1. Para cada eje, el catálogo filtra el equipo elegible para el rango, facción, subfacción y formación del personaje (respetando `requires`).
 2. Cada entrada elegible tiene un `peso` de sorteo declarado (entero; ausente = 1).
 3. Se sortea sin reemplazo hasta cubrir la cuota del eje, o hasta agotar elegibles sin conflicto.
-4. Las armas declaran `tipo_accion` y `alcance` en el catálogo; el sorteo respeta lo que el rol y la habilidad exigen. El `peso` físico (kg) de cada ítem es informativo en creación.
+4. Las armas declaran `tipo_accion` y `alcance` en el catálogo; el sorteo respeta lo que la especialidad y la habilidad exigen. El `peso` físico (kg) de cada ítem es informativo en creación.
 
 > [!note] El equipo es progreso, no nacimiento fijo
 > El equipo cargado al crear es el punto de partida; en campaña se gana, se pierde y se cambia. Por eso vive en `tags[]` como cualquier etiqueta, no en un bloque aparte.
@@ -338,7 +338,7 @@ semilla → personaje efímero determinístico
 semilla  (+ campos provistos como entrada)
         │
         ▼
-[Fase 1] Afiliación   facción → subfacción → rango → mando → rol operativo
+[Fase 1] Afiliación   facción → subfacción → rango → mando → especialidad
         │  (catálogo de la documentación SyV; subordinación)
         ▼
 [Fase 2] Identidad    género → edad → nombre → sobrenombre

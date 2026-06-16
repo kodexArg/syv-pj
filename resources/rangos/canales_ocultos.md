@@ -4,7 +4,6 @@ rangos:
 - slug: informante
   nombre: Informante
   faccion: canales_ocultos
-  rol_cultural: Informante
   probabilidad: 68
   atributos_base:
     cuerpo: 3
@@ -16,7 +15,6 @@ rangos:
 - slug: corredor_secretos
   nombre: Corredor
   faccion: canales_ocultos
-  rol_cultural: Corredor de Secretos
   probabilidad: 32
   atributos_base:
     cuerpo: 2

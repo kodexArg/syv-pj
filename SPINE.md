@@ -64,7 +64,7 @@ personaje:
 **Regla rectora**: todo lo que es discreto y no es identidad, atributo, prosa o
 auditoría → **es tag**. Sin excepciones: los vínculos personales también.
 
-- Atributos base `cuerpo, mente, alma` en escala `2..7` (determinísticos por rol/rango
+- Atributos base `cuerpo, mente, alma` en escala `2..7` (determinísticos por rango
   en creación; mutables solo vía hito). Todo otro número (fatiga_max, moral_max,
   fza_aportada, etc.) es **derivado en caliente, no persistido** (evita desincronización).
 - Los vínculos —lealtades, aliados, némesis— son **tags relacionales planos**
@@ -150,7 +150,7 @@ haga falta todavía ("dejar la cancha preparada", no llenarla).
 ## Generación procedural (universalizada desde el flujo de creación SyV)
 
 Fases: (1) identidad sorteada (nombre/género/edad de depósitos), (2) atributos
-**determinísticos por rol/rango** desde tablas de configuración (cero azar en estadísticas),
+**determinísticos por rango** desde tablas de configuración (cero azar en estadísticas),
 (3) tags sorteados ponderados desde catálogo, (4) prosa por LLM (se congela al
 canonizar), (5) relaciones sembradas. `(semilla, faccion, rol)` reproduce el mismo
 efímero; el canonizado pierde reproducibilidad tras el primer hito.

@@ -4,7 +4,6 @@ rangos:
 - slug: fragmento
   nombre: Fragmento
   faccion: los_remanentes
-  rol_cultural: Fragmento
   probabilidad: 70
   atributos_base:
     cuerpo: 1
@@ -16,7 +15,6 @@ rangos:
 - slug: nucleo_consciente
   nombre: Núcleo
   faccion: los_remanentes
-  rol_cultural: Núcleo Consciente
   probabilidad: 30
   atributos_base:
     cuerpo: 1

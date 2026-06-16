@@ -4,7 +4,6 @@ rangos:
 - slug: paria
   nombre: Paria
   faccion: refugiados_y_parias
-  rol_cultural: Paria
   probabilidad: 100
   atributos_base:
     cuerpo: 3

@@ -4,7 +4,6 @@ rangos:
 - slug: grumete
   nombre: Grumete
   faccion: gremio_de_pescadores
-  rol_cultural: Grumete
   probabilidad: 45
   atributos_base:
     cuerpo: 3
@@ -16,7 +15,6 @@ rangos:
 - slug: marinero
   nombre: Marinero
   faccion: gremio_de_pescadores
-  rol_cultural: Marinero
   probabilidad: 35
   atributos_base:
     cuerpo: 4
@@ -28,7 +26,6 @@ rangos:
 - slug: capitan
   nombre: Capitán
   faccion: gremio_de_pescadores
-  rol_cultural: Capitán
   probabilidad: 20
   atributos_base:
     cuerpo: 3

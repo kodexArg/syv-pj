@@ -4,7 +4,6 @@ rangos:
 - slug: script
   nombre: Iniciado
   faccion: los_hackers
-  rol_cultural: Script
   probabilidad: 64
   atributos_base:
     cuerpo: 2
@@ -16,7 +15,6 @@ rangos:
 - slug: cifrador
   nombre: Cifrador
   faccion: los_hackers
-  rol_cultural: Cifrador
   probabilidad: 36
   atributos_base:
     cuerpo: 2

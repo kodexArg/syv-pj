@@ -34,7 +34,7 @@ Seis bloques estructurales y una lista plana de tags:
 
 ```yaml
 personaje:
-  identidad:    { slug, nombre, sobrenombre, rol, genero, edad }
+  identidad:    { slug, nombre, sobrenombre, especialidad, genero, edad }
   atributos:    { cuerpo, mente, alma }   # únicas magnitudes numéricas persistidas
   tags:         [...]               # lista plana, notación punto, NO multiconjunto (último valor gana)
                                     # incluye los vínculos personales: aliado/* / nemesis/*
@@ -122,7 +122,7 @@ alma:    { significado: "Aura, liderazgo, voluntad, temple ante el miedo. En pro
 ```
 
 > [!tip] Determinísticos en creación, mutables solo vía hito
-> En creación los atributos son **determinísticos por rol/rango** desde tablas de configuración (cero azar en estadísticas). Después solo cambian vía hito (`triple_cero` o `mejora_atributo`).
+> En creación los atributos son **determinísticos por rango** desde tablas de configuración (cero azar en estadísticas). Después solo cambian vía hito (`triple_cero` o `mejora_atributo`).
 > Toda otra capacidad numérica (fatiga máxima, moral máxima, fuerza aportada, mando vigente) es **derivada en caliente con fórmulas fijas y no se persiste**, para evitar desincronización. Topes, fórmulas y el vocabulario canónico de estadísticas viven en [[atributos-y-habilidades|atributos-y-habilidades.md]].
 
 > [!info] Azar portable

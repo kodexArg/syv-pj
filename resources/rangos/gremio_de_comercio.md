@@ -4,7 +4,6 @@ rangos:
 - slug: aprendiz_gremio
   nombre: Aprendiz
   faccion: gremio_de_comercio
-  rol_cultural: Pibe del Mostrador
   probabilidad: 34
   atributos_base:
     cuerpo: 3
@@ -16,7 +15,6 @@ rangos:
 - slug: mercader
   nombre: Mercader
   faccion: gremio_de_comercio
-  rol_cultural: Mercader
   probabilidad: 38
   atributos_base:
     cuerpo: 3
@@ -28,7 +26,6 @@ rangos:
 - slug: socio
   nombre: Socio
   faccion: gremio_de_comercio
-  rol_cultural: Socio
   probabilidad: 20
   atributos_base:
     cuerpo: 2
@@ -41,7 +38,6 @@ rangos:
 - slug: magnate
   nombre: Magnate
   faccion: gremio_de_comercio
-  rol_cultural: Magnate
   probabilidad: 8
   atributos_base:
     cuerpo: 2

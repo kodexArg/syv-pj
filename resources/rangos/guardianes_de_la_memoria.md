@@ -4,7 +4,6 @@ rangos:
 - slug: archivista_jr
   nombre: Archivista
   faccion: guardianes_de_la_memoria
-  rol_cultural: Archivista
   probabilidad: 62
   atributos_base:
     cuerpo: 2
@@ -16,7 +15,6 @@ rangos:
 - slug: custodio_memoria
   nombre: Custodio
   faccion: guardianes_de_la_memoria
-  rol_cultural: Custodio de la Memoria
   probabilidad: 38
   atributos_base:
     cuerpo: 2

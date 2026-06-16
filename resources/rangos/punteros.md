@@ -4,7 +4,6 @@ rangos:
 - slug: peon
   nombre: Peón
   faccion: punteros
-  rol_cultural: Peón
   probabilidad: 55
   atributos_base:
     cuerpo: 3
@@ -16,7 +15,6 @@ rangos:
 - slug: soldado_de_clan
   nombre: Soldado de Clan
   faccion: punteros
-  rol_cultural: Soldado de Clan
   probabilidad: 30
   atributos_base:
     cuerpo: 4
@@ -29,7 +27,6 @@ rangos:
 - slug: puntero
   nombre: Puntero
   faccion: punteros
-  rol_cultural: Puntero
   probabilidad: 15
   atributos_base:
     cuerpo: 4

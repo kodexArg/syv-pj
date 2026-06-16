@@ -4,7 +4,6 @@ rangos:
 - slug: buscavidas
   nombre: Buscavidas
   faccion: saqueadores_y_traficantes
-  rol_cultural: Buscavidas
   probabilidad: 65
   atributos_base:
     cuerpo: 4
@@ -16,7 +15,6 @@ rangos:
 - slug: capataz
   nombre: Capataz
   faccion: saqueadores_y_traficantes
-  rol_cultural: Capataz
   probabilidad: 35
   atributos_base:
     cuerpo: 4

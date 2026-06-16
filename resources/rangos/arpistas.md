@@ -4,7 +4,6 @@ rangos:
 - slug: contacto
   nombre: Contacto
   faccion: arpistas
-  rol_cultural: Contacto
   probabilidad: 50
   atributos_base:
     cuerpo: 3
@@ -16,7 +15,6 @@ rangos:
 - slug: agente_arpista
   nombre: Agente
   faccion: arpistas
-  rol_cultural: Agente de Campo
   probabilidad: 35
   atributos_base:
     cuerpo: 4
@@ -28,7 +26,6 @@ rangos:
 - slug: jefe_celula_arpista
   nombre: Célula
   faccion: arpistas
-  rol_cultural: Jefe de Célula
   probabilidad: 15
   atributos_base:
     cuerpo: 4

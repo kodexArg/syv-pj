@@ -62,7 +62,7 @@ Esta es LA especificación definitiva. Debe cubrir:
 ### 6. docs/procedural-generation.md — Flujo de Generación Procedural
 - Pipeline universalizado de creación (desde GDDR-01 de SyV)
 - Fase 1: Identidad (nombre, género, edad — desde pools)
-- Fase 2: Atributos (determinísticos por rol/rango desde tablas de configuración)
+- Fase 2: Atributos (determinísticos por rango desde tablas de configuración)
 - Fase 3: Tags (aleatorio ponderado desde catálogo)
 - Fase 4: Narrativa (historia de trasfondo generada por LLM — congelada al canonizar)
 - Fase 5: Relaciones (aleatorio sembrado desde pool)

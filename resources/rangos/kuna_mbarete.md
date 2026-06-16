@@ -4,7 +4,6 @@ rangos:
 - slug: guerrera_kuna
   nombre: Guerrera
   faccion: kuna_mbarete
-  rol_cultural: Guerrera
   probabilidad: 50
   atributos_base:
     cuerpo: 5
@@ -16,7 +15,6 @@ rangos:
 - slug: chamana_kuna
   nombre: Chamana
   faccion: kuna_mbarete
-  rol_cultural: Chamana
   probabilidad: 35
   atributos_base:
     cuerpo: 4
@@ -28,7 +26,6 @@ rangos:
 - slug: madre_de_guerra
   nombre: Madre de Guerra
   faccion: kuna_mbarete
-  rol_cultural: Madre de Guerra
   probabilidad: 15
   atributos_base:
     cuerpo: 5

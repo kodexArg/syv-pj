@@ -4,7 +4,6 @@ rangos:
 - slug: recluta
   nombre: Recluta
   faccion: fuerzas_armadas
-  rol_cultural: Conscripto
   probabilidad: 30
   atributos_base:
     cuerpo: 3
@@ -16,7 +15,6 @@ rangos:
 - slug: soldado_linea
   nombre: Soldado
   faccion: fuerzas_armadas
-  rol_cultural: Soldado de Línea
   probabilidad: 26
   atributos_base:
     cuerpo: 4
@@ -28,7 +26,6 @@ rangos:
 - slug: cabo
   nombre: Cabo
   faccion: fuerzas_armadas
-  rol_cultural: Cabo
   probabilidad: 18
   atributos_base:
     cuerpo: 4
@@ -41,7 +38,6 @@ rangos:
 - slug: sargento
   nombre: Sargento
   faccion: fuerzas_armadas
-  rol_cultural: Sargento
   probabilidad: 14
   atributos_base:
     cuerpo: 5
@@ -54,7 +50,6 @@ rangos:
 - slug: teniente
   nombre: Teniente
   faccion: fuerzas_armadas
-  rol_cultural: Teniente
   probabilidad: 8
   atributos_base:
     cuerpo: 4
@@ -67,7 +62,6 @@ rangos:
 - slug: coronel
   nombre: Coronel
   faccion: fuerzas_armadas
-  rol_cultural: Coronel
   probabilidad: 4
   atributos_base:
     cuerpo: 4

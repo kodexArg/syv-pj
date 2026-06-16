@@ -4,7 +4,6 @@ rangos:
 - slug: simpatizante
   nombre: Simpatizante
   faccion: resistencia_subterranea
-  rol_cultural: Simpatizante
   probabilidad: 45
   atributos_base:
     cuerpo: 3
@@ -16,7 +15,6 @@ rangos:
 - slug: militante_resistencia
   nombre: Militante
   faccion: resistencia_subterranea
-  rol_cultural: Militante
   probabilidad: 40
   atributos_base:
     cuerpo: 4
@@ -28,7 +26,6 @@ rangos:
 - slug: cabecilla
   nombre: Cabecilla
   faccion: resistencia_subterranea
-  rol_cultural: Cabecilla
   probabilidad: 15
   atributos_base:
     cuerpo: 4

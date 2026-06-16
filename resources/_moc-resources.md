@@ -22,7 +22,7 @@ aliases:
 | [[_moc-rasgos]] | Rasgos físicos observables (`rasgo/*`): cicatrices, tatuajes, marcas. Puramente descriptivos, sin efecto mecánico directo. |
 | [[_moc-entrenamiento]] | Entrenamientos (`entrenamiento/*`): disciplinas aprendidas que habilitan ciertas habilidades o modifican atributos al crearlas. |
 | [[_moc-habilidades]] | Habilidades (`habilidad/*`): habilitadores de tirada contra un `atributo_dominante`. Nunca aplican modificador directo. |
-| [[_moc-facciones]] | Facciones del universo (`faccion/*`): los bloques de poder dentro de *Subordinación y Valor*. Cada facción define el pool de rangos, subfacciones y roles disponibles. |
+| [[_moc-facciones]] | Facciones del universo (`faccion/*`): los bloques de poder dentro de *Subordinación y Valor*. Cada facción define el pool de rangos, subfacciones y especialidades disponibles. |
 | [[_moc-subfacciones]] | Subfacciones (`subfaccion/*`): ramas, órdenes o células dentro de una facción mayor. |
 | [[_moc-rangos]] | Rangos (`rango/*`): jerarquía interna de cada facción. Determinan atributos base y peso de mando. |
 | [[_moc-aspectos]] | Aspectos (`aspecto/*`): identidad mecánicamente activa (carácter, condición, marca con peso mecánico). Declaran efectos pasivos o reactivos. |

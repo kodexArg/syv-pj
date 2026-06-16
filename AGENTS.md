@@ -12,7 +12,7 @@ aliases:
 Política editorial y convenciones de trabajo de `syv-pj`, el módulo de la **entidad mínima** de *Subordinación y Valor*: el personaje. Para entender el esquema, leer [[hoja-personaje|docs/hoja-personaje.md]] (núcleo) y sus docs hermanos: [[sistema-tags|sistema-tags.md]], [[atributos-y-habilidades|atributos-y-habilidades.md]], [[contratos|contratos.md]].
 
 > [!info] Norte del proyecto
-> `syv-pj` clasifica, almacena y entrega un personaje homogeneizado; el consumidor decide el uso. Es **agnóstico al uso** (Diégesis, estrategia, rol, generación visual) pero **fiel al universo** SyV. No es un creador universal de cualquier mundo, y no inventa lore: la terminología del universo se respeta, no se amplía.
+> `syv-pj` clasifica, almacena y entrega un personaje homogeneizado; el consumidor decide el uso. Es **agnóstico al uso** (Diégesis, estrategia, juego de rol, generación visual) pero **fiel al universo** SyV. No es un creador universal de cualquier mundo, y no inventa lore: la terminología del universo se respeta, no se amplía.
 
 ---
 
@@ -95,4 +95,4 @@ El núcleo crece **verticalmente sin migración**: nuevas categorías de tag, nu
 - Antes de tocar el esquema, asegurar que **todos** los docs del inventario queden consistentes entre sí. El núcleo es [[hoja-personaje|docs/hoja-personaje.md]]; un cambio en un bloque se propaga a los hermanos antes de cerrar el turno.
 - La prosa de `historia` y de `historial[].descripcion` es contenido editorial **irreplazable** (no-reproducible aun con semilla). Los cambios destructivos sobre datos con prosa se hacen solo con autorización explícita del usuario en la conversación vigente.
 - No agregar entradas de changelog ni líneas "Versión: X". Si el modelo cambia, reescribir las secciones afectadas en lenguaje atemporal.
-- **Fidelidad al universo**: antes de introducir terminología (geografía, facciones, vocabulario, personajes), verificar contra el lore canon de SyV. `syv-pj` documenta y clasifica; no inventa lore. Las decisiones de mecánica, atributos por rol/rango y modelado del personaje son soberanía de este módulo y se documentan acá.
+- **Fidelidad al universo**: antes de introducir terminología (geografía, facciones, vocabulario, personajes), verificar contra el lore canon de SyV. `syv-pj` documenta y clasifica; no inventa lore. Las decisiones de mecánica, atributos por rango y modelado del personaje son soberanía de este módulo y se documentan acá.
