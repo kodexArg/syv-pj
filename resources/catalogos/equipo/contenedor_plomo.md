@@ -8,9 +8,9 @@ peso: 5
 peso_sorteo: 1
 sesgo_faccion:
   - arpistas
-sesgo_rol:
-  - rol/oficio/cientifico
-  - rol/oficio/arqueologo_tech
+sesgo_especialidad:
+  - especialidad/oficio/cientifico
+  - especialidad/oficio/arqueologo_tech
 tags:
   - catalogo/equipo
   - equipo/contenedor_plomo

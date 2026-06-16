@@ -8,7 +8,7 @@ description: Camarada de alto nivel del Ejército Rojo, espía culto y políglot
 barrio: barrios-del-muro
 faccion: resistencia_subterranea
 rango: cabecilla
-rol: rol-investigacion-espia
+especialidad: especialidad-investigacion-espia
 atributos:
   cuerpo: 3
   mente: 4
@@ -27,7 +27,7 @@ equipo:
 tags:
   - faccion/resistencia_subterranea
   - rango/cabecilla
-  - rol/investigacion/espia
+  - especialidad/investigacion/espia
   - estado/disponible
   - aspecto/instinto
   - aspecto/veterano
@@ -38,4 +38,4 @@ tags:
   - lealtad/ejercito_rojo
 ---
 
-Ezequiel Madariaga habla cinco lenguas y ninguna le cuesta: culto, frío, imposible de ubicar, es el [[cabecilla|camarada]] que la [[resistencia_subterranea|resistencia]] usa cuando hay que entrar a Ciudad Dársena y salir vivo. Cumple el [[rol-investigacion-espia|oficio del espía]] mimetizado entre la gente del régimen, una [[galera]] respetable en la cabeza y una [[radio]] escondida para pasar lo que ve a través de los [[prismaticos]] al Ejército Rojo. Su [[instinto]] de [[veterano]] lo ha sacado de cien encerronas, pero la [[mirada_cansada]] delata el precio: habla con el comandante [[anibal-painemal-comandante|Aníbal]], no bajo sus órdenes, y viaja con [[valentina-roca-camarada|Valentina]] como pareja de cobertura por los [[barrios-del-muro|Barrios del Muro]] y más allá.
+Ezequiel Madariaga habla cinco lenguas y ninguna le cuesta: culto, frío, imposible de ubicar, es el [[cabecilla|camarada]] que la [[resistencia_subterranea|resistencia]] usa cuando hay que entrar a Ciudad Dársena y salir vivo. Cumple el [[especialidad-investigacion-espia|oficio del espía]] mimetizado entre la gente del régimen, una [[galera]] respetable en la cabeza y una [[radio]] escondida para pasar lo que ve a través de los [[prismaticos]] al Ejército Rojo. Su [[instinto]] de [[veterano]] lo ha sacado de cien encerronas, pero la [[mirada_cansada]] delata el precio: habla con el comandante [[anibal-painemal-comandante|Aníbal]], no bajo sus órdenes, y viaja con [[valentina-roca-camarada|Valentina]] como pareja de cobertura por los [[barrios-del-muro|Barrios del Muro]] y más allá.

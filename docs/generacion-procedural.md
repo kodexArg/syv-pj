@@ -117,7 +117,7 @@ Algunos rangos **implican** mando (`lider_de_escuadra`, `segundo_al_mando` ⇒ `
 
 ### 1.5. Rol operativo (determinístico)
 
-Cerrada la cadena de subordinación, el rol operativo se deriva **sin azar**: mapeo directo desde rango (y mando). P. ej. `lider_de_escuadra` → `rol/jerarquia/lider`. No se sortea: es determinístico. (Este es el `rol/*` operativo de la hoja; no confundir con `identidad.rol`, que es narrativo — ver [[hoja-personaje|hoja-personaje.md §1.2]].)
+Cerrada la cadena de subordinación, el rol operativo se deriva **sin azar**: mapeo directo desde rango (y mando). P. ej. `lider_de_escuadra` → `especialidad/jerarquia/lider`. No se sortea: es determinístico. (Este es el `rol/*` operativo de la hoja; no confundir con `identidad.especialidad`, que es narrativo — ver [[hoja-personaje|hoja-personaje.md §1.2]].)
 
 La **lealtad de base** del combatiente a su facción se siembra más adelante, en la fase de Vínculos (§6) — el hogar único de todas las etiquetas relacionales.
 
@@ -170,7 +170,7 @@ Probabilidad de emitir sobrenombre: **50%** por personaje. El apodo está curado
 ### 2.5. `slug` y `rol`
 
 - `slug`: diferido al servidor al persistir (patente `^[A-Z0-9]{8}$`); en memoria volátil queda `null`.
-- `rol`: arranca `"ciudadano"` (defecto narrativo de identidad). El rol **operativo** ya se fijó como tag `rol/*` en la Afiliación (§1.5).
+- `especialidad`: arranca `null` (sin especialidad; la vocación de pertenencia la da el `rango`). La especialidad **operativa**, si la hay, se fijó además como tag `especialidad/*` en la Afiliación (§1.5).
 
 ---
 

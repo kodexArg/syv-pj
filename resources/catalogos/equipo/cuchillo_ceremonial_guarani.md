@@ -11,9 +11,9 @@ alcance: corto
 sesgo_faccion:
   - kuna_mbarete
   - shipibo_conibo
-sesgo_rol:
-  - rol/paranormal/ritualista
-  - rol/paranormal/curandero
+sesgo_especialidad:
+  - especialidad/paranormal/ritualista
+  - especialidad/paranormal/curandero
 tags:
   - catalogo/equipo
   - equipo/cuchillo_ceremonial_guarani

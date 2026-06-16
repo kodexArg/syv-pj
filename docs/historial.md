@@ -48,7 +48,7 @@ Se lee de arriba hacia abajo como una línea de tiempo: primero el entrenamiento
 | `encuentro` | `slug \| null` | Patente de la batalla/encuentro externo, si lo hubo (de `GET /meta/encuentro/nuevo`). |
 | `metadata` | `object` | Libre. Datos estructurados del hito (ej. `{ atributo, delta }`). |
 
-**Tipos sugeridos:** `agregar_tag`, `quitar_tag`, `mejora_atributo`, `triple_cero`, `ascenso`, `cambio_rol`, `herida`, `recuperacion`, `traslado`, `condecoracion`, `formacion_lealtad`, `identificacion_nemesis`, `combate`, `licencia`, `desercion`, `muerte`. La lista es **abierta**: un tipo nuevo se acepta y se persiste igual. Algunos mutan la ficha al registrarse (ver [[API|API.md]]); el resto solo deja constancia.
+**Tipos sugeridos:** `agregar_tag`, `quitar_tag`, `mejora_atributo`, `triple_cero`, `ascenso`, `cambio_especialidad`, `herida`, `recuperacion`, `traslado`, `condecoracion`, `formacion_lealtad`, `identificacion_nemesis`, `combate`, `licencia`, `desercion`, `muerte`. La lista es **abierta**: un tipo nuevo se acepta y se persiste igual. Algunos mutan la ficha al registrarse (ver [[API|API.md]]); el resto solo deja constancia.
 
 ## Advertencias
 

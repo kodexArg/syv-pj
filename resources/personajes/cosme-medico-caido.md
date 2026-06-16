@@ -8,7 +8,7 @@ description: Médico expulsado de la Sanidad eclesiástica que opera clandestino
 barrio: tuberias
 faccion: resistencia_subterranea
 rango: militante_resistencia
-rol: rol-oficio-medico
+especialidad: especialidad-oficio-medico
 atributos:
   cuerpo: 4
   mente: 4
@@ -28,7 +28,7 @@ equipo:
 tags:
   - faccion/resistencia_subterranea
   - rango/militante_resistencia
-  - rol/oficio/medico
+  - especialidad/oficio/medico
   - estado/disponible
   - aspecto/veterano
   - aspecto/manos_temblorosas
@@ -39,4 +39,4 @@ tags:
   - equipo/medico/pocion_sanadora
 ---
 
-Cosme tuvo un puesto en la [[iglesia|Sanidad]] hasta que cosió la herida equivocada a la persona equivocada; ahora opera a la luz de un farol en [[tuberias|Las Tuberías]], donde nadie pregunta credenciales. Da cobijo a la [[resistencia_subterranea]] como [[militante_resistencia|militante]] y ejerce el [[rol-oficio-medico|oficio médico]] con [[delantal_manchado|delantal manchado]], un [[botiquin]] de instrumentos salvados y [[pocion_sanadora|viales]] turbios de procedencia dudosa. Sus [[manos_temblorosas]] delatan los años y algo más; su [[duda_teologica]] empezó el día que entendió qué eran de verdad las "posesiones".
+Cosme tuvo un puesto en la [[iglesia|Sanidad]] hasta que cosió la herida equivocada a la persona equivocada; ahora opera a la luz de un farol en [[tuberias|Las Tuberías]], donde nadie pregunta credenciales. Da cobijo a la [[resistencia_subterranea]] como [[militante_resistencia|militante]] y ejerce el [[especialidad-oficio-medico|oficio médico]] con [[delantal_manchado|delantal manchado]], un [[botiquin]] de instrumentos salvados y [[pocion_sanadora|viales]] turbios de procedencia dudosa. Sus [[manos_temblorosas]] delatan los años y algo más; su [[duda_teologica]] empezó el día que entendió qué eran de verdad las "posesiones".

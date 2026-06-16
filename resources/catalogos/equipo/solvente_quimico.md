@@ -8,9 +8,9 @@ peso: 2
 peso_sorteo: 2
 sesgo_faccion:
   - arpistas
-sesgo_rol:
-  - rol/oficio/cientifico
-  - rol/oficio/tecnico
+sesgo_especialidad:
+  - especialidad/oficio/cientifico
+  - especialidad/oficio/tecnico
 tags:
   - catalogo/equipo
   - equipo/solvente_quimico

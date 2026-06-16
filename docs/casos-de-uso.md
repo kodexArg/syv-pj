@@ -86,7 +86,7 @@ Cómo se completa una hoja desde el azar portable vive en [[generacion-procedura
 |---|---|---|---|
 | UC-B01 | ⚔️ | 📥 un combatiente por patente con sus estadísticas derivadas | Cargarlo al encuentro o recargarlo entre turnos |
 | UC-B02 | ⚔️ | 🔍 por `rango/tirador_designado` | Armar un pelotón de tiradores |
-| UC-B03 | ⚔️ | 🔍 `rol/jerarquia/lider` y `faccion/confederados` | Encontrar candidatos al mando ante la caída del líder |
+| UC-B03 | ⚔️ | 🔍 `especialidad/jerarquia/lider` y `faccion/confederados` | Encontrar candidatos al mando ante la caída del líder |
 | UC-B04 | ⚔️ | 📝 una baja (`triple_cero`) | Reflejar la caída de un combatiente en la hoja |
 | UC-B05 | ⚔️ | 📝 la captura de un arma enemiga | Actualizar el equipo vigente del personaje |
 

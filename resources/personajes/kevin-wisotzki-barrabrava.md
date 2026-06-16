@@ -8,7 +8,7 @@ description: Barrabrava-militante del Ejército Rojo que marca el compás del fr
 barrio: barrios-del-muro
 faccion: resistencia_subterranea
 rango: simpatizante
-rol: sin_rol
+especialidad: null
 atributos:
   cuerpo: 3
   mente: 2
@@ -29,4 +29,4 @@ tags:
   - lealtad/ejercito_rojo
 ---
 
-A Kevin lo llaman el Polaco por un apellido que nadie del barrio sabe pronunciar, y marcha con la [[resistencia_subterranea|columna del Ejército Rojo]] por [[barrios-del-muro|los barrios del muro]] haciendo más ruido que daño. Apenas un [[simpatizante|simpatizante]] [[sin_rol|sin rol de combate]], choca sus [[platillos|platillos improvisados]] —dos tapas de olla atadas con alambre— a contratiempo del bombo, mientras la [[bandera|bandera]] roja le ondea pegada a la espalda. No lleva fierro ni le hace falta: su trabajo es que la cancha entera del frente cante mientras avanzan contra la Confederación.
+A Kevin lo llaman el Polaco por un apellido que nadie del barrio sabe pronunciar, y marcha con la [[resistencia_subterranea|columna del Ejército Rojo]] por [[barrios-del-muro|los barrios del muro]] haciendo más ruido que daño. Apenas un [[simpatizante|simpatizante]] [[sin_especialidad|sin rol de combate]], choca sus [[platillos|platillos improvisados]] —dos tapas de olla atadas con alambre— a contratiempo del bombo, mientras la [[bandera|bandera]] roja le ondea pegada a la espalda. No lleva fierro ni le hace falta: su trabajo es que la cancha entera del frente cante mientras avanzan contra la Confederación.

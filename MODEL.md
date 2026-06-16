@@ -33,7 +33,7 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 | `identidad.slug` | `str` `^[A-Z0-9]{8}$` \| `null` | fijado una vez | PK. `null` en efímeros. Asignada por el servidor al canonizar. |
 | `identidad.nombre` | `str` | inmutable | Legible. No único. |
 | `identidad.sobrenombre` | `str \| null` | mutable (sin hito) | `null` si no aplica. |
-| `identidad.rol` | `str` | mutable vía hito `ascenso` / `cambio_rol` | Por defecto `"ciudadano"`. Narrativo. |
+| `identidad.especialidad` | `str \| null` | mutable vía hito `ascenso` / `cambio_especialidad` | Especialidad táctica (lo que *hace*: fusilero, médico, inquisidor…). `null` si no tiene; la vocación de pertenencia la da el `rango`. Narrativo. |
 | `identidad.genero` | `str` | inmutable | Catálogo abierto: `masculino \| femenino \| no_binario \| otro`. |
 | `identidad.edad` | `int` | mutable (sin hito) | Decisión narrativa. |
 | `atributos.cuerpo` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7. En prosa: Físico. (← viejo `fis`.) |
@@ -52,7 +52,7 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 - `es_canon` — `canonizado_en != null`.
 - `fatiga_max` = `cuerpo + alma`.
 - `moral_max` = `alma`.
-- `fza_aportada` — desde tags `rol/combate/*` (`heroe: 3`, `lider: 2`, valor por defecto `1`).
+- `fza_aportada` — desde tags `especialidad/combate/*` (`heroe: 3`, `lider: 2`, valor por defecto `1`).
 - `filiacion` — desde tags `rango/*` + `faccion/*`.
 
 Aparecen en la respuesta de `GET /personaje` y `GET /personaje/{slug}` junto con los campos persistidos. Se recomputan en cada lectura; el cliente no los muta directamente.
@@ -68,7 +68,7 @@ Aparecen en la respuesta de `GET /personaje` y `GET /personaje/{slug}` junto con
 | `encuentro` | `str \| null` | Patente de batalla/encuentro externo; referencia narrativa. |
 | `metadata` | `object` | Libre. Convención: `{ atributo, delta, valor_anterior, valor_nuevo }` para mejoras; `{ categoria, valor }` para agregar/quitar tag. A futuro puede portar adjuntos. |
 
-Tipos de hito sugeridos (catálogo abierto): `combate`, `ascenso`, `cambio_rol`, `triple_cero`, `mejora_atributo`, `agregar_tag`, `quitar_tag`, `formacion_lealtad`, `identificacion_nemesis`, `licencia`, `desercion`, `muerte`.
+Tipos de hito sugeridos (catálogo abierto): `combate`, `ascenso`, `cambio_especialidad`, `triple_cero`, `mejora_atributo`, `agregar_tag`, `quitar_tag`, `formacion_lealtad`, `identificacion_nemesis`, `licencia`, `desercion`, `muerte`.
 
 ### 1.2. Vínculos relacionales (tags `lealtad/*` / `aliado/*` / `nemesis/*`)
 
@@ -95,7 +95,7 @@ Catálogo curado de tags. Servido por `GET /meta/{categoria}`. El catálogo se s
 | `slug` | `str` minúsculas + guion bajo | sí | Último segmento del tag. Sin acentos. |
 | `nombre` | `str` | sí | Nombre legible para humanos. |
 | `categoria` | `str` | sí | Primer segmento del tag en notación punto. |
-| `subcategoria` | `str \| null` | condicional | Obligatorio si `categoria ∈ {equipo, rol}`. Segmento intermedio. |
+| `subcategoria` | `str \| null` | condicional | Obligatorio si `categoria ∈ {equipo, especialidad}`. Segmento intermedio. |
 | `descripcion` | `str` | sí | 1–3 frases. |
 | `origen` | `str` | no (por defecto `emergente`) | Catálogo: `canon \| emergente \| custom`. |
 | `efecto` | `str \| list<str> \| null` | condicional | Obligatorio si `categoria = rasgo` (sin `trigger`) o `categoria = efecto`. Modificadores sobre vocabulario canónico. Ver [[atributos-y-habilidades|docs/atributos-y-habilidades.md]]. |
@@ -112,7 +112,7 @@ Catálogo curado de tags. Servido por `GET /meta/{categoria}`. El catálogo se s
 
 **Índice operativo**: índice invertido `tag_full → set<personaje.slug>` reconstruido desde `personaje.tags[]`.
 
-**Categorías de referencia** (abiertas — enumeradas en [[sistema-tags|docs/sistema-tags.md]]): `faccion`, `subfaccion`, `rango`, `mando`, `estado`, `salud`, `mental`, `rasgo`, `ventaja`, `destreza`, `efecto`, `equipo` (`.arma` / `.utilitario` / `.vestidura`), `rol` (`.oficio` / `.jerarquia` / `.narrativo` / `.combate`), y las relacionales `lealtad`, `aliado`, `nemesis`.
+**Categorías de referencia** (abiertas — enumeradas en [[sistema-tags|docs/sistema-tags.md]]): `faccion`, `subfaccion`, `rango`, `mando`, `estado`, `salud`, `mental`, `rasgo`, `ventaja`, `destreza`, `efecto`, `equipo` (`.arma` / `.utilitario` / `.vestidura`), `especialidad` (`.oficio` / `.jerarquia` / `.narrativo` / `.combate`), y las relacionales `lealtad`, `aliado`, `nemesis`.
 
 ---
 

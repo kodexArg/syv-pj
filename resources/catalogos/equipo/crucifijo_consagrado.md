@@ -10,9 +10,9 @@ sesgo_faccion:
   - iglesia
   - inquisicion
   - exorcistas
-sesgo_rol:
-  - rol/paranormal/exorcista
-  - rol/oficio/predicador
+sesgo_especialidad:
+  - especialidad/paranormal/exorcista
+  - especialidad/oficio/predicador
 tags:
   - catalogo/equipo
   - equipo/crucifijo_consagrado

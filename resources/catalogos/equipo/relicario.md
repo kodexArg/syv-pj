@@ -10,9 +10,9 @@ sesgo_faccion:
   - iglesia
   - alto_clero
   - curia_romana
-sesgo_rol:
-  - rol/oficio/prelado
-  - rol/oficio/canonista
+sesgo_especialidad:
+  - especialidad/oficio/prelado
+  - especialidad/oficio/canonista
 tags:
   - catalogo/equipo
   - equipo/relicario

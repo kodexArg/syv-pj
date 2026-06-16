@@ -8,7 +8,7 @@ description: Pandillero huérfano rescatado por el Ejército Rojo, asaltante de 
 barrio: barrios-del-muro
 faccion: resistencia_subterranea
 rango: militante_resistencia
-rol: rol-combate-asalto
+especialidad: especialidad-combate-asalto
 atributos:
   cuerpo: 3
   mente: 2
@@ -25,7 +25,7 @@ equipo:
 tags:
   - faccion/resistencia_subterranea
   - rango/militante_resistencia
-  - rol/combate/asalto
+  - especialidad/combate/asalto
   - estado/disponible
   - aspecto/vanguardia
   - rasgo/tatuaje_de_unidad
@@ -34,4 +34,4 @@ tags:
   - lealtad/ejercito_rojo
 ---
 
-Brian quedó huérfano antes de aprender a temer y los del [[resistencia_subterranea|Ejército Rojo]] lo levantaron de la calle de [[barrios-del-muro|los barrios del muro]] cuando era apenas un crío. Creció hombro a hombro con Maxi y Nahuel, y ahora va de [[militante_resistencia|militante]] al frente como [[rol-combate-asalto|asaltante]], con su [[machete]] al cinto y la [[capucha]] calada hasta los ojos. Su odio a la [[fuerzas_armadas|Confederación]] no grita: es [[vanguardia|punta de lanza]] fría, y el [[tatuaje_de_unidad|tatuaje de la unidad]] en el antebrazo es lo único que lleva con orgullo, porque nació en Bahía Blanca y morirá rojo.
+Brian quedó huérfano antes de aprender a temer y los del [[resistencia_subterranea|Ejército Rojo]] lo levantaron de la calle de [[barrios-del-muro|los barrios del muro]] cuando era apenas un crío. Creció hombro a hombro con Maxi y Nahuel, y ahora va de [[militante_resistencia|militante]] al frente como [[especialidad-combate-asalto|asaltante]], con su [[machete]] al cinto y la [[capucha]] calada hasta los ojos. Su odio a la [[fuerzas_armadas|Confederación]] no grita: es [[vanguardia|punta de lanza]] fría, y el [[tatuaje_de_unidad|tatuaje de la unidad]] en el antebrazo es lo único que lleva con orgullo, porque nació en Bahía Blanca y morirá rojo.

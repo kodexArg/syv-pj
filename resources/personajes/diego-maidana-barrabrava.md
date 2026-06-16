@@ -8,7 +8,7 @@ description: Barrabrava-militante del Ejército Rojo que marcha al frente con su
 barrio: barrios-del-muro
 faccion: resistencia_subterranea
 rango: simpatizante
-rol: sin_rol
+especialidad: null
 atributos:
   cuerpo: 3
   mente: 2

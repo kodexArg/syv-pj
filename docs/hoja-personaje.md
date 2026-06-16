@@ -92,12 +92,12 @@ sobrenombre:
   derivacion: Derivable al servir desde nombre + tags de rango y de mando.
   nota:       null cuando no hay distinción con el nombre real.
 
-rol:
-  tipo:       string
-  default:    ciudadano
-  proposito:  Identidad narrativa base (no posición operativa).
-  ejemplos:   ["Sargento Confederado", "Líder Revolucionario", "Médico de campaña"]
-  aclaracion: NO confundir con tags rol/* — esos viven en tags[] y expresan la capa operativa.
+especialidad:
+  tipo:       string | null
+  default:    null
+  proposito:  Especialidad táctica narrativa (lo que el personaje *hace*). La vocación de pertenencia la da el `rango`.
+  ejemplos:   ["Fusilero", "Inquisidor", "Médico de campaña"]
+  aclaracion: Se materializa además como tag especialidad/* en tags[] (la capa operativa).
 
 género:
   tipo:        string
@@ -151,7 +151,7 @@ El motor calcula al servir, sin persistir, para evitar desincronización:
 filiacion:    { fuente: "tags rango/* + faccion/*",   nota: "null si falta alguno" }
 fatiga_max:   { fuente: "cuerpo + alma",              tipo: int }
 moral_max:    { fuente: "alma",                       tipo: int }
-fza_aportada: { fuente: "tags rol/combate/*",         valores: "{heroe: 3, lider: 2, default: 1}" }
+fza_aportada: { fuente: "tags especialidad/combate/*",         valores: "{heroe: 3, lider: 2, default: 1}" }
 ```
 
 Las fórmulas canónicas y sus escalas viven en [[atributos-y-habilidades|atributos-y-habilidades.md]]. Cambios post-creación en `tags[]` se registran como hito `agregar_tag` / `quitar_tag` con metadatos `{tag}`.
@@ -264,7 +264,7 @@ Qué cambia, y cómo:
 | `atributos.{cuerpo, mente, alma}` | vía hito | `triple_cero` / `mejora_atributo` |
 | `tags[]` | vía hito | `agregar_tag` / `quitar_tag` (metadata `{tag}`) |
 | `tags[]` vínculos (`aliado/*`, `nemesis/*`) | vía hito | `formacion_lealtad` / `identificacion_nemesis` / `ruptura_lealtad` |
-| `identidad.rol` | vía hito | `ascenso` / `cambio_rol` |
+| `identidad.especialidad` | vía hito | `ascenso` / `cambio_especialidad` |
 | `historial[]` | vía hito | de solo añadir (`POST /evento`) |
 | `metadatos.ultima_actualizacion` | automático | en cada hito |
 | `identidad.edad` | sin hito | decisión narrativa explícita |

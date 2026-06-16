@@ -8,7 +8,7 @@ description: Curandera shipibo-conibo del pantano que llega a Las Tuberías con 
 barrio: tuberias
 faccion: shipibo_conibo
 rango: meraya
-rol: rol-paranormal-curandero
+especialidad: especialidad-paranormal-curandero
 atributos:
   cuerpo: 3
   mente: 3
@@ -28,7 +28,7 @@ equipo:
 tags:
   - faccion/shipibo_conibo
   - rango/meraya
-  - rol/paranormal/curandero
+  - especialidad/paranormal/curandero
   - estado/disponible
   - aspecto/expresion_trance
   - aspecto/tatuaje_linaje_guarani
@@ -39,4 +39,4 @@ tags:
   - equipo/ritual/talisman_guarani
 ---
 
-Iracema baja del pantano al mercado de la Antigua Estación en [[tuberias|Las Tuberías]] cargando [[atado_de_hierbas|hierbas]] que no crecen en la ciudad y la [[pintura_facial]] de su pueblo intacta. Es [[shipibo_conibo|shipibo-conibo]] de rango [[meraya]], [[rol-paranormal-curandero|curandera paranormal]] que sana con cantos icaros y [[trance_psiquico|visión de planta]]. Lleva el [[tatuaje_linaje_guarani|tatuaje de su linaje]] en la cara y un [[talisman_guarani]] al cuello; su [[afinidad_animal]] con la yarará la hace temida. La [[iglesia]] la tolera mientras cura a quien ella no quiere o no puede, pero la vigila como a una hereje.
+Iracema baja del pantano al mercado de la Antigua Estación en [[tuberias|Las Tuberías]] cargando [[atado_de_hierbas|hierbas]] que no crecen en la ciudad y la [[pintura_facial]] de su pueblo intacta. Es [[shipibo_conibo|shipibo-conibo]] de rango [[meraya]], [[especialidad-paranormal-curandero|curandera paranormal]] que sana con cantos icaros y [[trance_psiquico|visión de planta]]. Lleva el [[tatuaje_linaje_guarani|tatuaje de su linaje]] en la cara y un [[talisman_guarani]] al cuello; su [[afinidad_animal]] con la yarará la hace temida. La [[iglesia]] la tolera mientras cura a quien ella no quiere o no puede, pero la vigila como a una hereje.

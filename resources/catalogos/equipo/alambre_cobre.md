@@ -10,9 +10,9 @@ sesgo_faccion:
   - los_criptografos
   - los_hackers
   - resistencia_subterranea
-sesgo_rol:
-  - rol/oficio/tecnico
-  - rol/oficio/hacker
+sesgo_especialidad:
+  - especialidad/oficio/tecnico
+  - especialidad/oficio/hacker
 tags:
   - catalogo/equipo
   - equipo/alambre_cobre

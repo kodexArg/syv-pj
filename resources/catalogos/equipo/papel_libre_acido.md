@@ -9,9 +9,9 @@ peso_sorteo: 2
 sesgo_faccion:
   - arpistas
   - guardianes_de_la_memoria
-sesgo_rol:
-  - rol/oficio/escriba
-  - rol/investigacion/archivista
+sesgo_especialidad:
+  - especialidad/oficio/escriba
+  - especialidad/investigacion/archivista
 tags:
   - catalogo/equipo
   - equipo/papel_libre_acido

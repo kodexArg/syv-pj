@@ -8,9 +8,9 @@ peso: 1
 peso_sorteo: 2
 sesgo_faccion:
   - arpistas
-sesgo_rol:
-  - rol/oficio/arqueologo_tech
-  - rol/oficio/tecnico
+sesgo_especialidad:
+  - especialidad/oficio/arqueologo_tech
+  - especialidad/oficio/tecnico
 tags:
   - catalogo/equipo
   - equipo/cincel_acero

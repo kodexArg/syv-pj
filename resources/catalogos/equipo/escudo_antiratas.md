@@ -10,9 +10,9 @@ sesgo_faccion:
   - resistencia_subterranea
   - traficantes_de_almas
   - los_criptografos
-sesgo_rol:
-  - rol/combate/zapador
-  - rol/combate/maton
+sesgo_especialidad:
+  - especialidad/combate/zapador
+  - especialidad/combate/maton
 tags:
   - catalogo/equipo
   - equipo/escudo_antiratas

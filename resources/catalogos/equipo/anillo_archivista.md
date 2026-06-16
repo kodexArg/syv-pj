@@ -9,9 +9,9 @@ peso_sorteo: 2
 sesgo_faccion:
   - archivistas_y_cientificos_teologicos
   - guardianes_de_la_memoria
-sesgo_rol:
-  - rol/investigacion/archivista
-  - rol/oficio/escriba
+sesgo_especialidad:
+  - especialidad/investigacion/archivista
+  - especialidad/oficio/escriba
 tags:
   - catalogo/equipo
   - equipo/anillo_archivista

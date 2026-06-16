@@ -10,9 +10,9 @@ sesgo_faccion:
   - los_umbanda
   - shipibo_conibo
   - kuna_mbarete
-sesgo_rol:
-  - rol/paranormal/ritualista
-  - rol/paranormal/curandero
+sesgo_especialidad:
+  - especialidad/paranormal/ritualista
+  - especialidad/paranormal/curandero
 tags:
   - catalogo/equipo
   - equipo/garrafa_ritual

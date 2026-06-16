@@ -8,7 +8,7 @@ description: Tratante de almas de Las Tuberías que capta a los desesperados del
 barrio: tuberias
 faccion: traficantes_de_almas
 rango: tratante
-rol: rol-oficio-tratante
+especialidad: especialidad-oficio-tratante
 atributos:
   cuerpo: 3
   mente: 4
@@ -27,7 +27,7 @@ equipo:
 tags:
   - faccion/traficantes_de_almas
   - rango/tratante
-  - rol/oficio/tratante
+  - especialidad/oficio/tratante
   - estado/disponible
   - aspecto/veterano
   - aspecto/cobarde
@@ -37,4 +37,4 @@ tags:
   - equipo/utilitario/cuaderno_de_cuero
 ---
 
-Severo merodea el mercado de la Antigua Estación en [[tuberias|Las Tuberías]] buscando a los que perdieron a alguien por las posesiones; les ofrece, en voz baja, un camino para "recuperarlos". Es de los [[traficantes_de_almas]], rango [[tratante]] y [[rol-oficio-tratante|tratante]] de oficio: anota deudas y nombres en un [[cuaderno_de_cuero]] grasiento y nunca da la cara dos veces en el mismo callejón. [[cobarde|Cobarde]] de fondo, sobrevive por [[paranoia_vigilancia|cálculo]] más que por coraje; le vende esperanza a Luisa y a cien como ella, sabiendo que la mercancía es humo.
+Severo merodea el mercado de la Antigua Estación en [[tuberias|Las Tuberías]] buscando a los que perdieron a alguien por las posesiones; les ofrece, en voz baja, un camino para "recuperarlos". Es de los [[traficantes_de_almas]], rango [[tratante]] y [[especialidad-oficio-tratante|tratante]] de oficio: anota deudas y nombres en un [[cuaderno_de_cuero]] grasiento y nunca da la cara dos veces en el mismo callejón. [[cobarde|Cobarde]] de fondo, sobrevive por [[paranoia_vigilancia|cálculo]] más que por coraje; le vende esperanza a Luisa y a cien como ella, sabiendo que la mercancía es humo.

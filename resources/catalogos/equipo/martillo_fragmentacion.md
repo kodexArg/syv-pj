@@ -10,9 +10,9 @@ tipo_accion: cuerpo_a_cuerpo
 alcance: corto
 sesgo_faccion:
   - arpistas
-sesgo_rol:
-  - rol/combate/zapador
-  - rol/oficio/arqueologo_tech
+sesgo_especialidad:
+  - especialidad/combate/zapador
+  - especialidad/oficio/arqueologo_tech
 tags:
   - catalogo/equipo
   - equipo/martillo_fragmentacion

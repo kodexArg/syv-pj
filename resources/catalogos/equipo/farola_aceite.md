@@ -9,9 +9,9 @@ peso_sorteo: 4
 sesgo_faccion:
   - resistencia_subterranea
   - traficantes_de_almas
-sesgo_rol:
-  - rol/oficio/contrabandista
-  - rol/investigacion/rastreador
+sesgo_especialidad:
+  - especialidad/oficio/contrabandista
+  - especialidad/investigacion/rastreador
 tags:
   - catalogo/equipo
   - equipo/farola_aceite

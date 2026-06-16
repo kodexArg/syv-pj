@@ -10,10 +10,10 @@ sesgo_faccion:
   - iglesia
   - alto_clero
   - curia_romana
-sesgo_rol:
-  - rol/oficio/prelado
-  - rol/oficio/cardenal
-  - rol/oficio/predicador
+sesgo_especialidad:
+  - especialidad/oficio/prelado
+  - especialidad/oficio/cardenal
+  - especialidad/oficio/predicador
 tags:
   - catalogo/equipo
   - equipo/banda_eclesiastica

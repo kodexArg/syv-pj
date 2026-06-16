@@ -27,7 +27,7 @@ Esta regla es expansiva por diseño. El sistema no predice los tipos de tag que 
 
 **Lo que NO es un tag:**
 
-- `identidad` — slug opaco, nombre, sobrenombre, rol, género, edad.
+- `identidad` — slug opaco, nombre, sobrenombre, especialidad, género, edad.
 - `atributos` — `cuerpo`, `mente`, `alma`. Magnitudes numéricas persistidas.
 - `historia` — prosa biográfica.
 - `historial` — eventos temporales estructurados (de solo añadir).
@@ -94,7 +94,7 @@ Las categorías curadas a la fecha. La tabla es **ilustrativa, no exhaustiva**: 
 | `entrenamiento` | Adiestramiento o formación recibida (militar, sanitaria, técnica). |
 | `efecto` | Bloque estructurado referenciable por otros tags. |
 | `equipo` | Equipo cargado. Subcategorías: `arma`, `utilitario`, `vestidura`. |
-| `rol` | Roles operativos. Subcategorías: `oficio`, `jerarquia`, `narrativo`, `combate`. |
+| `especialidad` | Especialidad táctica (lo que *hace*: fusilero, médico, inquisidor…). Subcategorías: `oficio`, `jerarquia`, `narrativo`, `combate`. La vocación de pertenencia la da el `rango`. |
 | `lealtad` | Lealtad vigente. Apunta a cualquier entidad (facción, subfacción, grupo, religión, personaje…). Ver [[#§4 — Categoría relacional: `lealtad`]]. |
 | `aliado` | Vínculo de alianza vigente. Apunta a personaje, facción, subfacción o grupo. Ver [[#§5 — Categorías relacionales: `aliado` y `nemesis`]]. |
 | `nemesis` | Enemistad vigente. Mismo destino que `aliado`, sin restricción de bando. Ver [[#§5 — Categorías relacionales: `aliado` y `nemesis`]]. |
@@ -160,7 +160,7 @@ Obligatorios solo cuando la categoría lo demanda:
 
 ```yaml
 subcategoria:
-  obligatorio_si: categoria ∈ {equipo, rol}
+  obligatorio_si: categoria ∈ {equipo, especialidad}
 
 peso:
   obligatorio_si: categoria = equipo

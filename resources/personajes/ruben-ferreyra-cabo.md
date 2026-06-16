@@ -8,7 +8,7 @@ description: Cabo de asalto de las Fuerzas Armadas, segundo al mando de la escua
 barrio: barrios-del-muro
 faccion: fuerzas_armadas
 rango: cabo
-rol: rol-combate-asalto
+especialidad: especialidad-combate-asalto
 atributos:
   cuerpo: 4
   mente: 3
@@ -28,7 +28,7 @@ equipo:
 tags:
   - faccion/fuerzas_armadas
   - rango/cabo
-  - rol/combate/asalto
+  - especialidad/combate/asalto
   - estado/disponible
   - aspecto/terco
   - rasgo/constitucion_robusta
@@ -40,4 +40,4 @@ tags:
   - lealtad/confederacion
 ---
 
-[[cabo|Cabo]] [[fuerzas_armadas|Ferreyra]] es el segundo del [[sargento]] [[ovidio-gauna-sargento|Gauna]] y el que entra primero, porque nadie se lo discute: [[terco|terco]] como una mula y de [[constitucion_robusta|espaldas anchas]], aguanta lo que sea con tal de no retroceder. Carga el [[fusil]], un par de [[granada|granadas]] y [[cargador|cargadores]] de sobra bajo el [[chaleco_asalto|chaleco]], y ejerce el [[rol-combate-asalto|asalto]] sin teorías ni dudas. En los [[barrios-del-muro|Barrios del Muro]] dicen que Ferreyra patea puertas hasta cuando están abiertas.
+[[cabo|Cabo]] [[fuerzas_armadas|Ferreyra]] es el segundo del [[sargento]] [[ovidio-gauna-sargento|Gauna]] y el que entra primero, porque nadie se lo discute: [[terco|terco]] como una mula y de [[constitucion_robusta|espaldas anchas]], aguanta lo que sea con tal de no retroceder. Carga el [[fusil]], un par de [[granada|granadas]] y [[cargador|cargadores]] de sobra bajo el [[chaleco_asalto|chaleco]], y ejerce el [[especialidad-combate-asalto|asalto]] sin teorías ni dudas. En los [[barrios-del-muro|Barrios del Muro]] dicen que Ferreyra patea puertas hasta cuando están abiertas.

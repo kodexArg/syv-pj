@@ -10,11 +10,11 @@ sesgo_faccion:
   - curatores
   - sanidad
   - congregacion_caridad_divina
-sesgo_rol:
-  - rol/oficio/medico
-  - rol/oficio/boticario
-  - rol/oficio/cirujano
-  - rol/paranormal/sanador
+sesgo_especialidad:
+  - especialidad/oficio/medico
+  - especialidad/oficio/boticario
+  - especialidad/oficio/cirujano
+  - especialidad/paranormal/sanador
 tags:
   - catalogo/equipo
   - equipo/antidoto_paranormal

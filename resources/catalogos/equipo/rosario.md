@@ -10,8 +10,8 @@ sesgo_faccion:
   - iglesia
   - congregacion_caridad_divina
   - alto_clero
-sesgo_rol:
-  - rol/oficio/predicador
+sesgo_especialidad:
+  - especialidad/oficio/predicador
 tags:
   - catalogo/equipo
   - equipo/rosario

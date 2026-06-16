@@ -10,7 +10,7 @@ tipo_accion: cerrojo
 alcance: largo
 requires:
   require_any:
-    - rol/combate/tirador
+    - especialidad/combate/tirador
     - habilidad/tiro_de_precision
 tags:
   - catalogo/equipo

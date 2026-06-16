@@ -9,7 +9,7 @@ description: Capellán de Batalla sin mando, viejo sacerdote que cura cuerpos y 
 barrio: barrios-del-muro
 faccion: iglesia
 rango: sacerdote
-rol: rol-oficio-medico
+especialidad: especialidad-oficio-medico
 atributos:
   cuerpo: 3
   mente: 2
@@ -29,7 +29,7 @@ equipo:
 tags:
   - faccion/iglesia
   - rango/sacerdote
-  - rol/oficio/medico
+  - especialidad/oficio/medico
   - estado/disponible
   - aspecto/veterano
   - rasgo/mirada_cansada
@@ -41,4 +41,4 @@ tags:
   - lealtad/confederacion
 ---
 
-El Padre Eulogio no manda a nadie: como [[sacerdote]] de la [[iglesia]] camina detrás del sargento, sin arma, con la [[pocion_sanadora|poción]] en una mano y el [[rosario]] en la otra. Ejerce el [[rol-oficio-medico|oficio médico]] sobre los heridos de la escuadra, repartiendo [[unguento_medicinal|ungüento]] y últimos sacramentos con la misma [[mirada_cansada]] de quien lleva [[veterano|demasiadas guerras]] encima. Bajo la [[sotana]] aprieta el [[crucifijo_consagrado|crucifijo]] y reza por todos en el [[barrios-del-muro|Muro]], creyentes y enemigos por igual.
+El Padre Eulogio no manda a nadie: como [[sacerdote]] de la [[iglesia]] camina detrás del sargento, sin arma, con la [[pocion_sanadora|poción]] en una mano y el [[rosario]] en la otra. Ejerce el [[especialidad-oficio-medico|oficio médico]] sobre los heridos de la escuadra, repartiendo [[unguento_medicinal|ungüento]] y últimos sacramentos con la misma [[mirada_cansada]] de quien lleva [[veterano|demasiadas guerras]] encima. Bajo la [[sotana]] aprieta el [[crucifijo_consagrado|crucifijo]] y reza por todos en el [[barrios-del-muro|Muro]], creyentes y enemigos por igual.

@@ -8,9 +8,9 @@ peso: 4
 peso_sorteo: 3
 sesgo_faccion:
   - gremio_de_pescadores
-sesgo_rol:
-  - rol/oficio/pescador
-  - rol/oficio/buzo
+sesgo_especialidad:
+  - especialidad/oficio/pescador
+  - especialidad/oficio/buzo
 tags:
   - catalogo/equipo
   - equipo/red_de_pesca

@@ -8,7 +8,7 @@ description: Conscripto verde de la escuadra militar urbana de la Confederación
 barrio: barrios-del-muro
 faccion: fuerzas_armadas
 rango: recluta
-rol: rol-combate-fusilero
+especialidad: especialidad-combate-fusilero
 atributos:
   cuerpo: 3
   mente: 2
@@ -23,7 +23,7 @@ equipo:
 tags:
   - faccion/fuerzas_armadas
   - rango/recluta
-  - rol/combate/fusilero
+  - especialidad/combate/fusilero
   - estado/disponible
   - equipo/arma/fusil_recluta
   - equipo/vestidura/uniforme_linea
@@ -31,4 +31,4 @@ tags:
   - lealtad/confederacion
 ---
 
-Tomás todavía no sabe disparar con los ojos abiertos: es el [[recluta]] de la escuadra, el [[rol-combate-fusilero|fusilero]] verde al que le tiembla el [[fusil_recluta|fusil]] entre las manos. Lo metieron en las [[fuerzas_armadas]] de la [[barrios-del-muro|Ciudad]] con un [[uniforme_linea|uniforme]] que le queda grande y un [[cargador]] que reza por no usar. En su primera salida contra la [[resistencia_subterranea|resistencia]], reza más que apunta.
+Tomás todavía no sabe disparar con los ojos abiertos: es el [[recluta]] de la escuadra, el [[especialidad-combate-fusilero|fusilero]] verde al que le tiembla el [[fusil_recluta|fusil]] entre las manos. Lo metieron en las [[fuerzas_armadas]] de la [[barrios-del-muro|Ciudad]] con un [[uniforme_linea|uniforme]] que le queda grande y un [[cargador]] que reza por no usar. En su primera salida contra la [[resistencia_subterranea|resistencia]], reza más que apunta.

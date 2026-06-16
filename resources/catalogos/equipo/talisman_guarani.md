@@ -10,9 +10,9 @@ sesgo_faccion:
   - kuna_mbarete
   - shipibo_conibo
   - los_umbanda
-sesgo_rol:
-  - rol/paranormal/ritualista
-  - rol/paranormal/curandero
+sesgo_especialidad:
+  - especialidad/paranormal/ritualista
+  - especialidad/paranormal/curandero
 tags:
   - catalogo/equipo
   - equipo/talisman_guarani

@@ -8,7 +8,7 @@ description: Barrabrava desarmado del Ejército Rojo que lleva el redoblante y e
 barrio: barrios-del-muro
 faccion: resistencia_subterranea
 rango: simpatizante
-rol: sin_rol
+especialidad: null
 atributos:
   cuerpo: 3
   mente: 2

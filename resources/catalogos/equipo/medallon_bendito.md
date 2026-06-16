@@ -9,8 +9,8 @@ peso_sorteo: 3
 sesgo_faccion:
   - iglesia
   - congregacion_caridad_divina
-sesgo_rol:
-  - rol/oficio/predicador
+sesgo_especialidad:
+  - especialidad/oficio/predicador
 tags:
   - catalogo/equipo
   - equipo/medallon_bendito

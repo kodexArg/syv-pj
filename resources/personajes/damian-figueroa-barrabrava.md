@@ -8,7 +8,7 @@ description: Barrabrava del Ejército Rojo, voz de cancha y pulmón de la column
 barrio: barrios-del-muro
 faccion: resistencia_subterranea
 rango: simpatizante
-rol: sin_rol
+especialidad: null
 atributos:
   cuerpo: 3
   mente: 2

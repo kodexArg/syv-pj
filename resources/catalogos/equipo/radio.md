@@ -6,9 +6,9 @@ subcategoria: utilitario
 descripcion: Enlace con el mando. La carga el que coordina.
 peso: 5
 peso_sorteo: 2
-sesgo_rol:
-  - rol/jerarquia/lider
-  - rol/jerarquia/subjefe
+sesgo_especialidad:
+  - especialidad/jerarquia/lider
+  - especialidad/jerarquia/subjefe
 tags:
   - catalogo/equipo
   - equipo/radio

@@ -9,7 +9,7 @@ barrio: barrios-del-muro
 faccion: iglesia
 subfaccion: inquisicion
 rango: novicio
-rol: rol-combate-cruzado
+especialidad: especialidad-combate-cruzado
 atributos:
   cuerpo: 4
   mente: 2
@@ -29,7 +29,7 @@ tags:
   - faccion/iglesia
   - subfaccion/inquisicion
   - rango/novicio
-  - rol/combate/cruzado
+  - especialidad/combate/cruzado
   - estado/disponible
   - aspecto/terco
   - rasgo/constitucion_robusta
@@ -40,4 +40,4 @@ tags:
   - lealtad/confederacion
 ---
 
-Baltasar es la otra mitad del par de hierro de la [[inquisicion|Inquisición]]: misma [[novicio|iniciación]], misma furia. Empuña la [[espada_consagrada]] con la [[constitucion_robusta|constitución de un buey]] y se mete al frente como [[rol-combate-cruzado|cruzado]] de la [[iglesia]], igual de [[terco]] que su hermano de armas Cipriano. En el [[barrios-del-muro|Muro]] reza la misma misa con el [[medallon_bendito|medallón]] al cuello, la [[sotana]] arremangada sobre el [[chaleco_asalto|chaleco de asalto]], y golpea por la Confederación sin medir la fuerza.
+Baltasar es la otra mitad del par de hierro de la [[inquisicion|Inquisición]]: misma [[novicio|iniciación]], misma furia. Empuña la [[espada_consagrada]] con la [[constitucion_robusta|constitución de un buey]] y se mete al frente como [[especialidad-combate-cruzado|cruzado]] de la [[iglesia]], igual de [[terco]] que su hermano de armas Cipriano. En el [[barrios-del-muro|Muro]] reza la misma misa con el [[medallon_bendito|medallón]] al cuello, la [[sotana]] arremangada sobre el [[chaleco_asalto|chaleco de asalto]], y golpea por la Confederación sin medir la fuerza.

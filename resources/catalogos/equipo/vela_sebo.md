@@ -10,9 +10,9 @@ sesgo_faccion:
   - shipibo_conibo
   - los_umbanda
   - kuna_mbarete
-sesgo_rol:
-  - rol/paranormal/curandero
-  - rol/paranormal/medium
+sesgo_especialidad:
+  - especialidad/paranormal/curandero
+  - especialidad/paranormal/medium
 tags:
   - catalogo/equipo
   - equipo/vela_sebo

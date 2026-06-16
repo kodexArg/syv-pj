@@ -10,9 +10,9 @@ sesgo_faccion:
   - arpistas
   - los_hackers
   - los_criptografos
-sesgo_rol:
-  - rol/oficio/tecnico
-  - rol/oficio/hacker
+sesgo_especialidad:
+  - especialidad/oficio/tecnico
+  - especialidad/oficio/hacker
 tags:
   - catalogo/equipo
   - equipo/sonda_voltaje

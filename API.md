@@ -22,9 +22,9 @@ aliases:
 
 `GET /meta/{categoria}` devuelve el catálogo curado de esa categoría de tag. La estructura de cada entrada es la definida en [[sistema-tags|docs/sistema-tags.md]].
 
-Las categorías curadas de referencia (`destreza`, `rasgo`, `ventaja`, `equipo`, `rol`, etc.) se detallan en [[sistema-tags#Categorías de referencia|docs/sistema-tags.md]]. Categorías nuevas se exponen automáticamente bajo `/meta/{categoria}` desde que existen — no requieren entrada en este archivo.
+Las categorías curadas de referencia (`destreza`, `rasgo`, `ventaja`, `equipo`, `especialidad`, etc.) se detallan en [[sistema-tags#Categorías de referencia|docs/sistema-tags.md]]. Categorías nuevas se exponen automáticamente bajo `/meta/{categoria}` desde que existen — no requieren entrada en este archivo.
 
-Para sub-categorías: `GET /meta/equipo/arma`, `GET /meta/rol/oficio`, etc. La ruta y el tag interno comparten la **misma notación de barras**: `/meta/equipo/arma` carga el catálogo del tag `equipo/arma`. (Los `campos=` de poda siguen usando puntos —`identidad.slug`—, porque direccionan el árbol de la respuesta, no tags.)
+Para sub-categorías: `GET /meta/equipo/arma`, `GET /meta/especialidad/oficio`, etc. La ruta y el tag interno comparten la **misma notación de barras**: `/meta/equipo/arma` carga el catálogo del tag `equipo/arma`. (Los `campos=` de poda siguen usando puntos —`identidad.slug`—, porque direccionan el árbol de la respuesta, no tags.)
 
 **Casos que NO siguen la convención genérica** (la carga difiere o agrega datos derivados):
 
@@ -84,7 +84,7 @@ Tipos de hito y sus efectos sobre la ficha:
 | `quitar_tag` | Elimina `metadata.valor` de `tags[]`. |
 | `mejora_atributo` | Incrementa `atributos.{metadata.atributo}` en `metadata.delta`. |
 | `triple_cero` | Modifica `atributos.{metadata.atributo}` según la regla del triple-cero. |
-| `ascenso` / `cambio_rol` | Actualiza `identidad.rol`. |
+| `ascenso` / `cambio_especialidad` | Actualiza `identidad.especialidad`. |
 | `formacion_lealtad` | Añade el tag `aliado.<ref>` (o `lealtad.<ref>`) a `tags[]`; la prosa del vínculo viaja en `descripcion`. |
 | `identificacion_nemesis` | Añade el tag `nemesis.<ref>` a `tags[]`; la prosa del vínculo viaja en `descripcion`. |
 | Otros tipos | Solo añaden el hito. Los efectos colaterales son responsabilidad del cliente. |

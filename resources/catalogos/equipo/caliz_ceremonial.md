@@ -10,9 +10,9 @@ sesgo_faccion:
   - iglesia
   - alto_clero
   - curia_romana
-sesgo_rol:
-  - rol/oficio/predicador
-  - rol/oficio/prelado
+sesgo_especialidad:
+  - especialidad/oficio/predicador
+  - especialidad/oficio/prelado
 tags:
   - catalogo/equipo
   - equipo/caliz_ceremonial

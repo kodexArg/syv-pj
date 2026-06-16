@@ -17,7 +17,7 @@ aliases:
 
 | MOC | Qué contiene |
 |---|---|
-| [[_moc-roles]] | Roles de personaje (`rol/oficio`, `rol/combate`, `rol/jerarquia`, `rol/narrativo`). Determinan atributos base y pool de tags disponibles en creación. |
+| [[_moc-especialidades]] | Roles de personaje (`especialidad/oficio`, `especialidad/combate`, `especialidad/jerarquia`, `especialidad/narrativo`). Determinan atributos base y pool de tags disponibles en creación. |
 | [[_moc-equipo]] | Ítems de equipo (`equipo/arma`, `equipo/utilitario`, `equipo/vestidura`). Cada ítem es un tag equipable con sus efectos declarados. |
 | [[_moc-rasgos]] | Rasgos físicos observables (`rasgo/*`): cicatrices, tatuajes, marcas. Puramente descriptivos, sin efecto mecánico directo. |
 | [[_moc-entrenamiento]] | Entrenamientos (`entrenamiento/*`): disciplinas aprendidas que habilitan ciertas habilidades o modifican atributos al crearlas. |

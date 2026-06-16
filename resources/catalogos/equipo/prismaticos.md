@@ -6,9 +6,9 @@ subcategoria: utilitario
 descripcion: Observación a distancia. Ojos de la escuadra.
 peso: 1
 peso_sorteo: 2
-sesgo_rol:
-  - rol/combate/tirador
-  - rol/combate/apoyo
+sesgo_especialidad:
+  - especialidad/combate/tirador
+  - especialidad/combate/apoyo
 tags:
   - catalogo/equipo
   - equipo/prismaticos

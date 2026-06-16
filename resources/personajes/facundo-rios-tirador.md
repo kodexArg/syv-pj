@@ -8,7 +8,7 @@ description: Tirador designado de la escuadra militar urbana de la Confederació
 barrio: barrios-del-muro
 faccion: fuerzas_armadas
 rango: soldado_linea
-rol: rol-combate-tirador
+especialidad: especialidad-combate-tirador
 atributos:
   cuerpo: 3
   mente: 4
@@ -25,7 +25,7 @@ equipo:
 tags:
   - faccion/fuerzas_armadas
   - rango/soldado_linea
-  - rol/combate/tirador
+  - especialidad/combate/tirador
   - estado/disponible
   - aspecto/tirador
   - aspecto/ojo_de_aguila
@@ -35,4 +35,4 @@ tags:
   - lealtad/confederacion
 ---
 
-Facundo busca el respiro entre dos latidos y suelta el [[rifle]] cuando el blanco ya no respira; es el [[rol-combate-tirador|tirador designado]] de la escuadra, no el bruto de la ametralladora. Sirve a las [[fuerzas_armadas]] de la [[barrios-del-muro|Ciudad]] como [[soldado_linea|soldado de línea]], y su [[ojo_de_aguila|ojo de águila]] alcanza donde el resto solo ve humo. Con los [[prismaticos]] al cuello y el [[uniforme_linea|uniforme]] gastado, cuenta cabezas de la [[resistencia_subterranea|resistencia]] antes de que nadie las extrañe.
+Facundo busca el respiro entre dos latidos y suelta el [[rifle]] cuando el blanco ya no respira; es el [[especialidad-combate-tirador|tirador designado]] de la escuadra, no el bruto de la ametralladora. Sirve a las [[fuerzas_armadas]] de la [[barrios-del-muro|Ciudad]] como [[soldado_linea|soldado de línea]], y su [[ojo_de_aguila|ojo de águila]] alcanza donde el resto solo ve humo. Con los [[prismaticos]] al cuello y el [[uniforme_linea|uniforme]] gastado, cuenta cabezas de la [[resistencia_subterranea|resistencia]] antes de que nadie las extrañe.

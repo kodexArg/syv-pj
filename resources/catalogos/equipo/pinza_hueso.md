@@ -9,9 +9,9 @@ peso_sorteo: 2
 sesgo_faccion:
   - arpistas
   - sanidad
-sesgo_rol:
-  - rol/oficio/cirujano
-  - rol/oficio/medico
+sesgo_especialidad:
+  - especialidad/oficio/cirujano
+  - especialidad/oficio/medico
 tags:
   - catalogo/equipo
   - equipo/pinza_hueso

@@ -1,0 +1,9 @@
+---
+slug: especialidad/combate/saboteador
+nombre: Saboteador
+probabilidad: 30
+tags: ["especialidad/combate/saboteador", "especialidad/combate", "pool/resistencia_subterranea"]
+---
+Destruye desde adentro; su mejor arma es la invisibilidad.
+
+[[resistencia_subterranea]]

@@ -1,9 +1,0 @@
----
-slug: rol/investigacion/archivista
-nombre: Archivista
-probabilidad: 19
-tags: ["rol/investigacion/archivista", "rol/investigacion", "pool/archivistas_y_cientificos_teologicos"]
----
-Custodia el pasado y decide qué versión sobrevive.
-
-[[archivistas_y_cientificos_teologicos]]

@@ -9,8 +9,8 @@ peso_sorteo: 3
 sesgo_faccion:
   - fuerzas_armadas
   - direccion_nacional_de_seguridad
-sesgo_rol:
-  - rol/combate/lider
+sesgo_especialidad:
+  - especialidad/combate/lider
 tags:
   - catalogo/equipo
   - equipo/insignia_rango_militar

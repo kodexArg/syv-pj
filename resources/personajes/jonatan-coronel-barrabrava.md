@@ -8,7 +8,7 @@ description: Barrabrava-militante del Ejército Rojo con una rodilla deshecha qu
 barrio: barrios-del-muro
 faccion: resistencia_subterranea
 rango: simpatizante
-rol: sin_rol
+especialidad: null
 atributos:
   cuerpo: 3
   mente: 2
@@ -31,4 +31,4 @@ tags:
   - lealtad/ejercito_rojo
 ---
 
-Jonatan arrastra la pierna desde hace años —de ahí el Rengo—, pero ninguna [[rodilla_vencida|rodilla vencida]] lo deja en el rancho cuando el [[resistencia_subterranea|Ejército Rojo]] sale a la calle. [[simpatizante|Simpatizante]] [[sin_rol|sin rol de combate]], cojea adelante con la [[bandera]] roja en alto y la [[capucha]] hasta las cejas, marcando el paso de la columna por [[barrios-del-muro|los barrios del muro]]. No corre, pero no se queda: prefiere que la Confederación lo vea avanzar rengo antes que retroceder entero.
+Jonatan arrastra la pierna desde hace años —de ahí el Rengo—, pero ninguna [[rodilla_vencida|rodilla vencida]] lo deja en el rancho cuando el [[resistencia_subterranea|Ejército Rojo]] sale a la calle. [[simpatizante|Simpatizante]] [[sin_especialidad|sin rol de combate]], cojea adelante con la [[bandera]] roja en alto y la [[capucha]] hasta las cejas, marcando el paso de la columna por [[barrios-del-muro|los barrios del muro]]. No corre, pero no se queda: prefiere que la Confederación lo vea avanzar rengo antes que retroceder entero.

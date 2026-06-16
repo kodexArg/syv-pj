@@ -8,8 +8,8 @@ peso: 1
 peso_sorteo: 2
 sesgo_faccion:
   - arpistas
-sesgo_rol:
-  - rol/investigacion/espia
+sesgo_especialidad:
+  - especialidad/investigacion/espia
 tags:
   - catalogo/equipo
   - equipo/cruz_arpista

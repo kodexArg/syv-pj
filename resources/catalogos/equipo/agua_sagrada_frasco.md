@@ -10,9 +10,9 @@ sesgo_faccion:
   - iglesia
   - exorcistas
   - congregacion_caridad_divina
-sesgo_rol:
-  - rol/paranormal/exorcista
-  - rol/oficio/predicador
+sesgo_especialidad:
+  - especialidad/paranormal/exorcista
+  - especialidad/oficio/predicador
 tags:
   - catalogo/equipo
   - equipo/agua_sagrada_frasco

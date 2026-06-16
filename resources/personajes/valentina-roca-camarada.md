@@ -8,7 +8,7 @@ description: Camarada del Ejército Rojo especializada en infiltración y lengua
 barrio: barrios-del-muro
 faccion: resistencia_subterranea
 rango: cabecilla
-rol: rol-investigacion-espia
+especialidad: especialidad-investigacion-espia
 atributos:
   cuerpo: 3
   mente: 4
@@ -25,7 +25,7 @@ equipo:
 tags:
   - faccion/resistencia_subterranea
   - rango/cabecilla
-  - rol/investigacion/espia
+  - especialidad/investigacion/espia
   - estado/disponible
   - aspecto/instinto
   - rasgo/mirada_cansada
@@ -34,4 +34,4 @@ tags:
   - lealtad/ejercito_rojo
 ---
 
-Valentina Roca es la otra mitad de la cobertura: una [[cabecilla|camarada]] del Ejército Rojo que se desliza por Ciudad Dársena hablando la lengua que haga falta sin que un solo músculo la traicione. Su [[rol-investigacion-espia|trabajo de infiltración]] al servicio de la [[resistencia_subterranea|resistencia]] depende de un [[instinto]] afilado y de una [[radio]] cosida bajo la ropa para reportar desde adentro del régimen. Bajo el ala de la [[galera]] esconde una [[mirada_cansada]] de quien duerme con un ojo abierto; junto a [[ezequiel-madariaga-camarada|Ezequiel]] arma la pareja de tapadera con la que entran y salen de los [[barrios-del-muro|Barrios del Muro]] hacia el corazón de la Confederación.
+Valentina Roca es la otra mitad de la cobertura: una [[cabecilla|camarada]] del Ejército Rojo que se desliza por Ciudad Dársena hablando la lengua que haga falta sin que un solo músculo la traicione. Su [[especialidad-investigacion-espia|trabajo de infiltración]] al servicio de la [[resistencia_subterranea|resistencia]] depende de un [[instinto]] afilado y de una [[radio]] cosida bajo la ropa para reportar desde adentro del régimen. Bajo el ala de la [[galera]] esconde una [[mirada_cansada]] de quien duerme con un ojo abierto; junto a [[ezequiel-madariaga-camarada|Ezequiel]] arma la pareja de tapadera con la que entran y salen de los [[barrios-del-muro|Barrios del Muro]] hacia el corazón de la Confederación.
