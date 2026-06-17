@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/los_umbanda", "faccion/los_umbanda"]
+tags: ["catalogo/rangos", "rangos/los_umbanda", "faccion/los_umbanda"]
 rangos:
 - slug: filho_de_santo
   nombre: Filho de Santo

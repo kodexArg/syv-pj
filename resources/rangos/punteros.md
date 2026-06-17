@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/punteros", "faccion/punteros"]
+tags: ["catalogo/rangos", "rangos/punteros", "faccion/punteros"]
 rangos:
 - slug: peon
   nombre: Peón

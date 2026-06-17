@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/saqueadores_y_traficantes", "faccion/saqueadores_y_traficantes"]
+tags: ["catalogo/rangos", "rangos/saqueadores_y_traficantes", "faccion/saqueadores_y_traficantes"]
 rangos:
 - slug: buscavidas
   nombre: Buscavidas

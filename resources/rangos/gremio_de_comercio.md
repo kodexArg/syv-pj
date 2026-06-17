@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/gremio_de_comercio", "faccion/gremio_de_comercio"]
+tags: ["catalogo/rangos", "rangos/gremio_de_comercio", "faccion/gremio_de_comercio"]
 rangos:
 - slug: aprendiz_gremio
   nombre: Aprendiz

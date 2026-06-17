@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/shipibo_conibo", "faccion/shipibo_conibo"]
+tags: ["catalogo/rangos", "rangos/shipibo_conibo", "faccion/shipibo_conibo"]
 rangos:
 - slug: aprendiz_meraya
   nombre: Aprendiz de Meraya

@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/traficantes_de_almas", "faccion/traficantes_de_almas"]
+tags: ["catalogo/rangos", "rangos/traficantes_de_almas", "faccion/traficantes_de_almas"]
 rangos:
 - slug: captador
   nombre: Captador

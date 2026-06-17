@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/los_hackers", "faccion/los_hackers"]
+tags: ["catalogo/rangos", "rangos/los_hackers", "faccion/los_hackers"]
 rangos:
 - slug: script
   nombre: Iniciado

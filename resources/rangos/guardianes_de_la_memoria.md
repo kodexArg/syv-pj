@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/guardianes_de_la_memoria", "faccion/guardianes_de_la_memoria"]
+tags: ["catalogo/rangos", "rangos/guardianes_de_la_memoria", "faccion/guardianes_de_la_memoria"]
 rangos:
 - slug: archivista_jr
   nombre: Archivista

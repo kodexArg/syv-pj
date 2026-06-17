@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/resistencia_subterranea", "faccion/resistencia_subterranea"]
+tags: ["catalogo/rangos", "rangos/resistencia_subterranea", "faccion/resistencia_subterranea"]
 rangos:
 - slug: simpatizante
   nombre: Simpatizante

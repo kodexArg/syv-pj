@@ -3,7 +3,7 @@ slug: liderazgo
 nombre: Liderazgo
 categoria: habilidad
 descripcion: Mantiene a la escuadra cohesionada y obediente bajo fuego.
-atributo_dominante: men
+atributo_dominante: alma
 tags:
 - catalogo/habilidad
 - habilidad/liderazgo

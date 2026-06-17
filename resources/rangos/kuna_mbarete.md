@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/kuna_mbarete", "faccion/kuna_mbarete"]
+tags: ["catalogo/rangos", "rangos/kuna_mbarete", "faccion/kuna_mbarete"]
 rangos:
 - slug: guerrera_kuna
   nombre: Guerrera

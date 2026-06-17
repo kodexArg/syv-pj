@@ -5,7 +5,7 @@ descripcion: Mayor poder económico, tenderos y magnates, mercado negro, libre m
   extremo.
 probabilidad: 6
 doc: 1_trasfondo/facciones/union/gremio-de-comercio.md
-tags: ["faccion", "faccion/gremio_de_comercio"]
+tags: ["catalogo/faccion", "faccion/gremio_de_comercio"]
 ---
 
 Ficha de lore: [[gremio-de-comercio]]. Mayor poder económico, tenderos y magnates, mercado negro, libre mercado extremo.

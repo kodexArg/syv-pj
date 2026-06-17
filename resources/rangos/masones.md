@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/masones", "faccion/masones"]
+tags: ["catalogo/rangos", "rangos/masones", "faccion/masones"]
 rangos:
 - slug: aprendiz_mason
   nombre: Aprendiz

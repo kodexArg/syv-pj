@@ -4,7 +4,7 @@ nombre: Tiro de precisión
 categoria: habilidad
 descripcion: Disparo deliberado a distancia con arma larga. Necesita tiempo, posición
   y visión.
-atributo_dominante: tac
+atributo_dominante: mente
 tags:
 - catalogo/habilidad
 - habilidad/tiro_de_precision

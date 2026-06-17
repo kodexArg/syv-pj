@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/refugiados_y_parias", "faccion/refugiados_y_parias"]
+tags: ["catalogo/rangos", "rangos/refugiados_y_parias", "faccion/refugiados_y_parias"]
 rangos:
 - slug: paria
   nombre: Paria

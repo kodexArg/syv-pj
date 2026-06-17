@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/arpistas", "faccion/arpistas"]
+tags: ["catalogo/rangos", "rangos/arpistas", "faccion/arpistas"]
 rangos:
 - slug: contacto
   nombre: Contacto

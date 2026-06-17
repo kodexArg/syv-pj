@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/fuerzas_armadas", "faccion/fuerzas_armadas"]
+tags: ["catalogo/rangos", "rangos/fuerzas_armadas", "faccion/fuerzas_armadas"]
 rangos:
 - slug: recluta
   nombre: Recluta

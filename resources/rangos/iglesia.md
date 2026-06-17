@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/iglesia", "faccion/iglesia"]
+tags: ["catalogo/rangos", "rangos/iglesia", "faccion/iglesia"]
 rangos:
 - slug: lego
   nombre: Lego

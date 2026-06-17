@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/los_remanentes", "faccion/los_remanentes"]
+tags: ["catalogo/rangos", "rangos/los_remanentes", "faccion/los_remanentes"]
 rangos:
 - slug: fragmento
   nombre: Fragmento

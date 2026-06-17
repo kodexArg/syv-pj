@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/los_criptografos", "faccion/los_criptografos"]
+tags: ["catalogo/rangos", "rangos/los_criptografos", "faccion/los_criptografos"]
 rangos:
 - slug: analista_cripto
   nombre: Analista

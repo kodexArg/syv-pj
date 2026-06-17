@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/canales_ocultos", "faccion/canales_ocultos"]
+tags: ["catalogo/rangos", "rangos/canales_ocultos", "faccion/canales_ocultos"]
 rangos:
 - slug: informante
   nombre: Informante

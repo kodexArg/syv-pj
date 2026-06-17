@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/gremio_de_pescadores", "faccion/gremio_de_pescadores"]
+tags: ["catalogo/rangos", "rangos/gremio_de_pescadores", "faccion/gremio_de_pescadores"]
 rangos:
 - slug: grumete
   nombre: Grumete

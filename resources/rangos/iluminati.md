@@ -1,5 +1,5 @@
 ---
-tags: ["rangos", "rangos/iluminati", "faccion/iluminati"]
+tags: ["catalogo/rangos", "rangos/iluminati", "faccion/iluminati"]
 rangos:
 - slug: adepto
   nombre: Adepto
