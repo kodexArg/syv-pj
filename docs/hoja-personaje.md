@@ -17,6 +17,7 @@ aliases:
 > **Documentos hermanos**:
 > - [[sistema-tags|sistema-tags.md]] — la lista plana `tags[]`: notación, categorías, catálogo y curaduría.
 > - [[atributos-y-habilidades|atributos-y-habilidades.md]] — escalas de `cuerpo/mente/alma`, estadísticas derivadas y vocabulario canónico de efectos.
+> - [[apariencia|apariencia.md]] — el campo `apariencia`: descriptores visuales libres, sparse y agnósticos al generador de imágenes.
 > - [[contratos|contratos.md]] — aspectos, habilidades y efectos como contratos.
 > - [[historial|historial.md]] — el registro `historial[]`: campos del hito, catálogo de tipos, `actores[]` y la regla de solo-añadir.
 > - [[nemesis-y-aliados|nemesis-y-aliados.md]] — los vínculos personales (`aliado/*` / `nemesis/*`) como etiquetas relacionales.
@@ -36,6 +37,7 @@ Seis bloques estructurales y una lista plana de tags:
 personaje:
   identidad:    { slug, nombre, sobrenombre, especialidad, genero, edad }
   atributos:    { cuerpo, mente, alma }   # únicas magnitudes numéricas persistidas
+  apariencia:   [...]               # descriptores visuales libres, sparse (ver §2.5 y apariencia.md)
   tags:         [...]               # lista plana, notación punto, NO multiconjunto (último valor gana)
                                     # incluye los vínculos personales: aliado/* / nemesis/*
   historia:     str                 # prosa biográfica, congelada al canonizar
@@ -127,6 +129,24 @@ alma:    { significado: "Aura, liderazgo, voluntad, temple ante el miedo. En pro
 
 > [!info] Azar portable
 > Las magnitudes se expresan en formato portable, agnóstico al sistema de resolución: probabilidades en **porcentaje** (`40% de fallar`), modificadores sobre atributos/estadísticas como **delta entero** (`(+1) ALMA`), modificadores sobre magnitudes continuas en **porcentaje** (`-100% MOVIMIENTO`). Detalle en [[atributos-y-habilidades|atributos-y-habilidades.md]] y la política editorial en [[AGENTS|AGENTS.md]].
+
+---
+
+## §2.5 — Apariencia
+
+Cómo **luce** el personaje: una **lista de descriptores visuales libres** (frases cortas de dominio), **agnóstica al generador de imágenes**. No es prosa ni un prompt: es un contrato visual portable que cualquier proyección (ComfyUI, Flux, una ilustración, un avatar) consume sin reinventarlo.
+
+```yaml
+tipo:    list[str]                # frases de dominio; default [] o ausente
+default: []
+persist: persistido — mutable sin hito (bajo peso narrativo, como edad)
+```
+
+> [!tip] Sparse por diseño — lo no dicho queda librado al azar
+> Se declara **solo lo que el canon quiere fijar** (`ojos azul intenso`, `rubio dorado`, `piel trigueña`, `mestizo`); todo lo omitido es **libertad** para el render. La ausencia de un descriptor no es un dato faltante: es el azar portable del kit aplicado al eje visual.
+
+> [!important] Complementa, no duplica
+> Cubre el **residuo visual sin hogar** (ojos, cabello, piel, raza/etnia, rostro, contextura). NO re-codifica lo que ya tiene lugar: cicatrices → `rasgos`, prendas → `equipo`, porte/expresión habitual → `aspectos`, corpulencia base → atributo `cuerpo`. La proyección visual lee **todo el conjunto** junto. La frontera (hecho visual vs directiva de render), el vocabulario y el fork frase-vs-átomo viven en [[apariencia|apariencia.md]].
 
 ---
 
@@ -268,6 +288,7 @@ Qué cambia, y cómo:
 | `historial[]` | vía hito | de solo añadir (`POST /evento`) |
 | `metadatos.ultima_actualizacion` | automático | en cada hito |
 | `identidad.edad` | sin hito | decisión narrativa explícita |
+| `apariencia` | sin hito | decisión narrativa explícita (bajo peso, como `edad`) |
 | `identidad.sobrenombre` | sin hito | derivado al servir |
 | `extras` | sin hito | libre, escritura del cliente |
 | `identidad.slug` | inmutable | fijado una vez al canonizar |

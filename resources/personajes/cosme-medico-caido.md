@@ -9,12 +9,18 @@ barrio: tuberias
 faccion: resistencia_subterranea
 rango: militante_resistencia
 especialidad: especialidad-oficio-medico
+estado: disponible
+lealtad: []
 atributos:
   cuerpo: 4
   mente: 4
   alma: 4
 edad: 51
 genero: m
+apariencia:
+  - canoso
+  - enjuto
+  - tez cetrina
 aspectos:
   - "[[veterano]]"
   - "[[manos_temblorosas]]"
@@ -25,18 +31,9 @@ equipo:
   - "[[delantal_manchado]]"
   - "[[botiquin]]"
   - "[[pocion_sanadora]]"
-tags:
-  - faccion/resistencia_subterranea
-  - rango/militante_resistencia
-  - especialidad/oficio/medico
-  - estado/disponible
-  - aspecto/veterano
-  - aspecto/manos_temblorosas
-  - rasgo/mirada_cansada
-  - rasgo/duda_teologica
-  - equipo/vestidura/delantal_manchado
-  - equipo/utilitario/botiquin
-  - equipo/medico/pocion_sanadora
+tags: []
 ---
 
-Cosme tuvo un puesto en la [[iglesia|Sanidad]] hasta que cosió la herida equivocada a la persona equivocada; ahora opera a la luz de un farol en [[tuberias|Las Tuberías]], donde nadie pregunta credenciales. Da cobijo a la [[resistencia_subterranea]] como [[militante_resistencia|militante]] y ejerce el [[especialidad-oficio-medico|oficio médico]] con [[delantal_manchado|delantal manchado]], un [[botiquin]] de instrumentos salvados y [[pocion_sanadora|viales]] turbios de procedencia dudosa. Sus [[manos_temblorosas]] delatan los años y algo más; su [[duda_teologica]] empezó el día que entendió qué eran de verdad las "posesiones".
+Cosme tuvo un puesto en la [[iglesia|Sanidad]] hasta que cosió la herida equivocada a la persona equivocada. Ahora opera a la luz de un farol, en [[tuberias|Las Tuberías]], donde nadie pregunta credenciales. Da cobijo a la [[resistencia_subterranea]] como [[militante_resistencia|militante]].
+
+Ejerce el [[especialidad-oficio-medico|oficio médico]] con el [[delantal_manchado|delantal manchado]], un [[botiquin]] de instrumentos salvados y [[pocion_sanadora|viales]] turbios de procedencia dudosa. [[veterano|Veterano]] de mil suturas, tiene las [[manos_temblorosas]] que delatan los años y algo más, y la [[mirada_cansada|mirada]] de quien vio demasiado a la luz del farol. Su [[duda_teologica]] empezó el día que entendió qué eran de verdad las "posesiones". Carne. Solo carne.

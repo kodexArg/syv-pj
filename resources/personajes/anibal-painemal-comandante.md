@@ -9,12 +9,20 @@ barrio: barrios-del-muro
 faccion: resistencia_subterranea
 rango: cabecilla
 especialidad: especialidad-combate-lider
+estado: disponible
+lealtad:
+  - "[[ejercito_rojo]]"
 atributos:
   cuerpo: 4
   mente: 4
   alma: 6
 edad: 58
 genero: m
+apariencia:
+  - corpulento
+  - canoso
+  - piel curtida
+  - mestizo
 aspectos:
   - "[[veterano]]"
   - "[[terco]]"
@@ -24,18 +32,9 @@ equipo:
   - "[[pistola_9mm]]"
   - "[[prismaticos]]"
   - "[[uniforme_rojo]]"
-tags:
-  - faccion/resistencia_subterranea
-  - rango/cabecilla
-  - especialidad/combate/lider
-  - estado/disponible
-  - aspecto/veterano
-  - aspecto/terco
-  - rasgo/cicatriz_perturbadora
-  - equipo/arma/pistola_9mm
-  - equipo/utilitario/prismaticos
-  - equipo/vestidura/uniforme_rojo
-  - lealtad/ejercito_rojo
+tags: []
 ---
 
-Le dicen "El Elefante" y todavía nadie en el frente lo discute: Aníbal Painemal es hijo de uno de los fundadores del Ejército del Sur en Bahía Blanca, y arrastra esa herencia como [[cabecilla]] de la [[resistencia_subterranea|resistencia]] que pelea bajo la bandera del Ejército Rojo. Ejerce el [[especialidad-combate-lider|mando]] desde los [[barrios-del-muro|Barrios del Muro]] con la calma de quien ya enterró demasiados camaradas, una vieja [[pistola_9mm]] al cinto y unos [[prismaticos]] gastados para leer las líneas de la Confederación. Su [[veterano|veteranía]] y su [[terco|terquedad]] son leyenda tanto como esa [[cicatriz_perturbadora|cicatriz]] que le cruza la cara, recuerdo del día que el régimen creyó haberlo matado. Lleva el [[uniforme_rojo]] como quien lleva un nombre: el del padre, el de la causa, el del Sur que no se rinde.
+Le dicen El Elefante y nadie en el frente lo discute. Aníbal Painemal es hijo de un fundador del Ejército del Sur, allá en Bahía Blanca. Arrastra esa herencia como [[cabecilla]] de la [[resistencia_subterranea|resistencia]], bajo la bandera del Ejército Rojo.
+
+Ejerce el [[especialidad-combate-lider|mando]] desde los [[barrios-del-muro|Barrios del Muro]] con la quietud del que ya enterró a demasiados camaradas: una [[pistola_9mm|nueve]] vieja al cinto, unos [[prismaticos]] de óptica rayada para leer las líneas de la Confederación. Su [[veterano|veteranía]] es leyenda. Su [[terco|terquedad]] también. Y la [[cicatriz_perturbadora|cicatriz]] que le parte la cara, recuerdo del día que el régimen lo dio por muerto y enterró el cuerpo equivocado. Lleva el [[uniforme_rojo]] como quien lleva un nombre. El del padre. El del Sur que no afloja.

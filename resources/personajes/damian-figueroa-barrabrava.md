@@ -9,24 +9,27 @@ barrio: barrios-del-muro
 faccion: resistencia_subterranea
 rango: simpatizante
 especialidad: null
+estado: disponible
+lealtad:
+  - "[[ejercito_rojo]]"
 atributos:
   cuerpo: 3
   mente: 2
   alma: 2
 edad: 35
 genero: m
+apariencia:
+  - corpulento
+  - barbado
+  - criollo
 aspectos:
   - "[[terco]]"
 rasgos: []
 equipo:
   - "[[trompeta]]"
-tags:
-  - faccion/resistencia_subterranea
-  - rango/simpatizante
-  - estado/disponible
-  - aspecto/terco
-  - equipo/utilitario/trompeta
-  - lealtad/ejercito_rojo
+tags: []
 ---
 
-El Gordo Figueroa es el pulmón de la columna: su voz de cancha retumba sobre el tiroteo y, cuando se queda sin garganta, levanta la [[trompeta]] y sopla hasta ponerse violeta para que el [[resistencia_subterranea|Ejército Rojo]] no pierda el ánimo contra la [[fuerzas_armadas|Confederación]]. No carga fierro ni tiene especialidad de combate — es [[simpatizante]] de a pie por [[barrios-del-muro|los barrios del muro]] —, pero su arenga vale por diez fusiles. [[terco]] como pocos, jura que mientras él tenga aire la bandera de Bahía Blanca no baja.
+El Gordo Figueroa es el pulmón de la columna. Su voz de cancha retumba por encima del tiroteo. Cuando se queda sin garganta, levanta la [[trompeta]] y sopla hasta ponerse violeta para que el [[resistencia_subterranea|Ejército Rojo]] no afloje contra la [[fuerzas_armadas|Confederación]].
+
+No carga fierro ni tiene especialidad de combate: es [[simpatizante]] de a pie por [[barrios-del-muro|los Barrios del Muro]]. Pero su arenga vale por diez fusiles, y eso lo sabe hasta el régimen. [[terco]] como pocos, jura que mientras él tenga aire la bandera de Bahía Blanca no baja. Mientras tenga aire.

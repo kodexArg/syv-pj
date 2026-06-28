@@ -39,6 +39,7 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 | `atributos.cuerpo` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7. En prosa: Físico. (← viejo `fis`.) |
 | `atributos.mente` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7. Puntería, reflejos, lectura táctica. (← viejo `tac`.) |
 | `atributos.alma` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7. Aura, liderazgo, voluntad, temple. En prosa: Espíritu. (← viejo `men`.) |
+| `apariencia` | `list<str>` | mutable (sin hito) | Descriptores visuales libres, sparse, agnósticos al generador de imágenes. Persistido; NO entra al índice invertido de tags. Ver [[hoja-personaje#§2.5 — Apariencia]] y `docs/apariencia.md`. **Pendiente de exponer en `API.md` + contrato Pydantic (downstream).** |
 | `tags[]` | `list<str>` (no multiconjunto) | vía hito `agregar_tag` / `quitar_tag` | Notación punto `<categoria>[.<subcategoria>].<slug>`. NO admite repetidos: ante un repetido gana el último valor. Incluye los vínculos relacionales `lealtad/*` / `aliado/*` / `nemesis/*` (ver §1.2). |
 | `historia` | `str` | inmutable tras canonizar | 120–200 palabras. Congelada al canonizar. |
 | `historial[]` | `list<hito>` (embebida) | de solo añadir vía `POST /evento` | Ver §1.1. |

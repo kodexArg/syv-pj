@@ -1,20 +1,23 @@
 ---
-title: MOC — Personajes de ejemplo
-folder: resources/personajes
-description: Índice de los 34 personajes canónicos de ejemplo, agrupados por facción. Sirven como referencia para el motor y como guías para el LLM.
-tags:
-  - entidad/guia
-aliases:
-  - MOC Personajes
-  - Catálogo de personajes
+slug: _moc-personajes
+nombre: Personajes de ejemplo
+description: Catálogo de los personajes canónicos de ejemplo, agrupados por facción. Referencia para el motor generador y guía de estilo/contenido para el LLM.
+tipo: moc
 ---
 
 # Personajes de ejemplo — catálogo
 
 Estos son los personajes canónicos de ejemplo del universo *Subordinación y Valor*. Cada uno es una instancia real de la [[hoja-de-personaje|hoja de personaje]] y funciona como referencia concreta para el motor generador y como guía de estilo/contenido para el LLM.
 
-## Fuerzas Armadas
+Las secciones se agrupan por el átomo de `faccion` que carga cada ficha: el título de cada `##` lleva ese valor canónico entre código, de modo que el índice sea verificable 1:1 contra el dato.
 
+> [!important] Convención de autoría — campos dedicados, no el espejo de tags planos
+> Estas fichas son la **proyección Obsidian** de la hoja: cada dimensión controlada vive en **su propio campo** (`faccion`, `rango`, `especialidad`, `estado`, `lealtad`, `aspectos`, `rasgos`, `equipo`, `apariencia`) y las relaciones son **wikilinks** —conforme a `.claude/rules/tags-taxonomy.md` y `.claude/rules/wikilinks-relations.md`—. **No** se duplica la serialización plana `tags/<categoria>/<slug>` del motor: ese espejo redundante era un anti-patrón (dos fuentes de verdad en un archivo a mano) y fue retirado; `tags` queda como **vivero** (`[]`). El motor (`syv-pj-api`) conserva su forma canónica de `tags[]` planos intacta: es su formato de cable/persistencia, separado de cómo se autora una ficha-ejemplo.
+> Todo nuevo campo visual va en `apariencia` (sparse, agnóstico al generador) — ver [[apariencia|docs/apariencia.md]].
+
+## Fuerzas Armadas · `fuerzas_armadas`
+
+- [[dario-sandoval-interrogador|Darío Sandoval]]
 - [[elian-quiroga-fusilero|Elián Quiroga]]
 - [[facundo-rios-tirador|Facundo Ríos]]
 - [[gaston-brizuela-zapador|Gastón Brizuela]]
@@ -25,9 +28,8 @@ Estos son los personajes canónicos de ejemplo del universo *Subordinación y Va
 - [[ovidio-gauna-sargento|Ovidio Gauna]]
 - [[ruben-ferreyra-cabo|Rubén Ferreyra]]
 - [[tomas-aguirre-recluta|Tomás Aguirre]]
-- [[dario-sandoval-interrogador|Darío Sandoval]]
 
-## Resistencia Subterránea
+## Resistencia Subterránea · `resistencia_subterranea`
 
 - [[anibal-painemal-comandante|Aníbal Painemal]]
 - [[brian-curinanco-pandillero|Brian Curiñanco]]
@@ -45,16 +47,28 @@ Estos son los personajes canónicos de ejemplo del universo *Subordinación y Va
 - [[walter-cabrera-barrabrava|Walter Cabrera]]
 - [[yair-conuecar-pandillero|Yair Coñuecar]]
 
-## Iglesia / Inquisición
+## Iglesia / Inquisición · `iglesia`
 
 - [[baltasar-quevedo-inquisidor|Baltasar Quevedo]]
 - [[cipriano-roldan-inquisidor|Cipriano Roldán]]
 - [[eulogio-sarmiento-capellan|Eulogio Sarmiento]]
 
-## Facciones menores y autónomas
+## Shipibo-Conibo · `shipibo_conibo`
 
-- [[iracema-chaman-pantano|Iracema]] — `faccion/shipibo_conibo`
-- [[luisa-pescadora|Luisa]] — `faccion/gremio_de_pescadores`
-- [[ramon-sosa-puntero|Ramón Sosa]] — `faccion/punteros`
-- [[severo-tratante-de-almas|Severo]] — `faccion/traficantes_de_almas`
-- [[yara-sacerdotisa-orixa|Yara]] — `faccion/los_umbanda`
+- [[iracema-chaman-pantano|Iracema]]
+
+## Gremio de Pescadores · `gremio_de_pescadores`
+
+- [[luisa-pescadora|Luisa]]
+
+## Punteros · `punteros`
+
+- [[ramon-sosa-puntero|Ramón Sosa]]
+
+## Traficantes de Almas · `traficantes_de_almas`
+
+- [[severo-tratante-de-almas|Severo]]
+
+## Los Umbanda · `los_umbanda`
+
+- [[yara-sacerdotisa-orixa|Yara]]

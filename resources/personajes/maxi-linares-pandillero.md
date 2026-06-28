@@ -9,12 +9,19 @@ barrio: barrios-del-muro
 faccion: resistencia_subterranea
 rango: militante_resistencia
 especialidad: especialidad-combate-asalto
+estado: disponible
+lealtad:
+  - "[[ejercito_rojo]]"
 atributos:
   cuerpo: 3
   mente: 2
   alma: 4
 edad: 18
 genero: m
+apariencia:
+  - joven
+  - enjuto
+  - morocho
 aspectos:
   - "[[terco]]"
 rasgos:
@@ -22,16 +29,9 @@ rasgos:
 equipo:
   - "[[pistola_9mm]]"
   - "[[chaleco]]"
-tags:
-  - faccion/resistencia_subterranea
-  - rango/militante_resistencia
-  - especialidad/combate/asalto
-  - estado/disponible
-  - aspecto/terco
-  - rasgo/cicatriz_perturbadora
-  - equipo/arma/pistola_9mm
-  - equipo/vestidura/chaleco
-  - lealtad/ejercito_rojo
+tags: []
 ---
 
-Maxi grita lo que Brian se calla: su odio a la [[fuerzas_armadas|Confederación]] sale a los empujones, ruidoso y sin freno, y más de una vez lo metió en quilombos que solo el [[resistencia_subterranea|Ejército Rojo]] le sacó de encima. Va de [[militante_resistencia|militante]] al frente como [[especialidad-combate-asalto|asaltante]], con la [[pistola_9mm|nueve milímetros]] que consiguió de prepo y un [[chaleco]] que le queda grande. Es [[terco]] hasta lo suicida y carga una [[cicatriz_perturbadora|cicatriz que incomoda]] a quien lo mira de cerca, recuerdo de una redada en [[barrios-del-muro|el muro]] de la que solo él y sus dos amigos volvieron caminando.
+Maxi grita lo que [[brian-curinanco-pandillero|Brian]] se calla. Lo que le tiene a la [[fuerzas_armadas|Confederación]] le sale a los empujones, ruidoso y sin freno, y más de una vez lo metió en quilombos que solo el [[resistencia_subterranea|Ejército Rojo]] le sacó de encima.
+
+Va de [[militante_resistencia|militante]] al frente como [[especialidad-combate-asalto|asaltante]], con la [[pistola_9mm|nueve milímetros]] que consiguió de prepo y un [[chaleco]] que le sobra de los hombros. Es [[terco]] hasta lo suicida. Carga una [[cicatriz_perturbadora|cicatriz que incomoda]] a quien lo mira de cerca, recuerdo de una redada en [[barrios-del-muro|el Muro]] de la que solo él y sus dos amigos volvieron caminando. Tres entraron. Tres salieron.

@@ -9,12 +9,18 @@ barrio: tuberias
 faccion: shipibo_conibo
 rango: meraya
 especialidad: especialidad-paranormal-curandero
+estado: disponible
+lealtad: []
 atributos:
   cuerpo: 3
   mente: 3
   alma: 7
 edad: 47
 genero: f
+apariencia:
+  - rasgos shipibo-conibo
+  - piel cobriza
+  - cabello negro largo
 aspectos:
   - "[[expresion_trance]]"
   - "[[tatuaje_linaje_guarani]]"
@@ -25,18 +31,9 @@ equipo:
   - "[[atado_de_hierbas]]"
   - "[[pintura_facial]]"
   - "[[talisman_guarani]]"
-tags:
-  - faccion/shipibo_conibo
-  - rango/meraya
-  - especialidad/paranormal/curandero
-  - estado/disponible
-  - aspecto/expresion_trance
-  - aspecto/tatuaje_linaje_guarani
-  - rasgo/afinidad_animal
-  - rasgo/trance_psiquico
-  - equipo/utilitario/atado_de_hierbas
-  - equipo/utilitario/pintura_facial
-  - equipo/ritual/talisman_guarani
+tags: []
 ---
 
-Iracema baja del pantano al mercado de la Antigua Estación en [[tuberias|Las Tuberías]] cargando [[atado_de_hierbas|hierbas]] que no crecen en la ciudad y la [[pintura_facial]] de su pueblo intacta. Es [[shipibo_conibo|shipibo-conibo]] de rango [[meraya]], [[especialidad-paranormal-curandero|curandera paranormal]] que sana con cantos icaros y [[trance_psiquico|visión de planta]]. Lleva el [[tatuaje_linaje_guarani|tatuaje de su linaje]] en la cara y un [[talisman_guarani]] al cuello; su [[afinidad_animal]] con la yarará la hace temida. La [[iglesia]] la tolera mientras cura a quien ella no quiere o no puede, pero la vigila como a una hereje.
+El pantano le quedó en la ropa. Iracema es [[shipibo_conibo|shipibo-conibo]], rango [[meraya]]. Baja al mercado de la Antigua Estación, en [[tuberias|Las Tuberías]], con el [[atado_de_hierbas|atado de hierbas]] que no prende en cemento.
+
+Sana con cantos icaros y [[trance_psiquico|visión de planta]], oficio de [[especialidad-paranormal-curandero|curandera paranormal]] que la [[iglesia|Iglesia]] no sabe nombrar sin persignarse. Recompone lo que la posesión dejó en cortocircuito. Lleva la [[pintura_facial]] sobre el [[tatuaje_linaje_guarani|tatuaje de su linaje]] y el [[talisman_guarani]] frío contra el esternón. Su [[afinidad_animal]] con la yarará entra a cada rancho antes que ella. La tolera quien la precisa. La vigilan todos. Hereje útil.

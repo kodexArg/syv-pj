@@ -9,26 +9,27 @@ barrio: barrios-del-muro
 faccion: fuerzas_armadas
 rango: recluta
 especialidad: especialidad-combate-fusilero
+estado: disponible
+lealtad:
+  - "[[confederacion]]"
 atributos:
   cuerpo: 3
   mente: 2
   alma: 2
 edad: 18
 genero: m
+apariencia:
+  - joven
+  - lampino
+  - enjuto
 aspectos: []
 equipo:
   - "[[fusil_recluta]]"
   - "[[uniforme_linea]]"
   - "[[cargador]]"
-tags:
-  - faccion/fuerzas_armadas
-  - rango/recluta
-  - especialidad/combate/fusilero
-  - estado/disponible
-  - equipo/arma/fusil_recluta
-  - equipo/vestidura/uniforme_linea
-  - equipo/utilitario/cargador
-  - lealtad/confederacion
+tags: []
 ---
 
-Tomás todavía no sabe disparar con los ojos abiertos: es el [[recluta]] de la escuadra, el [[especialidad-combate-fusilero|fusilero]] verde al que le tiembla el [[fusil_recluta|fusil]] entre las manos. Lo metieron en las [[fuerzas_armadas]] de la [[barrios-del-muro|Ciudad]] con un [[uniforme_linea|uniforme]] que le queda grande y un [[cargador]] que reza por no usar. En su primera salida contra la [[resistencia_subterranea|resistencia]], reza más que apunta.
+Tomás todavía no aprende a disparar con los ojos abiertos. Es el [[recluta]] de la escuadra, el [[especialidad-combate-fusilero|fusilero]] verde al que le baila el [[fusil_recluta|fusil]] entre las manos. Dieciocho años y un casco que le queda grande.
+
+Lo metieron en las [[fuerzas_armadas]] de la [[barrios-del-muro|Ciudad]] con un [[uniforme_linea|uniforme]] heredado y un [[cargador]] que ruega no usar. En su primera salida contra la [[resistencia_subterranea|resistencia]], reza más que apunta. Reza.

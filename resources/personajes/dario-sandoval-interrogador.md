@@ -9,26 +9,27 @@ barrio: barrios-del-muro
 faccion: fuerzas_armadas
 rango: cabo
 especialidad: especialidad-investigacion-interrogador
+estado: disponible
+lealtad:
+  - "[[confederacion]]"
 atributos:
   cuerpo: 3
   mente: 3
   alma: 4
 edad: 36
 genero: m
+apariencia:
+  - criollo
+  - pelo corto
+  - mirada fria
 aspectos: []
 equipo:
   - "[[pistola_9mm]]"
   - "[[uniforme_linea]]"
   - "[[chaleco_asalto]]"
-tags:
-  - faccion/fuerzas_armadas
-  - rango/cabo
-  - especialidad/investigacion/interrogador
-  - estado/disponible
-  - equipo/arma/pistola_9mm
-  - equipo/vestidura/uniforme_linea
-  - equipo/vestidura/chaleco_asalto
-  - lealtad/confederacion
+tags: []
 ---
 
-Darío trabaja con la voz antes que con las manos: es el [[especialidad-investigacion-interrogador|interrogador]] de la escuadra, el [[cabo]] que sienta a un prisionero y espera a que la verdad ceda sola. Sirve a las [[fuerzas_armadas]] de la [[barrios-del-muro|Ciudad]] sin más arma encima que la [[pistola_9mm|pistola]], porque su oficio rara vez la necesita. Sobre el [[chaleco_asalto|chaleco]] y el [[uniforme_linea|uniforme]], lo que asusta a los detenidos de la [[resistencia_subterranea|resistencia]] es la calma con que pregunta.
+Darío trabaja con la voz. Las manos vienen después, si vienen. Es el [[especialidad-investigacion-interrogador|interrogador]] de la escuadra, el [[cabo]] que sienta a un detenido y espera a que la verdad ceda sola.
+
+Sirve a las [[fuerzas_armadas]] en la [[barrios-del-muro|Ciudad]] con la [[pistola_9mm|pistola]] al cinto y rara vez la toca; su oficio es otro. Sobre el [[uniforme_linea|uniforme]] y el [[chaleco_asalto|chaleco]] no carga nada que muerda. Lo que enfría a los presos de la [[resistencia_subterranea|resistencia]] es la calma con que pregunta, la liturgia del que ya sabe la respuesta y deja que el otro la confiese. Pregunta de nuevo. Confiesan.

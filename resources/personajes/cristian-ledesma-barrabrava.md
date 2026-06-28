@@ -9,26 +9,27 @@ barrio: barrios-del-muro
 faccion: resistencia_subterranea
 rango: simpatizante
 especialidad: null
+estado: disponible
+lealtad:
+  - "[[ejercito_rojo]]"
 atributos:
   cuerpo: 3
   mente: 2
   alma: 2
 edad: 24
 genero: m
+apariencia:
+  - enjuto
+  - morocho
 aspectos:
   - "[[vanguardia]]"
 rasgos: []
 equipo:
   - "[[redoblante]]"
   - "[[bandera]]"
-tags:
-  - faccion/resistencia_subterranea
-  - rango/simpatizante
-  - estado/disponible
-  - aspecto/vanguardia
-  - equipo/utilitario/redoblante
-  - equipo/utilitario/bandera
-  - lealtad/ejercito_rojo
+tags: []
 ---
 
-La Rana va siempre adelante, donde más quema, repicando el [[redoblante]] con una mano y agitando la [[bandera]] roja con la otra como si el trapo solo fuera escudo suficiente contra la [[fuerzas_armadas|Confederación]]. No carga un mísero cuchillo, pero es [[vanguardia|punta de lanza]] pura: marca el avance del [[resistencia_subterranea|Ejército Rojo]] por [[barrios-del-muro|los barrios del muro]] y los pibes lo siguen porque ver la bandera arriba les saca el miedo de las patas. Como [[simpatizante]] no jura más lealtad que la de Bahía Blanca, y con eso le alcanza.
+La Rana va siempre adelante, donde más quema. Repica el [[redoblante]] con una mano y agita la [[bandera]] roja con la otra, como si el trapo fuera escudo suficiente contra la [[fuerzas_armadas|Confederación]].
+
+No carga ni un mísero cuchillo. Pero es [[vanguardia|punta de lanza]] pura: marca el avance del [[resistencia_subterranea|Ejército Rojo]] por [[barrios-del-muro|los Barrios del Muro]], y los pibes lo siguen porque ver la bandera arriba les saca el frío de las piernas. Como [[simpatizante]] no jura más lealtad que la de Bahía Blanca. Y le alcanza.
