@@ -1,34 +1,35 @@
 ---
 slug: valentina-roca-camarada
-nombre: Valentina Roca
 aliases:
-  - Valentina Roca
-  - La Camarada
+- Valentina Roca
+- La Camarada
 description: Camarada del Ejército Rojo especializada en infiltración y lenguas, cobertura urbana en Ciudad Dársena junto a Ezequiel.
-barrio: barrios-del-muro
-faccion: resistencia_subterranea
-rango: cabecilla
-especialidad: especialidad-investigacion-espia
-estado: disponible
-lealtad:
-  - "[[ejercito_rojo]]"
+identidad:
+  slug: valentina-roca-camarada
+  nombre: Valentina Roca
+  sobrenombre: null
+  rol: Cabecilla
+  especialidad: Espía
+  genero: f
+  edad: 34
 atributos:
   cuerpo: 3
   mente: 4
   alma: 6
-edad: 34
-genero: f
+tags:
+- faccion/resistencia_subterranea
+- rango/cabecilla
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/instinto
+- rasgo/mirada_cansada
+- equipo/utilitario/radio
+- equipo/vestidura/galera
+- lealtad/ejercito_rojo
 apariencia:
-  - criolla
-  - cabello oscuro recogido
-aspectos:
-  - "[[instinto]]"
-rasgos:
-  - "[[mirada_cansada]]"
-equipo:
-  - "[[radio]]"
-  - "[[galera]]"
-tags: []
+  rostro: cabello oscuro recogido
+  figura: 'PENDIENTE: redactar (regla §2.5)'
+  presencia: criolla
 ---
 
 Valentina Roca es la otra mitad de la cobertura. Una [[cabecilla|camarada]] del Ejército Rojo que se desliza por Ciudad Dársena hablando la lengua que haga falta, sin que un solo músculo la traicione.

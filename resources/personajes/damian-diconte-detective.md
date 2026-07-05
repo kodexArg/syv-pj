@@ -1,35 +1,35 @@
 ---
 slug: damian-diconte-detective
-nombre: Damián DiConte
 aliases:
-  - Damián DiConte
-  - El Sabueso
+- Damián DiConte
+- El Sabueso
 description: Detective veterano cordobés exiliado en Dársena, mente deductiva brillante y memoria pésima para los nombres propios; investiga casos sensibles para la Iglesia.
-barrio: darsena
-faccion: independiente          # resuelve a resources/facciones/independiente.md
-rango: detective_privado         # resuelve a resources/rangos/independiente.md
-especialidad: null
-estado: disponible
-lealtad: []
+identidad:
+  slug: damian-diconte-detective
+  nombre: Damián DiConte
+  sobrenombre: null
+  rol: null
+  especialidad: null
+  genero: m
+  edad: 58
 atributos:
   cuerpo: 3
   mente: 7
   alma: 3
-edad: 58
-genero: m
+tags:
+- faccion/independiente
+- rango/detective_privado
+- estado/disponible
+- ubicacion/darsena
+- aspecto/veterano
+- aspecto/ojo_de_aguila
+- rasgo/mirada_cansada
+- equipo/chaqueta_de_cuero
+- equipo/vestidura/galera
 apariencia:
-  - muy alto
-  - obeso
-  - rostro flácido y demacrado
-aspectos:
-  - "[[veterano]]"
-  - "[[ojo_de_aguila]]"
-rasgos:
-  - "[[mirada_cansada]]"
-equipo:
-  - "[[chaqueta_de_cuero]]"
-  - "[[galera]]"
-tags: []
+  rostro: rostro flácido y demacrado
+  figura: muy alto, obeso
+  presencia: 'PENDIENTE: redactar (regla §2.5)'
 ---
 
 [[damian-diconte|Damián DiConte]], "El Sabueso". Exiliado de Córdoba, instalado años después en una oficina del Ministerio de Defensa/Seguridad de Dársena al servicio de la Iglesia. Mente deductiva brillante, memoria pésima para los nombres propios: reverso exacto de Pedro de los Santos.

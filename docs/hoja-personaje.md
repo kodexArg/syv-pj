@@ -16,7 +16,7 @@ aliases:
 >
 > **Documentos hermanos**:
 > - [[sistema-tags|sistema-tags.md]] — la lista plana `tags[]`: notación, categorías, catálogo y curaduría.
-> - [[atributos-y-habilidades|atributos-y-habilidades.md]] — escalas de `cuerpo/mente/alma`, estadísticas derivadas y vocabulario canónico de efectos.
+> - [[atributos|atributos.md]] — escalas de `cuerpo/mente/alma`, estadísticas derivadas y vocabulario canónico de efectos.
 > - [[apariencia|apariencia.md]] — el campo `apariencia`: descriptores visuales libres, sparse y agnósticos al generador de imágenes.
 > - [[contratos|contratos.md]] — aspectos, habilidades y efectos como contratos.
 > - [[historial|historial.md]] — el registro `historial[]`: campos del hito, catálogo de tipos, `actores[]` y la regla de solo-añadir.
@@ -35,16 +35,19 @@ Seis bloques estructurales y una lista plana de tags:
 
 ```yaml
 personaje:
-  identidad:    { slug, nombre, sobrenombre, especialidad, genero, edad }
+  identidad:    { slug, nombre, sobrenombre, rol, especialidad, genero, edad }
   atributos:    { cuerpo, mente, alma }   # únicas magnitudes numéricas persistidas
-  apariencia:   [...]               # descriptores visuales libres, sparse (ver §2.5 y apariencia.md)
   tags:         [...]               # lista plana, notación punto, NO multiconjunto (último valor gana)
                                     # incluye los vínculos personales: aliado/* / nemesis/*
   historia:     str                 # prosa biográfica, congelada al canonizar
   historial:    [...]               # hitos temporales (registro de eventos, de solo añadir)
   metadatos:    { creado_en, canonizado_en, ultima_actualizacion }
   extras:       object | null       # válvula de escape para clientes
+  apariencia:   { rostro, figura, presencia }   # tres párrafos descriptivos, al cierre (ver §2.5)
 ```
+
+> [!note] `apariencia` cierra la hoja, no es un bloque más en el medio
+> El bloque `apariencia` figura al **final** de la tabla deliberadamente: es el destilado visual de todo lo anterior (identidad, atributos, tags) y no se puede escribir bien sin conocerlos primero. Ver el porqué en §2.5 y en [[apariencia#§6 — Forma, largo y mutabilidad|apariencia.md §6]].
 
 > [!tip] Regla rectora — lo discreto es etiqueta
 > Todo lo que es **discreto** y no es identidad, atributo, prosa o auditoría → ==es etiqueta==. Sin excepciones: incluso los vínculos personales (aliados, némesis) son etiquetas.
@@ -61,6 +64,9 @@ personaje:
 ## §1 — Identidad
 
 Quién es el personaje, fuera de su contexto operativo. La capa operativa (rango, mando, equipo, lealtades) vive en `tags[]`, no acá.
+
+> [!example] `rol` y `especialidad` conviven — ejemplo
+> **Florencia Bustos** tiene `rol: "Cabo Primero"` (su lugar en la cadena de mando, lectura humana del tag `rango/cabo_primero`) y `especialidad: "Apuntadora"` (lo que hace en combate). Son dos etiquetas humanas distintas de la misma persona: una responde "¿qué jerarquía tiene?", la otra "¿qué función cumple?". Ninguna reemplaza a la otra ni al tag operativo que las respalda.
 
 ### 1.1. `slug` — la patente del personaje
 
@@ -94,10 +100,18 @@ sobrenombre:
   derivacion: Derivable al servir desde nombre + tags de rango y de mando.
   nota:       null cuando no hay distinción con el nombre real.
 
+rol:
+  tipo:       string | null
+  default:    null
+  proposito:  Jerarquía legible — cómo se nombra al personaje por su lugar en la cadena de mando. Lectura humana del tag `rango/*`.
+  ejemplos:   ["Cabo Primero", "Teniente", "Comandante de Escuadra"]
+  mutacion:   Hito `ascenso` / `cambio_rango`.
+  aclaracion: NO confundir con el viejo campo `rol` (legado), que en realidad nombraba la especialidad. Ese significado migró a `especialidad`.
+
 especialidad:
   tipo:       string | null
   default:    null
-  proposito:  Especialidad táctica narrativa (lo que el personaje *hace*). La vocación de pertenencia la da el `rango`.
+  proposito:  Especialidad táctica narrativa (lo que el personaje *hace*). La vocación de pertenencia la da el `rol`.
   ejemplos:   ["Fusilero", "Inquisidor", "Médico de campaña"]
   aclaracion: Se materializa además como tag especialidad/* en tags[] (la capa operativa).
 
@@ -125,28 +139,60 @@ alma:    { significado: "Aura, liderazgo, voluntad, temple ante el miedo. En pro
 
 > [!tip] Determinísticos en creación, mutables solo vía hito
 > En creación los atributos son **determinísticos por rango** desde tablas de configuración (cero azar en estadísticas). Después solo cambian vía hito (`triple_cero` o `mejora_atributo`).
-> Toda otra capacidad numérica (fatiga máxima, moral máxima, fuerza aportada, mando vigente) es **derivada en caliente con fórmulas fijas y no se persiste**, para evitar desincronización. Topes, fórmulas y el vocabulario canónico de estadísticas viven en [[atributos-y-habilidades|atributos-y-habilidades.md]].
+> Toda otra capacidad numérica (fatiga máxima, moral máxima, fuerza aportada, mando vigente) es **derivada en caliente con fórmulas fijas y no se persiste**, para evitar desincronización. Topes, fórmulas y el vocabulario canónico de estadísticas viven en [[atributos|atributos.md]].
 
 > [!info] Azar portable
-> Las magnitudes se expresan en formato portable, agnóstico al sistema de resolución: probabilidades en **porcentaje** (`40% de fallar`), modificadores sobre atributos/estadísticas como **delta entero** (`(+1) ALMA`), modificadores sobre magnitudes continuas en **porcentaje** (`-100% MOVIMIENTO`). Detalle en [[atributos-y-habilidades|atributos-y-habilidades.md]] y la política editorial en [[AGENTS|AGENTS.md]].
+> Las magnitudes se expresan en formato portable, agnóstico al sistema de resolución: probabilidades en **porcentaje** (`40% de fallar`), modificadores sobre atributos/estadísticas como **delta entero** (`(+1) ALMA`), modificadores sobre magnitudes continuas en **porcentaje** (`-100% MOVIMIENTO`). Detalle en [[atributos|atributos.md]] y la política editorial en [[AGENTS|AGENTS.md]].
 
 ---
 
-## §2.5 — Apariencia
+## §2.5 — Apariencia: tres párrafos descriptivos
 
-Cómo **luce** el personaje: una **lista de descriptores visuales libres** (frases cortas de dominio), **agnóstica al generador de imágenes**. No es prosa ni un prompt: es un contrato visual portable que cualquier proyección (ComfyUI, Flux, una ilustración, un avatar) consume sin reinventarlo.
+Cómo **luce** el personaje: **tres párrafos de prosa descriptiva agnóstica** —`rostro`, `figura`, `presencia`— sobre ejes fijos. No es un prompt, no es una lista de átomos, no es sintaxis de generador: es un contrato visual portable que cualquier proyección (ComfyUI, Flux, una ilustración, un avatar) consume sin reinventarlo.
 
 ```yaml
-tipo:    list[str]                # frases de dominio; default [] o ausente
-default: []
-persist: persistido — mutable sin hito (bajo peso narrativo, como edad)
+apariencia:
+  rostro:    str | null   # zoom a la cara
+  figura:    str | null   # cuerpo entero, porte, cómo lleva lo que viste
+  presencia: str | null   # cómo ocupa el espacio, la luz, la impresión que deja
+default:     null          # los tres ausentes ⇒ todo librado al render
+largo:       40-80 palabras por párrafo (sugerido, no duro)
+persist:     persistido — mutable sin hito (bajo peso narrativo, como edad)
 ```
 
+> [!important] Regla rectora — cómo se ve, no cuánto ni qué
+> Cada párrafo responde **"¿cómo se ve el personaje?"**, nunca cuánto (eso lo dicen los atributos) ni qué lleva (eso lo dicen los tags). Anti-redundancia de tres caras: **integers dicen cuánto · tags dicen qué · párrafos dicen cómo se ve**. Un párrafo con un número (`fuerza 6`) o el nombre de una prenda/arma (`pistola 9mm`) está invadiendo el territorio de otro bloque.
+
+> [!tip] Los tres ejes, fijos
+> - `rostro` — la cara en primer plano: facciones, mirada, piel, pelo, gesto habitual.
+> - `figura` — cuerpo entero y porte: cómo se para, cómo **lleva** lo que viste (nunca **qué** viste).
+> - `presencia` — la impresión que deja: luz, aire, cómo cambia una habitación cuando entra.
+>
+> Los tres ejes no se agregan ni se quitan: son el contrato. Detalle, ejemplos por eje y la tabla completa de anti-redundancia viven en [[apariencia|apariencia.md]].
+
 > [!tip] Sparse por diseño — lo no dicho queda librado al azar
-> Se declara **solo lo que el canon quiere fijar** (`ojos azul intenso`, `rubio dorado`, `piel trigueña`, `mestizo`); todo lo omitido es **libertad** para el render. La ausencia de un descriptor no es un dato faltante: es el azar portable del kit aplicado al eje visual.
+> Se escribe **solo lo que el canon quiere fijar**; un párrafo puede ser rico y otro escueto, o los tres pueden faltar (`apariencia: null`). La ausencia no es un dato faltante: es el azar portable del kit aplicado al eje visual.
 
 > [!important] Complementa, no duplica
-> Cubre el **residuo visual sin hogar** (ojos, cabello, piel, raza/etnia, rostro, contextura). NO re-codifica lo que ya tiene lugar: cicatrices → `rasgos`, prendas → `equipo`, porte/expresión habitual → `aspectos`, corpulencia base → atributo `cuerpo`. La proyección visual lee **todo el conjunto** junto. La frontera (hecho visual vs directiva de render), el vocabulario y el fork frase-vs-átomo viven en [[apariencia|apariencia.md]].
+> No re-codifica lo que ya tiene hogar: cicatrices con contrato → `rasgos`, prendas y armas → `equipo`, porte/expresión con efecto de juego → `aspectos`, corpulencia base → atributo `cuerpo`. La proyección visual lee **todo el conjunto** junto (párrafos + tags + atributos). La frontera del agnosticismo (hecho visual vs directiva de render) vive en [[apariencia|apariencia.md]].
+
+---
+
+## §2.6 — La hoja tiene en mente el retrato (sin parametrizarlo)
+
+El retrato de un personaje se piensa en **tres niveles**, pero la hoja **solo aporta inputs del nivel 2** — nunca parametriza el retrato en sí (sin sliders, sin `lora_slug`/`strength`, sin `prompt_generado`: eso queda fuera de la hoja, como ya rechazado en otras vueltas del esquema).
+
+```yaml
+N1 — escena común:    fuera de la hoja. Encuadre/cámara/composición uniforme a todos los retratos.
+N2 — el personaje:    inputs que sí vienen de la hoja:
+  2.a presentación:   identidad + atributos + tags → quién es, leído como base del retrato.
+  2.b LoRAs por referencia externa: fuera del alcance de esta hoja (curaduría de assets, no dato de personaje).
+  2.c vestimenta y espíritu: equipo (tags) + apariencia.{rostro, figura, presencia} → encuadre bust-up 3/4.
+N3 — cierre común:    fuera de la hoja. Fondo oscuro + spot + triggers técnicos, uniforme a todos.
+```
+
+> [!note] Por qué se documenta sin parametrizar
+> N1 y N3 son comunes a todo el roster; parametrizarlos en la hoja rompería esa uniformidad y metería sintaxis de generador donde no corresponde (ver [[apariencia#§5 — La frontera del agnosticismo|apariencia.md §5]]). La hoja describe **qué personaje es**, no **cómo se renderiza**: eso es trabajo del armador de prompt, aguas abajo.
 
 ---
 
@@ -174,7 +220,7 @@ moral_max:    { fuente: "alma",                       tipo: int }
 fza_aportada: { fuente: "tags especialidad/combate/*",         valores: "{heroe: 3, lider: 2, default: 1}" }
 ```
 
-Las fórmulas canónicas y sus escalas viven en [[atributos-y-habilidades|atributos-y-habilidades.md]]. Cambios post-creación en `tags[]` se registran como hito `agregar_tag` / `quitar_tag` con metadatos `{tag}`.
+Las fórmulas canónicas y sus escalas viven en [[atributos|atributos.md]]. Cambios post-creación en `tags[]` se registran como hito `agregar_tag` / `quitar_tag` con metadatos `{tag}`.
 
 ### 3.2. Etiquetas relacionales
 
@@ -284,11 +330,14 @@ Qué cambia, y cómo:
 | `atributos.{cuerpo, mente, alma}` | vía hito | `triple_cero` / `mejora_atributo` |
 | `tags[]` | vía hito | `agregar_tag` / `quitar_tag` (metadata `{tag}`) |
 | `tags[]` vínculos (`aliado/*`, `nemesis/*`) | vía hito | `formacion_lealtad` / `identificacion_nemesis` / `ruptura_lealtad` |
+| `identidad.rol` | vía hito | `ascenso` / `cambio_rango` |
 | `identidad.especialidad` | vía hito | `ascenso` / `cambio_especialidad` |
 | `historial[]` | vía hito | de solo añadir (`POST /evento`) |
 | `metadatos.ultima_actualizacion` | automático | en cada hito |
 | `identidad.edad` | sin hito | decisión narrativa explícita |
-| `apariencia` | sin hito | decisión narrativa explícita (bajo peso, como `edad`) |
+| `apariencia.rostro` | sin hito | decisión narrativa explícita (bajo peso, como `edad`) |
+| `apariencia.figura` | sin hito | decisión narrativa explícita (bajo peso, como `edad`) |
+| `apariencia.presencia` | sin hito | decisión narrativa explícita (bajo peso, como `edad`) |
 | `identidad.sobrenombre` | sin hito | derivado al servir |
 | `extras` | sin hito | libre, escritura del cliente |
 | `identidad.slug` | inmutable | fijado una vez al canonizar |
@@ -302,3 +351,17 @@ Qué cambia, y cómo:
 
 > [!tip] Cómo leer la matriz
 > **Vía hito**: el cambio deja rastro en `historial[]` — la línea de tiempo del personaje lo registra. **Sin hito**: cambio de bajo peso narrativo, no necesita evento. **Inmutable**: fijado al canonizar; cambiarlo sería otro personaje. **Derivado**: nunca se escribe; se calcula. La frontera entre vía-hito y sin-hito es la pregunta "¿esto es parte de la historia del personaje?"
+
+---
+
+## §9 — Regla de refactor de esquema
+
+Todo cambio de **forma** de una entidad (campo agregado o renombrado, migración lista→objeto como la de `apariencia`, o cualquier otro refactor estructural) se aplica al roster existente con:
+
+1. Un **script Python determinista e idempotente** que transforma cada ficha existente a la nueva forma. Determinista: misma entrada, misma salida, siempre. Idempotente: correrlo dos veces no rompe nada.
+2. Un **test de cobertura total** que verifica que **todos** los personajes del roster migran sin pérdida de dato.
+
+> [!important] El test verde es condición de merge
+> No se mergea un refactor de esquema sin su test en verde. La migración de datos existentes nunca es "a mano" ni "después se ve": es parte del mismo cambio, verificada antes de cerrar el PR.
+
+Esta regla es la que dejó pendiente, deliberadamente, la migración de los 34+ mocks de `resources/personajes/` a la forma de tres párrafos de `apariencia`: el cierre de esquema documentado acá no ejecuta esa migración — la habilita, bajo esta regla, como trabajo downstream.

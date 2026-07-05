@@ -60,7 +60,7 @@ De ahí se sigue lo central: **aspecto, habilidad y efecto son mecánicamente la
 
 El contrato es una **entidad** de relación **varios-a-varios** con los personajes — es decir, en la práctica, **sin relación**. Cualquier contrato puede posarse sobre cualquier personaje; no hay tabla de pertenencia ni dueño. Un `aspecto/veterano_de_campo` no "pertenece" a nadie: está definido una vez y queda disponible para todas las hojas.
 
-Los contratos definidos se acumulan en un **pool** del que el generador y el curador van tirando (ver [[generacion-procedural#Fase 4 — Tags adicionales|Fase 4]]). El pool crece **abierto/cerrado, incrementalmente**: agregar un contrato nuevo nunca rompe los existentes ni exige migración. Un `aspecto/*` más en el catálogo es, simplemente, una opción más en el sorteo.
+Los contratos definidos se acumulan en un **pool** del que el generador y el curador van tirando (ver [[generacion-procedural#Fase 4 — Formación|Fase 4]]). El pool crece **abierto/cerrado, incrementalmente**: agregar un contrato nuevo nunca rompe los existentes ni exige migración. Un `aspecto/*` más en el catálogo es, simplemente, una opción más en el sorteo.
 
 ---
 

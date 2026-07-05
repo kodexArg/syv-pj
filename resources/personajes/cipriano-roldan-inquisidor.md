@@ -1,37 +1,38 @@
 ---
 slug: cipriano-roldan-inquisidor
-nombre: Cipriano Roldán
 aliases:
-  - Cipriano Roldán
-  - Iniciado Cipriano
+- Cipriano Roldán
+- Iniciado Cipriano
 description: Iniciado Inquisidor que sirve de guardaespaldas y tropa de choque junto al sargento, devoto y brutal por igual.
-barrio: barrios-del-muro
-faccion: iglesia
-subfaccion: inquisicion
-rango: novicio
-especialidad: especialidad-combate-cruzado
-estado: disponible
-lealtad:
-  - "[[confederacion]]"
+identidad:
+  slug: cipriano-roldan-inquisidor
+  nombre: Cipriano Roldán
+  sobrenombre: null
+  rol: Novicio
+  especialidad: Cruzado
+  genero: m
+  edad: 30
 atributos:
   cuerpo: 4
   mente: 2
   alma: 3
-edad: 30
-genero: m
+tags:
+- faccion/iglesia
+- subfaccion/inquisicion
+- rango/novicio
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/veterano
+- aspecto/terco
+- rasgo/cicatriz_perturbadora
+- equipo/arma/cadena_bendita
+- equipo/vestidura/habito
+- equipo/ritual/crucifijo_consagrado
+- lealtad/confederacion
 apariencia:
-  - fornido
-  - criollo
-aspectos:
-  - "[[veterano]]"
-  - "[[terco]]"
-rasgos:
-  - "[[cicatriz_perturbadora]]"
-equipo:
-  - "[[cadena_bendita]]"
-  - "[[habito]]"
-  - "[[crucifijo_consagrado]]"
-tags: []
+  rostro: 'PENDIENTE: redactar (regla §2.5)'
+  figura: fornido
+  presencia: criollo
 ---
 
 Cipriano entró a la [[inquisicion|Inquisición]] como [[novicio]] y nunca dejó de tratarla como un campo de batalla. Su fe se reza con la [[cadena_bendita]] en la mano. Junto a su par [[baltasar-quevedo-inquisidor|Baltasar]], forma el par de hierro de la escuadra.

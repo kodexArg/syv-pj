@@ -47,19 +47,23 @@ personaje**. Documentación + reglas + especificación de diseño en **Markdown*
 
 ## La hoja de personaje — estructura canónica (NO cambiar nombres de bloques)
 
-Seis bloques estructurales + la lista plana de tags:
+Siete bloques estructurales + la lista plana de tags:
 
 ```yaml
 personaje:
-  identidad:  { slug, nombre, sobrenombre, rol, genero, edad }
+  identidad:  { slug, nombre, sobrenombre, rol, especialidad, genero, edad }
   atributos:  { cuerpo, mente, alma }  # únicas magnitudes numéricas PERSISTIDAS
   tags:       [...]                   # lista plana, notación punto, NO multiconjunto (último valor gana)
                                       # incluye los vínculos: lealtad.* / aliado.* / nemesis.*
   historia:   str                     # prosa biográfica, congelada al canonizar
   historial:  [...]                   # hitos temporales (registro de eventos, de solo añadir)
+  apariencia: { rostro, figura, presencia }   # tres párrafos descriptivos (cierre de la hoja)
   metadatos:  { creado_en, canonizado_en, ultima_actualizacion }
   extras:     object | null           # válvula de escape para clientes
 ```
+
+> [!warning] `rol` cambió de significado — no confundir
+> El **nuevo** `identidad.rol` es la **jerarquía legible** (ej. "Cabo Primero"), lectura humana del tag `rango/*`. El **viejo** campo `rol` (que nombraba la *especialidad*) fue renombrado a `identidad.especialidad`. Ahora conviven ambos: `rol` = jerarquía, `especialidad` = función táctica (ej. "Apuntador"). Cualquier `rol` residual en este documento o en `ORCHESTRATOR.md` que refiera a la especialidad es legado.
 
 **Regla rectora**: todo lo que es discreto y no es identidad, atributo, prosa o
 auditoría → **es tag**. Sin excepciones: los vínculos personales también.
@@ -89,7 +93,7 @@ auditoría → **es tag**. Sin excepciones: los vínculos personales también.
 - Categorías de referencia (abiertas, ilustrativas — el universo de tags es abierto e
   infinito): `faccion, subfaccion, rango, mando, estado, salud, moral, mental,
   rasgo, aspecto, habilidad, entrenamiento, efecto, equipo(.arma/.utilitario/
-  .vestidura), rol(.oficio/.jerarquia/.narrativo/.combate)`, y las relacionales
+  .vestidura), especialidad(.oficio/.jerarquia/.narrativo/.combate)`, y las relacionales
   `lealtad, aliado, nemesis`.
 
 ## Contratos: aspecto, habilidad, efecto (eje del usuario)
@@ -152,7 +156,7 @@ haga falta todavía ("dejar la cancha preparada", no llenarla).
 Fases: (1) identidad sorteada (nombre/género/edad de depósitos), (2) atributos
 **determinísticos por rango** desde tablas de configuración (cero azar en estadísticas),
 (3) tags sorteados ponderados desde catálogo, (4) prosa por LLM (se congela al
-canonizar), (5) relaciones sembradas. `(semilla, faccion, rol)` reproduce el mismo
+canonizar), (5) relaciones sembradas. `(semilla, faccion, rango)` reproduce el mismo
 efímero; el canonizado pierde reproducibilidad tras el primer hito.
 
 ## Decisiones abiertas (no escribir como cerradas hasta que el líder confirme)

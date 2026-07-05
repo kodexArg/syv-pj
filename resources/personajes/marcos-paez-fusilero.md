@@ -1,36 +1,37 @@
 ---
 slug: marcos-paez-fusilero
-nombre: Marcos Páez
 aliases:
-  - Marcos Páez
-  - Soldado Páez
+- Marcos Páez
+- Soldado Páez
 description: Fusilero de línea de las Fuerzas Armadas, joven y disciplinado, que cubre el avance de la escuadra desde la segunda fila.
-barrio: barrios-del-muro
-faccion: fuerzas_armadas
-rango: soldado_linea
-especialidad: especialidad-combate-fusilero
-estado: disponible
-lealtad:
-  - "[[confederacion]]"
+identidad:
+  slug: marcos-paez-fusilero
+  nombre: Marcos Páez
+  sobrenombre: null
+  rol: Soldado
+  especialidad: Fusilero
+  genero: m
+  edad: 25
 atributos:
   cuerpo: 3
   mente: 3
   alma: 2
-edad: 25
-genero: m
+tags:
+- faccion/fuerzas_armadas
+- rango/soldado_linea
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/tirador
+- rasgo/mirada_cansada
+- equipo/arma/fusil
+- equipo/utilitario/cargador
+- equipo/vestidura/uniforme_linea
+- equipo/vestidura/chaleco_asalto
+- lealtad/confederacion
 apariencia:
-  - criollo
-  - rapado
-aspectos:
-  - "[[tirador]]"
-rasgos:
-  - "[[mirada_cansada]]"
-equipo:
-  - "[[fusil]]"
-  - "[[cargador]]"
-  - "[[uniforme_linea]]"
-  - "[[chaleco_asalto]]"
-tags: []
+  rostro: 'PENDIENTE: redactar (regla §2.5)'
+  figura: 'PENDIENTE: redactar (regla §2.5)'
+  presencia: criollo, rapado
 ---
 
 [[soldado_linea|Soldado]] [[fuerzas_armadas|Páez]] hace lo que le ordenan, y lo hace bien. Encara el [[especialidad-combate-fusilero|fuego de fusilería]] desde la segunda fila, [[tirador|preciso]] sin alardear, sosteniendo el [[fusil]] con la disciplina que le metieron a fuerza de guardias.

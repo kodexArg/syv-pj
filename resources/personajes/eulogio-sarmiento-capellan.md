@@ -1,39 +1,39 @@
 ---
 slug: eulogio-sarmiento-capellan
-nombre: Eulogio Sarmiento
 aliases:
-  - Eulogio Sarmiento
-  - Padre Eulogio
-  - Capellán Sarmiento
+- Eulogio Sarmiento
+- Padre Eulogio
+- Capellán Sarmiento
 description: Capellán de Batalla sin mando, viejo sacerdote que cura cuerpos y reza por los moribundos de la escuadra.
-barrio: barrios-del-muro
-faccion: iglesia
-rango: sacerdote
-especialidad: especialidad-oficio-medico
-estado: disponible
-lealtad:
-  - "[[confederacion]]"
+identidad:
+  slug: eulogio-sarmiento-capellan
+  nombre: Eulogio Sarmiento
+  sobrenombre: null
+  rol: Sacerdote
+  especialidad: Sanador
+  genero: m
+  edad: 52
 atributos:
   cuerpo: 3
   mente: 2
   alma: 6
-edad: 52
-genero: m
+tags:
+- faccion/iglesia
+- rango/sacerdote
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/veterano
+- rasgo/mirada_cansada
+- equipo/medico/pocion_sanadora
+- equipo/medico/unguento_medicinal
+- equipo/vestidura/sotana
+- equipo/ritual/rosario
+- equipo/ritual/crucifijo_consagrado
+- lealtad/confederacion
 apariencia:
-  - canoso
-  - barba canosa
-  - criollo
-aspectos:
-  - "[[veterano]]"
-rasgos:
-  - "[[mirada_cansada]]"
-equipo:
-  - "[[pocion_sanadora]]"
-  - "[[unguento_medicinal]]"
-  - "[[sotana]]"
-  - "[[rosario]]"
-  - "[[crucifijo_consagrado]]"
-tags: []
+  rostro: canoso, barba canosa
+  figura: 'PENDIENTE: redactar (regla §2.5)'
+  presencia: criollo
 ---
 
 El Padre Eulogio no manda a nadie. Como [[sacerdote]] de la [[iglesia|Iglesia]] camina detrás del sargento, sin arma, la [[pocion_sanadora|poción]] en una mano y el [[rosario]] en la otra.

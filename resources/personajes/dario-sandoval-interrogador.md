@@ -1,33 +1,34 @@
 ---
 slug: dario-sandoval-interrogador
-nombre: Darío Sandoval
 aliases:
-  - Darío Sandoval
-  - Cabo Sandoval
+- Darío Sandoval
+- Cabo Sandoval
 description: Cabo interrogador de la escuadra militar urbana de la Confederación; saca verdades a quien preferiría callar.
-barrio: barrios-del-muro
-faccion: fuerzas_armadas
-rango: cabo
-especialidad: especialidad-investigacion-interrogador
-estado: disponible
-lealtad:
-  - "[[confederacion]]"
+identidad:
+  slug: dario-sandoval-interrogador
+  nombre: Darío Sandoval
+  sobrenombre: null
+  rol: Cabo
+  especialidad: Interrogador
+  genero: m
+  edad: 36
 atributos:
   cuerpo: 3
   mente: 3
   alma: 4
-edad: 36
-genero: m
+tags:
+- faccion/fuerzas_armadas
+- rango/cabo
+- estado/disponible
+- ubicacion/barrios-del-muro
+- equipo/arma/pistola_9mm
+- equipo/vestidura/uniforme_linea
+- equipo/vestidura/chaleco_asalto
+- lealtad/confederacion
 apariencia:
-  - criollo
-  - pelo corto
-  - mirada fria
-aspectos: []
-equipo:
-  - "[[pistola_9mm]]"
-  - "[[uniforme_linea]]"
-  - "[[chaleco_asalto]]"
-tags: []
+  rostro: pelo corto, mirada fria
+  figura: 'PENDIENTE: redactar (regla §2.5)'
+  presencia: criollo
 ---
 
 Darío trabaja con la voz. Las manos vienen después, si vienen. Es el [[especialidad-investigacion-interrogador|interrogador]] de la escuadra, el [[cabo]] que sienta a un detenido y espera a que la verdad ceda sola.

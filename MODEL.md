@@ -32,14 +32,17 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 |---|---|---|---|
 | `identidad.slug` | `str` `^[A-Z0-9]{8}$` \| `null` | fijado una vez | PK. `null` en efímeros. Asignada por el servidor al canonizar. |
 | `identidad.nombre` | `str` | inmutable | Legible. No único. |
-| `identidad.sobrenombre` | `str \| null` | mutable (sin hito) | `null` si no aplica. |
-| `identidad.especialidad` | `str \| null` | mutable vía hito `ascenso` / `cambio_especialidad` | Especialidad táctica (lo que *hace*: fusilero, médico, inquisidor…). `null` si no tiene; la vocación de pertenencia la da el `rango`. Narrativo. |
+| `identidad.sobrenombre` | `str \| null` | mutable (sin hito) | `null` si no aplica. Ej. `"Flor"`. |
+| `identidad.rol` | `str \| null` | mutable vía hito `ascenso` / `cambio_rango` | Jerarquía legible (cómo se lo nombra por su lugar en la cadena de mando). Ej. `"Cabo Primero"`. Lectura humana del tag `rango/*`. `null` si no aplica. **No confundir con el viejo campo `rol` (legado), que nombraba la especialidad.** |
+| `identidad.especialidad` | `str \| null` | mutable vía hito `ascenso` / `cambio_especialidad` | Función táctica (lo que *hace*: apuntador, fusilero, médico, inquisidor…). Ej. `"Apuntador"`. `null` si no tiene; la vocación de pertenencia la da el `rango`. Narrativo. |
 | `identidad.genero` | `str` | inmutable | Catálogo abierto: `masculino \| femenino \| no_binario \| otro`. |
 | `identidad.edad` | `int` | mutable (sin hito) | Decisión narrativa. |
 | `atributos.cuerpo` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7. En prosa: Físico. (← viejo `fis`.) |
 | `atributos.mente` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7. Puntería, reflejos, lectura táctica. (← viejo `tac`.) |
 | `atributos.alma` | `int` (2..7) | vía hito `triple_cero` / `mejora_atributo` | Escala 2..7. Aura, liderazgo, voluntad, temple. En prosa: Espíritu. (← viejo `men`.) |
-| `apariencia` | `list<str>` | mutable (sin hito) | Descriptores visuales libres, sparse, agnósticos al generador de imágenes. Persistido; NO entra al índice invertido de tags. Ver [[hoja-personaje#§2.5 — Apariencia]] y `docs/apariencia.md`. **Pendiente de exponer en `API.md` + contrato Pydantic (downstream).** |
+| `apariencia.rostro` | `str \| null` | mutable (sin hito) | Párrafo descriptivo: la cara en primer plano (facciones, mirada, piel, pelo, gesto). Prosa agnóstica, ~40–80 palabras. |
+| `apariencia.figura` | `str \| null` | mutable (sin hito) | Párrafo descriptivo: cuerpo entero y porte — cómo se para, cómo *lleva* lo que viste (nunca **qué** lleva: eso son tags). Prosa agnóstica, ~40–80 palabras. |
+| `apariencia.presencia` | `str \| null` | mutable (sin hito) | Párrafo descriptivo: cómo ocupa el espacio, la luz, la impresión que deja. Prosa agnóstica, ~40–80 palabras. |
 | `tags[]` | `list<str>` (no multiconjunto) | vía hito `agregar_tag` / `quitar_tag` | Notación punto `<categoria>[.<subcategoria>].<slug>`. NO admite repetidos: ante un repetido gana el último valor. Incluye los vínculos relacionales `lealtad/*` / `aliado/*` / `nemesis/*` (ver §1.2). |
 | `historia` | `str` | inmutable tras canonizar | 120–200 palabras. Congelada al canonizar. |
 | `historial[]` | `list<hito>` (embebida) | de solo añadir vía `POST /evento` | Ver §1.1. |
@@ -47,6 +50,9 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 | `metadatos.canonizado_en` | `str` ISO-8601 \| `null` | fijado una vez | `null` en efímeros. |
 | `metadatos.ultima_actualizacion` | `str` ISO-8601 | actualiza con cada hito | |
 | `extras` | `object \| null` | libre | Válvula de escape. La API no inspecciona. |
+
+> [!note] `apariencia` es un objeto de tres párrafos, no una lista
+> `apariencia` = `{ rostro, figura, presencia }` (tres párrafos de prosa agnóstica). Reemplaza la vieja `apariencia: list<str>` de descriptores atómicos (derogada). Persistido; NO entra al índice invertido de tags. Ver [[hoja-personaje#§2.5 — Apariencia: tres párrafos descriptivos]] y `docs/apariencia.md`. **Pendiente de exponer en `API.md` + contrato Pydantic (downstream).** La migración lista→objeto se hace con script determinista + test (ver invariantes §4).
 
 ### Campos derivados — computados al servir, no persistidos
 
@@ -99,7 +105,7 @@ Catálogo curado de tags. Servido por `GET /meta/{categoria}`. El catálogo se s
 | `subcategoria` | `str \| null` | condicional | Obligatorio si `categoria ∈ {equipo, especialidad}`. Segmento intermedio. |
 | `descripcion` | `str` | sí | 1–3 frases. |
 | `origen` | `str` | no (por defecto `emergente`) | Catálogo: `canon \| emergente \| custom`. |
-| `efecto` | `str \| list<str> \| null` | condicional | Obligatorio si `categoria = rasgo` (sin `trigger`) o `categoria = efecto`. Modificadores sobre vocabulario canónico. Ver [[atributos-y-habilidades|docs/atributos-y-habilidades.md]]. |
+| `efecto` | `str \| list<str> \| null` | condicional | Obligatorio si `categoria = rasgo` (sin `trigger`) o `categoria = efecto`. Modificadores sobre vocabulario canónico. Ver [[atributos|docs/atributos.md]]. |
 | `trigger` | `object \| null` | no | `{ evento, condicion, probabilidad?, trigger_action[] }`. Efectos reactivos. |
 | `requires` | `object \| null` | no | `{ require_all[], require_any[] }`. Prefijo `"no:"` para NOT. Documentación ejecutable, no validación dura. |
 | `excluye` | `list<str> \| null` | no | Tags incompatibles. |
@@ -154,3 +160,4 @@ Servido por `GET /meta/facciones`. Catálogo abierto, referenciado por la tabla 
 - **Las referencias de los tags relacionales (`lealtad/*`/`aliado/*`/`nemesis/*`) y de `historial[].actores[]` no son referencias de integridad.** Se aceptan referencias colgadas; la consistencia referencial no es responsabilidad de la capa de persistencia.
 - **Idioma de los datos**: castellano rioplatense. Tags en minúscula + guion bajo, sin acentos. Campos YAML en `snake_case_castellano`.
 - **`extras` es opaco.** La API lo acepta, almacena y devuelve tal cual, sin inspeccionar ni validar su contenido.
+- **Todo refactor de esquema va con script determinista + test.** Cualquier cambio de forma de una entidad (campo agregado/renombrado/migrado, lista→objeto como `apariencia`) se aplica a los datos existentes con un script Python determinista e idempotente, acompañado de un test que verifica que todos los personajes del roster migran sin pérdida. El test verde es la condición de merge. Ver [[hoja-personaje#§9 — Regla de refactor de esquema]].

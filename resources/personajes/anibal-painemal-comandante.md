@@ -1,38 +1,37 @@
 ---
 slug: anibal-painemal-comandante
-nombre: Aníbal Painemal
 aliases:
-  - Aníbal Painemal
-  - El Elefante
+- Aníbal Painemal
+- El Elefante
 description: Comandante cabecilla del Ejército Rojo, hijo de un fundador del Ejército del Sur en Bahía Blanca y eminencia reconocida aún en el frente.
-barrio: barrios-del-muro
-faccion: resistencia_subterranea
-rango: cabecilla
-especialidad: especialidad-combate-lider
-estado: disponible
-lealtad:
-  - "[[ejercito_rojo]]"
+identidad:
+  slug: anibal-painemal-comandante
+  nombre: Aníbal Painemal
+  sobrenombre: null
+  rol: Cabecilla
+  especialidad: Cabecilla de Acción
+  genero: m
+  edad: 58
 atributos:
   cuerpo: 4
   mente: 4
   alma: 6
-edad: 58
-genero: m
+tags:
+- faccion/resistencia_subterranea
+- rango/cabecilla
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/veterano
+- aspecto/terco
+- rasgo/cicatriz_perturbadora
+- equipo/arma/pistola_9mm
+- equipo/utilitario/prismaticos
+- equipo/vestidura/uniforme_rojo
+- lealtad/ejercito_rojo
 apariencia:
-  - corpulento
-  - canoso
-  - piel curtida
-  - mestizo
-aspectos:
-  - "[[veterano]]"
-  - "[[terco]]"
-rasgos:
-  - "[[cicatriz_perturbadora]]"
-equipo:
-  - "[[pistola_9mm]]"
-  - "[[prismaticos]]"
-  - "[[uniforme_rojo]]"
-tags: []
+  rostro: canoso, piel curtida
+  figura: corpulento
+  presencia: mestizo
 ---
 
 Le dicen El Elefante y nadie en el frente lo discute. Aníbal Painemal es hijo de un fundador del Ejército del Sur, allá en Bahía Blanca. Arrastra esa herencia como [[cabecilla]] de la [[resistencia_subterranea|resistencia]], bajo la bandera del Ejército Rojo.

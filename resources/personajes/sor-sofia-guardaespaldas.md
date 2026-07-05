@@ -1,38 +1,38 @@
 ---
 slug: sor-sofia-guardaespaldas
-nombre: Sofía
 aliases:
-  - Sor Sofía
-  - Sofía
-  - Inquisidora Sofía
+- Sor Sofía
+- Sofía
+- Inquisidora Sofía
 description: Hermana de Batalla de la Sagrada Inquisición Argentina, custodia del Faro y guardaespaldas de campo; precisión absoluta, calma que es disciplina militarizada.
-barrio: darsena
-faccion: iglesia
-subfaccion: inquisicion
-rango: novicio
-especialidad: especialidad-combate-cruzado
-estado: disponible
-lealtad:
-  - "[[confederacion]]"
+identidad:
+  slug: sor-sofia-guardaespaldas
+  nombre: Sofía
+  sobrenombre: null
+  rol: Novicio
+  especialidad: Cruzado
+  genero: f
+  edad: 25
 atributos:
   cuerpo: 5
   mente: 4
   alma: 5
-edad: 25
-genero: f
+tags:
+- faccion/iglesia
+- subfaccion/inquisicion
+- rango/novicio
+- estado/disponible
+- ubicacion/darsena
+- aspecto/tactico
+- aspecto/terco
+- rasgo/constitucion_robusta
+- equipo/arma/espada_consagrada
+- equipo/vestidura/habito
+- lealtad/confederacion
 apariencia:
-  - fibrosa
-  - hombros anchos
-  - ojos grises calmos
-aspectos:
-  - "[[tactico]]"
-  - "[[terco]]"
-rasgos:
-  - "[[constitucion_robusta]]"
-equipo:
-  - "[[espada_consagrada]]"
-  - "[[habito]]"
-tags: []
+  rostro: ojos grises calmos
+  figura: fibrosa, hombros anchos
+  presencia: 'PENDIENTE: redactar (regla §2.5)'
 ---
 
 [[3_personajes/secundarios/sor-sofia|Sor Sofía]], Hermana de Batalla bajo mando directo de Madre Superiora María en el Faro de la SIA. Custodia del Faro, guardaespaldas de campo en operaciones encubiertas en Ciudad Dársena. Reputación entre las iniciadas: precisión absoluta, no comete errores.
