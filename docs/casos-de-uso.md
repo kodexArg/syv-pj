@@ -149,7 +149,7 @@ Comportamientos que todos los consumidores deben asumir.
 - **Los personajes de ejemplo son inmutables.** Ningún consumidor puede registrar hitos sobre los personajes de ejemplo — son fichas de referencia, no entidades vivas.
 - **Los efímeros no acumulan hitos.** Sin patente persistida, no hay historia que registrar. El consumidor que quiera evolucionar un efímero debe canonizarlo primero.
 - **La canonización es idempotente.** `(semilla, facción, especialidad)` no produce duplicados si ya existe. El consumidor puede reintentar sin riesgo.
-- **`?campos=` poda solo nivel superior.** El motor de batalla puede pedir solo `atributos` y `tags`; el generador visual puede pedir solo `tags` e `identidad`. La poda no atraviesa subdocumentos.
+- **`?campos=` poda por rutas de punto, incluida subcampo.** El motor de batalla puede pedir solo `atributos` y `tags`; el generador visual puede pedir solo `tags` e `identidad`; cualquiera puede acotar aún más con una ruta de punto (`campos=identidad.slug,atributos.cuerpo`), que atraviesa subdocumentos. Ver [[../API.md#GET /personaje|API.md]].
 - **Filtros `?tag=` son Y lógico.** `?tag=A&tag=B` devuelve personajes que tienen ambos. O no está soportado en v1 — el consumidor hace N llamadas y une los resultados.
 - **Vínculos personales sí son filtrables por tag.** Aliados, némesis y lealtades son tags `aliado/*` / `nemesis/*` / `lealtad/*` en `tags[]`: se filtran por `?tag=` y se cuentan como cualquier etiqueta. La prosa del vínculo vive en su hito (ver [[nemesis-y-aliados|nemesis-y-aliados.md]]).
 - **Hitos con `tipo` desconocido son legales.** El consumidor descendente los trata como operación-nula sobre los campos que conoce.
