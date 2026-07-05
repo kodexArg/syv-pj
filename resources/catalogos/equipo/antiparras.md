@@ -11,7 +11,7 @@ sesgo_faccion:
 - gremio_de_comercio
 tags:
 - catalogo/equipo
-- equipo/antiparras
+- equipo/vestidura/antiparras
 ---
 
 Antiparras de vidrio ahumado con montura de cuero. Protegen de chispas, polvo y luz intensa. En las Tuberías, el que sube a la superficie las necesita.

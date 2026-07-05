@@ -13,7 +13,7 @@ sesgo_faccion:
 - exorcistas
 tags:
 - catalogo/equipo
-- equipo/latigo_consagrado
+- equipo/arma/latigo_consagrado
 ---
 
 Tira de cuero trenzado bendecido y ungido. Alcance, control y la posibilidad de atar lo que no responde al acero.

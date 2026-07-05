@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/oficio/predicador
 tags:
   - catalogo/equipo
-  - equipo/crucifijo_consagrado
+  - equipo/ritual/crucifijo_consagrado
 ---
 
 Cruz de metal bendecida en rito mayor. Más que símbolo: herramienta de protección para quien sabe usarla.

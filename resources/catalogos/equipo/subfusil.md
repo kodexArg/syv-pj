@@ -10,7 +10,7 @@ tipo_accion: automatico
 alcance: corto
 tags:
 - catalogo/equipo
-- equipo/subfusil
+- equipo/arma/subfusil
 ---
 
 Automático de cadencia alta para asalto y trinchera.

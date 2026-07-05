@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/oficio/predicador
 tags:
   - catalogo/equipo
-  - equipo/agua_sagrada_frasco
+  - equipo/ritual/agua_sagrada_frasco
 ---
 
 Pequeño frasco de metal o vidrio con agua bendita. Herramienta básica del exorcista y el devoto.

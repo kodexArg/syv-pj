@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/oficio/arqueologo_tech
 tags:
   - catalogo/equipo
-  - equipo/martillo_fragmentacion
+  - equipo/herramienta/martillo_fragmentacion
 ---
 
 Martillo de punta de acero endurecido para fracturar sellos, cascos y muros delgados. Doble uso: trabajo y combate de necesidad.

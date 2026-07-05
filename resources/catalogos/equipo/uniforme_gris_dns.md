@@ -10,7 +10,7 @@ sesgo_faccion:
 - direccion_nacional_de_seguridad
 tags:
 - catalogo/equipo
-- equipo/uniforme_gris_dns
+- equipo/vestidura/uniforme_gris_dns
 ---
 
 Uniforme gris de la Dirección Nacional de Seguridad. Corte funcional, sin adorno; el color basta para que la gente aparte la mirada.

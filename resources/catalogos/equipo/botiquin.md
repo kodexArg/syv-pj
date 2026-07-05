@@ -8,7 +8,7 @@ peso: 2
 peso_sorteo: 3
 tags:
 - catalogo/equipo
-- equipo/botiquin
+- equipo/utilitario/botiquin
 ---
 
 Vendas, torniquete y morfina. Mantiene vivo al de al lado.

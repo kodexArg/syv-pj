@@ -17,7 +17,7 @@ sesgo_especialidad:
   - especialidad/paranormal/sanador
 tags:
   - catalogo/equipo
-  - equipo/antidoto_paranormal
+  - equipo/medico/antidoto_paranormal
 ---
 
 Compuesto de origen incierto. Revierte síntomas de contaminación psíquica o exposición a artefactos. Teológicamente controversial; clínicamente funciona.

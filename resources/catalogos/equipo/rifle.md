@@ -14,7 +14,7 @@ requires:
     - habilidad/tiro_de_precision
 tags:
   - catalogo/equipo
-  - equipo/rifle
+  - equipo/arma/rifle
 ---
 
 Rifle con mira para tiro a distancia. Pide pulso y posición.

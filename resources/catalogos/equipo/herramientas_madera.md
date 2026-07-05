@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/oficio/hacker
 tags:
   - catalogo/equipo
-  - equipo/herramientas_madera
+  - equipo/herramienta/herramientas_madera
 ---
 
 Juego de palancas, cuñas y brocas talladas en madera dura sin metal. No activan los sensores SIA. Las fabrican los técnicos clandestinos de las Tuberías.

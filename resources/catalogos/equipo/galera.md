@@ -10,7 +10,7 @@ sesgo_faccion:
 - gremio_de_pescadores
 tags:
 - catalogo/equipo
-- equipo/galera
+- equipo/vestidura/galera
 ---
 
 Sombrero de ala ancha impermeabilizado con brea. Protege del sol, la lluvia y el salpique. Marca de quien vive del agua.

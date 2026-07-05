@@ -13,7 +13,7 @@ sesgo_especialidad:
   - especialidad/oficio/predicador
 tags:
   - catalogo/equipo
-  - equipo/medallon_bendito
+  - equipo/ritual/medallon_bendito
 ---
 
 Medalla de santo patrono colgada al cuello. Protección cotidiana más que ceremonial.

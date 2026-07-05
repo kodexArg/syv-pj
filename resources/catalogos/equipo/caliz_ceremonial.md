@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/oficio/prelado
 tags:
   - catalogo/equipo
-  - equipo/caliz_ceremonial
+  - equipo/ritual/caliz_ceremonial
 ---
 
 Copa litúrgica de metal para la eucaristía. Solo quien oficia la misa lo toca.

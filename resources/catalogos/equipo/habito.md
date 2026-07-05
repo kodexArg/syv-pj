@@ -10,7 +10,7 @@ sesgo_faccion:
 - iglesia
 tags:
 - catalogo/equipo
-- equipo/habito
+- equipo/vestidura/habito
 ---
 
 Túnica con capucha de orden religiosa. Más austera que la sotana; sin ornamento.

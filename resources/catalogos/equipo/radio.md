@@ -11,7 +11,7 @@ sesgo_especialidad:
   - especialidad/jerarquia/subjefe
 tags:
   - catalogo/equipo
-  - equipo/radio
+  - equipo/utilitario/radio
 ---
 
 Enlace con el mando. La carga el que coordina.

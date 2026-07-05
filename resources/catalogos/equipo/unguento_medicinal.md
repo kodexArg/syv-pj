@@ -17,7 +17,7 @@ sesgo_especialidad:
   - especialidad/paranormal/sanador
 tags:
   - catalogo/equipo
-  - equipo/unguento_medicinal
+  - equipo/medico/unguento_medicinal
 ---
 
 Pasta densa de hierbas procesadas y grasa. Cierra heridas menores, alivia infección superficial. Lo preparan curanderas y médicos caídos.

@@ -10,7 +10,7 @@ sesgo_faccion:
 - iglesia
 tags:
 - catalogo/equipo
-- equipo/velo_monacal
+- equipo/vestidura/velo_monacal
 ---
 
 Prenda de tela oscura que cubre la cabeza. Usada por novicias y consagradas.

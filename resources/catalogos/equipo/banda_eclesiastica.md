@@ -16,7 +16,7 @@ sesgo_especialidad:
   - especialidad/oficio/predicador
 tags:
   - catalogo/equipo
-  - equipo/banda_eclesiastica
+  - equipo/insignia/banda_eclesiastica
 ---
 
 Franja de tela al cuello que marca rango y orden. Color según jerarquía.

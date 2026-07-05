@@ -10,7 +10,7 @@ sesgo_faccion:
 - resistencia_subterranea
 tags:
 - catalogo/equipo
-- equipo/uniforme_rojo
+- equipo/vestidura/uniforme_rojo
 ---
 
 Casaca y brazalete de la milicia clandestina.

@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/oficio/hacker
 tags:
   - catalogo/equipo
-  - equipo/destornillador_aislado
+  - equipo/herramienta/destornillador_aislado
 ---
 
 Mango de goma dura; trabaja en vivo sin matar al que lo sostiene. Básico del técnico que opera sin cortar la corriente.

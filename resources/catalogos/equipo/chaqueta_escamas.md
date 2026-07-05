@@ -10,7 +10,7 @@ sesgo_faccion:
 - gremio_de_pescadores
 tags:
 - catalogo/equipo
-- equipo/chaqueta_escamas
+- equipo/vestidura/chaqueta_escamas
 ---
 
 Chaqueta de cuero cubierta con escamas de pez cosidas. Impermeable, resistente; huele permanentemente a sal y brea. No hay forma de quitarle ese olor.

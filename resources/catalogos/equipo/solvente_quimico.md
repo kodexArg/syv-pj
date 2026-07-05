@@ -13,7 +13,7 @@ sesgo_especialidad:
   - especialidad/oficio/tecnico
 tags:
   - catalogo/equipo
-  - equipo/solvente_quimico
+  - equipo/herramienta/solvente_quimico
 ---
 
 Frasco de disolvente industrial para desactivar adhesivos, cubiertas selladas o residuos tóxicos. Olor inconfundible.

@@ -11,7 +11,7 @@ sesgo_faccion:
 - seguridad_urbana
 tags:
 - catalogo/equipo
-- equipo/uniforme_linea
+- equipo/vestidura/uniforme_linea
 ---
 
 Casaca reglamentaria de la tropa de línea.

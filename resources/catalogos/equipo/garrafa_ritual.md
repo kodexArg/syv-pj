@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/paranormal/curandero
 tags:
   - catalogo/equipo
-  - equipo/garrafa_ritual
+  - equipo/ritual/garrafa_ritual
 ---
 
 Garrafa de vidrio o cerámica con ron, aceite y hierbas maceradas. Se ofrece, se aspira, se usa para aspersión. No se bebe sola.

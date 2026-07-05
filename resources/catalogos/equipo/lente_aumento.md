@@ -14,7 +14,7 @@ sesgo_especialidad:
   - especialidad/investigacion/archivista
 tags:
   - catalogo/equipo
-  - equipo/lente_aumento
+  - equipo/herramienta/lente_aumento
 ---
 
 Lupa de bolsillo con montura de metal. Lee lo que el ojo no alcanza: inscripciones, circuitos, heridas finas.

@@ -13,7 +13,7 @@ sesgo_faccion:
 - gremio_de_comercio
 tags:
 - catalogo/equipo
-- equipo/machete
+- equipo/arma/machete
 ---
 
 Hoja larga de acero para abrir paso y resolver problemas. En los Barrios del Muro es herramienta; también es advertencia.

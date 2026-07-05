@@ -13,7 +13,7 @@ sesgo_especialidad:
   - especialidad/oficio/arqueologo_tech
 tags:
   - catalogo/equipo
-  - equipo/contenedor_plomo
+  - equipo/herramienta/contenedor_plomo
 ---
 
 Caja de plomo sellada para transportar muestras radiactivas o artefactos de campo. Pesado; quien lo carga sabe por qué.

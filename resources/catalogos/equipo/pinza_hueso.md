@@ -14,7 +14,7 @@ sesgo_especialidad:
   - especialidad/oficio/medico
 tags:
   - catalogo/equipo
-  - equipo/pinza_hueso
+  - equipo/herramienta/pinza_hueso
 ---
 
 Pinza quirúrgica de acero para trabajar en cavidades estrechas. Tan útil en un cuerpo como en un mecanismo.

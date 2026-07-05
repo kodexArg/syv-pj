@@ -13,7 +13,7 @@ sesgo_especialidad:
   - especialidad/combate/lider
 tags:
   - catalogo/equipo
-  - equipo/insignia_rango_militar
+  - equipo/insignia/insignia_rango_militar
 ---
 
 Galones o placa que indica grado. En las Fuerzas Armadas o la DNS es obligatoria en uniforme; fuera de él es un riesgo.

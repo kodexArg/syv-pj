@@ -10,7 +10,7 @@ sesgo_faccion:
 - iglesia
 tags:
 - catalogo/equipo
-- equipo/sotana
+- equipo/vestidura/sotana
 ---
 
 Túnica talar negra hasta los pies. Marca de estado clerical, gastada en los bordes de quien la lleva décadas.

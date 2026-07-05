@@ -14,7 +14,7 @@ sesgo_especialidad:
   - especialidad/investigacion/archivista
 tags:
   - catalogo/equipo
-  - equipo/tinta_ferrogalica
+  - equipo/herramienta/tinta_ferrogalica
 ---
 
 Tinta de tanino y sulfato ferroso. La única que no se desvanece en el papel libre de ácido. Los archivistas la reconocen por el olor.

@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/paranormal/medium
 tags:
   - catalogo/equipo
-  - equipo/vela_sebo
+  - equipo/ritual/vela_sebo
 ---
 
 Vela gruesa de grasa animal. Dura más que la de cera; arde lenta y sucia; la usan chamanes y curanderas.

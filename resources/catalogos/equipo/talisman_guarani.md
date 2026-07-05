@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/paranormal/curandero
 tags:
   - catalogo/equipo
-  - equipo/talisman_guarani
+  - equipo/ritual/talisman_guarani
 ---
 
 Tejido, hueso o semilla amarrada con fibra natural. Activa en ritual; fuera de él parece basura.

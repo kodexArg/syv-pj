@@ -12,7 +12,7 @@ sesgo_faccion:
 - resistencia_subterranea
 tags:
 - catalogo/equipo
-- equipo/delantal_manchado
+- equipo/vestidura/delantal_manchado
 ---
 
 Delantal de cuero o tela gruesa con manchas de sangre vieja, aceite y reactivos. El médico clandestino que lo carga no tiene tiempo de lavarlo entre trabajo y trabajo.

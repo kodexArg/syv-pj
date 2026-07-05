@@ -13,7 +13,7 @@ sesgo_especialidad:
   - especialidad/oficio/tecnico
 tags:
   - catalogo/equipo
-  - equipo/cincel_acero
+  - equipo/herramienta/cincel_acero
 ---
 
 Hoja templada para labrar piedra, sellos cerámicos y cierres oxidados. Trabajo de precisión cuando hay que abrir sin romper.

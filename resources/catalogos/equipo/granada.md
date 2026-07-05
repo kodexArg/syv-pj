@@ -8,7 +8,7 @@ peso: 1
 peso_sorteo: 4
 tags:
 - catalogo/equipo
-- equipo/granada
+- equipo/utilitario/granada
 ---
 
 Carga explosiva de fragmentación para asalto cercano.

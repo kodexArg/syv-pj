@@ -10,7 +10,7 @@ tipo_accion: cerrojo
 alcance: medio
 tags:
 - catalogo/equipo
-- equipo/fusil
+- equipo/arma/fusil
 ---
 
 Fusil de cerrojo reglamentario. Confiable, de alcance medio.

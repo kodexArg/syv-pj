@@ -11,7 +11,7 @@ sesgo_faccion:
 - direccion_nacional_de_seguridad
 tags:
 - catalogo/equipo
-- equipo/uniforme_tactico_rojo
+- equipo/vestidura/uniforme_tactico_rojo
 ---
 
 Uniforme de operaciones especiales con panel rojo en el pecho. Indica unidad de choque; quien lo ve sabe que ya no hay negociación.

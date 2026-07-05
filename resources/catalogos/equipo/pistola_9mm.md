@@ -10,7 +10,7 @@ tipo_accion: semiauto
 alcance: corto
 tags:
 - catalogo/equipo
-- equipo/pistola_9mm
+- equipo/arma/pistola_9mm
 ---
 
 Arma corta de respaldo. La carga el que no pelea de frente.

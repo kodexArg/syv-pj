@@ -13,7 +13,7 @@ sesgo_especialidad:
   - especialidad/oficio/tecnico
 tags:
   - catalogo/equipo
-  - equipo/geiger_quimico
+  - equipo/herramienta/geiger_quimico
 ---
 
 Detector portátil de radiación y contaminación química. Cuadrante analógico; lo calibran cada misión.

@@ -14,7 +14,7 @@ sesgo_especialidad:
   - especialidad/oficio/escriba
 tags:
   - catalogo/equipo
-  - equipo/anillo_archivista
+  - equipo/insignia/anillo_archivista
 ---
 
 Sello de metal grabado con el símbolo de la orden archivista. Abre ciertas puertas; lo ocultan en zonas de control.

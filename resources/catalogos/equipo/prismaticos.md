@@ -11,7 +11,7 @@ sesgo_especialidad:
   - especialidad/combate/apoyo
 tags:
   - catalogo/equipo
-  - equipo/prismaticos
+  - equipo/utilitario/prismaticos
 ---
 
 Observación a distancia. Ojos de la escuadra.

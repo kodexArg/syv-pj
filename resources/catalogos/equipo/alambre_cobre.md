@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/oficio/hacker
 tags:
   - catalogo/equipo
-  - equipo/alambre_cobre
+  - equipo/herramienta/alambre_cobre
 ---
 
 Rollo de alambre conductor en la muñeca. Sin metal visible al ojo, pero suficiente para puentear un circuito, armar una trampa o reparar un PIA en campo.

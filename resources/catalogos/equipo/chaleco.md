@@ -8,7 +8,7 @@ peso: 3
 peso_sorteo: 2
 tags:
 - catalogo/equipo
-- equipo/chaleco
+- equipo/vestidura/chaleco
 ---
 
 Protección con bolsillos para munición y carga.

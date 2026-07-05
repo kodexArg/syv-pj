@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/paranormal/medium
 tags:
   - catalogo/equipo
-  - equipo/agogo
+  - equipo/ritual/agogo
 ---
 
 Par de campanas de metal golpeadas con varilla. Ritmo de invocación para orixás y ceremonias sincrética. El sonido llega antes que el sacerdote.

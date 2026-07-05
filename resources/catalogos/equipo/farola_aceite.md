@@ -14,7 +14,7 @@ sesgo_especialidad:
   - especialidad/investigacion/rastreador
 tags:
   - catalogo/equipo
-  - equipo/farola_aceite
+  - equipo/herramienta/farola_aceite
 ---
 
 Linterna de aceite con pantalla de latón. En las Tuberías es la única fuente de luz que no dispara los sensores de la SIA.

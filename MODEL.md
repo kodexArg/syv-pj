@@ -125,7 +125,7 @@ Catálogo curado de tags. Servido por `GET /meta/{categoria}`. El catálogo se s
 | `nombre` | `str` | Legible. |
 | `descripcion` | `str` | Descriptor de lore corto. |
 
-Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones canónicas (`confederacion_argentina`, `ejercito_rojo`), todas referenciadas por la tabla de rangos.
+Servido por `GET /meta/facciones`. Catálogo abierto, referenciado por la tabla de rangos.
 
 ### 3.1. Relación `faccion` ↔ `subfaccion` (asimetría deliberada)
 
@@ -134,14 +134,14 @@ Servido por `GET /meta/facciones`. Conjunto cerrado-curado: pocas facciones can�
 | Aspecto | `faccion` | `subfaccion` |
 |---|---|---|
 | Naturaleza | Entidad de primera clase (esta §3). | Categoría de `tag_catalogo` (§2). |
-| Cardinalidad | Cerrado-curado (2-3 hoy). | Abierto-emergente. |
+| Cardinalidad | Abierto-emergente. | Abierto-emergente. |
 | Ruta | `GET /meta/facciones` (dedicado). | `GET /meta/subfaccion` (genérico `/meta/{categoria}`). |
 | Referencia desde otras entidades | Tabla de rangos. | Ninguna. Solo aparece en `personaje.tags[]`. |
 | Membresía sobre personaje | Tag `faccion.{slug}` + `lealtad.{slug}`. | Tag `subfaccion.{slug}` + `lealtad.{slug}`. |
 
 `faccion` ancla la geometría operativa del juego (los rangos canónicos están definidos por facción; las batallas tienen bandos). Necesita identidad estable y ruta dedicada. `subfaccion` agrupa narrativamente — un tercio, una célula, un sindicato armado — y el catálogo crece por curaduría a demanda.
 
-**Dualidad entidad+tag**: `faccion` es entidad persistida y existe además como namespace de tag (`faccion/confederacion_argentina`) para expresar membresía declarativa sobre `personaje.tags[]`. El slug del tag coincide con la clave primaria de la entidad.
+**Dualidad entidad+tag**: `faccion` es entidad persistida y existe además como namespace de tag para expresar membresía declarativa sobre `personaje.tags[]`. El slug del tag coincide con la clave primaria de la entidad.
 
 ---
 

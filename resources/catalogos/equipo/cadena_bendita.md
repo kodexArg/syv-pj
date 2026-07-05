@@ -13,7 +13,7 @@ sesgo_faccion:
 - exorcistas
 tags:
 - catalogo/equipo
-- equipo/cadena_bendita
+- equipo/arma/cadena_bendita
 ---
 
 Cadena de hierro impregnada de agua bendita y aceite sagrado. Se usa para inmovilizar; también golpea cuando no queda otra.

@@ -81,8 +81,8 @@ El personaje existe dentro de *Subordinación y Valor*:
 - Vocabulario canónico de atributos y estadísticas calculadas.
 - Contratos de rasgos, ventajas, destrezas y efectos.
 - Flujo de generación procedural (fases 1–4).
-- Dos facciones jugables: `confederacion_argentina` y `ejercito_rojo`.
-- Rangos operativos canon de ambas facciones.
+- Catálogo abierto de facciones jugables.
+- Rangos operativos canon por facción.
 - Diégesis: puntero al universo — el contexto (facciones, lugares, lore) vive en el vault `syv-docs`, no acá.
 - Contrato de API HTTP ([[API|API.md]]).
 - Contrato de persistencia ([[MODEL|MODEL.md]]).
@@ -90,7 +90,7 @@ El personaje existe dentro de *Subordinación y Valor*:
 
 ### Pendiente
 
-- Datos de ejemplo (personajes maqueta canon de ambas facciones).
+- Datos de ejemplo (personajes maqueta canon).
 
 ### Fuera de este módulo
 

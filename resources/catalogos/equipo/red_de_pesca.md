@@ -13,7 +13,7 @@ sesgo_especialidad:
   - especialidad/oficio/buzo
 tags:
   - catalogo/equipo
-  - equipo/red_de_pesca
+  - equipo/herramienta/red_de_pesca
 ---
 
 Red de fibra sintética reparada con nudos desiguales. Funciona; cada parche tiene historia. La lleva el pescador que trabaja desde antes del amanecer.

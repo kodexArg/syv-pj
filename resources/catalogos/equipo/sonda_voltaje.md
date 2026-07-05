@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/oficio/hacker
 tags:
   - catalogo/equipo
-  - equipo/sonda_voltaje
+  - equipo/herramienta/sonda_voltaje
 ---
 
 Probador eléctrico de punta aislada. Lee tensión en circuitos sin encender lo que no hay que encender.

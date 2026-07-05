@@ -12,7 +12,7 @@ sesgo_especialidad:
   - especialidad/investigacion/espia
 tags:
   - catalogo/equipo
-  - equipo/cruz_arpista
+  - equipo/insignia/cruz_arpista
 ---
 
 Cruz con arpa sin cuerdas grabada. Identificador de filiación para los que saben leer el símbolo.

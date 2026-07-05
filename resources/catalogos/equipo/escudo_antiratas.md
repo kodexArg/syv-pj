@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/combate/maton
 tags:
   - catalogo/equipo
-  - equipo/escudo_antiratas
+  - equipo/herramienta/escudo_antiratas
 ---
 
 Placa de metal corrugado atada al antebrazo. En las Tuberías hay ratas del tamaño de gatos; esto no las detiene, pero da tiempo.

@@ -13,7 +13,7 @@ sesgo_rango:
 - militante
 tags:
 - catalogo/equipo
-- equipo/fusil_recluta
+- equipo/arma/fusil_recluta
 ---
 
 Arma vieja y gastada que se le da al que recién llega.

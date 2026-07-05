@@ -14,7 +14,7 @@ sesgo_especialidad:
   - especialidad/oficio/predicador
 tags:
   - catalogo/equipo
-  - equipo/rosario
+  - equipo/ritual/rosario
 ---
 
 Cadena de cuentas para el rezo. Lo carga casi todo devoto; el de metal tiene otro peso.

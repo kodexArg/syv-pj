@@ -17,7 +17,7 @@ sesgo_especialidad:
   - especialidad/paranormal/sanador
 tags:
   - catalogo/equipo
-  - equipo/pocion_sanadora
+  - equipo/medico/pocion_sanadora
 ---
 
 Vial de extracto procesado de efecto regenerativo documentado. Escaso, caro, y nadie sabe bien cómo funciona después del Colapso.

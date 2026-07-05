@@ -14,7 +14,7 @@ sesgo_especialidad:
   - especialidad/investigacion/archivista
 tags:
   - catalogo/equipo
-  - equipo/papel_libre_acido
+  - equipo/herramienta/papel_libre_acido
 ---
 
 Papel de conservación de pH neutro. No se consigue en cualquier mercado; lo cuidan los archivistas como se cuida el pan.

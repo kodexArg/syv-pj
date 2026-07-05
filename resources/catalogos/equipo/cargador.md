@@ -8,7 +8,7 @@ peso: 1
 peso_sorteo: 4
 tags:
 - catalogo/equipo
-- equipo/cargador
+- equipo/utilitario/cargador
 ---
 
 Munición de reserva para sostener el fuego.

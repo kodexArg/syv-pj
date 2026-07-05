@@ -11,7 +11,7 @@ sesgo_faccion:
 - resistencia_subterranea
 tags:
 - catalogo/equipo
-- equipo/capucha
+- equipo/vestidura/capucha
 ---
 
 Capucha de tela oscura que cubre cara y cuello. En los Barrios del Muro es casi uniforme: protege del frío, la lluvia y las cámaras.

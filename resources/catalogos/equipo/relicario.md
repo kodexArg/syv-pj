@@ -15,7 +15,7 @@ sesgo_especialidad:
   - especialidad/oficio/canonista
 tags:
   - catalogo/equipo
-  - equipo/relicario
+  - equipo/ritual/relicario
 ---
 
 Caja pequeña de metal o madera que guarda una reliquia. La abre quien tiene autorización canónica.

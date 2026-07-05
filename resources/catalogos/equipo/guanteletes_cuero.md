@@ -12,7 +12,7 @@ sesgo_faccion:
 - los_criptografos
 tags:
 - catalogo/equipo
-- equipo/guanteletes_cuero
+- equipo/vestidura/guanteletes_cuero
 ---
 
 Guantes gruesos de cuero curtido con costuras dobles. Los usan cirujanos de chatarra y cualquiera que meta las manos donde no hay que meter dedos descubiertos.

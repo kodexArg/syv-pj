@@ -12,7 +12,7 @@ sesgo_especialidad:
   - especialidad/oficio/herbolario
 tags:
   - catalogo/equipo
-  - equipo/cesto_de_hongos
+  - equipo/utilitario/cesto_de_hongos
 ---
 
 Cesto de mimbre cargado de hongos raros cultivados en la humedad de las Tuberías. Mitad mercancía, mitad farmacopea.

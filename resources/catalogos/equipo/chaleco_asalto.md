@@ -11,7 +11,7 @@ sesgo_faccion:
 - direccion_nacional_de_seguridad
 tags:
 - catalogo/equipo
-- equipo/chaleco_asalto
+- equipo/vestidura/chaleco_asalto
 ---
 
 Chaleco balístico con placas frontales y dorsales. Más protección que el táctico; más peso también.

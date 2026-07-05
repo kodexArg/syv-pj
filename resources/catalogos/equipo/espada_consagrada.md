@@ -13,7 +13,7 @@ sesgo_faccion:
 - exorcistas
 tags:
 - catalogo/equipo
-- equipo/espada_consagrada
+- equipo/arma/espada_consagrada
 ---
 
 Hoja larga bendecida en rito mayor por el alto clero. Para los exorcistas, es la única arma que puede cerrar ciertas heridas antes de abrirlas.
