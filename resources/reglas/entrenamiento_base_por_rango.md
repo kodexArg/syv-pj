@@ -3,6 +3,7 @@ tags: ["regla", "regla/entrenamiento_base_por_rango"]
 clave: entrenamiento_base_por_rango
 valor:
   # Specialized baselines (legacy ladder keys kept verbatim).
+  detective_privado: investigacion
   militante: agitacion
   recluta: instruccion_basica
   fusilero: infanteria
