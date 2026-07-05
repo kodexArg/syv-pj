@@ -6,7 +6,7 @@ tags:
   - entidad/guia
 ---
 
-Índice de los 20 archivos de rangos (uno por facción). Cada archivo contiene la escalera jerárquica completa de esa facción.
+Índice de los 20 archivos de rangos de facción cerrada, más `independiente` (sin jerarquía real, rangos narrativos sueltos para personajes sin facción). Cada archivo contiene la escalera jerárquica completa de esa facción.
 
 - [[resources/rangos/arpistas|Rangos — Arpistas]] (Contacto · Agente · Célula)
 - [[resources/rangos/canales_ocultos|Rangos — Canales Ocultos]] (Informante · Corredor)
@@ -28,5 +28,6 @@ tags:
 - [[resources/rangos/saqueadores_y_traficantes|Rangos — Saqueadores y Traficantes]] (Buscavidas · Capataz)
 - [[resources/rangos/shipibo_conibo|Rangos — Shipibo-Conibo]] (Aprendiz de Meraya · Meraya)
 - [[resources/rangos/traficantes_de_almas|Rangos — Traficantes de Almas]] (Captador · Tratante)
+- [[resources/rangos/independiente|Rangos — Independiente]] (Detective Privado)
 
 Ver también: [[resources/facciones/_moc-facciones|MOC Facciones]] · [[resources/subfacciones/_moc-subfacciones|MOC Subfacciones]]

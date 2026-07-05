@@ -6,8 +6,8 @@ aliases:
   - El Sabueso
 description: Detective veterano cordobés exiliado en Dársena, mente deductiva brillante y memoria pésima para los nombres propios; investiga casos sensibles para la Iglesia.
 barrio: darsena
-faccion: independiente          # excepción documentada: sin facción cerrada en canon (syv-docs)
-rango: detective_privado         # descriptivo, no resuelve a rangos/*.md (no aplica escalera de facción)
+faccion: independiente          # resuelve a resources/facciones/independiente.md
+rango: detective_privado         # resuelve a resources/rangos/independiente.md
 especialidad: null
 estado: disponible
 lealtad: []

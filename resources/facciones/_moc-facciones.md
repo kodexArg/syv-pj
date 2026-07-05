@@ -6,7 +6,7 @@ tags:
   - entidad/guia
 ---
 
-Índice de las 20 facciones disponibles para creación de personajes.
+Índice de las 20 facciones cerradas disponibles para creación de personajes, más `independiente` (entrada mecánica sin facción cerrada, ver nota).
 
 - [[arpistas|Arpistas]]
 - [[canales_ocultos|Canales Ocultos]]
@@ -28,5 +28,8 @@ tags:
 - [[saqueadores_y_traficantes|Saqueadores y Traficantes]]
 - [[shipibo_conibo|Shipibo-Conibo]]
 - [[traficantes_de_almas|Traficantes de Almas]]
+
+> [!note] `independiente` no es una facción de lore
+> [[independiente|Independiente]] es una entrada de catálogo mecánica para personajes sin facción cerrada (ver mock damian-diconte-detective.md). No tiene ficha de lore en `syv-docs`; `probabilidad: 0` la excluye del sorteo aleatorio de afiliación.
 
 Ver también: [[resources/subfacciones/_moc-subfacciones|MOC Subfacciones]] · [[resources/rangos/_moc-rangos|MOC Rangos]]
