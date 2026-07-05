@@ -61,7 +61,7 @@ El personaje existe dentro de *Subordinación y Valor*:
 | [[hoja-personaje\|docs/hoja-personaje.md]] | Esquema del personaje campo por campo. Núcleo del módulo. |
 | [[sistema-tags\|docs/sistema-tags.md]] | Sistema de tags: notación, categorías, catálogo, extensibilidad. |
 | [[contratos\|docs/contratos.md]] | Contratos de rasgos, ventajas, destrezas y efectos. |
-| [[atributos-y-habilidades\|docs/atributos-y-habilidades.md]] | Vocabulario canónico de atributos y estadísticas calculadas. |
+| [[atributos\|docs/atributos.md]] | Vocabulario canónico de atributos y estadísticas calculadas. |
 | [[generacion-procedural\|docs/generacion-procedural.md]] | Flujo obligatorio de creación: fases, sorteos, tabla determinística. |
 | [[diegesis\|docs/diegesis.md]] | Puntero al universo SyV: el lore (facciones, lugares, nombres) vive en `syv-docs`. |
 | [[obsidian\|docs/obsidian.md]] | Cómo se escribe la documentación: OFM y los skills de Obsidian. |
