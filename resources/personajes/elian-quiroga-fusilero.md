@@ -1,36 +1,36 @@
 ---
 slug: elian-quiroga-fusilero
-nombre: Elián Quiroga
 aliases:
-  - Elián Quiroga
-  - Soldado Quiroga
+- Elián Quiroga
+- Soldado Quiroga
 description: Fusilero de línea de las Fuerzas Armadas, el más joven del pelotón, que aprende el oficio puerta por puerta.
-barrio: barrios-del-muro
-faccion: fuerzas_armadas
-rango: soldado_linea
-especialidad: especialidad-combate-fusilero
-estado: disponible
-lealtad:
-  - "[[confederacion]]"
+identidad:
+  slug: elian-quiroga-fusilero
+  nombre: Elián Quiroga
+  sobrenombre: null
+  rol: Soldado
+  especialidad: Fusilero
+  genero: m
+  edad: 23
 atributos:
   cuerpo: 3
   mente: 3
   alma: 2
-edad: 23
-genero: m
+tags:
+- faccion/fuerzas_armadas
+- rango/soldado_linea
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/instinto
+- rasgo/constitucion_robusta
+- equipo/arma/fusil
+- equipo/utilitario/cargador
+- equipo/vestidura/uniforme_linea
+- lealtad/confederacion
 apariencia:
-  - joven
-  - enjuto
-  - criollo
-aspectos:
-  - "[[instinto]]"
-rasgos:
-  - "[[constitucion_robusta]]"
-equipo:
-  - "[[fusil]]"
-  - "[[cargador]]"
-  - "[[uniforme_linea]]"
-tags: []
+  rostro: 'PENDIENTE: redactar (regla §2.5)'
+  figura: enjuto
+  presencia: joven, criollo
 ---
 
 [[soldado_linea|Soldado]] [[fuerzas_armadas|Quiroga]], veintitrés años. Es el más nuevo de la escuadra. Pero tiene [[instinto|olfato]]: se agacha antes de que silbe el primer disparo, y nadie le enseñó eso.

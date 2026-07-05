@@ -1,37 +1,37 @@
 ---
 slug: iracema-chaman-pantano
-nombre: Iracema
 aliases:
-  - Iracema
-  - La Meraya
+- Iracema
+- La Meraya
 description: Curandera shipibo-conibo del pantano que llega a Las Tuberías con cantos icaros y plantas, vista con recelo por la Iglesia.
-barrio: tuberias
-faccion: shipibo_conibo
-rango: meraya
-especialidad: especialidad-paranormal-curandero
-estado: disponible
-lealtad: []
+identidad:
+  slug: iracema-chaman-pantano
+  nombre: Iracema
+  sobrenombre: null
+  rol: Meraya
+  especialidad: Curandero
+  genero: f
+  edad: 47
 atributos:
   cuerpo: 3
   mente: 3
   alma: 7
-edad: 47
-genero: f
+tags:
+- faccion/shipibo_conibo
+- rango/meraya
+- estado/disponible
+- ubicacion/tuberias
+- aspecto/expresion_trance
+- aspecto/tatuaje_linaje_guarani
+- rasgo/afinidad_animal
+- rasgo/trance_psiquico
+- equipo/atado_de_hierbas
+- equipo/pintura_facial
+- equipo/ritual/talisman_guarani
 apariencia:
-  - rasgos shipibo-conibo
-  - piel cobriza
-  - cabello negro largo
-aspectos:
-  - "[[expresion_trance]]"
-  - "[[tatuaje_linaje_guarani]]"
-rasgos:
-  - "[[afinidad_animal]]"
-  - "[[trance_psiquico]]"
-equipo:
-  - "[[atado_de_hierbas]]"
-  - "[[pintura_facial]]"
-  - "[[talisman_guarani]]"
-tags: []
+  rostro: rasgos shipibo-conibo, piel cobriza, cabello negro largo
+  figura: 'PENDIENTE: redactar (regla §2.5)'
+  presencia: 'PENDIENTE: redactar (regla §2.5)'
 ---
 
 El pantano le quedó en la ropa. Iracema es [[shipibo_conibo|shipibo-conibo]], rango [[meraya]]. Baja al mercado de la Antigua Estación, en [[tuberias|Las Tuberías]], con el [[atado_de_hierbas|atado de hierbas]] que no prende en cemento.

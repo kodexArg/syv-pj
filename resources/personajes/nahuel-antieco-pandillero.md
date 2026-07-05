@@ -1,35 +1,35 @@
 ---
 slug: nahuel-antieco-pandillero
-nombre: Nahuel Antieco
 aliases:
-  - Nahuel Antieco
-  - Tijera
+- Nahuel Antieco
+- Tijera
 description: Pandillero del Ejército Rojo apodado Tijera, asaltante de odio silencioso y el más temido de los tres amigos.
-barrio: barrios-del-muro
-faccion: resistencia_subterranea
-rango: militante_resistencia
-especialidad: especialidad-combate-asalto
-estado: disponible
-lealtad:
-  - "[[ejercito_rojo]]"
+identidad:
+  slug: nahuel-antieco-pandillero
+  nombre: Nahuel Antieco
+  sobrenombre: null
+  rol: Militante
+  especialidad: Asaltante
+  genero: m
+  edad: 20
 atributos:
   cuerpo: 3
   mente: 2
   alma: 4
-edad: 20
-genero: m
+tags:
+- faccion/resistencia_subterranea
+- rango/militante_resistencia
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/instinto
+- rasgo/cicatriz_perturbadora
+- equipo/arma/machete
+- equipo/vestidura/capucha
+- lealtad/ejercito_rojo
 apariencia:
-  - enjuto
-  - mestizo
-  - rasgos mapuche
-aspectos:
-  - "[[instinto]]"
-rasgos:
-  - "[[cicatriz_perturbadora]]"
-equipo:
-  - "[[machete]]"
-  - "[[capucha]]"
-tags: []
+  rostro: rasgos mapuche
+  figura: enjuto
+  presencia: mestizo
 ---
 
 A Nahuel le dicen Tijera y nadie del [[resistencia_subterranea|Ejército Rojo]] le pregunta por qué. De los tres amigos de [[barrios-del-muro|el Muro]] es el callado, y por eso el más temido. Lo que le tiene a la [[fuerzas_armadas|Confederación]] no hace ruido como el de [[maxi-linares-pandillero|Maxi]] ni se enfría como el de [[brian-curinanco-pandillero|Brian]]. Simplemente está ahí, listo.

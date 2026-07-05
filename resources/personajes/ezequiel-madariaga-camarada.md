@@ -1,37 +1,37 @@
 ---
 slug: ezequiel-madariaga-camarada
-nombre: Ezequiel Madariaga
 aliases:
-  - Ezequiel Madariaga
-  - El Camarada
+- Ezequiel Madariaga
+- El Camarada
 description: Camarada de alto nivel del Ejército Rojo, espía culto y políglota que se mimetiza en Ciudad Dársena y solo responde al comandante.
-barrio: barrios-del-muro
-faccion: resistencia_subterranea
-rango: cabecilla
-especialidad: especialidad-investigacion-espia
-estado: disponible
-lealtad:
-  - "[[ejercito_rojo]]"
+identidad:
+  slug: ezequiel-madariaga-camarada
+  nombre: Ezequiel Madariaga
+  sobrenombre: null
+  rol: Cabecilla
+  especialidad: Espía
+  genero: m
+  edad: 38
 atributos:
   cuerpo: 3
   mente: 4
   alma: 6
-edad: 38
-genero: m
+tags:
+- faccion/resistencia_subterranea
+- rango/cabecilla
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/instinto
+- aspecto/veterano
+- rasgo/mirada_cansada
+- equipo/utilitario/radio
+- equipo/utilitario/prismaticos
+- equipo/vestidura/galera
+- lealtad/ejercito_rojo
 apariencia:
-  - criollo
-  - afeitado
-  - pelo prolijo
-aspectos:
-  - "[[instinto]]"
-  - "[[veterano]]"
-rasgos:
-  - "[[mirada_cansada]]"
-equipo:
-  - "[[radio]]"
-  - "[[prismaticos]]"
-  - "[[galera]]"
-tags: []
+  rostro: afeitado, pelo prolijo
+  figura: 'PENDIENTE: redactar (regla §2.5)'
+  presencia: criollo
 ---
 
 Ezequiel Madariaga habla cinco lenguas y ninguna le cuesta. Culto, frío, imposible de ubicar. Es el [[cabecilla|camarada]] que la [[resistencia_subterranea|resistencia]] manda cuando hay que entrar a Ciudad Dársena y salir vivo.

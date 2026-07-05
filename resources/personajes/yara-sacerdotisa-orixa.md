@@ -1,38 +1,38 @@
 ---
 slug: yara-sacerdotisa-orixa
-nombre: Yara
 aliases:
-  - Yara
-  - Mãe Yara
-  - La de Iemanjá
+- Yara
+- Mãe Yara
+- La de Iemanjá
 description: Pai/mãe de santo de un terreiro de los Barrios del Muro; sacerdotisa orixá que sincretiza la Virgen con Iemanjá entre la humedad del río.
-barrio: barrios-del-muro
-faccion: los_umbanda
-rango: pai_de_santo
-especialidad: especialidad-paranormal-medium
-estado: disponible
-lealtad: []
+identidad:
+  slug: yara-sacerdotisa-orixa
+  nombre: Yara
+  sobrenombre: null
+  rol: Pai de Santo
+  especialidad: Médium
+  genero: f
+  edad: 58
 atributos:
   cuerpo: 2
   mente: 4
   alma: 7
-edad: 58
-genero: f
+tags:
+- faccion/los_umbanda
+- rango/pai_de_santo
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/expresion_trance
+- aspecto/veterano
+- rasgo/afinidad_animal
+- rasgo/silencio_sagrado
+- equipo/medalla_sincretica
+- equipo/ritual/agogo
+- equipo/tocado_de_plumas
 apariencia:
-  - afrodescendiente
-  - canas trenzadas
-  - piel oscura
-aspectos:
-  - "[[expresion_trance]]"
-  - "[[veterano]]"
-rasgos:
-  - "[[afinidad_animal]]"
-  - "[[silencio_sagrado]]"
-equipo:
-  - "[[medalla_sincretica]]"
-  - "[[agogo]]"
-  - "[[tocado_de_plumas]]"
-tags: []
+  rostro: canas trenzadas, piel oscura
+  figura: 'PENDIENTE: redactar (regla §2.5)'
+  presencia: afrodescendiente
 ---
 
 Yara dirige un terreiro escondido entre los callejones húmedos de [[barrios-del-muro|Barrios del Muro]], vestida de blanco y sedas del color de su orixá, un escapulario católico sobre las cuentas africanas. Es [[los_umbanda|umbandista]] de rango [[pai_de_santo|pai de santo]], [[veterano|vieja]] en el oficio del santo.

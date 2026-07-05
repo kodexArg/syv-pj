@@ -1,34 +1,34 @@
 ---
 slug: marta-vendedora-hongos
-nombre: Marta
 aliases:
-  - Marta
-  - La Curandera
+- Marta
+- La Curandera
 description: Vendedora de hongos y sanadora en los suburbios de Tuberías; hermosa y de porte guerrero, más marcial que mística a simple vista.
-barrio: tuberias
-faccion: independiente          # excepción documentada: sin facción cerrada en canon (syv-docs), asociada a Guardianes de la Memoria en secreto
-rango: sanadora_independiente    # descriptivo, no resuelve a rangos/*.md (no aplica escalera de facción)
-especialidad: especialidad-paranormal-sanador
-estado: disponible
-lealtad: []
+identidad:
+  slug: marta-vendedora-hongos
+  nombre: Marta
+  sobrenombre: null
+  rol: null
+  especialidad: Sanador por Fe
+  genero: f
+  edad: 45
 atributos:
   cuerpo: 3
   mente: 3
   alma: 3
-edad: 45
-genero: f
+tags:
+- faccion/independiente
+- rango/sanadora_independiente
+- estado/disponible
+- ubicacion/tuberias
+- aspecto/veterano
+- aspecto/terco
+- equipo/utilitario/cesto_de_hongos
+- equipo/chal_remendado
 apariencia:
-  - hermosa
-  - porte de guerrera
-  - ojos grises fijos
-aspectos:
-  - "[[veterano]]"
-  - "[[terco]]"
-rasgos: []
-equipo:
-  - "[[cesto_de_hongos]]"
-  - "[[chal_remendado]]"
-tags: []
+  rostro: ojos grises fijos
+  figura: porte de guerrera
+  presencia: hermosa
 ---
 
 [[3_personajes/secundarios/marta-la-curandera|Marta, la Curandera]], sanadora de las Tuberías que vende hongos raros cultivados en la humedad subterránea. Su reputación prospera en susurros: cicatrización imposible, razón restaurada, visión devuelta. Vive de donaciones, nunca de dinero.

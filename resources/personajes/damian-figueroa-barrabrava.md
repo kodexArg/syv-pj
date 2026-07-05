@@ -1,33 +1,33 @@
 ---
 slug: damian-figueroa-barrabrava
-nombre: Damián Figueroa
 aliases:
-  - Damián Figueroa
-  - El Gordo
+- Damián Figueroa
+- El Gordo
 description: Barrabrava del Ejército Rojo, voz de cancha y pulmón de la columna, que arenga al frente con su trompeta.
-barrio: barrios-del-muro
-faccion: resistencia_subterranea
-rango: simpatizante
-especialidad: null
-estado: disponible
-lealtad:
-  - "[[ejercito_rojo]]"
+identidad:
+  slug: damian-figueroa-barrabrava
+  nombre: Damián Figueroa
+  sobrenombre: null
+  rol: Simpatizante
+  especialidad: null
+  genero: m
+  edad: 35
 atributos:
   cuerpo: 3
   mente: 2
   alma: 2
-edad: 35
-genero: m
+tags:
+- faccion/resistencia_subterranea
+- rango/simpatizante
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/terco
+- equipo/trompeta
+- lealtad/ejercito_rojo
 apariencia:
-  - corpulento
-  - barbado
-  - criollo
-aspectos:
-  - "[[terco]]"
-rasgos: []
-equipo:
-  - "[[trompeta]]"
-tags: []
+  rostro: barbado
+  figura: corpulento
+  presencia: criollo
 ---
 
 El Gordo Figueroa es el pulmón de la columna. Su voz de cancha retumba por encima del tiroteo. Cuando se queda sin garganta, levanta la [[trompeta]] y sopla hasta ponerse violeta para que el [[resistencia_subterranea|Ejército Rojo]] no afloje contra la [[fuerzas_armadas|Confederación]].

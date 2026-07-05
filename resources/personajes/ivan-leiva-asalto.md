@@ -1,36 +1,37 @@
 ---
 slug: ivan-leiva-asalto
-nombre: Iván Leiva
 aliases:
-  - Iván Leiva
-  - Soldado Leiva
+- Iván Leiva
+- Soldado Leiva
 description: Soldado de asalto de las Fuerzas Armadas, compañero de irrupción de Bordón y cobertura en los avances cerrados.
-barrio: barrios-del-muro
-faccion: fuerzas_armadas
-rango: soldado_linea
-especialidad: especialidad-combate-asalto
-estado: disponible
-lealtad:
-  - "[[confederacion]]"
+identidad:
+  slug: ivan-leiva-asalto
+  nombre: Iván Leiva
+  sobrenombre: null
+  rol: Soldado
+  especialidad: Asaltante
+  genero: m
+  edad: 24
 atributos:
   cuerpo: 3
   mente: 3
   alma: 2
-edad: 24
-genero: m
+tags:
+- faccion/fuerzas_armadas
+- rango/soldado_linea
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/terco
+- rasgo/mirada_cansada
+- equipo/arma/subfusil
+- equipo/vestidura/chaleco_asalto
+- equipo/vestidura/uniforme_linea
+- equipo/utilitario/cargador
+- lealtad/confederacion
 apariencia:
-  - criollo
-  - morocho
-aspectos:
-  - "[[terco]]"
-rasgos:
-  - "[[mirada_cansada]]"
-equipo:
-  - "[[subfusil]]"
-  - "[[chaleco_asalto]]"
-  - "[[uniforme_linea]]"
-  - "[[cargador]]"
-tags: []
+  rostro: 'PENDIENTE: redactar (regla §2.5)'
+  figura: 'PENDIENTE: redactar (regla §2.5)'
+  presencia: criollo, morocho
 ---
 
 [[soldado_linea|Soldado]] [[fuerzas_armadas|Leiva]] entra siempre detrás de [[hernan-bordon-asalto|Bordón]] y le cubre la espalda sin que se lo pidan. [[terco|Obstinado]] en no quedarse atrás. Ejerce el [[especialidad-combate-asalto|asalto]] con el [[subfusil]] firme y [[cargador|cargadores]] de repuesto en el [[chaleco_asalto|chaleco]].

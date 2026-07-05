@@ -1,34 +1,36 @@
 ---
 slug: facundo-rios-tirador
-nombre: Facundo Ríos
 aliases:
-  - Facundo Ríos
-  - Soldado Ríos
+- Facundo Ríos
+- Soldado Ríos
 description: Tirador designado de la escuadra militar urbana de la Confederación; ojo afilado a distancia, no ametralladora pesada.
-barrio: barrios-del-muro
-faccion: fuerzas_armadas
-rango: soldado_linea
-especialidad: especialidad-combate-tirador
-estado: disponible
-lealtad:
-  - "[[confederacion]]"
+identidad:
+  slug: facundo-rios-tirador
+  nombre: Facundo Ríos
+  sobrenombre: null
+  rol: Soldado
+  especialidad: Tirador
+  genero: m
+  edad: 28
 atributos:
   cuerpo: 3
   mente: 4
   alma: 2
-edad: 28
-genero: m
+tags:
+- faccion/fuerzas_armadas
+- rango/soldado_linea
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/tirador
+- aspecto/ojo_de_aguila
+- equipo/arma/rifle
+- equipo/utilitario/prismaticos
+- equipo/vestidura/uniforme_linea
+- lealtad/confederacion
 apariencia:
-  - criollo
-  - enjuto
-aspectos:
-  - "[[tirador]]"
-  - "[[ojo_de_aguila]]"
-equipo:
-  - "[[rifle]]"
-  - "[[prismaticos]]"
-  - "[[uniforme_linea]]"
-tags: []
+  rostro: 'PENDIENTE: redactar (regla §2.5)'
+  figura: enjuto
+  presencia: criollo
 ---
 
 Facundo busca el respiro entre dos latidos. Suelta el [[rifle]] cuando el blanco ya dejó de respirar. Es el [[especialidad-combate-tirador|tirador designado]] de la escuadra, no el bruto de la ametralladora: [[tirador|paciencia]] antes que pólvora.

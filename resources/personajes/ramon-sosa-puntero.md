@@ -1,36 +1,36 @@
 ---
 slug: ramon-sosa-puntero
-nombre: Ramón Sosa
 aliases:
-  - Ramón Sosa
-  - El Cholo
+- Ramón Sosa
+- El Cholo
 description: Puntero curtido aliado al Ejército Rojo, agitador de masas que sabe organizar barrabravas y pandilleros como nadie; el hombre de confianza del comandante.
-barrio: barrios-del-muro
-faccion: punteros
-rango: puntero
-especialidad: especialidad-combate-lider
-estado: disponible
-lealtad:
-  - "[[ejercito_rojo]]"
-  - "[[punteros]]"
+identidad:
+  slug: ramon-sosa-puntero
+  nombre: Ramón Sosa
+  sobrenombre: null
+  rol: Puntero
+  especialidad: Líder de Banda
+  genero: m
+  edad: 44
 atributos:
   cuerpo: 3
   mente: 3
   alma: 6
-edad: 44
-genero: m
+tags:
+- faccion/punteros
+- rango/puntero
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/vanguardia
+- rasgo/mirada_cansada
+- equipo/arma/machete
+- equipo/vestidura/galera
+- lealtad/ejercito_rojo
+- lealtad/punteros
 apariencia:
-  - mestizo
-  - bigote
-  - piel curtida
-aspectos:
-  - "[[vanguardia]]"
-rasgos:
-  - "[[mirada_cansada]]"
-equipo:
-  - "[[machete]]"
-  - "[[galera]]"
-tags: []
+  rostro: bigote, piel curtida
+  figura: 'PENDIENTE: redactar (regla §2.5)'
+  presencia: mestizo
 ---
 
 El Cholo Sosa es [[punteros|puntero]] de cuna y conoce cada cancha, cada barra y cada pandilla de [[barrios-del-muro|los Barrios del Muro]] por su nombre de pila. Su lealtad última está con los [[punteros|punteros]]. Pero es el aliado más cercano del comandante [[anibal-painemal-comandante|Aníbal]] en el [[resistencia_subterranea|Ejército Rojo]].
