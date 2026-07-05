@@ -1,37 +1,37 @@
 ---
 slug: luisa-pescadora
-nombre: Luisa
 aliases:
-  - Luisa
-  - La Pescadora
+- Luisa
+- La Pescadora
 description: Portuaria devota de los Barrios del Muro, madre de un hijo desaparecido; pesca bajo la sombra de los punteros.
-barrio: barrios-del-muro
-faccion: gremio_de_pescadores
-rango: marinero
-especialidad: especialidad-oficio-pescador
-estado: disponible
-lealtad: []
+identidad:
+  slug: luisa-pescadora
+  nombre: Luisa
+  sobrenombre: null
+  rol: Marinero
+  especialidad: Pescador
+  genero: f
+  edad: 40
 atributos:
   cuerpo: 4
   mente: 3
   alma: 2
-edad: 40
-genero: f
+tags:
+- faccion/gremio_de_pescadores
+- rango/marinero
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/veterano
+- aspecto/manos_asperas
+- rasgo/mirada_cansada
+- rasgo/fe_obstinada
+- equipo/herramienta/red_de_pesca
+- equipo/ritual/rosario
+- equipo/chal_remendado
 apariencia:
-  - piel curtida y salada
-  - mestiza
-  - cabello recogido
-aspectos:
-  - "[[veterano]]"
-  - "[[manos_asperas]]"
-rasgos:
-  - "[[mirada_cansada]]"
-  - "[[fe_obstinada]]"
-equipo:
-  - "[[red_de_pesca]]"
-  - "[[rosario]]"
-  - "[[chal_remendado]]"
-tags: []
+  rostro: piel curtida y salada, cabello recogido
+  figura: 'PENDIENTE: redactar (regla §2.5)'
+  presencia: mestiza
 ---
 
 Luisa pesca en los muelles podridos de [[barrios-del-muro|Barrios del Muro]], remendando su [[red_de_pesca]] con dedos de [[manos_asperas|manos ásperas]], la piel escamosa por décadas de sal. [[veterano|Curtida]] como la madera del muelle.

@@ -73,12 +73,7 @@ La **afiliación** sitúa al personaje dentro de la estructura de subordinación
 
 ### 1.1. Facción
 
-Exactamente un tag `faccion/*`. Las facciones disponibles no se fijan en este flujo: salen de la documentación de *Subordinación y Valor* (ver [[diegesis|diegesis.md]]). Cuando no se provee, se sortea **uniforme** entre las facciones que el contexto habilite.
-
-Las facciones canónicas vigentes del universo:
-
-- `confederados`
-- `ejercito_rojo`
+Exactamente un tag `faccion/*`. Las facciones disponibles no se fijan en este flujo: salen de `resources/facciones/*.md` — un archivo por facción, catálogo abierto (ver [[resources/facciones/_moc-facciones|_moc-facciones.md]] para el índice vigente). Cuando no se provee, se sortea **uniforme** entre las facciones que el contexto habilite.
 
 ### 1.2. Subfacción
 
@@ -86,18 +81,21 @@ Al menos un tag `subfaccion/*`, y puede tener varios. Se sortean entre las subfa
 
 ### 1.3. Rango
 
-El combatiente recibe un rango: exactamente un tag `rango/*`. El catálogo de rangos sale de la documentación del universo; algunos rangos de ejemplo:
+El combatiente recibe un rango: exactamente un tag `rango/*`. Los rangos **no son globales**: son una escalera jerárquica **por facción**, en `resources/rangos/<faccion>.md` — un archivo por facción (ver [[resources/rangos/_moc-rangos|_moc-rangos.md]] para el índice). Cada archivo declara una lista `rangos:` donde cada entrada trae:
 
-- `recluta`
-- `fusilero`
-- `militante`
-- `apuntador`
-- `artillero`
-- `segundo_al_mando`
-- `lider_de_escuadra`
-- `tirador_designado`
+```yaml
+rangos:
+- slug: recluta
+  nombre: Recluta
+  faccion: fuerzas_armadas
+  probabilidad: 30
+  atributos_base: { cuerpo: 3, mente: 2, alma: 2 }
+  edad_min: 18
+  edad_max: 24
+  mando_default: soldado_linea
+```
 
-La frecuencia relativa de cada rango (la escasez operativa: muchos reclutas, pocos líderes) es una **decisión de balance que vive en configuración**, no en este documento. Acá se fija qué rangos existen, no con qué probabilidad salen. El rango alimenta los atributos (Fase 3) y la especialidad (§1.5).
+La `probabilidad` de sorteo (la escasez operativa: muchos reclutas, pocos líderes) y el rango de edad admisible (`edad_min`/`edad_max`) viajan **inline en el mismo YAML del rango** — no en una tabla aparte. El rango alimenta los atributos (Fase 3, vía `atributos_base`) y la especialidad (§1.5).
 
 ### 1.4. Mando — ¿puede liderar?
 
@@ -113,22 +111,17 @@ puede_liderar: true | false
 - `puede_liderar: true` → se agrega un tag `mando/*` acorde (el grado de mando que la documentación defina para ese rango).
 - `puede_liderar: false` → ningún tag `mando/*`.
 
-Algunos rangos **implican** mando (`lider_de_escuadra`, `segundo_al_mando` ⇒ `true` por defecto); en el resto el defecto es `false`, pero el contexto puede elevarlo. La regla rango → mando vive en configuración.
+Algunos rangos **implican** mando (`cabo` ⇒ `mando: escuadra`, `sargento` ⇒ `mando: peloton`, según `resources/rangos/fuerzas_armadas.md`); en el resto el defecto es `false`, pero el contexto puede elevarlo. La regla rango → mando vive en el propio archivo de rangos de la facción (campo `mando`/`mando_default`), no en una tabla aparte.
 
 ### 1.5. Especialidad (determinístico)
 
-Cerrada la cadena de subordinación, la especialidad se deriva **sin azar**: mapeo directo desde rango (y mando). P. ej. `lider_de_escuadra` → `especialidad/jerarquia/lider`. No se sortea: es determinístico. (Este es el tag `especialidad/*` de la hoja; no confundir con `identidad.especialidad`, que es narrativo — ver [[hoja-personaje|hoja-personaje.md §1.2]].)
+Cerrada la cadena de subordinación, la especialidad se deriva **sin azar**: mapeo directo desde rango (y mando). P. ej. un `rango/sargento` con `mando: peloton` en `fuerzas_armadas` deriva a `especialidad/combate/lider`. No se sortea: es determinístico. (Este es el tag `especialidad/*` de la hoja; no confundir con `identidad.especialidad`, que es narrativo — ver [[hoja-personaje|hoja-personaje.md §1.2]].)
 
 La **lealtad de base** del combatiente a su facción se siembra más adelante, en la fase de Vínculos (§6) — el hogar único de todas las etiquetas relacionales.
 
 ### 1.6. Restricciones que esta fase impone a Fase 2
 
-La afiliación elegida **puede** acotar el rango de edad o el conjunto de géneros válidos en Fase 2. Por ejemplo:
-
-- `lider_de_escuadra` → `edad ≥ 25`
-- `recluta` → `edad ≤ 22`
-
-Esas reglas viven en la tabla de reglas del contexto (ámbito separado), no en el flujo. El generador la consulta antes de sortear cada campo de Fase 2 y recorta el depósito o el rango al subconjunto válido.
+La afiliación elegida **puede** acotar el rango de edad o el conjunto de géneros válidos en Fase 2. Esa restricción **ya vive en el propio rango**: los campos `edad_min`/`edad_max` de la entrada en `resources/rangos/<faccion>.md` (§1.3) — no hay tabla de reglas cruzadas aparte. Por ejemplo, en `resources/rangos/fuerzas_armadas.md`: `recluta` → `edad_min: 18, edad_max: 24`; `sargento` → `edad_min: 26, edad_max: 45`. El generador lee esos campos antes de sortear Fase 2 y recorta el rango al subconjunto válido.
 
 ---
 
@@ -157,8 +150,8 @@ Rango por defecto: **12–70 años**, entero, uniforme. Si Fase 1 estrecha el ra
 
 Sorteo desde depósitos curados (`resources/nombres/`):
 
-- `nombres_m.txt` — nombres masculinos, formato `Nombre|Apodo`
-- `nombres_f.txt` — nombres femeninos, formato `Nombre|Apodo`
+- `varones.txt` — nombres masculinos, formato `Nombre|Apodo`
+- `mujeres.txt` — nombres femeninos, formato `Nombre|Apodo`
 - `apellidos.txt` — apellidos (mezcla hispana + inmigración argentina)
 
 Composición: `{nombre} {apellido}`. Selección uniforme dentro del depósito del género. La estructura admite depósitos alternativos por facción (`nombres_m_<faccion>.txt`) sin tocar el generador.
@@ -176,26 +169,17 @@ Probabilidad de emitir sobrenombre: **50%** por personaje. El apodo está curado
 
 ## Fase 3 — Atributos
 
-**Cero aleatoriedad.** Lookup determinístico sobre el tag `rango/*` de Fase 1:
+**Cero aleatoriedad.** Lookup determinístico sobre el tag `rango/*` de Fase 1: no hay tabla global de atributos por rango. `atributos_base` vive **inline en cada entrada** de `resources/rangos/<faccion>.md` (§1.3) — el lookup es `rango del personaje → esa entrada.atributos_base`.
 
-| Rango | `cuerpo` | `mente` | `alma` |
-| :--- | :---: | :---: | :---: |
-| `ciudadano` | 2 | 2 | 2 |
-| `militante` | 2 | 2 | 3 |
-| `recluta` | 3 | 2 | 3 |
-| `fusilero` | 3 | 3 | 3 |
-| `apuntador` | 3 | 4 | 4 |
-| `artillero` | 4 | 4 | 3 |
-| `tirador_designado` | 4 | 5 | 3 |
-| `segundo_al_mando` | 3 | 4 | 5 |
-| `lider_de_escuadra` | 3 | 5 | 6 |
+> [!example] Ejemplo real trazable: `fuerzas_armadas` / `recluta`
+> `resources/rangos/fuerzas_armadas.md`, entrada `recluta`: `atributos_base: { cuerpo: 3, mente: 2, alma: 2 }`. Un combatiente con `rango/recluta` en `faccion/fuerzas_armadas` arranca con esos tres valores, sin sorteo.
 
 > [!note] `cuerpo` ← viejo `fis`, `mente` ← viejo `tac`, `alma` es nuevo
 > El renombre es lineal en dos columnas: `cuerpo` toma los valores del viejo `fis` y `mente` los del viejo `tac`. El tercer atributo viejo —`men` (mental)— se **descarta**: no tiene columna heredera. `alma` (Aura, liderazgo, voluntad, temple) es un atributo **nuevo**, **reasignado por clase** según rúbrica —no heredado de `men`—: altísimo en alto clero, chamanismo y líderes de escuadra; alto en militantes y fanáticos; bajo (2–3) en el resto.
 
-Topes absolutos de la escala: `cuerpo 7`, `mente 7`, `alma 7`. Los valores de creación quedan por debajo; el tope solo se alcanza vía hito narrativo. Si el personaje no tiene rango, los atributos caen a la línea base `ciudadano`.
+Topes absolutos de la escala: `cuerpo 7`, `mente 7`, `alma 7`. Los valores de creación quedan por debajo; el tope solo se alcanza vía hito narrativo. Si el personaje no tiene rango, los atributos caen a una línea base `ciudadano` implícita (`cuerpo: 2, mente: 2, alma: 2`) — este caso especial no es un rango de ningún catálogo por facción; es el piso civil fuera del sistema de rangos.
 
-Esta tabla vive en configuración (no en código). Cambiar un valor de rango es editar la tabla; el generador la lee en tiempo de ejecución.
+Los `atributos_base` viven en el archivo de rangos de cada facción (no en código). Cambiar un valor de rango es editar esa entrada; el generador la lee en tiempo de ejecución.
 
 > [!info] Inmutabilidad práctica
 > Un ascenso posterior cambia el tag `rango/*` pero no los atributos. El progreso real es el equipo, los aspectos y los vínculos ganados en campaña. Mutación solo vía hito `triple_cero` o `mejora_atributo`.
@@ -214,10 +198,10 @@ Adiestramiento o formación recibida (militar, sanitaria, técnica). Parte es **
 
 ### 4.2. Habilidades (`habilidad/*`)
 
-Una **habilidad** habilita una tirada contra su `atributo_dominante`; no modifica atributos (ver [[contratos|contratos.md §6]]). Se asignan coherentes con el rango, la especialidad y el entrenamiento:
+Una **habilidad** habilita una tirada contra su `atributo_dominante`; no modifica atributos (ver [[contratos|contratos.md §6]]). Se asignan coherentes con el rango, la especialidad y el entrenamiento — el mapeo real vive en `resources/reglas/habilidad_por_especialidad.md`, indexado por especialidad exacta:
 
-- `tirador_designado` → `habilidad/tiro_de_precision`.
-- formación sanitaria → `habilidad/primeros_auxilios`.
+- `especialidad/combate/tirador` → `habilidad/tiro_de_precision`.
+- `especialidad/oficio/medico` (formación sanitaria) → `habilidad/primeros_auxilios`.
 
 Algunas son determinísticas (la especialidad las implica), otras se sortean ponderado. Sus `requires` se anclan al rango, la especialidad y el entrenamiento —todo ya fijado—; el arma que las haga lucir se elige después, en Equipo (Fase 7), de forma coherente con ellas.
 
@@ -234,7 +218,7 @@ Quién **es** el combatiente bajo presión: su carácter mecánicamente activo. 
 1. Cuota típica: **0–3** aspectos, según configuración por rango.
 2. Cada aspecto elegible se pondera por su `peso_narrativo` (1..5) — sugerencia de frecuencia, no probabilidad estricta (ver [[sistema-tags|sistema-tags.md §6.3]]).
 3. Se respetan `requires` y `excluye`: por eso esta fase va **después** de Formación — sus precondiciones (habilidades, rango, entrenamiento) ya están en la hoja. Y se evita lo incoherente (no se sortea `cobarde` junto a `vanguardia`).
-4. **Coherencia con la identidad**: la edad sesga el depósito. Un combatiente de 19 años no saca `aspecto/veterano_de_campo`; uno de 55, sí lo tiene a tiro.
+4. **Coherencia con la identidad**: la edad sesga el depósito. Un combatiente de 19 años no saca `aspecto/veterano`; uno de 55, sí lo tiene a tiro.
 5. **Sorpresa narrativa**: con baja probabilidad puede caer un aspecto de `origen: narrativo` (siempre positivo, sin `requires`) — el golpe de suerte, el `ojo_de_aguila` (ver [[contratos|contratos.md §5.4]]).
 
 ### 5.2. Rasgos físicos (`rasgo/*`)
@@ -273,7 +257,7 @@ Las tres son etiquetas **relacionales** de la misma familia: su slug referencia 
 
 ## Fase 7 — Equipo
 
-La **última capa material** antes de la prosa: lo que el combatiente carga. Se decide al final —cuando ya sabemos su rango, su formación y sus vínculos— para que el kit sea coherente con todo lo anterior (al `tirador_designado` con `habilidad/tiro_de_precision` le toca un arma de alcance largo, no un fusil de recluta).
+La **última capa material** antes de la prosa: lo que el combatiente carga. Se decide al final —cuando ya sabemos su rango, su formación y sus vínculos— para que el kit sea coherente con todo lo anterior (a la `especialidad/combate/tirador` con `habilidad/tiro_de_precision` le toca un arma de alcance largo, no un fusil de `rango/recluta`).
 
 > **Entrada:** afiliación (Fase 1) y formación (Fase 4). · **Salida:** etiquetas `equipo/*`.
 

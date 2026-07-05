@@ -42,7 +42,7 @@ Esta es LA especificación definitiva. Debe cubrir:
 - Los 6 bloques estructurales: identidad, atributos, historial, event_log, metadatos, extras
 - La colección plana de tags[] — el corazón del sistema
 - Notación de tags: `<categoria>[.<subcategoria>]<slug>`
-- Categorías de tags: abierto por diseño (destreza, rasgo, ventaja, equipo, rol, membresía_facción, custom...)
+- Categorías de tags: abierto por diseño (habilidad, rasgo, aspecto, equipo, especialidad, faccion, custom...)
 - Campos derivados: computados en lectura, no persistidos
 - Matriz de mutabilidad: qué cambia vía eventos vs qué es inmutable
 - El sistema de eventos: tipos, efectos sobre campos, append-only
@@ -66,7 +66,7 @@ Esta es LA especificación definitiva. Debe cubrir:
 - Fase 3: Tags (aleatorio ponderado desde catálogo)
 - Fase 4: Narrativa (historia de trasfondo generada por LLM — congelada al canonizar)
 - Fase 5: Relaciones (aleatorio sembrado desde pool)
-- Reproducibilidad de semilla: (semilla, facción, rol) → mismo personaje
+- Reproducibilidad de semilla: (semilla, facción, rango) → mismo personaje
 - Todo impulsado por configuración, sin valores incrustados
 
 ### 7. docs/open-close-principle.md — Documento de Diseño Abierto/Cerrado

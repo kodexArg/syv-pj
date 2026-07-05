@@ -1,33 +1,34 @@
 ---
 slug: cristian-ledesma-barrabrava
-nombre: Cristian Ledesma
 aliases:
-  - Cristian Ledesma
-  - La Rana
+- Cristian Ledesma
+- La Rana
 description: Barrabrava desarmado del Ejército Rojo que lleva el redoblante y enarbola la bandera roja al frente de la columna.
-barrio: barrios-del-muro
-faccion: resistencia_subterranea
-rango: simpatizante
-especialidad: null
-estado: disponible
-lealtad:
-  - "[[ejercito_rojo]]"
+identidad:
+  slug: cristian-ledesma-barrabrava
+  nombre: Cristian Ledesma
+  sobrenombre: null
+  rol: Simpatizante
+  especialidad: null
+  genero: m
+  edad: 24
 atributos:
   cuerpo: 3
   mente: 2
   alma: 2
-edad: 24
-genero: m
+tags:
+- faccion/resistencia_subterranea
+- rango/simpatizante
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/vanguardia
+- equipo/redoblante
+- equipo/bandera
+- lealtad/ejercito_rojo
 apariencia:
-  - enjuto
-  - morocho
-aspectos:
-  - "[[vanguardia]]"
-rasgos: []
-equipo:
-  - "[[redoblante]]"
-  - "[[bandera]]"
-tags: []
+  rostro: 'PENDIENTE: redactar (regla §2.5)'
+  figura: enjuto
+  presencia: morocho
 ---
 
 La Rana va siempre adelante, donde más quema. Repica el [[redoblante]] con una mano y agita la [[bandera]] roja con la otra, como si el trapo fuera escudo suficiente contra la [[fuerzas_armadas|Confederación]].

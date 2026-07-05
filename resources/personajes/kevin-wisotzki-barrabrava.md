@@ -1,33 +1,33 @@
 ---
 slug: kevin-wisotzki-barrabrava
-nombre: Kevin Wisotzki
 aliases:
-  - Kevin Wisotzki
-  - El Polaco
+- Kevin Wisotzki
+- El Polaco
 description: Barrabrava-militante del Ejército Rojo que marca el compás del frente con un par de platillos improvisados y la bandera al hombro.
-barrio: barrios-del-muro
-faccion: resistencia_subterranea
-rango: simpatizante
-especialidad: null
-estado: disponible
-lealtad:
-  - "[[ejercito_rojo]]"
+identidad:
+  slug: kevin-wisotzki-barrabrava
+  nombre: Kevin Wisotzki
+  sobrenombre: null
+  rol: Simpatizante
+  especialidad: null
+  genero: m
+  edad: 22
 atributos:
   cuerpo: 3
   mente: 2
   alma: 2
-edad: 22
-genero: m
+tags:
+- faccion/resistencia_subterranea
+- rango/simpatizante
+- estado/disponible
+- ubicacion/barrios-del-muro
+- equipo/platillos
+- equipo/bandera
+- lealtad/ejercito_rojo
 apariencia:
-  - rubio
-  - tez clara
-  - rasgos eslavos
-aspectos: []
-rasgos: []
-equipo:
-  - "[[platillos]]"
-  - "[[bandera]]"
-tags: []
+  rostro: tez clara, rasgos eslavos
+  figura: 'PENDIENTE: redactar (regla §2.5)'
+  presencia: rubio
 ---
 
 A Kevin lo llaman el Polaco por un apellido que nadie del barrio sabe pronunciar. Marcha con la [[resistencia_subterranea|columna del Ejército Rojo]] por [[barrios-del-muro|los Barrios del Muro]] haciendo más ruido que daño.

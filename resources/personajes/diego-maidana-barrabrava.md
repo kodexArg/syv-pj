@@ -1,33 +1,34 @@
 ---
 slug: diego-maidana-barrabrava
-nombre: Diego Maidana
 aliases:
-  - Diego Maidana
-  - El Pulpo
+- Diego Maidana
+- El Pulpo
 description: Barrabrava-militante del Ejército Rojo que marcha al frente con su bombo, poniendo el cuero antes que el plomo.
-barrio: barrios-del-muro
-faccion: resistencia_subterranea
-rango: simpatizante
-especialidad: null
-estado: disponible
-lealtad:
-  - "[[ejercito_rojo]]"
+identidad:
+  slug: diego-maidana-barrabrava
+  nombre: Diego Maidana
+  sobrenombre: null
+  rol: Simpatizante
+  especialidad: null
+  genero: m
+  edad: 27
 atributos:
   cuerpo: 3
   mente: 2
   alma: 2
-edad: 27
-genero: m
+tags:
+- faccion/resistencia_subterranea
+- rango/simpatizante
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/terco
+- equipo/bombo
+- equipo/vestidura/capucha
+- lealtad/ejercito_rojo
 apariencia:
-  - morocho
-  - barbudo
-aspectos:
-  - "[[terco]]"
-rasgos: []
-equipo:
-  - "[[bombo]]"
-  - "[[capucha]]"
-tags: []
+  rostro: barbudo
+  figura: 'PENDIENTE: redactar (regla §2.5)'
+  presencia: morocho
 ---
 
 A Diego le dicen el Pulpo porque cuando se agarra del [[bombo]] no lo suelta ni a tiros. Y tiros sobran cuando el [[resistencia_subterranea|Ejército Rojo]] choca de frente con la [[fuerzas_armadas|Confederación]].

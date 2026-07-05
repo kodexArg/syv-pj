@@ -1,35 +1,35 @@
 ---
 slug: yair-conuecar-pandillero
-nombre: Yair Coñuecar
 aliases:
-  - Yair Coñuecar
-  - Yair
+- Yair Coñuecar
+- Yair
 description: Cuarto pandillero del Ejército Rojo, curtido en la calle y sumado a la pandilla después que los otros tres.
-barrio: barrios-del-muro
-faccion: resistencia_subterranea
-rango: militante_resistencia
-especialidad: especialidad-combate-asalto
-estado: disponible
-lealtad:
-  - "[[ejercito_rojo]]"
+identidad:
+  slug: yair-conuecar-pandillero
+  nombre: Yair Coñuecar
+  sobrenombre: null
+  rol: Militante
+  especialidad: Asaltante
+  genero: m
+  edad: 21
 atributos:
   cuerpo: 3
   mente: 2
   alma: 3
-edad: 21
-genero: m
+tags:
+- faccion/resistencia_subterranea
+- rango/militante_resistencia
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/terco
+- aspecto/tactico
+- rasgo/tatuaje_de_unidad
+- equipo/arma/machete
+- lealtad/ejercito_rojo
 apariencia:
-  - enjuto
-  - mestizo
-  - rasgos mapuche
-aspectos:
-  - "[[terco]]"
-  - "[[tactico]]"
-rasgos:
-  - "[[tatuaje_de_unidad]]"
-equipo:
-  - "[[machete]]"
-tags: []
+  rostro: rasgos mapuche
+  figura: enjuto
+  presencia: mestizo
 ---
 
 Yair se sumó a la pandilla después que [[brian-curinanco-pandillero|Brian]], [[maxi-linares-pandillero|Maxi]] y [[nahuel-antieco-pandillero|Nahuel]], pero llegó más curtido que ninguno. La calle de [[barrios-del-muro|los Barrios del Muro]] ya lo había masticado antes de que el [[resistencia_subterranea|Ejército Rojo]] le diera un lugar.

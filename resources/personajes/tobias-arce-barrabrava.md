@@ -1,32 +1,33 @@
 ---
 slug: tobias-arce-barrabrava
-nombre: Tobías Arce
 aliases:
-  - Tobías Arce
-  - El Loco
+- Tobías Arce
+- El Loco
 description: Barrabrava-militante desarmado del Ejército Rojo, puro fervor y bombo, que va al frente cantando como si fuera una tribuna.
-barrio: barrios-del-muro
-faccion: resistencia_subterranea
-rango: simpatizante
-especialidad: null
-estado: disponible
-lealtad:
-  - "[[ejercito_rojo]]"
+identidad:
+  slug: tobias-arce-barrabrava
+  nombre: Tobías Arce
+  sobrenombre: null
+  rol: Simpatizante
+  especialidad: null
+  genero: m
+  edad: 26
 atributos:
   cuerpo: 3
   mente: 2
   alma: 2
-edad: 26
-genero: m
+tags:
+- faccion/resistencia_subterranea
+- rango/simpatizante
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/vanguardia
+- equipo/bombo
+- lealtad/ejercito_rojo
 apariencia:
-  - morocho
-  - grenudo
-aspectos:
-  - "[[vanguardia]]"
-rasgos: []
-equipo:
-  - "[[bombo]]"
-tags: []
+  rostro: 'PENDIENTE: redactar (regla §2.5)'
+  figura: 'PENDIENTE: redactar (regla §2.5)'
+  presencia: morocho, grenudo
 ---
 
 Tobías es el Loco porque va adelante de todo sin un arma encima. Golpea el [[bombo]] como si el corazón del [[resistencia_subterranea|Ejército Rojo]] le colgara del pecho. [[simpatizante|Simpatizante]] [[sin_especialidad|sin rol asignado]], no dispara ni acuchilla.

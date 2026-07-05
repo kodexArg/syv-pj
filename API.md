@@ -67,6 +67,22 @@ Devuelve la ficha vigente del personaje con `identidad.slug` exacto. 404 si no e
 
 Devuelve solo `historial[]` del personaje. Sin paginación en v1.
 
+### `GET /personaje/{slug}/workflow`
+
+Devuelve el **workflow de ComfyUI** (formato API-JSON, listo para `POST /prompt`)
+que genera el retrato del personaje canonico. 404 si el slug no existe.
+
+Determinista: la `semilla` del personaje fija el `seed` del sampler; los `tags`
+del personaje fijan el `lora_stack`; no hay aleatoriedad en la composicion del
+workflow. El campo `prompt` de cada nodo `CLIPTextEncode` es un ensamblado
+determinista de tres bloques fijos (estilo comun, personaje, cierre comun) mas
+un cuerpo especifico al personaje (identidad + LoRAs + vestimenta) — ver
+`docs/prompt-imagen.md` para el detalle del template.
+
+Respuesta: `application/json`, el grafo de nodos ComfyUI verbatim (claves
+numericas de nodo → `class_type`/`inputs`), no envuelto en el contrato
+`personaje` existente.
+
 ### `POST /personaje/{slug}/evento`
 
 Registra un hito sobre un personaje canonizado. Cuerpo: una entrada de `hito` (estructura en [[historial|docs/historial.md]]).

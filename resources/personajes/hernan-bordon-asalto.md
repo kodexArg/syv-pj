@@ -1,37 +1,37 @@
 ---
 slug: hernan-bordon-asalto
-nombre: Hernán Bordón
 aliases:
-  - Hernán Bordón
-  - Soldado Bordón
+- Hernán Bordón
+- Soldado Bordón
 description: Soldado de asalto de las Fuerzas Armadas, punta de lanza de la escuadra en las irrupciones casa por casa.
-barrio: barrios-del-muro
-faccion: fuerzas_armadas
-rango: soldado_linea
-especialidad: especialidad-combate-asalto
-estado: disponible
-lealtad:
-  - "[[confederacion]]"
+identidad:
+  slug: hernan-bordon-asalto
+  nombre: Hernán Bordón
+  sobrenombre: null
+  rol: Soldado
+  especialidad: Asaltante
+  genero: m
+  edad: 27
 atributos:
   cuerpo: 4
   mente: 3
   alma: 2
-edad: 27
-genero: m
+tags:
+- faccion/fuerzas_armadas
+- rango/soldado_linea
+- estado/disponible
+- ubicacion/barrios-del-muro
+- aspecto/vanguardia
+- rasgo/tatuaje_de_unidad
+- equipo/arma/subfusil
+- equipo/utilitario/granada
+- equipo/vestidura/chaleco_asalto
+- equipo/vestidura/uniforme_linea
+- lealtad/confederacion
 apariencia:
-  - enjuto
-  - criollo
-  - rapado
-aspectos:
-  - "[[vanguardia]]"
-rasgos:
-  - "[[tatuaje_de_unidad]]"
-equipo:
-  - "[[subfusil]]"
-  - "[[granada]]"
-  - "[[chaleco_asalto]]"
-  - "[[uniforme_linea]]"
-tags: []
+  rostro: 'PENDIENTE: redactar (regla §2.5)'
+  figura: enjuto
+  presencia: criollo, rapado
 ---
 
 [[soldado_linea|Soldado]] [[fuerzas_armadas|Bordón]] va en [[vanguardia|punta]], como le gusta. El [[subfusil]] corto pegado al pecho, una [[granada]] colgando lista, el [[uniforme_linea|uniforme]] sin un gramo de más. Ejerce el [[especialidad-combate-asalto|asalto]] entrando primero a los cuartos cerrados, donde la luz llega tarde.

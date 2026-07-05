@@ -9,7 +9,7 @@ aliases:
 
 # AGENTS.md — syv-pj
 
-Política editorial y convenciones de trabajo de `syv-pj`, el módulo de la **entidad mínima** de *Subordinación y Valor*: el personaje. Para entender el esquema, leer [[hoja-personaje|docs/hoja-personaje.md]] (núcleo) y sus docs hermanos: [[sistema-tags|sistema-tags.md]], [[atributos-y-habilidades|atributos-y-habilidades.md]], [[contratos|contratos.md]].
+Política editorial y convenciones de trabajo de `syv-pj`, el módulo de la **entidad mínima** de *Subordinación y Valor*: el personaje. Para entender el esquema, leer [[hoja-personaje|docs/hoja-personaje.md]] (núcleo) y sus docs hermanos: [[sistema-tags|sistema-tags.md]], [[atributos|atributos.md]], [[contratos|contratos.md]].
 
 > [!info] Norte del proyecto
 > `syv-pj` clasifica, almacena y entrega un personaje homogeneizado; el consumidor decide el uso. Es **agnóstico al uso** (Diégesis, estrategia, juego de rol, generación visual) pero **fiel al universo** SyV. No es un creador universal de cualquier mundo, y no inventa lore: la terminología del universo se respeta, no se amplía.
@@ -76,7 +76,7 @@ Toda la documentación de `syv-pj` es **de versión única**: refleja solo el es
 `syv-pj` **no fija** un sistema de resolución de azar. Para que fichas, tags y modificadores sean reutilizables entre sistemas, toda magnitud se expresa en una de **tres formas portables** según el tipo:
 
 - **Probabilidades de evento**: porcentaje. `40% de fallar el chequeo`, `5% de paniquear bajo fuego`. Nunca una expresión atada a un sistema concreto.
-- **Modificadores sobre atributos o estadísticas calculadas**: delta entero sobre la escala canónica. `(+1) MENTAL`, `(-1) INICIATIVA`, `(+2) FATIGA`. Las variables y sus escalas viven en [[atributos-y-habilidades|atributos-y-habilidades.md]].
+- **Modificadores sobre atributos o estadísticas calculadas**: delta entero sobre la escala canónica. `(+1) MENTAL`, `(-1) INICIATIVA`, `(+2) FATIGA`. Las variables y sus escalas viven en [[atributos|atributos.md]].
 - **Modificadores sobre tasas o magnitudes continuas**: porcentaje sobre la magnitud. `-100% MOVIMIENTO` (inmóvil), `+50% defensa por cobertura`.
 
 > [!info] Por qué portable
