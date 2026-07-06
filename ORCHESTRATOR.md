@@ -4,12 +4,12 @@
 Sos el orquestador del proyecto syv-pj. DEBES usar el sistema de subagentes de Claude Code (@agent o Task) para paralelizar el trabajo. NO hagas todo vos — delegá en subagentes especializados.
 
 ## CONTEXTO
-syv-character-kit en /home/kodex/Dev/SyV/syv-character-kit/ es un sistema de fichas específico del universo SyV con lore incrustado (Confederación Argentina, Ejército Rojo, año 2178, etc.). Tiene acoplamiento profundo al dominio.
+syv-character-kit en /home/kodex/SyV/syv-character-kit/ es un sistema de fichas específico del universo SyV con lore incrustado (Confederación Argentina, Ejército Rojo, año 2178, etc.). Tiene acoplamiento profundo al dominio.
 
-El nuevo proyecto syv-pj en /home/kodex/Dev/SyV/syv-pj/ debe ser una **especificación completamente agnóstica, agnóstica al framework, agnóstica al lenguaje** — una ficha de personaje universal que sirva para CUALQUIER universo de juego, cualquier sistema, cualquier género.
+El nuevo proyecto syv-pj en /home/kodex/SyV/syv-pj/ debe ser una **especificación completamente agnóstica, agnóstica al framework, agnóstica al lenguaje** — una ficha de personaje universal que sirva para CUALQUIER universo de juego, cualquier sistema, cualquier género.
 
 ## OBJETIVO
-Extraé la lógica de CREACIÓN DE PERSONAJES de syv-character-kit y producí una especificación limpia, universal, agnóstica en /home/kodex/Dev/SyV/syv-pj/.
+Extraé la lógica de CREACIÓN DE PERSONAJES de syv-character-kit y producí una especificación limpia, universal, agnóstica en /home/kodex/SyV/syv-pj/.
 
 La ficha de personaje sigue el **principio Abierto/Cerrado**: abierto para extensión (nuevas destrezas, rasgos, ventajas, equipo, facciones, etc.) sin modificar el esquema núcleo.
 
@@ -111,16 +111,16 @@ DEBES usar subagentes para trabajo en paralelo. División sugerida:
 Cada subagente lee los archivos fuente relevantes de syv-character-kit y produce la versión universalizada.
 
 ## ARCHIVOS FUENTE A LEER (desde syv-character-kit)
-- /home/kodex/Dev/SyV/syv-character-kit/PRD.md
-- /home/kodex/Dev/SyV/syv-character-kit/MODEL.md
-- /home/kodex/Dev/SyV/syv-character-kit/API.md
-- /home/kodex/Dev/SyV/syv-character-kit/AGENTS.md
-- /home/kodex/Dev/SyV/syv-character-kit/docs/hoja-modelo.md
-- /home/kodex/Dev/SyV/syv-character-kit/docs/tag-modelo.md
-- /home/kodex/Dev/SyV/syv-character-kit/docs/atributos-y-efectos.md
-- /home/kodex/Dev/SyV/syv-character-kit/docs/escuadra-modelo.md
-- /home/kodex/Dev/SyV/syv-character-kit/gddr/01-flujo-obligatorio-creacion.md
-- /home/kodex/Dev/SyV/syv-character-kit/docs/user-stories.md
+- /home/kodex/SyV/syv-character-kit/PRD.md
+- /home/kodex/SyV/syv-character-kit/MODEL.md
+- /home/kodex/SyV/syv-character-kit/API.md
+- /home/kodex/SyV/syv-character-kit/AGENTS.md
+- /home/kodex/SyV/syv-character-kit/docs/hoja-modelo.md
+- /home/kodex/SyV/syv-character-kit/docs/tag-modelo.md
+- /home/kodex/SyV/syv-character-kit/docs/atributos-y-efectos.md
+- /home/kodex/SyV/syv-character-kit/docs/escuadra-modelo.md
+- /home/kodex/SyV/syv-character-kit/gddr/01-flujo-obligatorio-creacion.md
+- /home/kodex/SyV/syv-character-kit/docs/user-stories.md
 
 ## REGLAS
 - TODA salida en español rioplatense (el universo SyV es castellano)
@@ -132,10 +132,10 @@ Cada subagente lee los archivos fuente relevantes de syv-character-kit y produce
 - Estadísticas determinísticas desde tablas de configuración, siempre
 - Reproducibilidad de semilla para efímeros, siempre
 - LLM solo para prosa narrativa, congelada al canonizar, siempre
-- Después de que TODOS los archivos estén escritos, crea un reporte de resumen en /home/kodex/Dev/SyV/syv-pj/REPORT.md
+- Después de que TODOS los archivos estén escritos, crea un reporte de resumen en /home/kodex/SyV/syv-pj/REPORT.md
 
 ## PASO FINAL
-Después de que todos los docs estén completos, escribí /home/kodex/Dev/SyV/syv-pj/REPORT.md con:
+Después de que todos los docs estén completos, escribí /home/kodex/SyV/syv-pj/REPORT.md con:
 - Resumen de lo que se extrajo y se universalizó
 - Decisiones de diseño clave
 - Inventario de archivos
