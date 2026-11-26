@@ -22,7 +22,9 @@ El flujo es una **secuencia de fases en orden estricto**: cada una depende de lo
 
 El orden no es arbitrario: la **prosa es siempre la última fase**, porque el modelo de lenguaje necesita todo lo demás ya resuelto para escribir una historia coherente. Y el **equipo es la última capa antes de la prosa**: lo que el personaje carga se decide cuando ya sabemos quién es, qué sabe y a quién es leal.
 
-> [!info] El flujo es un esqueleto, no una jaula
+> [!NOTE]
+> **El flujo es un esqueleto, no una jaula**
+>
 > El esquema es **abierto** (ver [sistema-tags.md §7](sistema-tags.md)). Se pueden crear personajes con campos que **no figuran en este flujo**, por tres vías especiales:
 >
 > 1. **Campo provisto como entrada.** Cualquier campo que el flujo sortearía puede entregarse ya fijado. El generador lo respeta y no lo sortea — así se dirigen personajes concretos sin salirse del flujo.
@@ -57,7 +59,9 @@ Fase 8 — Prosa        → historia por LLM (congela al canonizar)
 
 Cada fase depende de la anterior. Las restricciones cruzadas (p. ej. rango → edad mínima) viajan como tabla de reglas consultada antes de sortear.
 
-> [!danger] De acá en adelante: el flujo de ejemplo de un combatiente
+> [!CAUTION]
+> **De acá en adelante: el flujo de ejemplo de un combatiente**
+>
 > Todo lo que sigue —Afiliación, Identidad, Atributos, Formación, Aspectos, Vínculos, Equipo— es **un recorrido de ejemplo: el de un combatiente**. Se elige un combatiente a propósito, porque es el caso que ejercita el flujo **completo** y los dos ejes del universo: la **subordinación** (facción, subfacción, rango, mando, lealtad — la cadena de obediencia) y el **valor** (atributos, equipo y aspectos en combate).
 >
 > Para un **no-combatiente** el esqueleto es el mismo, pero se llena distinto: un civil no tiene rango ni mando, puede no tener facción, y varias fases se omiten o se relajan. Donde abajo se lee "el combatiente", entendé "el ejemplo que recorre todas las fases"; no es una obligación del esquema.
@@ -68,7 +72,9 @@ Cada fase depende de la anterior. Las restricciones cruzadas (p. ej. rango → e
 
 La **afiliación** sitúa al personaje dentro de la estructura de subordinación del universo. En el ejemplo del combatiente se llena **completa**: pertenece a un bando, a una subfacción, tiene un rango, una capacidad de mando definida y una especialidad derivada.
 
-> [!info] Por qué acá facción y subfacción **no** son opcionales
+> [!NOTE]
+> **Por qué acá facción y subfacción *no* son opcionales**
+>
 > En el caso general la afiliación puede quedar vacía (ver el esqueleto de arriba). Pero hemos definido un **combatiente**: un combatiente pelea **por** algo y **dentro** de algo. Por eso, en este recorrido, facción y subfacción se fijan siempre — es lo que permite hacer el recorrido completo.
 
 ### 1.1. Facción
@@ -99,7 +105,9 @@ La `probabilidad` de sorteo (la escasez operativa: muchos reclutas, pocos líder
 
 ### 1.4. Mando — ¿puede liderar?
 
-> [!tip] Decisión de diseño: el mando se decide en la Afiliación
+> [!TIP]
+> **Decisión de diseño: el mando se decide en la Afiliación**
+>
 > El **mando** —la capacidad de liderar— es un eje **separado del rango** (ver [sistema-tags.md §3](sistema-tags.md): `mando` es "capacidad de mando, extra al rango"). Por eso se decide acá, en Fase 1: es parte de la estructura de subordinación, debe quedar fijado antes de Identidad (un líder puede exigir edad mínima) y de él se deriva la especialidad.
 
 El software produce un booleano explícito:
@@ -171,17 +179,22 @@ Probabilidad de emitir sobrenombre: **50%** por personaje. El apodo está curado
 
 **Cero aleatoriedad.** Lookup determinístico sobre el tag `rango/*` de Fase 1: no hay tabla global de atributos por rango. `atributos_base` vive **inline en cada entrada** de `resources/rangos/<faccion>.md` (§1.3) — el lookup es `rango del personaje → esa entrada.atributos_base`.
 
-> [!example] Ejemplo real trazable: `fuerzas_armadas` / `recluta`
+> **Ejemplo — Ejemplo real trazable: `fuerzas_armadas` / `recluta`**
+>
 > `resources/rangos/fuerzas_armadas.md`, entrada `recluta`: `atributos_base: { cuerpo: 3, mente: 2, alma: 2 }`. Un combatiente con `rango/recluta` en `faccion/fuerzas_armadas` arranca con esos tres valores, sin sorteo.
 
-> [!note] `cuerpo` ← viejo `fis`, `mente` ← viejo `tac`, `alma` es nuevo
+> [!NOTE]
+> **`cuerpo` ← viejo `fis`, `mente` ← viejo `tac`, `alma` es nuevo**
+>
 > El renombre es lineal en dos columnas: `cuerpo` toma los valores del viejo `fis` y `mente` los del viejo `tac`. El tercer atributo viejo —`men` (mental)— se **descarta**: no tiene columna heredera. `alma` (Aura, liderazgo, voluntad, temple) es un atributo **nuevo**, **reasignado por clase** según rúbrica —no heredado de `men`—: altísimo en alto clero, chamanismo y líderes de escuadra; alto en militantes y fanáticos; bajo (2–3) en el resto.
 
 Topes absolutos de la escala: `cuerpo 7`, `mente 7`, `alma 7`. Los valores de creación quedan por debajo; el tope solo se alcanza vía hito narrativo. Si el personaje no tiene rango, los atributos caen a una línea base `ciudadano` implícita (`cuerpo: 2, mente: 2, alma: 2`) — este caso especial no es un rango de ningún catálogo por facción; es el piso civil fuera del sistema de rangos.
 
 Los `atributos_base` viven en el archivo de rangos de cada facción (no en código). Cambiar un valor de rango es editar esa entrada; el generador la lee en tiempo de ejecución.
 
-> [!info] Inmutabilidad práctica
+> [!NOTE]
+> **Inmutabilidad práctica**
+>
 > Un ascenso posterior cambia el tag `rango/*` pero no los atributos. El progreso real es el equipo, los aspectos y los vínculos ganados en campaña. Mutación solo vía hito `triple_cero` o `mejora_atributo`.
 
 ---
@@ -227,7 +240,9 @@ Marcas observables —cicatrices, tatuajes, constitución— sorteadas con baja 
 
 ### 5.3. Lo que **no** se sortea al nacer
 
-> [!warning] Estados de campaña, no de creación
+> [!WARNING]
+> **Estados de campaña, no de creación**
+>
 > Estas categorías **no** entran a ningún sorteo de creación — son estados volátiles que se ganan en partida, no se nace con ellos:
 > - `salud/*`, `moral/*`, `mental/*` — arrancan limpios (depósitos llenos, sin condiciones).
 > - `estado/*` — se fija determinístico a `disponible`.
@@ -278,7 +293,9 @@ El equipo se sortea **por eje**, con una cuota por eje definida en configuració
 3. Se sortea sin reemplazo hasta cubrir la cuota del eje, o hasta agotar elegibles sin conflicto.
 4. Las armas declaran `tipo_accion` y `alcance` en el catálogo; el sorteo respeta lo que la especialidad y la habilidad exigen. El `peso` físico (kg) de cada ítem es informativo en creación.
 
-> [!note] El equipo es progreso, no nacimiento fijo
+> [!NOTE]
+> **El equipo es progreso, no nacimiento fijo**
+>
 > El equipo cargado al crear es el punto de partida; en campaña se gana, se pierde y se cambia. Por eso vive en `tags[]` como cualquier etiqueta, no en un bloque aparte.
 
 ---
@@ -287,7 +304,9 @@ El equipo se sortea **por eje**, con una cuota por eje definida en configuració
 
 La **fase final**, y por eso la última: el modelo de lenguaje necesita **todo lo anterior** —afiliación, atributos, formación, aspectos, vínculos, equipo— para escribir una historia que cierre. Con todo fijado, el generador compone un aviso y genera el campo `personaje.historia`. La prosa es donde el personaje **se vuelve alguien**: no repite las etiquetas, las **explica y las ancla**.
 
-> [!important] La prosa carga los datos personales — incluida la procedencia
+> [!IMPORTANT]
+> **La prosa carga los datos personales — incluida la procedencia**
+>
 > `historia` es un string estático, pero generado con un aviso muy específico. Todo el dato personal que no es etiqueta vive acá: de **dónde viene** el personaje (su lugar, su procedencia), por qué tiene la cicatriz, en qué guerra se hizo veterano, cómo aprendió a tirar, qué lo ata a sus lealtades. El aviso obliga a que la prosa **salde la referencia** de los tags subjetivos y huérfanos (ver [sistema-tags.md §2](sistema-tags.md)): el lugar y el pasado quedan en la historia, no en un campo aparte.
 
 - El aviso se compone con todos los datos ya fijados en las fases 1–7.
@@ -295,7 +314,9 @@ La **fase final**, y por eso la última: el modelo de lenguaje necesita **todo l
 - Al canonizar: `historia` se congela (se persiste tal cual, inmutable desde ese momento). No se regenera ante cambios de etiquetas o atributos.
 - La reproducibilidad por semilla **no aplica a la prosa**: dos llamadas con la misma semilla pueden producir textos distintos por variabilidad del modelo. La semilla controla las fases 1–7; la prosa es inherentemente no determinística.
 
-> [!warning] Congelado canónico
+> [!WARNING]
+> **Congelado canónico**
+>
 > Una vez que `canonizado_en` está presente en los metadatos, `historia` no se toca. Cualquier evolución posterior va al `historial[]` como hito narrativo.
 
 ---
@@ -311,7 +332,9 @@ semilla → personaje efímero determinístico
 - La **Fase 8 (prosa)** queda fuera: es no determinística por naturaleza del modelo.
 - **Al canonizar**: el personaje gana identidad permanente (slug asignado, historia congelada, primer hito registrado). A partir del primer hito la reproducibilidad se pierde: el historial es de solo añadir y la historia no se regenera.
 
-> [!info] Propósito de la semilla
+> [!NOTE]
+> **Propósito de la semilla**
+>
 > La semilla sirve para regenerar el mismo borrador (p. ej. previsualizar antes de canonizar, o revertir una edición no confirmada). No es un identificador permanente; no se expone en la API pública.
 
 ---

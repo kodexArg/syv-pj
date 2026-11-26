@@ -11,14 +11,18 @@ aliases:
 
 Política editorial y convenciones de trabajo de `syv-pj`, el módulo de la **entidad mínima** de *Subordinación y Valor*: el personaje. Para entender el esquema, leer [docs/hoja-personaje.md](docs/hoja-personaje.md) (núcleo) y sus docs hermanos: [sistema-tags.md](docs/sistema-tags.md), [atributos.md](docs/atributos.md), [contratos.md](docs/contratos.md).
 
-> [!info] Norte del proyecto
+> [!NOTE]
+> **Norte del proyecto**
+>
 > `syv-pj` clasifica, almacena y entrega un personaje homogeneizado; el consumidor decide el uso. Es **agnóstico al uso** (Diégesis, estrategia, juego de rol, generación visual) pero **fiel al universo** SyV. No es un creador universal de cualquier mundo, y no inventa lore: la terminología del universo se respeta, no se amplía.
 
 ---
 
 ## SPINE es la fuente — mantenerlo actualizado es obligatorio
 
-> [!warning] Regla de precedencia
+> [!WARNING]
+> **Regla de precedencia**
+>
 > [SPINE](SPINE.md) es el **contrato canónico interno**: fija las decisiones que todos los archivos del inventario respetan al pie de la letra. Es la **fuente del resto del proyecto** — los docs derivan de SPINE, no al revés.
 
 - **Toda decisión de diseño que cambie** (taxonomía de etiquetas, nombres canónicos, estructura de la hoja, vocabulario de atributos y estadísticas, convenciones) **se refleja en SPINE en el mismo turno**, antes de cerrar. Un cambio que no llegó a SPINE no está cerrado.
@@ -35,19 +39,23 @@ Toda la documentación de `syv-pj` es **de versión única**: refleja solo el es
 - **Registro de cambios**: no hay sección de historial. El historial vive en `git log`; la intención de un cambio vive en el mensaje del commit. Los docs no son un diario.
 - **Compatibilidad hacia atrás**: los docs no documentan migración desde una versión previa. Para reconstruir el contrato pasado, se lee `git log` del archivo.
 
-> [!tip] Cuándo sí preservar el porqué
+> [!TIP]
+> **Cuándo sí preservar el porqué**
+>
 > Decisiones de diseño cuyo *razonamiento sigue vivo* se documentan en lenguaje **atemporal**, como "tensión asumida" o "decisión de diseño" — sin fecha ni versión. Ejemplo útil hoy: "El sistema acepta tags fuera del catálogo; costo: fragmentación silenciosa; mitigación: curaduría, no validación." Lo que NO aporta: "antes el esquema validaba estrictamente, después se abrió."
 
 ---
 
 ## Convenciones de identificadores
 
-- **Slug de personaje** (`identidad.slug`): ==patente opaca== `^[A-Z0-9]{8}$` (ej. `K9F2H3M4`). No es el nombre. Estable, inmutable, referenciable. Ver [docs/hoja-personaje.md §1.1](docs/hoja-personaje.md#11-slug--la-patente-del-personaje).
+- **Slug de personaje** (`identidad.slug`): **patente opaca** `^[A-Z0-9]{8}$` (ej. `K9F2H3M4`). No es el nombre. Estable, inmutable, referenciable. Ver [docs/hoja-personaje.md §1.1](docs/hoja-personaje.md#11-slug--la-patente-del-personaje).
 - **Slug de catálogo** (tag, facción): legible, `lowercase_con_underscore`, sin acentos, sin guiones (`pistola`, `lider_de_escuadra`, `ejercito_rojo`). El separador uniforme es `_` para componer en notación punto sin ambigüedad.
 - **Tags**: notación punto `<categoria>[.<subcategoria>].<slug>`. **NO** es multiconjunto: ante repetidos gana el último valor. Ver [sistema-tags.md](docs/sistema-tags.md).
 - **Campos estructurales en YAML**: `snake_case_castellano` (`atributos`, `historial`, `ultima_actualizacion`).
 
-> [!note] Asimetría deliberada de slugs
+> [!NOTE]
+> **Asimetría deliberada de slugs**
+>
 > La patente del personaje es opaca para ser estable a escala (dos personajes con el mismo nombre no colisionan; un cambio narrativo de nombre no invalida refs). El slug de catálogo es legible porque es la pieza humana de la dot notation. Una clase es para máquinas; la otra, para personas.
 
 ---
@@ -62,7 +70,9 @@ Toda la documentación de `syv-pj` es **de versión única**: refleja solo el es
 
 ## Frontmatter: los nombres de campo son contrato, no prosa
 
-> [!warning] Intocables en cualquier iteración
+> [!WARNING]
+> **Intocables en cualquier iteración**
+>
 > Los **nombres de campo** del frontmatter YAML son un **contrato programático** (los parsean los agentes y el tooling). **Nunca se traducen, renombran ni acentúan** — ni en esta iteración ni en ninguna futura, incluidas auditorías o traducciones masivas de inglés a castellano. Esta regla **prevalece** sobre cualquier consigna de "traducir hasta el último término en inglés".
 
 - Quedan **siempre en inglés y minúscula**: `title`, `tags`, `aliases`, `folder`, `description`. Lista cerrada salvo decisión explícita del usuario en la conversación vigente.
@@ -79,7 +89,9 @@ Toda la documentación de `syv-pj` es **de versión única**: refleja solo el es
 - **Modificadores sobre atributos o estadísticas calculadas**: delta entero sobre la escala canónica. `(+1) MENTAL`, `(-1) INICIATIVA`, `(+2) FATIGA`. Las variables y sus escalas viven en [atributos.md](docs/atributos.md).
 - **Modificadores sobre tasas o magnitudes continuas**: porcentaje sobre la magnitud. `-100% MOVIMIENTO` (inmóvil), `+50% defensa por cobertura`.
 
-> [!info] Por qué portable
+> [!NOTE]
+> **Por qué portable**
+>
 > SyV es un universo, no un sistema. Atar el esquema a una mecánica concreta de dados amputa la portabilidad. El delta sobre escala canónica y el porcentaje sobre tasa son lingua franca: cualquier sistema descendente los convierte a su moneda local. Un documento auxiliar puede ilustrar mecánicas con un sistema concreto **como ejemplo didáctico**; el contrato son las tres formas de arriba.
 
 ---

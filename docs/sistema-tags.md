@@ -10,7 +10,9 @@ aliases:
 
 # Sistema de Tags
 
-> [!info] Propósito
+> [!NOTE]
+> **Propósito**
+>
 > Este documento describe el sistema de tags de syv-pj: qué es un tag, cómo se escribe, cómo se estructura su entrada en el catálogo y cómo se extiende sin migración.
 > En este documento se habla con frecuencia de [contratos](contratos.md). Bien: las habilidades son, en esencia, tags.
 > La relación entre los tags de la hoja y las entidades del universo es absolutamente lineal e intencional.
@@ -20,7 +22,9 @@ aliases:
 
 Un **tag** es la unidad atómica del esquema. Es un identificador discreto que se aplica a un personaje y comunica una cosa concreta: una habilidad ganada, un estado de pánico, un fusil al hombro, una lealtad jurada, una cicatriz en la mejilla.
 
-> [!tip] Regla rectora
+> [!TIP]
+> **Regla rectora**
+>
 > Todo lo que es discreto y no es identidad, atributo, prosa o auditoría **es un tag**. Sin excepciones: incluso los vínculos personales —aliados y némesis— son tags. Ver [§5 — Categorías relacionales: `aliado` y `nemesis`](#5--categorías-relacionales-aliado-y-nemesis) y [nemesis-y-aliados.md](nemesis-y-aliados.md).
 
 Esta regla es expansiva por diseño. El sistema no predice los tipos de tag que existirán; provee una notación plana y declarativa para que cualquier hecho futuro encaje sin migración.
@@ -63,7 +67,9 @@ En raras excepciones, se recurre al tercer segmento `<categoria>/<parent>/<slug>
 
 **Reglas del slug de tag:** minúsculas, guiones bajos como único separador, sin acentos, sin espacios, sin caracteres especiales. Ejemplos: `pistola`, `precision`, `ejercito_rojo`, `lider_de_escuadra`.
 
-> [!important] Asimetría de slugs
+> [!IMPORTANT]
+> **Asimetría de slugs**
+>
 > El slug de tag es **legible por diseño**. El slug de personaje (`identidad.slug`) es la antítesis: patente opaca `^[A-Z0-9]{8}$` (ej. `K9F2H3M4`), inmutable y no semántica. No confundir.
 
 **Prohibido multiconjunto:** `tags[]` no puede funcionar como un multiconjunto. Por ejemplo, tres `equipo/utilitario/cargador` **NO** significan tres cargadores físicos; el motor se queda con el último valor (que deberá estar en la referencia del tag, o será `vacío`).
@@ -124,7 +130,9 @@ A diferencia de `lealtad` —que solo apunta a entidades de catálogo— estos p
 
 **La prosa del vínculo no vive en el tag.** El tag afirma la relación; la **cuenta** el hito que la formó (`formacion_lealtad` / `identificacion_nemesis`) en el [historial.md](historial.md). Así el vínculo se cuenta y se filtra como cualquier tag, sin perder su textura narrativa.
 
-> [!info] Detalle completo en su propio documento
+> [!NOTE]
+> **Detalle completo en su propio documento**
+>
 > Esta sección fija solo el contrato del tag. El porqué del cambio, los tipos de destino, el ciclo de vida y la división tag/hito viven en [nemesis-y-aliados.md](nemesis-y-aliados.md).
 
 ---
@@ -237,7 +245,9 @@ requires:
     - mando/oficial_de_campo
 ```
 
-> [!important] `requires` es documentación ejecutable, no validación dura
+> [!IMPORTANT]
+> **`requires` es documentación ejecutable, no validación dura**
+>
 > La API acepta personajes con tags incoherentes. La coherencia es responsabilidad del generador y del curador. Cualquier validador opcional puede consultar `requires`; el contrato duro no lo impone.
 
 **Los aspectos de origen narrativo no usan `requires`.** Son recompensas otorgadas al azar (lo que antes era *ventaja*); no tienen depósito por rango ni precondiciones. Ver [contratos](contratos.md).
@@ -283,7 +293,9 @@ trigger:
     - efecto.panico_momentaneo
 ```
 
-> [!tip] Vocabulario canónico de efectos
+> [!TIP]
+> **Vocabulario canónico de efectos**
+>
 > El campo `objetivo` de cada modificador apunta a una variable en notación punto:
 > - Atributos base: `attr.cuerpo`, `attr.mente`, `attr.alma`
 > - Estadísticas calculadas: `stat.iniciativa`, `stat.moral`, `stat.fatiga`, `stat.movimiento`, `stat.estress`, `stat.sanar`, `stat.percepcion`

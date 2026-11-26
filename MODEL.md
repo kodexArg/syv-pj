@@ -9,7 +9,9 @@ aliases:
 
 # MODEL — syv-pj
 
-> [!info] Contrato de Persistencia
+> [!NOTE]
+> **Contrato de Persistencia**
+>
 > Define las entidades, tipos de campo, reglas de mutabilidad y derivados que cualquier capa de persistencia (relacional, documental, KV) debe poder representar para servir [API.md](API.md) sin pérdida.
 >
 > Si una operación HTTP devuelve un campo, este documento lo tipifica. Si una operación lo muta, este documento fija la regla. **Sincronía absoluta con [API.md](API.md).**
@@ -51,7 +53,9 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 | `metadatos.ultima_actualizacion` | `str` ISO-8601 | actualiza con cada hito | |
 | `extras` | `object \| null` | libre | Válvula de escape. La API no inspecciona. |
 
-> [!note] `apariencia` es un objeto de tres párrafos, no una lista
+> [!NOTE]
+> **`apariencia` es un objeto de tres párrafos, no una lista**
+>
 > `apariencia` = `{ rostro, figura, presencia }` (tres párrafos de prosa agnóstica). Reemplaza la vieja `apariencia: list<str>` de descriptores atómicos (derogada). Persistido; NO entra al índice invertido de tags. Ver [hoja-personaje > §2.5 — Apariencia: tres párrafos descriptivos](docs/hoja-personaje.md#25--apariencia-tres-párrafos-descriptivos) y `docs/apariencia.md`. **Pendiente de exponer en `API.md` + contrato Pydantic (downstream).** La migración lista→objeto se hace con script determinista + test (ver invariantes §4).
 
 ### Campos derivados — computados al servir, no persistidos

@@ -9,7 +9,9 @@ aliases:
 
 # PRD — syv-pj
 
-> [!info] Visión General
+> [!NOTE]
+> **Visión General**
+>
 > **El producto es documentación, no una aplicación.** `syv-pj` define la entidad mínima de *Subordinación y Valor* (SyV) — el personaje — como módulo autónomo, fiel al universo, agnóstico al uso. El resultado es un conjunto de contratos, catálogos y reglas en Markdown; la implementación concreta (tecnología, entorno de ejecución, persistencia) corre por cuenta de quien consuma este módulo.
 
 ---
@@ -66,7 +68,9 @@ El personaje existe dentro de *Subordinación y Valor*:
 | [docs/diegesis.md](docs/diegesis.md) | Puntero al universo SyV: el lore (facciones, lugares, nombres) vive en `syv-docs`. |
 | [docs/casos-de-uso.md](docs/casos-de-uso.md) | Catálogo de casos de uso y su mapeo a operaciones. |
 
-> [!note] Enlaces
+> [!NOTE]
+> **Enlaces**
+>
 > Los enlaces de esta tabla apuntan a los nombres canónicos fijados en [SPINE.md](SPINE.md). Otros archivos del inventario se escriben en paralelo y pueden no existir todavía en el momento de leer este PRD — eso es esperado.
 
 ---

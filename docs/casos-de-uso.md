@@ -11,14 +11,18 @@ aliases:
 
 # Casos de uso — Responde a la pregunta ¿Para qué sirve syv-pj, el creador de personajes?
 
-> [!info] El eje de homogeneización
+> [!NOTE]
+> **El eje de homogeneización**
+>
 > `syv-pj` entrega un único personaje bien definido consumible por cualquier otro sistema, como creadores de personaje o juegos de estrategia.
 
 ---
 
 ## Referencias de íconos
 
-> [!note] Cómo leer las tablas
+> [!NOTE]
+> **Cómo leer las tablas**
+>
 > Columna **🎭** = quién pide. El primer ícono de **Quiere** = la acción; **Para** es el propósito, en prosa.
 
 **🎭 Actores**
@@ -111,7 +115,9 @@ Cómo se completa una hoja desde el azar portable vive en [generacion-procedural
 | UC-V03 | 🎨 | 👁️ edad y rasgos (`rasgo/*`) | Ajustar la apariencia del personaje |
 | UC-V04 | 🎨 | 👁️ el catálogo de `equipo/vestidura` | No inventar prendas fuera del canon de SyV |
 
-> [!note] El medio es asunto del consumidor
+> [!NOTE]
+> **El medio es asunto del consumidor**
+>
 > `syv-pj` solo expone los tags. Si la proyección termina en una imagen, una ficha o una página publicada —y cómo la arma— no es asunto de este módulo.
 
 ---

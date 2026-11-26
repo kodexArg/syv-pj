@@ -13,7 +13,9 @@ aliases:
 
 # Némesis y Aliados
 
-> [!info] Qué es este documento
+> [!NOTE]
+> **Qué es este documento**
+>
 > Los vínculos de un personaje —sus **aliados** y sus **némesis**— son **etiquetas**. Nada más. Este documento existe para decir exactamente eso y nada que [sistema-tags.md](sistema-tags.md) no diga ya: un aliado es un tag `aliado/*`, un némesis es un tag `nemesis/*`, y se comportan como cualquier otra etiqueta relacional. La prosa del vínculo —cómo se formó, qué lo sostiene— vive en su **hito** de [historial.md](historial.md), no acá.
 
 ---
@@ -45,10 +47,14 @@ El último segmento es la referencia. A diferencia de `lealtad/*` —que solo ap
 | Una subfacción | slug de catálogo | `aliado/pelicanos` |
 | Un grupo / escuadra | slug de catálogo | `nemesis/columna_mansilla` |
 
-> [!important] El slug es una referencia, no un slug libre
+> [!IMPORTANT]
+> **El slug es una referencia, no un slug libre**
+>
 > Cuando el vínculo apunta a un personaje, el slug es su **patente opaca** (mayúsculas, `^[A-Z0-9]{8}$`) — la misma asimetría que [sistema-tags.md §2](sistema-tags.md) documenta para los slugs relacionales: la referencia carga el identificador literal de su destino, no se "slugifica". Para entidades de catálogo (facción, subfacción, grupo) el slug es legible, como en cualquier tag. No hay integridad referencial: una patente colgada es legal, igual que en `actores[]` (ver [historial.md](historial.md)).
 
-> [!note] Sin restricción de bando
+> [!NOTE]
+> **Sin restricción de bando**
+>
 > Un némesis del propio bando es legítimo (traición personal, vieja deuda). El vínculo no mira la facción; la mira el `lealtad/*`.
 
 ---
@@ -89,7 +95,9 @@ historial:
 
 La división del trabajo es limpia: la **etiqueta** afirma el vínculo vigente (y se cuenta, se filtra, se agrega); el **hito** lo narra y lo fecha. El antiguo campo `desde` de la colección es, simplemente, la `fecha` del hito.
 
-> [!tip] La hoja no define esto
+> [!TIP]
+> **La hoja no define esto**
+>
 > La [hoja-personaje.md](hoja-personaje.md) solo dice **dónde** se anotan (en `tags[]`) y **qué valor** esperan (un `aliado/*` / `nemesis/*` con su referencia). El contrato del tag está en [sistema-tags.md](sistema-tags.md); la prosa, en [historial.md](historial.md); la definición del vínculo, acá. DRY: cada cosa se explica una sola vez.
 
 ---

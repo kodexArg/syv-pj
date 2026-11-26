@@ -9,11 +9,14 @@ tipo: moc
 
 Estos son los personajes canónicos de ejemplo del universo *Subordinación y Valor*. Cada uno es una instancia real de la hoja de personaje y funciona como referencia concreta para el motor generador y como guía de estilo/contenido para el LLM.
 
-> [!abstract] Profundidad: estereotipos, no protagonistas
+> **Resumen — Profundidad: estereotipos, no protagonistas**
+>
 > A diferencia de los personajes de **`syv-docs/3_personajes/`** —donde cada figura (los `principales/` y `secundarios/`) se desarrolla a fondo: sus secretos, sus vínculos, su contexto, su arco—, las fichas de `syv-pj` son **estereotipos**: tienen la profundidad de un **recién conocido**. Un nombre, una facción, un rango, cómo se ve, a qué le pega. Son molde para el motor generador, no biografía canónica; por eso la prosa es corta y sin secretos.
 > Los personajes de `syv-docs/3_personajes/` están **TBD** para incorporarse también acá, como instancias de la hoja (la profundidad narrativa se queda en la SSOT; lo que baja a `syv-pj` es el estereotipo operativo).
 
-> [!important] Convención de autoría — campos dedicados, no el espejo de tags planos
+> [!IMPORTANT]
+> **Convención de autoría — campos dedicados, no el espejo de tags planos**
+>
 > Estas fichas son la **proyección de autoría** de la hoja: cada dimensión controlada vive en **su propio campo** (`faccion`, `rango`, `especialidad`, `estado`, `lealtad`, `aspectos`, `rasgos`, `equipo`, `apariencia`) y las relaciones son **referencias por slug** —conforme a `.claude/rules/tags-taxonomy.md`—. **No** se duplica la serialización plana `tags/<categoria>/<slug>` del motor: ese espejo redundante era un anti-patrón (dos fuentes de verdad en un archivo a mano) y fue retirado; `tags` queda como **vivero** (`[]`). El motor (`syv-pj-api`) conserva su forma canónica de `tags[]` planos intacta: es su formato de cable/persistencia, separado de cómo se autora una ficha-ejemplo.
 > Todo nuevo campo visual va en `apariencia` (sparse, agnóstico al generador) — ver [docs/apariencia.md](../../docs/apariencia.md).
 
@@ -21,7 +24,9 @@ Estos son los personajes canónicos de ejemplo del universo *Subordinación y Va
 
 El contrato del modelo (campo por campo) vive en [hoja de personaje](../../docs/hoja-personaje.md) y la notación de tags en [sistema-tags](../../docs/sistema-tags.md). Acá está el **cómo se llena** una ficha-ejemplo, con un caso real.
 
-> [!tip] Regla rectora — lo discreto es campo, lo descriptivo es prosa
+> [!TIP]
+> **Regla rectora — lo discreto es campo, lo descriptivo es prosa**
+>
 > Todo dato **discreto y controlado** (facción, rango, equipo, aspecto…) va a **su campo**. Todo lo **descriptivo y libre** (cómo se ve, quién es) va a `apariencia` o a la `historia`. Ante la duda preguntate: *¿el motor lo filtra, lo cuenta o lo resuelve contra un catálogo?* → campo. *¿Solo lo lee una persona?* → prosa.
 
 ### Anatomía — ficha anotada
@@ -66,7 +71,9 @@ equipo:                         # ← CATÁLOGO: slugs de catalogos/equipo/*  (s
 tags: []                        # ← VIVERO: etiqueta emergente a filtrar exacto. Casi siempre []
 ```
 
-> [!note] Campos vacíos
+> [!NOTE]
+> **Campos vacíos**
+>
 > Si un eje no aplica, va como lista vacía (`aspectos: []`) o se omite (un personaje sin rasgos no lleva `rasgos:`). `especialidad: null` es válido. Nunca dejes una referencia a una entidad que no existe.
 
 ### Los campos, uno por uno
@@ -95,7 +102,9 @@ Tres niveles, de más rígido a más libre:
 2. **Catálogo que crece por curaduría — se inventa creando la entrada.** `aspectos`, `rasgos`, `equipo` (y `habilidad`, `entrenamiento`). Podés sumar un valor nuevo, pero **creás el archivo en `catalogos/`** con `origen: emergente` y sus campos obligatorios (ver [sistema-tags](../../docs/sistema-tags.md) §6). No basta citarlo: si no existe la entrada, no está catalogado.
 3. **Libre — se inventa siempre, sin catálogo.** `apariencia` (descriptores de texto plano) y la `historia` (prosa). Acá describís al personaje con tus palabras. Lo que es **descriptivo** (joven, enjuto, mirada fría) NO es un tag ni un rasgo: la semántica lo encuentra sola. Solo graduá a `rasgo` lo que sea una **marca concreta y nombrable** (una cicatriz, un tatuaje de unidad).
 
-> [!important] El vivero `tags[]` no es un atajo
+> [!IMPORTANT]
+> **El vivero `tags[]` no es un atajo**
+>
 > `tags: []` existe para etiquetas emergentes que querés filtrar exacto y que **aún no merecen campo propio**. No metas ahí dimensiones controladas (van a su campo) ni palabras-tema descriptivas (las halla la semántica). Lo que se usa seguido se gradúa a campo. En la práctica casi todas las fichas lo llevan vacío.
 
 ### Coherencia prosa ↔ campos

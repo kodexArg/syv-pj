@@ -52,7 +52,9 @@ Se lee de arriba hacia abajo como una línea de tiempo: primero el entrenamiento
 
 ## Advertencias
 
-> [!warning] De solo añadir
+> [!WARNING]
+> **De solo añadir**
+>
 > El historial no se reescribe ni se borra. Un error no se arregla tocando el hito viejo, sino **agregando un hito nuevo** que lo enmienda. La línea de tiempo es íntegra por construcción.
 
 - **`actores` no es lo mismo que los tags `aliado/*`/`nemesis/*`.** `actores` solo lista quién estuvo en *ese* evento; los aliados y némesis son **vínculos vigentes** del personaje, anotados como etiquetas (ver [nemesis-y-aliados.md](nemesis-y-aliados.md)). De hecho, la prosa de ese vínculo vive justamente en el hito que lo formó (`formacion_lealtad` / `identificacion_nemesis`): el tag afirma el lazo, el hito lo cuenta. `actores` tampoco impone integridad referencial: se aceptan patentes colgadas, como en aquellos (ver [MODEL.md §4](../MODEL.md)).

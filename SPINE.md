@@ -63,7 +63,9 @@ personaje:
   extras:     object | null           # válvula de escape para clientes
 ```
 
-> [!warning] `rol` cambió de significado — no confundir
+> [!WARNING]
+> **`rol` cambió de significado — no confundir**
+>
 > El **nuevo** `identidad.rol` es la **jerarquía legible** (ej. "Cabo Primero"), lectura humana del tag `rango/*`. El **viejo** campo `rol` (que nombraba la *especialidad*) fue renombrado a `identidad.especialidad`. Ahora conviven ambos: `rol` = jerarquía, `especialidad` = función táctica (ej. "Apuntador"). Cualquier `rol` residual en este documento o en `ORCHESTRATOR.md` que refiera a la especialidad es legado.
 
 **Regla rectora**: todo lo que es discreto y no es identidad, atributo, prosa o
@@ -113,7 +115,9 @@ chica. Ver [docs/habilidades.md](docs/contratos.md).
 - **efecto** — bloque estructurado referenciable (`efecto.*`); inline (pasivo) o
   externo (disparado por un disparador).
 
-> [!warning] Colisión de `rasgo` — leer
+> [!WARNING]
+> **Colisión de `rasgo` — leer**
+>
 > En el refactor vigente `rasgo` = **rasgo físico observable** (cicatriz, tatuaje),
 > NO la identidad mecánica. La identidad mecánicamente activa es `aspecto`. (Una
 > versión previa de este SPINE usaba `rasgo` al revés.)

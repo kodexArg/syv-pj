@@ -12,11 +12,15 @@ aliases:
 
 # Apariencia
 
-> [!info] Propósito
+> [!NOTE]
+> **Propósito**
+>
 > Define el bloque `apariencia` de la [hoja de personaje](hoja-personaje.md): **cómo luce** el personaje, en **tres párrafos de prosa descriptiva agnóstica** — `rostro`, `figura`, `presencia`. No es un prompt, no es una lista de átomos, no es sintaxis de generador: es prosa de dominio que cualquier proyección (ComfyUI, Flux, Midjourney, una ilustración a mano, un avatar Flutter) puede leer sin reinventarla.
 > Documento hermano de [sistema-tags.md](sistema-tags.md) y [contratos.md](contratos.md).
 
-> [!warning] Sucesión — esto reemplaza a la vieja lista `apariencia`
+> [!WARNING]
+> **Sucesión — esto reemplaza a la vieja lista `apariencia`**
+>
 > Hasta la revisión de esquema, `apariencia` era una **lista de descriptores atómicos** (`- ojos azul intenso`, `- rubio dorado`, `- piel trigueña`). Esa forma **queda derogada**. Ahora `apariencia` es un objeto de **tres párrafos fijos**. Todo lo que antes se atomizaba en la lista ahora se escribe como prosa dentro del párrafo que corresponda. La migración de datos (lista → tres párrafos) se hace con script determinista + test, como todo refactor de esquema (ver [hoja-personaje > §9 — Regla de refactor de esquema](hoja-personaje.md#9--regla-de-refactor-de-esquema)).
 
 ---
@@ -34,7 +38,9 @@ apariencia:
 
 Los tres ejes **no se agregan ni se quitan**: son el contrato. Un párrafo puede ser más rico o más escueto (sparse sigue valiendo, §4), pero el conjunto de ejes es fijo.
 
-> [!tip] Regla rectora — cómo se ve, no cuánto ni qué
+> [!TIP]
+> **Regla rectora — cómo se ve, no cuánto ni qué**
+>
 > Cada párrafo responde a **"¿cómo se ve el personaje?"** en lenguaje de dominio. Nunca cuánto (eso lo dicen los atributos) ni qué lleva (eso lo dicen los tags). La prosa describe la **lectura visual** de esos datos, no los datos.
 
 ---
@@ -78,7 +84,9 @@ La impresión que deja. La luz que parece traer o robar, el aire alrededor, cóm
 | Cicatriz, tatuaje con contrato | tag `rasgo/*` / `aspecto/*` | se puede *mencionar* su lectura visual, no su efecto mecánico |
 | Porte/expresión con efecto de juego | tag `aspecto/*` | su lectura visual, no su regla |
 
-> [!important] Integers dicen cuánto · tags dicen qué · párrafos dicen cómo se ve
+> [!IMPORTANT]
+> **Integers dicen cuánto · tags dicen qué · párrafos dicen cómo se ve**
+>
 > Esta es la frontera de tres caras. Si un párrafo contiene un número (`fuerza 6`) o el nombre de una prenda/arma (`pistola 9mm`, `uniforme rojo`), está invadiendo el territorio de otro bloque. Reescribilo como lectura visual o borralo: el dato ya está en su lugar y el prompt-builder lo lee de ahí.
 
 ---
@@ -92,7 +100,9 @@ Los párrafos **no obligan a describirlo todo**. Se fija solo lo que el canon qu
 
 Esto es el **azar portable** del kit SyV aplicado al eje visual: la ausencia de detalle es una **libertad explícita**, no un dato faltante.
 
-> [!note] Raza / etnia es ascendencia visible, no dato de juego
+> [!NOTE]
+> **Raza / etnia es ascendencia visible, no dato de juego**
+>
 > Coherente con el mapa étnico del lore (apellidos mapuche —Painemal, Curiñanco, Antieco, Coñuecar—, Shipibo-Conibo, sincretismo afro-umbanda). Se escribe como rasgo visual dentro de `rostro` ("pómulos altos de ascendencia mapuche"), agnóstico al generador; no modifica ninguna mecánica.
 
 ---
@@ -123,8 +133,12 @@ mutable:       sin hito          # bajo peso narrativo, como edad; un corte de p
 indice:        NO entra al índice invertido de tags (no es faceta de filtrado del motor)
 ```
 
-> [!info] Por qué prosa y no lista de tags (`fisico/ojos/azul_intenso`)
+> [!NOTE]
+> **Por qué prosa y no lista de tags (`fisico/ojos/azul_intenso`)**
+>
 > La notación de [tags](sistema-tags.md) exige átomos y alimenta el índice invertido para que el **motor filtre** (facción, peso, fuerza). Nadie filtra una batalla por color de ojos: atomizar el eje visual solo pierde matiz sin ganar nada operativo. Y la lista de átomos, además, no captura el *cómo* —el porte, la impresión, la luz—: para eso hace falta prosa. `apariencia` es un **constraint suave para el render**, no una faceta de juego, y su forma natural es el párrafo.
 
-> [!info] Por qué al final de la hoja
+> [!NOTE]
+> **Por qué al final de la hoja**
+>
 > Los tres párrafos son el **destilado visual** de todo lo anterior: no se pueden escribir bien sin conocer identidad, atributos y tags. Por eso cierran la hoja, justo antes de `metadatos` (ver [hoja-personaje > §0 — Estructura de la hoja](hoja-personaje.md#0--estructura-de-la-hoja)).

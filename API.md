@@ -9,7 +9,9 @@ aliases:
 
 # API — syv-pj
 
-> [!info] Fuente de Verdad del Contrato HTTP
+> [!NOTE]
+> **Fuente de Verdad del Contrato HTTP**
+>
 > Cualquier mención a rutas en [PRD.md](PRD.md), `docs/*` o datos de ejemplo se resuelve contra este archivo. Si una ruta no figura acá, no existe en el contrato.
 >
 > Los tipos de campo y reglas de mutabilidad viven en [MODEL.md](MODEL.md). **Sincronía absoluta con [MODEL.md](MODEL.md).**
@@ -105,7 +107,9 @@ Tipos de hito y sus efectos sobre la ficha:
 | `identificacion_nemesis` | Añade el tag `nemesis.<ref>` a `tags[]`; la prosa del vínculo viaja en `descripcion`. |
 | Otros tipos | Solo añaden el hito. Los efectos colaterales son responsabilidad del cliente. |
 
-> [!note] `actores[]` y `encuentro` se registran tal cual
+> [!NOTE]
+> **`actores[]` y `encuentro` se registran tal cual**
+>
 > Ningún tipo de hito deriva efectos de `actores[]` ni de `encuentro`: se persisten en el hito sin tocar la ficha vigente. Alimentan la línea de tiempo y el grafo de Diégesis (ver [docs/historial.md §4](docs/historial.md)).
 
 ### `POST /canonizar`

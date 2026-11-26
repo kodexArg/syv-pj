@@ -13,10 +13,14 @@ aliases:
 ---
 # Aspectos, Habilidades y Efectos como Contratos
 
-> [!info] Concepto central
+> [!NOTE]
+> **Concepto central**
+>
 > Un **contrato** es la información que vive **detrás** de ciertos tags. El [tag](sistema-tags.md) es el **link** —un puntero que puede o no llevar algo detrás—; el contrato es ese algo: un **paquete declarado** de modificadores numéricos, habilitadores de tirada y/o efectos referenciables. El nombre es la cara legible; el paquete es la letra chica. Tres categorías traen contrato siempre: **`aspecto`**, **`habilidad`** y **`efecto`**.
 
-> [!warning] Vocabulario unificado
+> [!WARNING]
+> **Vocabulario unificado**
+>
 > *ventaja* y *destreza* **ya no existen como categorías**: *ventaja* → **`aspecto`** de origen narrativo (§5.4), *destreza* → **`habilidad`**. De *rasgo*, lo que tenía **peso mecánico** (identidad con efecto) pasó a **`aspecto`**; el *rasgo* **puramente cosmético** —cicatriz, tatuaje, constitución, sin efecto— sigue siendo categoría propia, un tag sin contrato (ver [sistema-tags §3](sistema-tags.md#3--categorías-de-referencia)). Si encontrás `ventaja.*` o `destreza.*` en una hoja vieja, son legado a migrar.
 
 ---
@@ -34,7 +38,9 @@ Un **contrato** es esa información: la entrada de catálogo (`tags/<categoria>/
 | Dónde vive | en `tags[]` de la [hoja](hoja-personaje.md) | en el catálogo `tags/<categoria>/<slug>.yaml` |
 | Qué entrega | la afirmación de un hecho | un **paquete**: modificadores, habilitadores, efectos |
 
-> [!tip] Lo que no trae contrato sigue siendo tag
+> [!TIP]
+> **Lo que no trae contrato sigue siendo tag**
+>
 > `rango/*`, `faccion/*`, `lealtad/*`, `aliado/*`, `nemesis/*` no declaran paquete mecánico: son links puros (ver [sistema-tags](sistema-tags.md), [nemesis-y-aliados.md](nemesis-y-aliados.md), [lealtad.md](lealtad.md)). Y un contrato puede, además del paquete, **referenciar información adicional** —incluso prosa: quién sabe lo que el contrato escriba detrás del tag.
 
 ---
@@ -51,7 +57,9 @@ De ahí se sigue lo central: **aspecto, habilidad y efecto son mecánicamente la
 | `habilidad` | habilitador de tirada | acceso binario a un chequeo |
 | `efecto` | bloque referenciable | modificadores, aplicados por referencia o inline |
 
-> [!important] Agnóstico al sistema
+> [!IMPORTANT]
+> **Agnóstico al sistema**
+>
 > No sabemos —ni nos importa todavía— cómo se implementará el motor. El contrato vive en la capa de **dominio**: promete data portable. Cómo cada cliente la consume (motor de juego, motor de batalla, generador visual) es problema del cliente, no del contrato. Ver [casos-de-uso.md](casos-de-uso.md).
 
 ---
@@ -113,7 +121,9 @@ efecto:
 - **`condicion`** — opcional. Palabra clave persistente (slug) que restringe *cuándo* cuenta el modificador. Sin `condicion`, el modificador siempre está activo; con ella, solo se suma cuando el motor evalúa esa palabra clave. Ver §4.3 y [atributos §3.5](atributos.md#35-bonificador-condicional-condicion).
 - **`nota`** — opcional. Descripción subjetiva de *este* modificador. No confundir con la `descripcion` del contrato, que describe el contrato entero.
 
-> [!warning] Por qué estructurado y no string
+> [!WARNING]
+> **Por qué estructurado y no string**
+>
 > La forma vieja `"(+2) INICIATIVA"` empaquetaba valor y objetivo en una sola cadena: no era extraíble sin parsear. La forma estructurada **separa el valor (`mod`/`pct`) del objetivo (`objetivo`) y de la nota (`nota`)** — cada dato sale directo, sin regex. Si encontrás `"(+N) VARIABLE"` en una hoja vieja, es legado a migrar.
 
 ### 4.2. Vocabulario canónico de objetivos
@@ -475,7 +485,9 @@ Un contrato desconocido no rompe la hoja. La coherencia la garantiza la curadur�
 
 ## §11 — Aspectos canónicos
 
-> [!info] Dónde vive el dato, dónde vive el contrato
+> [!NOTE]
+> **Dónde vive el dato, dónde vive el contrato**
+>
 > El **motor** lee estos aspectos desde sus archivos de catálogo (`resources/tags/aspecto/*.yaml`). Pero el **contrato** —qué entrega cada uno, en vocabulario canónico— vive acá: es la referencia normativa contra la que se valida el catálogo. Si el archivo y esta sección divergen, esta sección manda.
 
 Cuatro aspectos forman el núcleo canónico. Ejercitan los tres atributos (`cuerpo`, `mente`, `alma`), las estadísticas aditivas (`stat.sanar`, `stat.percepcion`) y el mecanismo de `condicion`.
@@ -562,5 +574,7 @@ efecto:
 
 `stat.sanar` arranca en `0`; este aspecto la lleva a `+2`. Sin `condicion`: la competencia sanitaria está siempre disponible.
 
-> [!note] Aspecto y habilidad homónimos
+> [!NOTE]
+> **Aspecto y habilidad homónimos**
+>
 > `aspecto/primeros_auxilios` (aporta `stat.sanar`) y `habilidad/primeros_auxilios` (habilita la tirada contra `alma`) coexisten: el aspecto entrega la capacidad numérica; la habilidad, el acceso a la tirada. Son contratos de tipo distinto sobre el mismo oficio.

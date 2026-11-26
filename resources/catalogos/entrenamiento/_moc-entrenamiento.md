@@ -22,5 +22,7 @@ tags:
 - [Médico de campo](medico_de_campo.md)
 - [Tiro selectivo](tiro_selectivo.md)
 
-> [!note] Único segmento civil/investigativo
+> [!NOTE]
+> **Único segmento civil/investigativo**
+>
 > `investigacion` cubre rangos sin instrucción militar (ej. `detective_privado` de la facción `independiente`). Las otras 9 entradas son de perfil militar.

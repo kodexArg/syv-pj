@@ -29,7 +29,9 @@ tags:
 - [Shipibo-Conibo](shipibo_conibo.md)
 - [Traficantes de Almas](traficantes_de_almas.md)
 
-> [!note] `independiente` no es una facción de lore
+> [!NOTE]
+> **`independiente` no es una facción de lore**
+>
 > [Independiente](independiente.md) es una entrada de catálogo mecánica para personajes sin facción cerrada (ver mock damian-diconte-detective.md). No tiene ficha de lore en `syv-docs`; `probabilidad: 0` la excluye del sorteo aleatorio de afiliación.
 
 Ver también: [MOC Subfacciones](../subfacciones/_moc-subfacciones.md) · [MOC Rangos](../rangos/_moc-rangos.md)
