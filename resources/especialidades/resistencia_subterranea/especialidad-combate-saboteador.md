@@ -6,4 +6,4 @@ tags: ["especialidad/combate/saboteador", "especialidad/combate", "pool/resisten
 ---
 Destruye desde adentro; su mejor arma es la invisibilidad.
 
-[[resistencia_subterranea]]
+[resistencia_subterranea](../../facciones/resistencia_subterranea.md)

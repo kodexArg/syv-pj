@@ -39,7 +39,7 @@ El personaje existe dentro de *Subordinación y Valor*:
 
 - **Documentación como contrato.** Este módulo define forma y alcance. La implementación es responsabilidad de quien lo consuma.
 - **Principio abierto/cerrado.** El esquema extiende verticalmente sin romper: nuevos tags, nuevos tipos de hito, nuevas categorías, nuevas facciones — sin migraciones, sin rupturas de compatibilidad.
-- **Tags como modelo de primera clase.** Todo lo que es discreto y no es identidad, atributo, prosa o auditoría es tag —incluidos los vínculos personales (aliados, némesis, lealtades). La frontera está fijada en [[hoja-personaje]] y [[sistema-tags]].
+- **Tags como modelo de primera clase.** Todo lo que es discreto y no es identidad, atributo, prosa o auditoría es tag —incluidos los vínculos personales (aliados, némesis, lealtades). La frontera está fijada en [hoja-personaje](docs/hoja-personaje.md) y [sistema-tags](docs/sistema-tags.md).
 - **Estadísticas determinísticas por rango; identidad sorteada.** En creación, los atributos base se derivan de tablas fijas por rango. Cero azar en estadísticas. Nombre, género, edad, rasgos, destrezas, rasgos de clase, ventajas, equipo e historia sí se sortean.
 - **Memoria viva como naturaleza del canonizado.** Un canonizado existe en el tiempo: nace, pelea, cambia. La ficha vigente no es la original. Las mutaciones ocurren vía hitos en `historial[]`.
 - **Reproducibilidad por semilla para efímeros.** `(semilla, faccion, rango)` produce el mismo personaje efímero. Los canonizados pierden esta propiedad tras el primer hito.
@@ -53,21 +53,21 @@ El personaje existe dentro de *Subordinación y Valor*:
 
 | Archivo | Propósito |
 |---|---|
-| [[PRD\|PRD.md]] | Este documento. Visión, principios y mapa. |
-| [[MODEL\|MODEL.md]] | Contrato de persistencia: entidades, tipos, mutabilidad. |
-| [[API\|API.md]] | Contrato HTTP: operaciones, cargas, catálogos dinámicos. |
-| [[README\|README.md]] | Puerta de entrada al repo. |
-| [[AGENTS\|AGENTS.md]] | Política editorial y convenciones para colaboradores y agentes. |
-| [[hoja-personaje\|docs/hoja-personaje.md]] | Esquema del personaje campo por campo. Núcleo del módulo. |
-| [[sistema-tags\|docs/sistema-tags.md]] | Sistema de tags: notación, categorías, catálogo, extensibilidad. |
-| [[contratos\|docs/contratos.md]] | Contratos de rasgos, ventajas, destrezas y efectos. |
-| [[atributos\|docs/atributos.md]] | Vocabulario canónico de atributos y estadísticas calculadas. |
-| [[generacion-procedural\|docs/generacion-procedural.md]] | Flujo obligatorio de creación: fases, sorteos, tabla determinística. |
-| [[diegesis\|docs/diegesis.md]] | Puntero al universo SyV: el lore (facciones, lugares, nombres) vive en `syv-docs`. |
-| [[casos-de-uso\|docs/casos-de-uso.md]] | Catálogo de casos de uso y su mapeo a operaciones. |
+| [PRD.md]() | Este documento. Visión, principios y mapa. |
+| [MODEL.md](MODEL.md) | Contrato de persistencia: entidades, tipos, mutabilidad. |
+| [API.md](API.md) | Contrato HTTP: operaciones, cargas, catálogos dinámicos. |
+| [README.md](README.md) | Puerta de entrada al repo. |
+| [AGENTS.md](AGENTS.md) | Política editorial y convenciones para colaboradores y agentes. |
+| [docs/hoja-personaje.md](docs/hoja-personaje.md) | Esquema del personaje campo por campo. Núcleo del módulo. |
+| [docs/sistema-tags.md](docs/sistema-tags.md) | Sistema de tags: notación, categorías, catálogo, extensibilidad. |
+| [docs/contratos.md](docs/contratos.md) | Contratos de rasgos, ventajas, destrezas y efectos. |
+| [docs/atributos.md](docs/atributos.md) | Vocabulario canónico de atributos y estadísticas calculadas. |
+| [docs/generacion-procedural.md](docs/generacion-procedural.md) | Flujo obligatorio de creación: fases, sorteos, tabla determinística. |
+| [docs/diegesis.md](docs/diegesis.md) | Puntero al universo SyV: el lore (facciones, lugares, nombres) vive en `syv-docs`. |
+| [docs/casos-de-uso.md](docs/casos-de-uso.md) | Catálogo de casos de uso y su mapeo a operaciones. |
 
 > [!note] Enlaces
-> Los enlaces de esta tabla apuntan a los nombres canónicos fijados en [[SPINE|SPINE.md]]. Otros archivos del inventario se escriben en paralelo y pueden no existir todavía en el momento de leer este PRD — eso es esperado.
+> Los enlaces de esta tabla apuntan a los nombres canónicos fijados en [SPINE.md](SPINE.md). Otros archivos del inventario se escriben en paralelo y pueden no existir todavía en el momento de leer este PRD — eso es esperado.
 
 ---
 
@@ -83,8 +83,8 @@ El personaje existe dentro de *Subordinación y Valor*:
 - Catálogo abierto de facciones jugables.
 - Rangos operativos canon por facción.
 - Diégesis: puntero al universo — el contexto (facciones, lugares, lore) vive en `syv-docs`, no acá.
-- Contrato de API HTTP ([[API|API.md]]).
-- Contrato de persistencia ([[MODEL|MODEL.md]]).
+- Contrato de API HTTP ([API.md](API.md)).
+- Contrato de persistencia ([MODEL.md](MODEL.md)).
 - Catálogos `/meta/*` dinámicos por categoría de tag.
 
 ### Pendiente

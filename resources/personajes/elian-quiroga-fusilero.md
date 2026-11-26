@@ -33,6 +33,6 @@ apariencia:
   presencia: joven, criollo
 ---
 
-[[soldado_linea|Soldado]] [[fuerzas_armadas|Quiroga]], veintitrés años. Es el más nuevo de la escuadra. Pero tiene [[instinto|olfato]]: se agacha antes de que silbe el primer disparo, y nadie le enseñó eso.
+Soldado [Quiroga](../facciones/fuerzas_armadas.md), veintitrés años. Es el más nuevo de la escuadra. Pero tiene [olfato](../catalogos/aspecto/instinto.md): se agacha antes de que silbe el primer disparo, y nadie le enseñó eso.
 
-Ejerce el [[especialidad-combate-fusilero|fuego de fusilería]] con un [[fusil]] de pavonado comido, [[cargador|cargadores]] mal repartidos en la cintura y un [[uniforme_linea|uniforme]] que le sobra de los hombros. Todo [[constitucion_robusta|aguante]] y poca calle. En los [[barrios-del-muro|Barrios del Muro]] el oficio se aprende puerta por puerta, casa por casa, muerto por muerto. La alternativa es no aprender. Aprende.
+Ejerce el [fuego de fusilería](../especialidades/fuerzas_armadas/especialidad-combate-fusilero.md) con un [fusil](../catalogos/equipo/fusil.md) de pavonado comido, [cargadores](../catalogos/equipo/cargador.md) mal repartidos en la cintura y un [uniforme](../catalogos/equipo/uniforme_linea.md) que le sobra de los hombros. Todo [aguante](../catalogos/rasgo/constitucion_robusta.md) y poca calle. En los Barrios del Muro el oficio se aprende puerta por puerta, casa por casa, muerto por muerto. La alternativa es no aprender. Aprende.

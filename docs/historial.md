@@ -48,17 +48,17 @@ Se lee de arriba hacia abajo como una línea de tiempo: primero el entrenamiento
 | `encuentro` | `slug \| null` | Patente de la batalla/encuentro externo, si lo hubo (de `GET /meta/encuentro/nuevo`). |
 | `metadata` | `object` | Libre. Datos estructurados del hito (ej. `{ atributo, delta }`). |
 
-**Tipos sugeridos:** `agregar_tag`, `quitar_tag`, `mejora_atributo`, `triple_cero`, `ascenso`, `cambio_especialidad`, `herida`, `recuperacion`, `traslado`, `condecoracion`, `formacion_lealtad`, `identificacion_nemesis`, `combate`, `licencia`, `desercion`, `muerte`. La lista es **abierta**: un tipo nuevo se acepta y se persiste igual. Algunos mutan la ficha al registrarse (ver [[API|API.md]]); el resto solo deja constancia.
+**Tipos sugeridos:** `agregar_tag`, `quitar_tag`, `mejora_atributo`, `triple_cero`, `ascenso`, `cambio_especialidad`, `herida`, `recuperacion`, `traslado`, `condecoracion`, `formacion_lealtad`, `identificacion_nemesis`, `combate`, `licencia`, `desercion`, `muerte`. La lista es **abierta**: un tipo nuevo se acepta y se persiste igual. Algunos mutan la ficha al registrarse (ver [API.md](../API.md)); el resto solo deja constancia.
 
 ## Advertencias
 
 > [!warning] De solo añadir
 > El historial no se reescribe ni se borra. Un error no se arregla tocando el hito viejo, sino **agregando un hito nuevo** que lo enmienda. La línea de tiempo es íntegra por construcción.
 
-- **`actores` no es lo mismo que los tags `aliado/*`/`nemesis/*`.** `actores` solo lista quién estuvo en *ese* evento; los aliados y némesis son **vínculos vigentes** del personaje, anotados como etiquetas (ver [[nemesis-y-aliados|nemesis-y-aliados.md]]). De hecho, la prosa de ese vínculo vive justamente en el hito que lo formó (`formacion_lealtad` / `identificacion_nemesis`): el tag afirma el lazo, el hito lo cuenta. `actores` tampoco impone integridad referencial: se aceptan patentes colgadas, como en aquellos (ver [[MODEL|MODEL.md §4]]).
+- **`actores` no es lo mismo que los tags `aliado/*`/`nemesis/*`.** `actores` solo lista quién estuvo en *ese* evento; los aliados y némesis son **vínculos vigentes** del personaje, anotados como etiquetas (ver [nemesis-y-aliados.md](nemesis-y-aliados.md)). De hecho, la prosa de ese vínculo vive justamente en el hito que lo formó (`formacion_lealtad` / `identificacion_nemesis`): el tag afirma el lazo, el hito lo cuenta. `actores` tampoco impone integridad referencial: se aceptan patentes colgadas, como en aquellos (ver [MODEL.md §4](../MODEL.md)).
 - **`metadata` podría portar adjuntos a futuro** (imágenes, documentos). Hoy es estructura libre; el contrato deja la puerta abierta sin comprometer una forma todavía.
-- **En Diégesis, `actores` y `encuentro` se muestran como enlaces** a la ficha de cada slug, volviendo el historial una línea de tiempo navegable (ver [[diegesis|diegesis.md]]). La persistencia guarda patentes; la vista las enlaza.
+- **En Diégesis, `actores` y `encuentro` se muestran como enlaces** a la ficha de cada slug, volviendo el historial una línea de tiempo navegable (ver [diegesis.md](diegesis.md)). La persistencia guarda patentes; la vista las enlaza.
 
 ---
 
-Tipado formal del hito en [[MODEL|MODEL.md §1.1]]; resumen en el núcleo, [[hoja-personaje|hoja-personaje.md §5]].
+Tipado formal del hito en [MODEL.md §1.1](../MODEL.md); resumen en el núcleo, [hoja-personaje.md §5](hoja-personaje.md).

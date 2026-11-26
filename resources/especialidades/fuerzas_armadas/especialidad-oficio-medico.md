@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/medico", "especialidad/oficio", "pool/fuerzas_armada
 ---
 Mantiene cuerpos vivos en condiciones que no deberían permitirlo.
 
-[[fuerzas_armadas]]
+[fuerzas_armadas](../../facciones/fuerzas_armadas.md)

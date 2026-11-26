@@ -7,7 +7,7 @@ tipo: moc
 
 # Personajes de ejemplo — catálogo
 
-Estos son los personajes canónicos de ejemplo del universo *Subordinación y Valor*. Cada uno es una instancia real de la [[hoja-de-personaje|hoja de personaje]] y funciona como referencia concreta para el motor generador y como guía de estilo/contenido para el LLM.
+Estos son los personajes canónicos de ejemplo del universo *Subordinación y Valor*. Cada uno es una instancia real de la hoja de personaje y funciona como referencia concreta para el motor generador y como guía de estilo/contenido para el LLM.
 
 > [!abstract] Profundidad: estereotipos, no protagonistas
 > A diferencia de los personajes de **`syv-docs/3_personajes/`** —donde cada figura (los `principales/` y `secundarios/`) se desarrolla a fondo: sus secretos, sus vínculos, su contexto, su arco—, las fichas de `syv-pj` son **estereotipos**: tienen la profundidad de un **recién conocido**. Un nombre, una facción, un rango, cómo se ve, a qué le pega. Son molde para el motor generador, no biografía canónica; por eso la prosa es corta y sin secretos.
@@ -15,18 +15,18 @@ Estos son los personajes canónicos de ejemplo del universo *Subordinación y Va
 
 > [!important] Convención de autoría — campos dedicados, no el espejo de tags planos
 > Estas fichas son la **proyección de autoría** de la hoja: cada dimensión controlada vive en **su propio campo** (`faccion`, `rango`, `especialidad`, `estado`, `lealtad`, `aspectos`, `rasgos`, `equipo`, `apariencia`) y las relaciones son **referencias por slug** —conforme a `.claude/rules/tags-taxonomy.md`—. **No** se duplica la serialización plana `tags/<categoria>/<slug>` del motor: ese espejo redundante era un anti-patrón (dos fuentes de verdad en un archivo a mano) y fue retirado; `tags` queda como **vivero** (`[]`). El motor (`syv-pj-api`) conserva su forma canónica de `tags[]` planos intacta: es su formato de cable/persistencia, separado de cómo se autora una ficha-ejemplo.
-> Todo nuevo campo visual va en `apariencia` (sparse, agnóstico al generador) — ver [[apariencia|docs/apariencia.md]].
+> Todo nuevo campo visual va en `apariencia` (sparse, agnóstico al generador) — ver [docs/apariencia.md](../../docs/apariencia.md).
 
 ## Cómo se arma una hoja
 
-El contrato del modelo (campo por campo) vive en [[hoja-personaje|hoja de personaje]] y la notación de tags en [[sistema-tags]]. Acá está el **cómo se llena** una ficha-ejemplo, con un caso real.
+El contrato del modelo (campo por campo) vive en [hoja de personaje](../../docs/hoja-personaje.md) y la notación de tags en [sistema-tags](../../docs/sistema-tags.md). Acá está el **cómo se llena** una ficha-ejemplo, con un caso real.
 
 > [!tip] Regla rectora — lo discreto es campo, lo descriptivo es prosa
 > Todo dato **discreto y controlado** (facción, rango, equipo, aspecto…) va a **su campo**. Todo lo **descriptivo y libre** (cómo se ve, quién es) va a `apariencia` o a la `historia`. Ante la duda preguntate: *¿el motor lo filtra, lo cuenta o lo resuelve contra un catálogo?* → campo. *¿Solo lo lee una persona?* → prosa.
 
 ### Anatomía — ficha anotada
 
-[[ovidio-gauna-sargento|Ovidio Gauna]] (sargento de las Fuerzas Armadas) como patrón. Cada línea, comentada:
+[Ovidio Gauna](ovidio-gauna-sargento.md) (sargento de las Fuerzas Armadas) como patrón. Cada línea, comentada:
 
 ```yaml
 slug: ovidio-gauna-sargento     # patente del archivo (kebab, único). Identidad estable, no el nombre.
@@ -92,7 +92,7 @@ tags: []                        # ← VIVERO: etiqueta emergente a filtrar exact
 Tres niveles, de más rígido a más libre:
 
 1. **Canon cerrado — NO se inventa al escribir una ficha.** `faccion`, `subfaccion`, `rango`, `especialidad`, `estado`, `lealtad`, `barrio`. Resuelven contra entidades que ya existen (`facciones/`, `subfacciones/`, `rangos/`, `especialidades/`, el atlas). Acuñar un valor nuevo es **modificar el canon**, no llenar una hoja: va por PR a su directorio, no inline. Una referencia de `lealtad` que apunte a la nada es un error.
-2. **Catálogo que crece por curaduría — se inventa creando la entrada.** `aspectos`, `rasgos`, `equipo` (y `habilidad`, `entrenamiento`). Podés sumar un valor nuevo, pero **creás el archivo en `catalogos/`** con `origen: emergente` y sus campos obligatorios (ver [[sistema-tags]] §6). No basta citarlo: si no existe la entrada, no está catalogado.
+2. **Catálogo que crece por curaduría — se inventa creando la entrada.** `aspectos`, `rasgos`, `equipo` (y `habilidad`, `entrenamiento`). Podés sumar un valor nuevo, pero **creás el archivo en `catalogos/`** con `origen: emergente` y sus campos obligatorios (ver [sistema-tags](../../docs/sistema-tags.md) §6). No basta citarlo: si no existe la entrada, no está catalogado.
 3. **Libre — se inventa siempre, sin catálogo.** `apariencia` (descriptores de texto plano) y la `historia` (prosa). Acá describís al personaje con tus palabras. Lo que es **descriptivo** (joven, enjuto, mirada fría) NO es un tag ni un rasgo: la semántica lo encuentra sola. Solo graduá a `rasgo` lo que sea una **marca concreta y nombrable** (una cicatriz, un tatuaje de unidad).
 
 > [!important] El vivero `tags[]` no es un atajo
@@ -103,7 +103,7 @@ Tres niveles, de más rígido a más libre:
 La `historia` y el frontmatter describen al mismo personaje: no pueden contradecirse.
 
 - **Todo objeto, arma, cicatriz o aspecto nombrado en la prosa tiene respaldo en un campo** (`equipo`, `rasgos`, `aspectos`, `apariencia`). Si el relato dice que empuña un subfusil, `equipo` lo lista. Y al revés: lo que está en los campos suele asomar en la prosa.
-- **Los campos respetan las reglas de facción y rol.** Ejemplo real: un [[baltasar-quevedo-inquisidor|inquisidor]] nunca carga arma de fuego ni chaleco; a lo sumo, los raros llevan arma blanca o bastón. Entonces ni `equipo` ni la prosa pueden darle un fusil o un `chaleco_asalto`. La hoja es coherente con el canon de la entidad, no solo consigo misma.
+- **Los campos respetan las reglas de facción y rol.** Ejemplo real: un [inquisidor](baltasar-quevedo-inquisidor.md) nunca carga arma de fuego ni chaleco; a lo sumo, los raros llevan arma blanca o bastón. Entonces ni `equipo` ni la prosa pueden darle un fusil o un `chaleco_asalto`. La hoja es coherente con el canon de la entidad, no solo consigo misma.
 
 ### Receta desde cero
 
@@ -121,58 +121,58 @@ Las secciones de abajo agrupan los ejemplos por el átomo de `faccion` que carga
 
 ## Fuerzas Armadas · `fuerzas_armadas`
 
-- [[dario-sandoval-interrogador|Darío Sandoval]]
-- [[elian-quiroga-fusilero|Elián Quiroga]]
-- [[facundo-rios-tirador|Facundo Ríos]]
-- [[gaston-brizuela-zapador|Gastón Brizuela]]
-- [[hernan-bordon-asalto|Hernán Bordón]]
-- [[ivan-leiva-asalto|Iván Leiva]]
-- [[lucas-veron-medico|Lucas Verón]]
-- [[marcos-paez-fusilero|Marcos Páez]]
-- [[ovidio-gauna-sargento|Ovidio Gauna]]
-- [[ruben-ferreyra-cabo|Rubén Ferreyra]]
-- [[tomas-aguirre-recluta|Tomás Aguirre]]
+- [Darío Sandoval](dario-sandoval-interrogador.md)
+- [Elián Quiroga](elian-quiroga-fusilero.md)
+- [Facundo Ríos](facundo-rios-tirador.md)
+- [Gastón Brizuela](gaston-brizuela-zapador.md)
+- [Hernán Bordón](hernan-bordon-asalto.md)
+- [Iván Leiva](ivan-leiva-asalto.md)
+- [Lucas Verón](lucas-veron-medico.md)
+- [Marcos Páez](marcos-paez-fusilero.md)
+- [Ovidio Gauna](ovidio-gauna-sargento.md)
+- [Rubén Ferreyra](ruben-ferreyra-cabo.md)
+- [Tomás Aguirre](tomas-aguirre-recluta.md)
 
 ## Resistencia Subterránea · `resistencia_subterranea`
 
-- [[anibal-painemal-comandante|Aníbal Painemal]]
-- [[brian-curinanco-pandillero|Brian Curiñanco]]
-- [[cosme-medico-caido|Cosme]]
-- [[cristian-ledesma-barrabrava|Cristian Ledesma]]
-- [[damian-figueroa-barrabrava|Damián Figueroa]]
-- [[diego-maidana-barrabrava|Diego Maidana]]
-- [[ezequiel-madariaga-camarada|Ezequiel Madariaga]]
-- [[jonatan-coronel-barrabrava|Jonatan Coronel]]
-- [[kevin-wisotzki-barrabrava|Kevin Wisotzki]]
-- [[maxi-linares-pandillero|Maxi Linares]]
-- [[nahuel-antieco-pandillero|Nahuel Antieco]]
-- [[tobias-arce-barrabrava|Tobías Arce]]
-- [[valentina-roca-camarada|Valentina Roca]]
-- [[walter-cabrera-barrabrava|Walter Cabrera]]
-- [[yair-conuecar-pandillero|Yair Coñuecar]]
+- [Aníbal Painemal](anibal-painemal-comandante.md)
+- [Brian Curiñanco](brian-curinanco-pandillero.md)
+- [Cosme](cosme-medico-caido.md)
+- [Cristian Ledesma](cristian-ledesma-barrabrava.md)
+- [Damián Figueroa](damian-figueroa-barrabrava.md)
+- [Diego Maidana](diego-maidana-barrabrava.md)
+- [Ezequiel Madariaga](ezequiel-madariaga-camarada.md)
+- [Jonatan Coronel](jonatan-coronel-barrabrava.md)
+- [Kevin Wisotzki](kevin-wisotzki-barrabrava.md)
+- [Maxi Linares](maxi-linares-pandillero.md)
+- [Nahuel Antieco](nahuel-antieco-pandillero.md)
+- [Tobías Arce](tobias-arce-barrabrava.md)
+- [Valentina Roca](valentina-roca-camarada.md)
+- [Walter Cabrera](walter-cabrera-barrabrava.md)
+- [Yair Coñuecar](yair-conuecar-pandillero.md)
 
 ## Iglesia / Inquisición · `iglesia`
 
-- [[baltasar-quevedo-inquisidor|Baltasar Quevedo]]
-- [[cipriano-roldan-inquisidor|Cipriano Roldán]]
-- [[eulogio-sarmiento-capellan|Eulogio Sarmiento]]
+- [Baltasar Quevedo](baltasar-quevedo-inquisidor.md)
+- [Cipriano Roldán](cipriano-roldan-inquisidor.md)
+- [Eulogio Sarmiento](eulogio-sarmiento-capellan.md)
 
 ## Shipibo-Conibo · `shipibo_conibo`
 
-- [[iracema-chaman-pantano|Iracema]]
+- [Iracema](iracema-chaman-pantano.md)
 
 ## Gremio de Pescadores · `gremio_de_pescadores`
 
-- [[luisa-pescadora|Luisa]]
+- [Luisa](luisa-pescadora.md)
 
 ## Punteros · `punteros`
 
-- [[ramon-sosa-puntero|Ramón Sosa]]
+- [Ramón Sosa](ramon-sosa-puntero.md)
 
 ## Traficantes de Almas · `traficantes_de_almas`
 
-- [[severo-tratante-de-almas|Severo]]
+- [Severo](severo-tratante-de-almas.md)
 
 ## Los Umbanda · `los_umbanda`
 
-- [[yara-sacerdotisa-orixa|Yara]]
+- [Yara](yara-sacerdotisa-orixa.md)

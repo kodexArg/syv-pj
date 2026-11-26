@@ -26,4 +26,4 @@ rangos:
   mando: nodo_clandestino
 ---
 
-Escalera jerárquica de **Los Hackers** — [[los-hackers]].
+Escalera jerárquica de **Los Hackers** — los-hackers.

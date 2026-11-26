@@ -14,4 +14,4 @@ rangos:
   mando_default: null
 ---
 
-Escalera jerárquica de **Refugiados y Parias** — [[refugiados-y-parias]].
+Escalera jerárquica de **Refugiados y Parias** — refugiados-y-parias.

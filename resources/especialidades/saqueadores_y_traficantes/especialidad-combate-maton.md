@@ -6,4 +6,4 @@ tags: ["especialidad/combate/maton", "especialidad/combate", "pool/saqueadores_y
 ---
 Músculo de alquiler; la negociación ya ocurrió antes de que llegue.
 
-[[saqueadores_y_traficantes]]
+[saqueadores_y_traficantes](../../facciones/saqueadores_y_traficantes.md)

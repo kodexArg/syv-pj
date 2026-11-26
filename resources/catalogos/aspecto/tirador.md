@@ -18,4 +18,4 @@ tags:
 
 Años de práctica le dan una calma que los reclutas no pueden fingir.
 
-Requiere: [[tiro_de_precision]].
+Requiere: [tiro_de_precision](../habilidad/tiro_de_precision.md).

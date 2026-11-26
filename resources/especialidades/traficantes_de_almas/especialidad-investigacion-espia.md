@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/espia", "especialidad/investigacion", "pool/t
 ---
 Infiltra, escucha y nunca revela su nombre real.
 
-[[traficantes_de_almas]]
+[traficantes_de_almas](../../facciones/traficantes_de_almas.md)

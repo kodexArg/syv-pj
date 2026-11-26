@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/rastreador", "especialidad/investigacion", "p
 ---
 Sigue rastros donde no debería haberlos.
 
-[[direccion_nacional_de_seguridad]]
+[direccion_nacional_de_seguridad](../../subfacciones/direccion_nacional_de_seguridad.md)

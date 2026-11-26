@@ -12,4 +12,4 @@ tags:
 
 Disparo deliberado a distancia con arma larga. Necesita tiempo, posición y visión.
 
-Habilita: [[tirador]], [[rifle]]. Relacionado: [[tiro_selectivo]].
+Habilita: [tirador](../aspecto/tirador.md), [rifle](../equipo/rifle.md). Relacionado: [tiro_selectivo](../entrenamiento/tiro_selectivo.md).

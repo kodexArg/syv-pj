@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/cazador", "especialidad/paranormal", "pool/inqui
 ---
 Persigue lo que la Iglesia llama monstruo y otros llaman vecino.
 
-[[inquisicion]]
+[inquisicion](../../subfacciones/inquisicion.md)

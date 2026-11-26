@@ -11,4 +11,4 @@ tags:
 
 Deducción, interrogatorio, trabajo de campo civil — sin instrucción militar.
 
-Relacionado: [[independiente]].
+Relacionado: [independiente](../../facciones/independiente.md).

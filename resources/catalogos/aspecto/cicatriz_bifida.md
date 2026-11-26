@@ -14,4 +14,4 @@ tags:
 
 Lengua partida quirúrgicamente según rito Kuna. Sisea levemente al hablar. Para quien no conoce la práctica, produce incomodidad.
 
-Relacionado: [[siseo]], [[tatuaje_linaje_guarani]].
+Relacionado: [siseo](siseo.md), [tatuaje_linaje_guarani](tatuaje_linaje_guarani.md).

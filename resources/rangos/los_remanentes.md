@@ -26,4 +26,4 @@ rangos:
   mando: enjambre
 ---
 
-Escalera jerárquica de **Los Remanentes** — [[los-remanentes]].
+Escalera jerárquica de **Los Remanentes** — los-remanentes.

@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/inquisidor_menor", "especialidad/investigacio
 ---
 Asistente del Santo Oficio; ejecuta las tareas que el Inquisidor no toca.
 
-[[iglesia]]
+[iglesia](../../facciones/iglesia.md)

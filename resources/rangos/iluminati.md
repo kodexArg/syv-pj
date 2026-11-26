@@ -26,4 +26,4 @@ rangos:
   mando: circulo_interno
 ---
 
-Escalera jerárquica de **Iluminati** — [[iluminati]].
+Escalera jerárquica de **Iluminati** — [iluminati]().

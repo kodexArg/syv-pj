@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/rastreador", "especialidad/investigacion", "p
 ---
 Sigue rastros donde no debería haberlos.
 
-[[arpistas]]
+[arpistas](../../facciones/arpistas.md)

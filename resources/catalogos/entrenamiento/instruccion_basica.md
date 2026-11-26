@@ -11,4 +11,4 @@ tags:
 
 Marcha, disciplina y manejo del fusil reglamentario.
 
-Relacionado: [[fusil]], [[infanteria]].
+Relacionado: [fusil](../equipo/fusil.md), [infanteria](infanteria.md).

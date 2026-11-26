@@ -18,4 +18,4 @@ tags:
 
 Red de fibra sintética reparada con nudos desiguales. Funciona; cada parche tiene historia. La lleva el pescador que trabaja desde antes del amanecer.
 
-Relacionado: [[galera]], [[manos_asperas]].
+Relacionado: [galera](galera.md), [manos_asperas](../aspecto/manos_asperas.md).

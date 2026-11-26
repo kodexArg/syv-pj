@@ -6,4 +6,4 @@ tags: ["especialidad/combate/lider", "especialidad/combate", "pool/fuerzas_armad
 ---
 Coordina el fuego y mantiene la cohesión bajo presión.
 
-[[fuerzas_armadas]]
+[fuerzas_armadas](../../facciones/fuerzas_armadas.md)

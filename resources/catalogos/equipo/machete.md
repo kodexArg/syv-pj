@@ -18,4 +18,4 @@ tags:
 
 Hoja larga de acero para abrir paso y resolver problemas. En los Barrios del Muro es herramienta; también es advertencia.
 
-Relacionado: [[capucha]], [[guanteletes_cuero]].
+Relacionado: [capucha](capucha.md), [guanteletes_cuero](guanteletes_cuero.md).

@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/chaman-pantano", "especialidad/paranormal", "poo
 ---
 Médium que opera en los bordes del Pantano; interpreta las voces del agua y guía a los vivos.
 
-[[shipibo_conibo]]
+[shipibo_conibo](../../facciones/shipibo_conibo.md)

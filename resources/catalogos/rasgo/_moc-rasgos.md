@@ -11,7 +11,7 @@ tags:
 
 4 rasgos.
 
-- [[cicatriz_perturbadora|Cicatriz perturbadora]]
-- [[constitucion_robusta|Constitución robusta]]
-- [[mirada_cansada|Mirada cansada]]
-- [[tatuaje_de_unidad|Tatuaje de unidad]]
+- [Cicatriz perturbadora](cicatriz_perturbadora.md)
+- [Constitución robusta](constitucion_robusta.md)
+- [Mirada cansada](mirada_cansada.md)
+- [Tatuaje de unidad](tatuaje_de_unidad.md)

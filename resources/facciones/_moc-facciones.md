@@ -8,28 +8,28 @@ tags:
 
 Índice de las 20 facciones cerradas disponibles para creación de personajes, más `independiente` (entrada mecánica sin facción cerrada, ver nota).
 
-- [[arpistas|Arpistas]]
-- [[canales_ocultos|Canales Ocultos]]
-- [[fuerzas_armadas|Fuerzas Armadas]]
-- [[gremio_de_comercio|Gremio de Comercio]]
-- [[gremio_de_pescadores|Gremio de Pescadores]]
-- [[guardianes_de_la_memoria|Guardianes de la Memoria]]
-- [[iglesia|Iglesia Católica]]
-- [[iluminati|Iluminati]]
-- [[kuna_mbarete|Kuna Mbarete]]
-- [[los_criptografos|Los Criptógrafos]]
-- [[los_hackers|Los Hackers]]
-- [[los_remanentes|Los Remanentes]]
-- [[los_umbanda|Los Umbanda]]
-- [[masones|Masones]]
-- [[punteros|Punteros]]
-- [[refugiados_y_parias|Refugiados y Parias]]
-- [[resistencia_subterranea|Resistencia Subterránea]]
-- [[saqueadores_y_traficantes|Saqueadores y Traficantes]]
-- [[shipibo_conibo|Shipibo-Conibo]]
-- [[traficantes_de_almas|Traficantes de Almas]]
+- [Arpistas](arpistas.md)
+- [Canales Ocultos](canales_ocultos.md)
+- [Fuerzas Armadas](fuerzas_armadas.md)
+- [Gremio de Comercio](gremio_de_comercio.md)
+- [Gremio de Pescadores](gremio_de_pescadores.md)
+- [Guardianes de la Memoria](guardianes_de_la_memoria.md)
+- [Iglesia Católica](iglesia.md)
+- [Iluminati](iluminati.md)
+- [Kuna Mbarete](kuna_mbarete.md)
+- [Los Criptógrafos](los_criptografos.md)
+- [Los Hackers](los_hackers.md)
+- [Los Remanentes](los_remanentes.md)
+- [Los Umbanda](los_umbanda.md)
+- [Masones](masones.md)
+- [Punteros](punteros.md)
+- [Refugiados y Parias](refugiados_y_parias.md)
+- [Resistencia Subterránea](resistencia_subterranea.md)
+- [Saqueadores y Traficantes](saqueadores_y_traficantes.md)
+- [Shipibo-Conibo](shipibo_conibo.md)
+- [Traficantes de Almas](traficantes_de_almas.md)
 
 > [!note] `independiente` no es una facción de lore
-> [[independiente|Independiente]] es una entrada de catálogo mecánica para personajes sin facción cerrada (ver mock damian-diconte-detective.md). No tiene ficha de lore en `syv-docs`; `probabilidad: 0` la excluye del sorteo aleatorio de afiliación.
+> [Independiente](independiente.md) es una entrada de catálogo mecánica para personajes sin facción cerrada (ver mock damian-diconte-detective.md). No tiene ficha de lore en `syv-docs`; `probabilidad: 0` la excluye del sorteo aleatorio de afiliación.
 
-Ver también: [[resources/subfacciones/_moc-subfacciones|MOC Subfacciones]] · [[resources/rangos/_moc-rangos|MOC Rangos]]
+Ver también: [MOC Subfacciones](../subfacciones/_moc-subfacciones.md) · [MOC Rangos](../rangos/_moc-rangos.md)

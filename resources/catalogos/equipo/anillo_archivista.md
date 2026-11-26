@@ -19,4 +19,4 @@ tags:
 
 Sello de metal grabado con el símbolo de la orden archivista. Abre ciertas puertas; lo ocultan en zonas de control.
 
-Relacionado: [[tinta_ferrogalica]], [[papel_libre_acido]], [[marca_arpa]].
+Relacionado: [tinta_ferrogalica](tinta_ferrogalica.md), [papel_libre_acido](papel_libre_acido.md), [marca_arpa](../aspecto/marca_arpa.md).

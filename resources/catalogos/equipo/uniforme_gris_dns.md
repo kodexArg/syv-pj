@@ -15,4 +15,4 @@ tags:
 
 Uniforme gris de la Dirección Nacional de Seguridad. Corte funcional, sin adorno; el color basta para que la gente aparte la mirada.
 
-Relacionado: [[insignia_rango_militar]], [[uniforme_tactico_rojo]].
+Relacionado: [insignia_rango_militar](insignia_rango_militar.md), [uniforme_tactico_rojo](uniforme_tactico_rojo.md).

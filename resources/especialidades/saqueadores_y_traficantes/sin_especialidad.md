@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/saqueadores_y_traficantes"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[saqueadores_y_traficantes]]
+[saqueadores_y_traficantes](../../facciones/saqueadores_y_traficantes.md)

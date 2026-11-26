@@ -32,6 +32,6 @@ apariencia:
   presencia: criollo
 ---
 
-Lucas atiende heridas que él no terminó de causar. Es el [[especialidad-oficio-medico|médico de combate]] de la escuadra, el [[soldado_linea|soldado de línea]] que corre al caído mientras los demás corren al refugio. Las [[fuerzas_armadas]] de la [[barrios-del-muro|Ciudad]] le dieron un [[botiquin]] y una [[pistola_9mm|pistola]] que casi nunca desenfunda.
+Lucas atiende heridas que él no terminó de causar. Es el [médico de combate](../especialidades/fuerzas_armadas/especialidad-oficio-medico.md) de la escuadra, el soldado de línea que corre al caído mientras los demás corren al refugio. Las [fuerzas_armadas](../facciones/fuerzas_armadas.md) de la Ciudad le dieron un [botiquin](../catalogos/equipo/botiquin.md) y una [pistola](../catalogos/equipo/pistola_9mm.md) que casi nunca desenfunda.
 
-Cose bajo fuego con el [[uniforme_linea|uniforme]] tieso de sangre seca, ajena y propia. Sus [[manos_temblorosas]] le pelean cada sutura, hilo contra pulso, y todavía ninguna se le abrió de nuevo. Todavía.
+Cose bajo fuego con el [uniforme](../catalogos/equipo/uniforme_linea.md) tieso de sangre seca, ajena y propia. Sus [manos_temblorosas](../catalogos/aspecto/manos_temblorosas.md) le pelean cada sutura, hilo contra pulso, y todavía ninguna se le abrió de nuevo. Todavía.

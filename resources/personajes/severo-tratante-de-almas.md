@@ -33,6 +33,6 @@ apariencia:
   presencia: demacrado, criollo
 ---
 
-Severo merodea el mercado de la Antigua Estación, en [[tuberias|Las Tuberías]], con la [[chaqueta_de_cuero|chaqueta de cuero]] cerrada hasta el cuello. Busca a los que perdieron a alguien por las posesiones. Les ofrece, en voz baja, un camino para "recuperarlos".
+Severo merodea el mercado de la Antigua Estación, en Las Tuberías, con la chaqueta de cuero cerrada hasta el cuello. Busca a los que perdieron a alguien por las posesiones. Les ofrece, en voz baja, un camino para "recuperarlos".
 
-Es de los [[traficantes_de_almas]], rango [[tratante]], [[especialidad-oficio-tratante|tratante]] de oficio: anota deudas y nombres en un [[cuaderno_de_cuero]] grasiento y nunca da la cara dos veces en el mismo callejón. La [[mirada_cansada|mirada]] le pesa de tantos nombres. [[cobarde|Cobarde]] de fondo, sobrevive por [[paranoia_vigilancia|cálculo]] antes que por coraje, midiendo cada salida antes de entrar. Le vende esperanza a [[luisa-pescadora|Luisa]] y a cien como ella. Sabe que la mercancía es humo. Humo.
+Es de los [traficantes_de_almas](../facciones/traficantes_de_almas.md), rango tratante, [tratante](../especialidades/traficantes_de_almas/especialidad-oficio-tratante.md) de oficio: anota deudas y nombres en un cuaderno_de_cuero grasiento y nunca da la cara dos veces en el mismo callejón. La [mirada](../catalogos/rasgo/mirada_cansada.md) le pesa de tantos nombres. [Cobarde](../catalogos/aspecto/cobarde.md) de fondo, sobrevive por cálculo antes que por coraje, midiendo cada salida antes de entrar. Le vende esperanza a [Luisa](luisa-pescadora.md) y a cien como ella. Sabe que la mercancía es humo. Humo.

@@ -34,6 +34,6 @@ apariencia:
   presencia: criollo, rapado
 ---
 
-[[soldado_linea|Soldado]] [[fuerzas_armadas|Páez]] hace lo que le ordenan, y lo hace bien. Encara el [[especialidad-combate-fusilero|fuego de fusilería]] desde la segunda fila, [[tirador|preciso]] sin alardear, sosteniendo el [[fusil]] con la disciplina que le metieron a fuerza de guardias.
+Soldado [Páez](../facciones/fuerzas_armadas.md) hace lo que le ordenan, y lo hace bien. Encara el [fuego de fusilería](../especialidades/fuerzas_armadas/especialidad-combate-fusilero.md) desde la segunda fila, [preciso](../catalogos/aspecto/tirador.md) sin alardear, sosteniendo el [fusil](../catalogos/equipo/fusil.md) con la disciplina que le metieron a fuerza de guardias.
 
-Bajo el [[chaleco_asalto|chaleco]] guarda [[cargador|cargadores]] contados, el [[uniforme_linea|uniforme]] planchado por costumbre vieja, y una [[mirada_cansada|mirada]] que ya no es de pibe aunque el documento diga otra cosa. Patrulla los [[barrios-del-muro|Barrios del Muro]] y se pregunta, en voz baja, contra quién pelea de verdad la [[fuerzas_armadas|Confederación]]. En voz baja. Siempre.
+Bajo el [chaleco](../catalogos/equipo/chaleco_asalto.md) guarda [cargadores](../catalogos/equipo/cargador.md) contados, el [uniforme](../catalogos/equipo/uniforme_linea.md) planchado por costumbre vieja, y una [mirada](../catalogos/rasgo/mirada_cansada.md) que ya no es de pibe aunque el documento diga otra cosa. Patrulla los Barrios del Muro y se pregunta, en voz baja, contra quién pelea de verdad la [Confederación](../facciones/fuerzas_armadas.md). En voz baja. Siempre.

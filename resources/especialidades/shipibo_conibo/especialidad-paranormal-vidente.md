@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/vidente", "especialidad/paranormal", "pool/shipi
 ---
 Percibe lo que otros no pueden ver; no siempre lo entiende.
 
-[[shipibo_conibo]]
+[shipibo_conibo](../../facciones/shipibo_conibo.md)

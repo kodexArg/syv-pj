@@ -31,6 +31,6 @@ apariencia:
   presencia: joven
 ---
 
-Tomás todavía no aprende a disparar con los ojos abiertos. Es el [[recluta]] de la escuadra, el [[especialidad-combate-fusilero|fusilero]] verde al que le baila el [[fusil_recluta|fusil]] entre las manos. Dieciocho años y un casco que le queda grande.
+Tomás todavía no aprende a disparar con los ojos abiertos. Es el recluta de la escuadra, el [fusilero](../especialidades/fuerzas_armadas/especialidad-combate-fusilero.md) verde al que le baila el [fusil](../catalogos/equipo/fusil_recluta.md) entre las manos. Dieciocho años y un casco que le queda grande.
 
-Lo metieron en las [[fuerzas_armadas]] de la [[barrios-del-muro|Ciudad]] con un [[uniforme_linea|uniforme]] heredado y un [[cargador]] que ruega no usar. En su primera salida contra la [[resistencia_subterranea|resistencia]], reza más que apunta. Reza.
+Lo metieron en las [fuerzas_armadas](../facciones/fuerzas_armadas.md) de la Ciudad con un [uniforme](../catalogos/equipo/uniforme_linea.md) heredado y un [cargador](../catalogos/equipo/cargador.md) que ruega no usar. En su primera salida contra la [resistencia](../facciones/resistencia_subterranea.md), reza más que apunta. Reza.

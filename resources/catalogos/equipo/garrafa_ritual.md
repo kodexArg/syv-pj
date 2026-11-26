@@ -20,4 +20,4 @@ tags:
 
 Garrafa de vidrio o cerámica con ron, aceite y hierbas maceradas. Se ofrece, se aspira, se usa para aspersión. No se bebe sola.
 
-Relacionado: [[agogo]], [[vela_sebo]].
+Relacionado: [agogo](agogo.md), [vela_sebo](vela_sebo.md).

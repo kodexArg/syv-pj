@@ -14,4 +14,4 @@ tags:
 
 Habla con sibilancias marcadas por modificación ritual de la lengua. En las iniciadas Kuna es distinción; en el Muro, hace que la gente no mire a los ojos.
 
-Relacionado: [[cicatriz_bifida]], [[tatuaje_linaje_guarani]].
+Relacionado: [cicatriz_bifida](cicatriz_bifida.md), [tatuaje_linaje_guarani](tatuaje_linaje_guarani.md).

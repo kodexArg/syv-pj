@@ -11,4 +11,4 @@ tags:
 
 Tiro de precisión a distancia, camuflaje y paciencia.
 
-Relacionado: [[tiro_de_precision]], [[rifle]].
+Relacionado: [tiro_de_precision](../habilidad/tiro_de_precision.md), [rifle](../equipo/rifle.md).

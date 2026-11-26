@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/ritualista", "especialidad/paranormal", "pool/ex
 ---
 Ejecuta ceremonias cuyo sentido solo la tradición preserva.
 
-[[exorcistas]]
+[exorcistas](../../subfacciones/exorcistas.md)

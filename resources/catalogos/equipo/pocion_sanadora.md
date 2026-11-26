@@ -22,4 +22,4 @@ tags:
 
 Vial de extracto procesado de efecto regenerativo documentado. Escaso, caro, y nadie sabe bien cómo funciona después del Colapso.
 
-Relacionado: [[unguento_medicinal]], [[antidoto_paranormal]].
+Relacionado: [unguento_medicinal](unguento_medicinal.md), [antidoto_paranormal](antidoto_paranormal.md).

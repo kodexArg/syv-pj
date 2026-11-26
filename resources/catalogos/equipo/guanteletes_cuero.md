@@ -17,4 +17,4 @@ tags:
 
 Guantes gruesos de cuero curtido con costuras dobles. Los usan cirujanos de chatarra y cualquiera que meta las manos donde no hay que meter dedos descubiertos.
 
-Relacionado: [[escudo_antiratas]], [[antiparras]], [[machete]].
+Relacionado: [escudo_antiratas](escudo_antiratas.md), [antiparras](antiparras.md), [machete](machete.md).

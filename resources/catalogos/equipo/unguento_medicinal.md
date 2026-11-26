@@ -22,4 +22,4 @@ tags:
 
 Pasta densa de hierbas procesadas y grasa. Cierra heridas menores, alivia infección superficial. Lo preparan curanderas y médicos caídos.
 
-Relacionado: [[pocion_sanadora]], [[botiquin]], [[primeros_auxilios]].
+Relacionado: [pocion_sanadora](pocion_sanadora.md), [botiquin](botiquin.md), primeros_auxilios.

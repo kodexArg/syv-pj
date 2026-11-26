@@ -30,8 +30,8 @@ apariencia:
   presencia: 'PENDIENTE: redactar (regla §2.5)'
 ---
 
-[[3_personajes/principales/walter|Walter]], "El Heredero de las Tuberías". Nunca pidió ser líder — era el mejor nadador de la estación hasta que el asesinato de [[paco-el-puntero|Paco]] lo dejó al frente. Puntero reacio, encargado de mantener la paz, negociar con los de arriba y sostener los filtros de aire y agua.
+Walter, "El Heredero de las Tuberías". Nunca pidió ser líder — era el mejor nadador de la estación hasta que el asesinato de Paco lo dejó al frente. Puntero reacio, encargado de mantener la paz, negociar con los de arriba y sostener los filtros de aire y agua.
 
-Cuerpo esculpido por años de natación contracorriente en las aguas negras de las Tuberías, piel que rara vez ve el sol. Callado, observador, pragmático: no da discursos, arregla el generador. [[mirada_cansada|Carga el peso]] de una sombra —la de Paco— que es larga.
+Cuerpo esculpido por años de natación contracorriente en las aguas negras de las Tuberías, piel que rara vez ve el sol. Callado, observador, pragmático: no da discursos, arregla el generador. [Carga el peso](../catalogos/rasgo/mirada_cansada.md) de una sombra —la de Paco— que es larga.
 
-Ficha SyV-pj basada en el canon [[3_personajes/principales/walter|Walter]] (`syv-docs`).
+Ficha SyV-pj basada en el canon Walter (`syv-docs`).

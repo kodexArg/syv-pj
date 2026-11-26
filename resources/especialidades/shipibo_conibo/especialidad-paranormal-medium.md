@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/medium", "especialidad/paranormal", "pool/shipib
 ---
 Canal entre vivos y muertos; carga con voces que nadie más escucha.
 
-[[shipibo_conibo]]
+[shipibo_conibo](../../facciones/shipibo_conibo.md)

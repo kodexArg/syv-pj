@@ -32,6 +32,6 @@ apariencia:
   presencia: joven, mestizo
 ---
 
-Brian quedó huérfano antes de aprender a tener miedo. Los del [[resistencia_subterranea|Ejército Rojo]] lo levantaron de la calle, en [[barrios-del-muro|los Barrios del Muro]], cuando era apenas un crío. Creció hombro a hombro con [[maxi-linares-pandillero|Maxi]] y [[nahuel-antieco-pandillero|Nahuel]].
+Brian quedó huérfano antes de aprender a tener miedo. Los del [Ejército Rojo](../facciones/resistencia_subterranea.md) lo levantaron de la calle, en los Barrios del Muro, cuando era apenas un crío. Creció hombro a hombro con [Maxi](maxi-linares-pandillero.md) y [Nahuel](nahuel-antieco-pandillero.md).
 
-Ahora va de [[militante_resistencia|militante]] al frente como [[especialidad-combate-asalto|asaltante]], el [[machete]] al cinto y la [[capucha]] calada hasta los ojos. Lo que le guarda a la [[fuerzas_armadas|Confederación]] no le sube a la garganta, le baja a las manos: es [[vanguardia|punta de lanza]] fría, metódica, sin un gramo de más. El [[tatuaje_de_unidad|tatuaje de la unidad]] en el antebrazo es lo único que lleva con orgullo. Nació en Bahía Blanca. Morirá rojo.
+Ahora va de militante al frente como [asaltante](../especialidades/resistencia_subterranea/especialidad-combate-asalto.md), el [machete](../catalogos/equipo/machete.md) al cinto y la [capucha](../catalogos/equipo/capucha.md) calada hasta los ojos. Lo que le guarda a la [Confederación](../facciones/fuerzas_armadas.md) no le sube a la garganta, le baja a las manos: es [punta de lanza](../catalogos/aspecto/vanguardia.md) fría, metódica, sin un gramo de más. El [tatuaje de la unidad](../catalogos/rasgo/tatuaje_de_unidad.md) en el antebrazo es lo único que lleva con orgullo. Nació en Bahía Blanca. Morirá rojo.

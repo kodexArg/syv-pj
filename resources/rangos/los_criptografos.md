@@ -26,4 +26,4 @@ rangos:
   mando: seccion_cripto
 ---
 
-Escalera jerárquica de **Los Criptógrafos** — [[los-criptografos]].
+Escalera jerárquica de **Los Criptógrafos** — los-criptografos.

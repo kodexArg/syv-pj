@@ -20,4 +20,4 @@ tags:
 
 Pequeño frasco de metal o vidrio con agua bendita. Herramienta básica del exorcista y el devoto.
 
-Relacionado: [[crucifijo_consagrado]], [[unguento_medicinal]].
+Relacionado: [crucifijo_consagrado](crucifijo_consagrado.md), [unguento_medicinal](unguento_medicinal.md).

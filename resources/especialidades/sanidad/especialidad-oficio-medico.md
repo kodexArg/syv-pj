@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/medico", "especialidad/oficio", "pool/sanidad"]
 ---
 Mantiene cuerpos vivos en condiciones que no deberían permitirlo.
 
-[[sanidad]]
+[sanidad](../../subfacciones/sanidad.md)

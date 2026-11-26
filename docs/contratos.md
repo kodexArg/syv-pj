@@ -14,16 +14,16 @@ aliases:
 # Aspectos, Habilidades y Efectos como Contratos
 
 > [!info] Concepto central
-> Un **contrato** es la información que vive **detrás** de ciertos tags. El [[sistema-tags|tag]] es el **link** —un puntero que puede o no llevar algo detrás—; el contrato es ese algo: un **paquete declarado** de modificadores numéricos, habilitadores de tirada y/o efectos referenciables. El nombre es la cara legible; el paquete es la letra chica. Tres categorías traen contrato siempre: **`aspecto`**, **`habilidad`** y **`efecto`**.
+> Un **contrato** es la información que vive **detrás** de ciertos tags. El [tag](sistema-tags.md) es el **link** —un puntero que puede o no llevar algo detrás—; el contrato es ese algo: un **paquete declarado** de modificadores numéricos, habilitadores de tirada y/o efectos referenciables. El nombre es la cara legible; el paquete es la letra chica. Tres categorías traen contrato siempre: **`aspecto`**, **`habilidad`** y **`efecto`**.
 
 > [!warning] Vocabulario unificado
-> *ventaja* y *destreza* **ya no existen como categorías**: *ventaja* → **`aspecto`** de origen narrativo (§5.4), *destreza* → **`habilidad`**. De *rasgo*, lo que tenía **peso mecánico** (identidad con efecto) pasó a **`aspecto`**; el *rasgo* **puramente cosmético** —cicatriz, tatuaje, constitución, sin efecto— sigue siendo categoría propia, un tag sin contrato (ver [[sistema-tags#§3 — Categorías de referencia|sistema-tags §3]]). Si encontrás `ventaja.*` o `destreza.*` en una hoja vieja, son legado a migrar.
+> *ventaja* y *destreza* **ya no existen como categorías**: *ventaja* → **`aspecto`** de origen narrativo (§5.4), *destreza* → **`habilidad`**. De *rasgo*, lo que tenía **peso mecánico** (identidad con efecto) pasó a **`aspecto`**; el *rasgo* **puramente cosmético** —cicatriz, tatuaje, constitución, sin efecto— sigue siendo categoría propia, un tag sin contrato (ver [sistema-tags §3](sistema-tags.md#3--categorías-de-referencia)). Si encontrás `ventaja.*` o `destreza.*` en una hoja vieja, son legado a migrar.
 
 ---
 
 ## §1 — Tag y contrato: el link y la información
 
-Un [[sistema-tags|tag]] es un **link**: un identificador discreto que se posa sobre el personaje y apunta a algo. Como todo link, puede llevar información detrás **o no llevarla** — un tag huérfano como `habilidad/personal/pianista` afirma el hecho sin describir su alcance hasta que alguien escriba su referencia en el catálogo.
+Un [tag](sistema-tags.md) es un **link**: un identificador discreto que se posa sobre el personaje y apunta a algo. Como todo link, puede llevar información detrás **o no llevarla** — un tag huérfano como `habilidad/personal/pianista` afirma el hecho sin describir su alcance hasta que alguien escriba su referencia en el catálogo.
 
 Un **contrato** es esa información: la entrada de catálogo (`tags/<categoria>/<slug>.yaml`) que vive detrás del link. **No todos los tags tienen contrato.** `rango/sargento`, `faccion/confederados`, `lealtad/ejercito_rojo` o `aliado/K9F2H3M4` son tags puros —clasificatorios o relacionales—, sin paquete mecánico. Pero los tags de tres categorías traen contrato **siempre**:
 
@@ -31,11 +31,11 @@ Un **contrato** es esa información: la entrada de catálogo (`tags/<categoria>/
 |---|---|---|
 | Qué es | un link discreto sobre el personaje | la información detrás del link |
 | ¿Siempre presente? | sí — es la unidad atómica del esquema | no — solo bajo `aspecto/*`, `habilidad/*`, `efecto.*` |
-| Dónde vive | en `tags[]` de la [[hoja-personaje\|hoja]] | en el catálogo `tags/<categoria>/<slug>.yaml` |
+| Dónde vive | en `tags[]` de la [hoja](hoja-personaje.md) | en el catálogo `tags/<categoria>/<slug>.yaml` |
 | Qué entrega | la afirmación de un hecho | un **paquete**: modificadores, habilitadores, efectos |
 
 > [!tip] Lo que no trae contrato sigue siendo tag
-> `rango/*`, `faccion/*`, `lealtad/*`, `aliado/*`, `nemesis/*` no declaran paquete mecánico: son links puros (ver [[sistema-tags]], [[nemesis-y-aliados|nemesis-y-aliados.md]], [[lealtad|lealtad.md]]). Y un contrato puede, además del paquete, **referenciar información adicional** —incluso prosa: quién sabe lo que el contrato escriba detrás del tag.
+> `rango/*`, `faccion/*`, `lealtad/*`, `aliado/*`, `nemesis/*` no declaran paquete mecánico: son links puros (ver [sistema-tags](sistema-tags.md), [nemesis-y-aliados.md](nemesis-y-aliados.md), [lealtad.md](lealtad.md)). Y un contrato puede, además del paquete, **referenciar información adicional** —incluso prosa: quién sabe lo que el contrato escriba detrás del tag.
 
 ---
 
@@ -52,7 +52,7 @@ De ahí se sigue lo central: **aspecto, habilidad y efecto son mecánicamente la
 | `efecto` | bloque referenciable | modificadores, aplicados por referencia o inline |
 
 > [!important] Agnóstico al sistema
-> No sabemos —ni nos importa todavía— cómo se implementará el motor. El contrato vive en la capa de **dominio**: promete data portable. Cómo cada cliente la consume (motor de juego, motor de batalla, generador visual) es problema del cliente, no del contrato. Ver [[casos-de-uso|casos-de-uso.md]].
+> No sabemos —ni nos importa todavía— cómo se implementará el motor. El contrato vive en la capa de **dominio**: promete data portable. Cómo cada cliente la consume (motor de juego, motor de batalla, generador visual) es problema del cliente, no del contrato. Ver [casos-de-uso.md](casos-de-uso.md).
 
 ---
 
@@ -60,7 +60,7 @@ De ahí se sigue lo central: **aspecto, habilidad y efecto son mecánicamente la
 
 El contrato es una **entidad** de relación **varios-a-varios** con los personajes — es decir, en la práctica, **sin relación**. Cualquier contrato puede posarse sobre cualquier personaje; no hay tabla de pertenencia ni dueño. Un `aspecto/veterano_de_campo` no "pertenece" a nadie: está definido una vez y queda disponible para todas las hojas.
 
-Los contratos definidos se acumulan en un **pool** del que el generador y el curador van tirando (ver [[generacion-procedural#Fase 4 — Formación|Fase 4]]). El pool crece **abierto/cerrado, incrementalmente**: agregar un contrato nuevo nunca rompe los existentes ni exige migración. Un `aspecto/*` más en el catálogo es, simplemente, una opción más en el sorteo.
+Los contratos definidos se acumulan en un **pool** del que el generador y el curador van tirando (ver [Fase 4](generacion-procedural.md#fase-4--formación)). El pool crece **abierto/cerrado, incrementalmente**: agregar un contrato nuevo nunca rompe los existentes ni exige migración. Un `aspecto/*` más en el catálogo es, simplemente, una opción más en el sorteo.
 
 ---
 
@@ -110,7 +110,7 @@ efecto:
 ```
 
   Cada modificador lleva `mod` **o** `pct`, nunca ambos.
-- **`condicion`** — opcional. Palabra clave persistente (slug) que restringe *cuándo* cuenta el modificador. Sin `condicion`, el modificador siempre está activo; con ella, solo se suma cuando el motor evalúa esa palabra clave. Ver §4.3 y [[atributos#3.5. Bonificador condicional condicion|atributos §3.5]].
+- **`condicion`** — opcional. Palabra clave persistente (slug) que restringe *cuándo* cuenta el modificador. Sin `condicion`, el modificador siempre está activo; con ella, solo se suma cuando el motor evalúa esa palabra clave. Ver §4.3 y [atributos §3.5](atributos.md#35-bonificador-condicional-condicion).
 - **`nota`** — opcional. Descripción subjetiva de *este* modificador. No confundir con la `descripcion` del contrato, que describe el contrato entero.
 
 > [!warning] Por qué estructurado y no string
@@ -118,7 +118,7 @@ efecto:
 
 ### 4.2. Vocabulario canónico de objetivos
 
-`objetivo` solo apunta a estas variables. La mecánica de cada una vive en [[atributos]].
+`objetivo` solo apunta a estas variables. La mecánica de cada una vive en [atributos](atributos.md).
 
 **Atributos base** (`attr.*`, persistidos):
 
@@ -140,7 +140,7 @@ efecto:
 | `stat.sanar` | SANAR |
 | `stat.percepcion` | PERCEPCION |
 
-El conjunto es **abierto**: si [[atributos]] suma una variable nueva, basta nombrarla con su prefijo (`attr.*` / `stat.*`) y el sistema de efectos la procesa sin migración.
+El conjunto es **abierto**: si [atributos](atributos.md) suma una variable nueva, basta nombrarla con su prefijo (`attr.*` / `stat.*`) y el sistema de efectos la procesa sin migración.
 
 ### 4.3. Modificadores condicionales (`condicion`)
 
@@ -157,7 +157,7 @@ efecto:
 
 "+1 percepción" (siempre) **no es** "+1 percepción para calcular encuentros" (`condicion: calcular_encuentros`): el primero mejora la percepción en todo momento; el segundo solo pesa cuando el motor decide si hay un encuentro. Mismo número, alcance distinto.
 
-Palabras clave iniciales (catálogo abierto): `calcular_encuentros`, `tiradas_activas`, `chequeo_miedo`. La mecánica completa vive en [[atributos#3.5. Bonificador condicional condicion|atributos §3.5]].
+Palabras clave iniciales (catálogo abierto): `calcular_encuentros`, `tiradas_activas`, `chequeo_miedo`. La mecánica completa vive en [atributos §3.5](atributos.md#35-bonificador-condicional-condicion).
 
 ---
 
@@ -251,7 +251,7 @@ requires:
     - rango/tirador_designado
 ```
 
-Esto es documentación ejecutable. El motor no lo impone; el generador y el curador lo respetan. Ver [[sistema-tags#6.4. Sistema requires|§6.4 de sistema-tags]].
+Esto es documentación ejecutable. El motor no lo impone; el generador y el curador lo respetan. Ver [§6.4 de sistema-tags](sistema-tags.md#64-sistema-requires).
 
 ### 5.4. Origen narrativo (lo que antes era *ventaja*)
 
@@ -276,7 +276,7 @@ efecto:
     mod: +1
 ```
 
-La vía canónica para ganar un aspecto narrativo es el `historial[]`: un hito `agregar_tag` registra el evento (con `metadata: { categoria: aspecto, valor: <slug> }`) y el tag se agrega a la hoja. El hito es de solo añadir; el aspecto persiste. Ver [[historial|historial.md]]. Mecánicamente, en tiempo de ejecución, un aspecto narrativo se aplica igual que cualquier aspecto pasivo — la diferencia es de **origen y semántica**, no de motor.
+La vía canónica para ganar un aspecto narrativo es el `historial[]`: un hito `agregar_tag` registra el evento (con `metadata: { categoria: aspecto, valor: <slug> }`) y el tag se agrega a la hoja. El hito es de solo añadir; el aspecto persiste. Ver [historial.md](historial.md). Mecánicamente, en tiempo de ejecución, un aspecto narrativo se aplica igual que cualquier aspecto pasivo — la diferencia es de **origen y semántica**, no de motor.
 
 ---
 
@@ -356,11 +356,11 @@ efecto:
 
 ### 7.2. Efecto inline
 
-Cuando el modificador es permanente y simple, no necesita archivo propio. Se declara directamente en la etiqueta que lo aplica (típicamente un `aspecto` pasivo). Ver [[#§5 — Aspecto identidad mecánicamente activa]].
+Cuando el modificador es permanente y simple, no necesita archivo propio. Se declara directamente en la etiqueta que lo aplica (típicamente un `aspecto` pasivo). Ver [§5 — Aspecto identidad mecánicamente activa](#5--aspecto-identidad-mecánicamente-activa).
 
 ### 7.3. Vocabulario canónico
 
-Los modificadores de cualquier efecto —externo o inline— solo pueden apuntar al vocabulario canónico de objetivos (`attr.*` / `stat.*`). La tabla completa está en §4.2; la mecánica de cada variable, en [[atributos]].
+Los modificadores de cualquier efecto —externo o inline— solo pueden apuntar al vocabulario canónico de objetivos (`attr.*` / `stat.*`). La tabla completa está en §4.2; la mecánica de cada variable, en [atributos](atributos.md).
 
 ---
 
@@ -373,7 +373,7 @@ Cuando el motor sirve un personaje, recorre sus etiquetas y aplica contratos:
 3. **Habilidades** — marca el habilitador binario. El motor lo consulta cuando una acción requiere la habilidad.
 4. **Efectos activos** — aplicados directamente o referenciados vía `trigger-action`.
 
-Ningún contrato modifica la hoja persistida. Todo cálculo es **en caliente** sobre los atributos base `cuerpo`, `mente`, `alma`. Las estadísticas (`INICIATIVA`, `MORAL`, etc.) no se guardan — se derivan al servir. Ver [[hoja-personaje]] para la estructura de la hoja y [[atributos]] para las fórmulas de derivación.
+Ningún contrato modifica la hoja persistida. Todo cálculo es **en caliente** sobre los atributos base `cuerpo`, `mente`, `alma`. Las estadísticas (`INICIATIVA`, `MORAL`, etc.) no se guardan — se derivan al servir. Ver [hoja-personaje](hoja-personaje.md) para la estructura de la hoja y [atributos](atributos.md) para las fórmulas de derivación.
 
 ---
 
@@ -469,7 +469,7 @@ Los contratos se extienden igual que cualquier etiqueta — sin migración, sin 
 - **Nueva habilidad:** agregar `tags/habilidad/{slug}.yaml` con `atributo_dominante`.
 - **Nuevo efecto:** agregar `tags/efecto/{slug}.yaml` con la lista de modificadores estructurados.
 
-Un contrato desconocido no rompe la hoja. La coherencia la garantiza la curaduría del catálogo, no la validación de esquema. Detalle de los campos de catálogo en [[sistema-tags#§6 — Campos del archivo de catálogo|§6 de sistema-tags]].
+Un contrato desconocido no rompe la hoja. La coherencia la garantiza la curaduría del catálogo, no la validación de esquema. Detalle de los campos de catálogo en [§6 de sistema-tags](sistema-tags.md#6--campos-del-archivo-de-catálogo).
 
 ---
 

@@ -34,6 +34,6 @@ apariencia:
   presencia: 'PENDIENTE: redactar (regla §2.5)'
 ---
 
-Cosme tuvo un puesto en la [[iglesia|Sanidad]] hasta que cosió la herida equivocada a la persona equivocada. Ahora opera a la luz de un farol, en [[tuberias|Las Tuberías]], donde nadie pregunta credenciales. Da cobijo a la [[resistencia_subterranea]] como [[militante_resistencia|militante]].
+Cosme tuvo un puesto en la [Sanidad](../facciones/iglesia.md) hasta que cosió la herida equivocada a la persona equivocada. Ahora opera a la luz de un farol, en Las Tuberías, donde nadie pregunta credenciales. Da cobijo a la [resistencia_subterranea](../facciones/resistencia_subterranea.md) como militante.
 
-Ejerce el [[especialidad-oficio-medico|oficio médico]] con el [[delantal_manchado|delantal manchado]], un [[botiquin]] de instrumentos salvados y [[pocion_sanadora|viales]] turbios de procedencia dudosa. [[veterano|Veterano]] de mil suturas, tiene las [[manos_temblorosas]] que delatan los años y algo más, y la [[mirada_cansada|mirada]] de quien vio demasiado a la luz del farol. Su [[duda_teologica]] empezó el día que entendió qué eran de verdad las "posesiones". Carne. Solo carne.
+Ejerce el oficio médico con el [delantal manchado](../catalogos/equipo/delantal_manchado.md), un [botiquin](../catalogos/equipo/botiquin.md) de instrumentos salvados y [viales](../catalogos/equipo/pocion_sanadora.md) turbios de procedencia dudosa. [Veterano](../catalogos/aspecto/veterano.md) de mil suturas, tiene las [manos_temblorosas](../catalogos/aspecto/manos_temblorosas.md) que delatan los años y algo más, y la [mirada](../catalogos/rasgo/mirada_cansada.md) de quien vio demasiado a la luz del farol. Su duda_teologica empezó el día que entendió qué eran de verdad las "posesiones". Carne. Solo carne.

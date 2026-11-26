@@ -23,4 +23,4 @@ Depósitos de nombres para la generación de personajes. Los archivos YAML son l
 
 Los YAML raíz (`nombres_varones.yaml`, `nombres_mujeres.yaml`) son la fuente autoritativa. Los `.txt` en esta carpeta son auxiliares de consulta y pueden divergir.
 
-Ver también: [[resources/reglas/genero_pesos|genero_pesos]] · [[resources/facciones/_moc-facciones|MOC Facciones]]
+Ver también: [genero_pesos](../reglas/genero_pesos.md) · [MOC Facciones](../facciones/_moc-facciones.md)

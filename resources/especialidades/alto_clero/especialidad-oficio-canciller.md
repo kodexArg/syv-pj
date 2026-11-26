@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/canciller", "especialidad/oficio", "pool/alto_clero"
 ---
 Administra los asuntos diplomáticos y financieros del alto clero ante el Estado.
 
-[[alto_clero]]
+[alto_clero](../../subfacciones/alto_clero.md)

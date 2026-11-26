@@ -19,4 +19,4 @@ tags:
 
 Tez blanquecina por años sin luz solar directa. Los subterráneos de las Tuberías la tienen; entrecierra los ojos cuando sube al exterior.
 
-Relacionado: [[mirada_cansada]], [[farola_aceite]], [[antiparras]].
+Relacionado: [mirada_cansada](../rasgo/mirada_cansada.md), [farola_aceite](../equipo/farola_aceite.md), [antiparras](../equipo/antiparras.md).

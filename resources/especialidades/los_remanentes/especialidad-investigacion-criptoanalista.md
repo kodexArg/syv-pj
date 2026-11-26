@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/criptoanalista", "especialidad/investigacion"
 ---
 Rompe códigos; el lenguaje secreto no tiene secretos para él.
 
-[[los_remanentes]]
+[los_remanentes](../../facciones/los_remanentes.md)

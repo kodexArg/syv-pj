@@ -30,6 +30,6 @@ apariencia:
   presencia: criollo
 ---
 
-El Gordo Figueroa es el pulmón de la columna. Su voz de cancha retumba por encima del tiroteo. Cuando se queda sin garganta, levanta la [[trompeta]] y sopla hasta ponerse violeta para que el [[resistencia_subterranea|Ejército Rojo]] no afloje contra la [[fuerzas_armadas|Confederación]].
+El Gordo Figueroa es el pulmón de la columna. Su voz de cancha retumba por encima del tiroteo. Cuando se queda sin garganta, levanta la trompeta y sopla hasta ponerse violeta para que el [Ejército Rojo](../facciones/resistencia_subterranea.md) no afloje contra la [Confederación](../facciones/fuerzas_armadas.md).
 
-No carga fierro ni tiene especialidad de combate: es [[simpatizante]] de a pie por [[barrios-del-muro|los Barrios del Muro]]. Pero su arenga vale por diez fusiles, y eso lo sabe hasta el régimen. [[terco]] como pocos, jura que mientras él tenga aire la bandera de Bahía Blanca no baja. Mientras tenga aire.
+No carga fierro ni tiene especialidad de combate: es simpatizante de a pie por los Barrios del Muro. Pero su arenga vale por diez fusiles, y eso lo sabe hasta el régimen. [terco](../catalogos/aspecto/terco.md) como pocos, jura que mientras él tenga aire la bandera de Bahía Blanca no baja. Mientras tenga aire.

@@ -20,4 +20,4 @@ tags:
 
 Par de campanas de metal golpeadas con varilla. Ritmo de invocación para orixás y ceremonias sincrética. El sonido llega antes que el sacerdote.
 
-Relacionado: [[garrafa_ritual]], [[vela_sebo]], [[talisman_guarani]].
+Relacionado: [garrafa_ritual](garrafa_ritual.md), [vela_sebo](vela_sebo.md), [talisman_guarani](talisman_guarani.md).

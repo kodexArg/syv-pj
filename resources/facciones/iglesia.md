@@ -8,4 +8,4 @@ doc: 1_trasfondo/facciones/iglesia-de-darsena/iglesia.md
 tags: ["catalogo/faccion", "faccion/iglesia"]
 ---
 
-Ficha de lore: [[iglesia]]. Santa Sede, corazón ideológico, autoridad espiritual y política de la Iglesia Católica post-Anatema Mecánico.
+Ficha de lore: [iglesia](). Santa Sede, corazón ideológico, autoridad espiritual y política de la Iglesia Católica post-Anatema Mecánico.

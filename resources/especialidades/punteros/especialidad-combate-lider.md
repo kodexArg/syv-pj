@@ -6,4 +6,4 @@ tags: ["especialidad/combate/lider", "especialidad/combate", "pool/punteros"]
 ---
 Coordina el fuego y mantiene la cohesión bajo presión.
 
-[[punteros]]
+[punteros](../../facciones/punteros.md)

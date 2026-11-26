@@ -13,11 +13,11 @@ aliases:
 # Apariencia
 
 > [!info] Propósito
-> Define el bloque `apariencia` de la [[hoja-personaje|hoja de personaje]]: **cómo luce** el personaje, en **tres párrafos de prosa descriptiva agnóstica** — `rostro`, `figura`, `presencia`. No es un prompt, no es una lista de átomos, no es sintaxis de generador: es prosa de dominio que cualquier proyección (ComfyUI, Flux, Midjourney, una ilustración a mano, un avatar Flutter) puede leer sin reinventarla.
-> Documento hermano de [[sistema-tags|sistema-tags.md]] y [[contratos|contratos.md]].
+> Define el bloque `apariencia` de la [hoja de personaje](hoja-personaje.md): **cómo luce** el personaje, en **tres párrafos de prosa descriptiva agnóstica** — `rostro`, `figura`, `presencia`. No es un prompt, no es una lista de átomos, no es sintaxis de generador: es prosa de dominio que cualquier proyección (ComfyUI, Flux, Midjourney, una ilustración a mano, un avatar Flutter) puede leer sin reinventarla.
+> Documento hermano de [sistema-tags.md](sistema-tags.md) y [contratos.md](contratos.md).
 
 > [!warning] Sucesión — esto reemplaza a la vieja lista `apariencia`
-> Hasta la revisión de esquema, `apariencia` era una **lista de descriptores atómicos** (`- ojos azul intenso`, `- rubio dorado`, `- piel trigueña`). Esa forma **queda derogada**. Ahora `apariencia` es un objeto de **tres párrafos fijos**. Todo lo que antes se atomizaba en la lista ahora se escribe como prosa dentro del párrafo que corresponda. La migración de datos (lista → tres párrafos) se hace con script determinista + test, como todo refactor de esquema (ver [[hoja-personaje#§9 — Regla de refactor de esquema]]).
+> Hasta la revisión de esquema, `apariencia` era una **lista de descriptores atómicos** (`- ojos azul intenso`, `- rubio dorado`, `- piel trigueña`). Esa forma **queda derogada**. Ahora `apariencia` es un objeto de **tres párrafos fijos**. Todo lo que antes se atomizaba en la lista ahora se escribe como prosa dentro del párrafo que corresponda. La migración de datos (lista → tres párrafos) se hace con script determinista + test, como todo refactor de esquema (ver [hoja-personaje > §9 — Regla de refactor de esquema](hoja-personaje.md#9--regla-de-refactor-de-esquema)).
 
 ---
 
@@ -101,7 +101,7 @@ Esto es el **azar portable** del kit SyV aplicado al eje visual: la ausencia de 
 
 Lo que **nunca** entra en un párrafo de `apariencia`:
 
-- **Directivas de render**: iluminación técnica, cámara, lente, encuadre, aspect ratio, "quality tags". Eso lo aporta el armador de prompt **fuera de la hoja**, uniforme a todos (niveles 1 y 3 del prompt — ver [[hoja-personaje#§2.6 — La hoja tiene en mente el retrato (sin parametrizarlo)]]).
+- **Directivas de render**: iluminación técnica, cámara, lente, encuadre, aspect ratio, "quality tags". Eso lo aporta el armador de prompt **fuera de la hoja**, uniforme a todos (niveles 1 y 3 del prompt — ver [hoja-personaje > §2.6 — La hoja tiene en mente el retrato (sin parametrizarlo)](hoja-personaje.md#26--la-hoja-tiene-en-mente-el-retrato-sin-parametrizarlo)).
 - **Pose momentánea** de una imagen puntual. La expresión *habitual* sí (en `rostro`); "mirando a cámara sonriendo" no.
 - **Sintaxis de generador**: `masterpiece`, `8k`, `photorealistic`, nombres de modelo, sampler o LoRA. Eso es Stable-Diffusion-ismo; rompe el agnosticismo.
 
@@ -124,7 +124,7 @@ indice:        NO entra al índice invertido de tags (no es faceta de filtrado d
 ```
 
 > [!info] Por qué prosa y no lista de tags (`fisico/ojos/azul_intenso`)
-> La notación de [[sistema-tags|tags]] exige átomos y alimenta el índice invertido para que el **motor filtre** (facción, peso, fuerza). Nadie filtra una batalla por color de ojos: atomizar el eje visual solo pierde matiz sin ganar nada operativo. Y la lista de átomos, además, no captura el *cómo* —el porte, la impresión, la luz—: para eso hace falta prosa. `apariencia` es un **constraint suave para el render**, no una faceta de juego, y su forma natural es el párrafo.
+> La notación de [tags](sistema-tags.md) exige átomos y alimenta el índice invertido para que el **motor filtre** (facción, peso, fuerza). Nadie filtra una batalla por color de ojos: atomizar el eje visual solo pierde matiz sin ganar nada operativo. Y la lista de átomos, además, no captura el *cómo* —el porte, la impresión, la luz—: para eso hace falta prosa. `apariencia` es un **constraint suave para el render**, no una faceta de juego, y su forma natural es el párrafo.
 
 > [!info] Por qué al final de la hoja
-> Los tres párrafos son el **destilado visual** de todo lo anterior: no se pueden escribir bien sin conocer identidad, atributos y tags. Por eso cierran la hoja, justo antes de `metadatos` (ver [[hoja-personaje#§0 — Estructura de la hoja]]).
+> Los tres párrafos son el **destilado visual** de todo lo anterior: no se pueden escribir bien sin conocer identidad, atributos y tags. Por eso cierran la hoja, justo antes de `metadatos` (ver [hoja-personaje > §0 — Estructura de la hoja](hoja-personaje.md#0--estructura-de-la-hoja)).

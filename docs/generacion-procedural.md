@@ -12,7 +12,7 @@ aliases:
 
 Flujo canónico para construir un personaje de *Subordinación y Valor* desde la nada: una secuencia de fases ordenadas que parte sin ningún dato y termina con una hoja completa —situada, equipada, con vínculos y con una historia propia.
 
-Ver [[hoja-personaje]].
+Ver [hoja-personaje](hoja-personaje.md).
 
 ---
 
@@ -23,11 +23,11 @@ El flujo es una **secuencia de fases en orden estricto**: cada una depende de lo
 El orden no es arbitrario: la **prosa es siempre la última fase**, porque el modelo de lenguaje necesita todo lo demás ya resuelto para escribir una historia coherente. Y el **equipo es la última capa antes de la prosa**: lo que el personaje carga se decide cuando ya sabemos quién es, qué sabe y a quién es leal.
 
 > [!info] El flujo es un esqueleto, no una jaula
-> El esquema es **abierto** (ver [[sistema-tags|sistema-tags.md §7]]). Se pueden crear personajes con campos que **no figuran en este flujo**, por tres vías especiales:
+> El esquema es **abierto** (ver [sistema-tags.md §7](sistema-tags.md)). Se pueden crear personajes con campos que **no figuran en este flujo**, por tres vías especiales:
 >
 > 1. **Campo provisto como entrada.** Cualquier campo que el flujo sortearía puede entregarse ya fijado. El generador lo respeta y no lo sortea — así se dirigen personajes concretos sin salirse del flujo.
 > 2. **Catálogo abierto.** Un personaje puede portar etiquetas de categorías que este flujo ni nombra (`oficio_civil.herrero`, `vicio.fuma`, `credo.anatema`). Entran sin migración; el flujo no necesita conocerlas de antemano.
-> 3. **`extras`.** Lo que no encaja en ningún bloque de la hoja viaja en la válvula de escape (ver [[hoja-personaje|hoja-personaje.md §7]]).
+> 3. **`extras`.** Lo que no encaja en ningún bloque de la hoja viaja en la válvula de escape (ver [hoja-personaje.md §7](hoja-personaje.md)).
 >
 > Y a la inversa: un personaje puede **omitir fases enteras**. Un civil no pasa por rango ni por equipo militar; un personaje de Diégesis puede entrar directo a la prosa con todo lo demás provisto a mano.
 
@@ -73,7 +73,7 @@ La **afiliación** sitúa al personaje dentro de la estructura de subordinación
 
 ### 1.1. Facción
 
-Exactamente un tag `faccion/*`. Las facciones disponibles no se fijan en este flujo: salen de `resources/facciones/*.md` — un archivo por facción, catálogo abierto (ver [[resources/facciones/_moc-facciones|_moc-facciones.md]] para el índice vigente). Cuando no se provee, se sortea **uniforme** entre las facciones que el contexto habilite.
+Exactamente un tag `faccion/*`. Las facciones disponibles no se fijan en este flujo: salen de `resources/facciones/*.md` — un archivo por facción, catálogo abierto (ver [_moc-facciones.md](../resources/facciones/_moc-facciones.md) para el índice vigente). Cuando no se provee, se sortea **uniforme** entre las facciones que el contexto habilite.
 
 ### 1.2. Subfacción
 
@@ -81,7 +81,7 @@ Al menos un tag `subfaccion/*`, y puede tener varios. Se sortean entre las subfa
 
 ### 1.3. Rango
 
-El combatiente recibe un rango: exactamente un tag `rango/*`. Los rangos **no son globales**: son una escalera jerárquica **por facción**, en `resources/rangos/<faccion>.md` — un archivo por facción (ver [[resources/rangos/_moc-rangos|_moc-rangos.md]] para el índice). Cada archivo declara una lista `rangos:` donde cada entrada trae:
+El combatiente recibe un rango: exactamente un tag `rango/*`. Los rangos **no son globales**: son una escalera jerárquica **por facción**, en `resources/rangos/<faccion>.md` — un archivo por facción (ver [_moc-rangos.md](../resources/rangos/_moc-rangos.md) para el índice). Cada archivo declara una lista `rangos:` donde cada entrada trae:
 
 ```yaml
 rangos:
@@ -100,7 +100,7 @@ La `probabilidad` de sorteo (la escasez operativa: muchos reclutas, pocos líder
 ### 1.4. Mando — ¿puede liderar?
 
 > [!tip] Decisión de diseño: el mando se decide en la Afiliación
-> El **mando** —la capacidad de liderar— es un eje **separado del rango** (ver [[sistema-tags|sistema-tags.md §3]]: `mando` es "capacidad de mando, extra al rango"). Por eso se decide acá, en Fase 1: es parte de la estructura de subordinación, debe quedar fijado antes de Identidad (un líder puede exigir edad mínima) y de él se deriva la especialidad.
+> El **mando** —la capacidad de liderar— es un eje **separado del rango** (ver [sistema-tags.md §3](sistema-tags.md): `mando` es "capacidad de mando, extra al rango"). Por eso se decide acá, en Fase 1: es parte de la estructura de subordinación, debe quedar fijado antes de Identidad (un líder puede exigir edad mínima) y de él se deriva la especialidad.
 
 El software produce un booleano explícito:
 
@@ -115,7 +115,7 @@ Algunos rangos **implican** mando (`cabo` ⇒ `mando: escuadra`, `sargento` ⇒ 
 
 ### 1.5. Especialidad (determinístico)
 
-Cerrada la cadena de subordinación, la especialidad se deriva **sin azar**: mapeo directo desde rango (y mando). P. ej. un `rango/sargento` con `mando: peloton` en `fuerzas_armadas` deriva a `especialidad/combate/lider`. No se sortea: es determinístico. (Este es el tag `especialidad/*` de la hoja; no confundir con `identidad.especialidad`, que es narrativo — ver [[hoja-personaje|hoja-personaje.md §1.2]].)
+Cerrada la cadena de subordinación, la especialidad se deriva **sin azar**: mapeo directo desde rango (y mando). P. ej. un `rango/sargento` con `mando: peloton` en `fuerzas_armadas` deriva a `especialidad/combate/lider`. No se sortea: es determinístico. (Este es el tag `especialidad/*` de la hoja; no confundir con `identidad.especialidad`, que es narrativo — ver [hoja-personaje.md §1.2](hoja-personaje.md).)
 
 La **lealtad de base** del combatiente a su facción se siembra más adelante, en la fase de Vínculos (§6) — el hogar único de todas las etiquetas relacionales.
 
@@ -198,7 +198,7 @@ Adiestramiento o formación recibida (militar, sanitaria, técnica). Parte es **
 
 ### 4.2. Habilidades (`habilidad/*`)
 
-Una **habilidad** habilita una tirada contra su `atributo_dominante`; no modifica atributos (ver [[contratos|contratos.md §6]]). Se asignan coherentes con el rango, la especialidad y el entrenamiento — el mapeo real vive en `resources/reglas/habilidad_por_especialidad.md`, indexado por especialidad exacta:
+Una **habilidad** habilita una tirada contra su `atributo_dominante`; no modifica atributos (ver [contratos.md §6](contratos.md)). Se asignan coherentes con el rango, la especialidad y el entrenamiento — el mapeo real vive en `resources/reglas/habilidad_por_especialidad.md`, indexado por especialidad exacta:
 
 - `especialidad/combate/tirador` → `habilidad/tiro_de_precision`.
 - `especialidad/oficio/medico` (formación sanitaria) → `habilidad/primeros_auxilios`.
@@ -209,17 +209,17 @@ Algunas son determinísticas (la especialidad las implica), otras se sortean pon
 
 ## Fase 5 — Aspectos
 
-Quién **es** el combatiente bajo presión: su carácter mecánicamente activo. Un **aspecto** declara un paquete de efectos que el motor aplica mientras el personaje lo lleve (ver [[contratos|contratos.md §5]]). Es la fase que le da textura: el veterano que no se quiebra, el cobarde, el terco, el de cólera ciega.
+Quién **es** el combatiente bajo presión: su carácter mecánicamente activo. Un **aspecto** declara un paquete de efectos que el motor aplica mientras el personaje lo lleve (ver [contratos.md §5](contratos.md)). Es la fase que le da textura: el veterano que no se quiebra, el cobarde, el terco, el de cólera ciega.
 
 > **Entrada:** afiliación, atributos, formación, edad. · **Salida:** etiquetas `aspecto/*` y `rasgo/*`.
 
 ### 5.1. Sorteo de aspectos (`aspecto/*`)
 
 1. Cuota típica: **0–3** aspectos, según configuración por rango.
-2. Cada aspecto elegible se pondera por su `peso_narrativo` (1..5) — sugerencia de frecuencia, no probabilidad estricta (ver [[sistema-tags|sistema-tags.md §6.3]]).
+2. Cada aspecto elegible se pondera por su `peso_narrativo` (1..5) — sugerencia de frecuencia, no probabilidad estricta (ver [sistema-tags.md §6.3](sistema-tags.md)).
 3. Se respetan `requires` y `excluye`: por eso esta fase va **después** de Formación — sus precondiciones (habilidades, rango, entrenamiento) ya están en la hoja. Y se evita lo incoherente (no se sortea `cobarde` junto a `vanguardia`).
 4. **Coherencia con la identidad**: la edad sesga el depósito. Un combatiente de 19 años no saca `aspecto/veterano`; uno de 55, sí lo tiene a tiro.
-5. **Sorpresa narrativa**: con baja probabilidad puede caer un aspecto de `origen: narrativo` (siempre positivo, sin `requires`) — el golpe de suerte, el `ojo_de_aguila` (ver [[contratos|contratos.md §5.4]]).
+5. **Sorpresa narrativa**: con baja probabilidad puede caer un aspecto de `origen: narrativo` (siempre positivo, sin `requires`) — el golpe de suerte, el `ojo_de_aguila` (ver [contratos.md §5.4](contratos.md)).
 
 ### 5.2. Rasgos físicos (`rasgo/*`)
 
@@ -238,7 +238,7 @@ Marcas observables —cicatrices, tatuajes, constitución— sorteadas con baja 
 
 Los lazos del personaje: a quién es **leal**, quién es su **aliado**, quién su **némesis**. En *Subordinación y Valor* esto no es decoración: la subordinación —por quién pelea, a quién obedece, a quién traicionaría— es la mitad del nombre del universo. La prosa no puede contar a un combatiente sin saber sus vínculos, por eso esta fase va **antes** del equipo y de la historia.
 
-Las tres son etiquetas **relacionales** de la misma familia: su slug referencia el destino del vínculo (ver [[sistema-tags|sistema-tags.md §4]], [[nemesis-y-aliados|nemesis-y-aliados.md]], [[lealtad|lealtad.md]]). Por eso viven juntas en una sola fase.
+Las tres son etiquetas **relacionales** de la misma familia: su slug referencia el destino del vínculo (ver [sistema-tags.md §4](sistema-tags.md), [nemesis-y-aliados.md](nemesis-y-aliados.md), [lealtad.md](lealtad.md)). Por eso viven juntas en una sola fase.
 
 > **Entrada:** afiliación (Fase 1), identidad, aspectos. · **Salida:** etiquetas `lealtad/*`, `aliado/*`, `nemesis/*`.
 
@@ -250,7 +250,7 @@ Las tres son etiquetas **relacionales** de la misma familia: su slug referencia 
 ### 6.2. Aliados y némesis (`aliado/*` / `nemesis/*`)
 
 - En la generación procedural pura el personaje arranca **sin** `aliado/*` / `nemesis/*` — se ganan en campaña.
-- Cuando se siembra un vínculo, se agrega su tag (`aliado.<patente>` / `nemesis.<slug>`) y se registra el hito que lo funda (`formacion_lealtad` / `identificacion_nemesis`), cuya `descripcion` carga la prosa del lazo (ver [[historial|historial.md]]).
+- Cuando se siembra un vínculo, se agrega su tag (`aliado.<patente>` / `nemesis.<slug>`) y se registra el hito que lo funda (`formacion_lealtad` / `identificacion_nemesis`), cuya `descripcion` carga la prosa del lazo (ver [historial.md](historial.md)).
 - Un némesis del **propio bando** es legítimo (traición personal, vieja deuda): el vínculo no mira la facción, la mira la lealtad. Los vínculos de némesis se siembran solo si el contexto de campaña lo requiere explícitamente.
 
 ---
@@ -288,7 +288,7 @@ El equipo se sortea **por eje**, con una cuota por eje definida en configuració
 La **fase final**, y por eso la última: el modelo de lenguaje necesita **todo lo anterior** —afiliación, atributos, formación, aspectos, vínculos, equipo— para escribir una historia que cierre. Con todo fijado, el generador compone un aviso y genera el campo `personaje.historia`. La prosa es donde el personaje **se vuelve alguien**: no repite las etiquetas, las **explica y las ancla**.
 
 > [!important] La prosa carga los datos personales — incluida la procedencia
-> `historia` es un string estático, pero generado con un aviso muy específico. Todo el dato personal que no es etiqueta vive acá: de **dónde viene** el personaje (su lugar, su procedencia), por qué tiene la cicatriz, en qué guerra se hizo veterano, cómo aprendió a tirar, qué lo ata a sus lealtades. El aviso obliga a que la prosa **salde la referencia** de los tags subjetivos y huérfanos (ver [[sistema-tags|sistema-tags.md §2]]): el lugar y el pasado quedan en la historia, no en un campo aparte.
+> `historia` es un string estático, pero generado con un aviso muy específico. Todo el dato personal que no es etiqueta vive acá: de **dónde viene** el personaje (su lugar, su procedencia), por qué tiene la cicatriz, en qué guerra se hizo veterano, cómo aprendió a tirar, qué lo ata a sus lealtades. El aviso obliga a que la prosa **salde la referencia** de los tags subjetivos y huérfanos (ver [sistema-tags.md §2](sistema-tags.md)): el lugar y el pasado quedan en la historia, no en un campo aparte.
 
 - El aviso se compone con todos los datos ya fijados en las fases 1–7.
 - La prosa se trata como **borrador volátil** hasta la canonización.

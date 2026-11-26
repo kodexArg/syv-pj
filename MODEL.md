@@ -10,9 +10,9 @@ aliases:
 # MODEL — syv-pj
 
 > [!info] Contrato de Persistencia
-> Define las entidades, tipos de campo, reglas de mutabilidad y derivados que cualquier capa de persistencia (relacional, documental, KV) debe poder representar para servir [[API|API.md]] sin pérdida.
+> Define las entidades, tipos de campo, reglas de mutabilidad y derivados que cualquier capa de persistencia (relacional, documental, KV) debe poder representar para servir [API.md](API.md) sin pérdida.
 >
-> Si una operación HTTP devuelve un campo, este documento lo tipifica. Si una operación lo muta, este documento fija la regla. **Sincronía absoluta con [[API|API.md]].**
+> Si una operación HTTP devuelve un campo, este documento lo tipifica. Si una operación lo muta, este documento fija la regla. **Sincronía absoluta con [API.md](API.md).**
 >
 > No prescribe tecnología. Castellano rioplatense, `snake_case_castellano`, tags en notación punto.
 
@@ -52,7 +52,7 @@ Resource principal. Servido por `GET /personaje/{slug}`, mutado por `POST /perso
 | `extras` | `object \| null` | libre | Válvula de escape. La API no inspecciona. |
 
 > [!note] `apariencia` es un objeto de tres párrafos, no una lista
-> `apariencia` = `{ rostro, figura, presencia }` (tres párrafos de prosa agnóstica). Reemplaza la vieja `apariencia: list<str>` de descriptores atómicos (derogada). Persistido; NO entra al índice invertido de tags. Ver [[hoja-personaje#§2.5 — Apariencia: tres párrafos descriptivos]] y `docs/apariencia.md`. **Pendiente de exponer en `API.md` + contrato Pydantic (downstream).** La migración lista→objeto se hace con script determinista + test (ver invariantes §4).
+> `apariencia` = `{ rostro, figura, presencia }` (tres párrafos de prosa agnóstica). Reemplaza la vieja `apariencia: list<str>` de descriptores atómicos (derogada). Persistido; NO entra al índice invertido de tags. Ver [hoja-personaje > §2.5 — Apariencia: tres párrafos descriptivos](docs/hoja-personaje.md#25--apariencia-tres-párrafos-descriptivos) y `docs/apariencia.md`. **Pendiente de exponer en `API.md` + contrato Pydantic (downstream).** La migración lista→objeto se hace con script determinista + test (ver invariantes §4).
 
 ### Campos derivados — computados al servir, no persistidos
 
@@ -69,7 +69,7 @@ Aparecen en la respuesta de `GET /personaje` y `GET /personaje/{slug}` junto con
 | Campo | Tipo | Notas |
 |---|---|---|
 | `fecha` | `str` ISO-8601 | |
-| `tipo` | `str` | Catálogo abierto sugerido. Ver [[historial|docs/historial.md]]. |
+| `tipo` | `str` | Catálogo abierto sugerido. Ver [docs/historial.md](docs/historial.md). |
 | `actores` | `list<str>` (patentes `^[A-Z0-9]{8}$`) | Personajes involucrados en el evento. Por defecto `[]`. Sin integridad referencial (ver §4). |
 | `descripcion` | `str` | Obligatorio. |
 | `encuentro` | `str \| null` | Patente de batalla/encuentro externo; referencia narrativa. |
@@ -89,7 +89,7 @@ Los vínculos del personaje **no son una colección aparte**: son **tags relacio
 
 - El `<slug>` es una **referencia**: patente `^[A-Z0-9]{8}$` para personajes, slug legible de catálogo para entidades. Sin imposición de integridad referencial (ver §4).
 - La **prosa** del vínculo (cómo se formó) vive en el `hito` que lo introdujo (`formacion_lealtad` / `identificacion_nemesis`), no en el tag. La fecha del vínculo es la `fecha` de ese hito.
-- Se agregan/quitan como cualquier tag. Detalle en [[lealtad|docs/lealtad.md]] y [[nemesis-y-aliados|docs/nemesis-y-aliados.md]].
+- Se agregan/quitan como cualquier tag. Detalle en [docs/lealtad.md](docs/lealtad.md) y [docs/nemesis-y-aliados.md](docs/nemesis-y-aliados.md).
 
 ---
 
@@ -105,7 +105,7 @@ Catálogo curado de tags. Servido por `GET /meta/{categoria}`. El catálogo se s
 | `subcategoria` | `str \| null` | condicional | Obligatorio si `categoria ∈ {equipo, especialidad}`. Segmento intermedio. |
 | `descripcion` | `str` | sí | 1–3 frases. |
 | `origen` | `str` | no (por defecto `emergente`) | Catálogo: `canon \| emergente \| custom`. |
-| `efecto` | `str \| list<str> \| null` | condicional | Obligatorio si `categoria = rasgo` (sin `trigger`) o `categoria = efecto`. Modificadores sobre vocabulario canónico. Ver [[atributos|docs/atributos.md]]. |
+| `efecto` | `str \| list<str> \| null` | condicional | Obligatorio si `categoria = rasgo` (sin `trigger`) o `categoria = efecto`. Modificadores sobre vocabulario canónico. Ver [docs/atributos.md](docs/atributos.md). |
 | `trigger` | `object \| null` | no | `{ evento, condicion, probabilidad?, trigger_action[] }`. Efectos reactivos. |
 | `requires` | `object \| null` | no | `{ require_all[], require_any[] }`. Prefijo `"no:"` para NOT. Documentación ejecutable, no validación dura. |
 | `excluye` | `list<str> \| null` | no | Tags incompatibles. |
@@ -119,7 +119,7 @@ Catálogo curado de tags. Servido por `GET /meta/{categoria}`. El catálogo se s
 
 **Índice operativo**: índice invertido `tag_full → set<personaje.slug>` reconstruido desde `personaje.tags[]`.
 
-**Categorías de referencia** (abiertas — enumeradas en [[sistema-tags|docs/sistema-tags.md]]): `faccion`, `subfaccion`, `rango`, `mando`, `estado`, `salud`, `mental`, `rasgo`, `ventaja`, `destreza`, `efecto`, `equipo` (`.arma` / `.utilitario` / `.vestidura`), `especialidad` (`.oficio` / `.jerarquia` / `.narrativo` / `.combate`), y las relacionales `lealtad`, `aliado`, `nemesis`.
+**Categorías de referencia** (abiertas — enumeradas en [docs/sistema-tags.md](docs/sistema-tags.md)): `faccion`, `subfaccion`, `rango`, `mando`, `estado`, `salud`, `mental`, `rasgo`, `ventaja`, `destreza`, `efecto`, `equipo` (`.arma` / `.utilitario` / `.vestidura`), `especialidad` (`.oficio` / `.jerarquia` / `.narrativo` / `.combate`), y las relacionales `lealtad`, `aliado`, `nemesis`.
 
 ---
 
@@ -160,4 +160,4 @@ Servido por `GET /meta/facciones`. Catálogo abierto, referenciado por la tabla 
 - **Las referencias de los tags relacionales (`lealtad/*`/`aliado/*`/`nemesis/*`) y de `historial[].actores[]` no son referencias de integridad.** Se aceptan referencias colgadas; la consistencia referencial no es responsabilidad de la capa de persistencia.
 - **Idioma de los datos**: castellano rioplatense. Tags en minúscula + guion bajo, sin acentos. Campos YAML en `snake_case_castellano`.
 - **`extras` es opaco.** La API lo acepta, almacena y devuelve tal cual, sin inspeccionar ni validar su contenido.
-- **Todo refactor de esquema va con script determinista + test.** Cualquier cambio de forma de una entidad (campo agregado/renombrado/migrado, lista→objeto como `apariencia`) se aplica a los datos existentes con un script Python determinista e idempotente, acompañado de un test que verifica que todos los personajes del roster migran sin pérdida. El test verde es la condición de merge. Ver [[hoja-personaje#§9 — Regla de refactor de esquema]].
+- **Todo refactor de esquema va con script determinista + test.** Cualquier cambio de forma de una entidad (campo agregado/renombrado/migrado, lista→objeto como `apariencia`) se aplica a los datos existentes con un script Python determinista e idempotente, acompañado de un test que verifica que todos los personajes del roster migran sin pérdida. El test verde es la condición de merge. Ver [hoja-personaje > §9 — Regla de refactor de esquema](docs/hoja-personaje.md#9--regla-de-refactor-de-esquema).

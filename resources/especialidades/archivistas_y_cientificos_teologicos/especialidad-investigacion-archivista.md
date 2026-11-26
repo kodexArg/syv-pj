@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/archivista", "especialidad/investigacion", "p
 ---
 Custodia el pasado y decide qué versión sobrevive.
 
-[[archivistas_y_cientificos_teologicos]]
+[archivistas_y_cientificos_teologicos](../../subfacciones/archivistas_y_cientificos_teologicos.md)

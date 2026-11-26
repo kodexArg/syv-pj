@@ -18,4 +18,4 @@ tags:
 
 Tira de cuero trenzado bendecido y ungido. Alcance, control y la posibilidad de atar lo que no responde al acero.
 
-Relacionado: [[espada_consagrada]], [[cadena_bendita]].
+Relacionado: [espada_consagrada](espada_consagrada.md), [cadena_bendita](cadena_bendita.md).

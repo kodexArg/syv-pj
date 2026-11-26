@@ -11,4 +11,4 @@ tags:
 
 Mando de pequeña unidad, órdenes claras bajo presión.
 
-Relacionado: [[liderazgo]], [[radio]].
+Relacionado: [liderazgo](../habilidad/liderazgo.md), [radio](../equipo/radio.md).

@@ -37,4 +37,4 @@ rangos:
   mando: celula_arpista
 ---
 
-Escalera jerárquica de **Arpistas** — [[arpistas]].
+Escalera jerárquica de **Arpistas** — [arpistas]().

@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/espia", "especialidad/investigacion", "pool/a
 ---
 Infiltra, escucha y nunca revela su nombre real.
 
-[[arpistas]]
+[arpistas](../../facciones/arpistas.md)

@@ -7,4 +7,4 @@ doc: 1_trasfondo/facciones/fuerzas-armadas/fuerzas-armadas.md
 tags: ["catalogo/faccion", "faccion/fuerzas_armadas"]
 ---
 
-Ficha de lore: [[fuerzas-armadas]]. Defensa, seguridad, poder militar, aparato interno, pilar del régimen.
+Ficha de lore: fuerzas-armadas. Defensa, seguridad, poder militar, aparato interno, pilar del régimen.

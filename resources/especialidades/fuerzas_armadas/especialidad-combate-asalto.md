@@ -6,4 +6,4 @@ tags: ["especialidad/combate/asalto", "especialidad/combate", "pool/fuerzas_arma
 ---
 Primero en entrar; combate cuerpo a cuerpo y en espacios estrechos.
 
-[[fuerzas_armadas]]
+[fuerzas_armadas](../../facciones/fuerzas_armadas.md)

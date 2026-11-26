@@ -7,4 +7,4 @@ doc: 1_trasfondo/facciones/facciones-menores/shipibo-conibo.md
 tags: ["catalogo/faccion", "faccion/shipibo_conibo"]
 ---
 
-Ficha de lore: [[shipibo-conibo]]. Chamanes amazónicos de las Tuberías, hongos psicoactivos, sanación ritual.
+Ficha de lore: shipibo-conibo. Chamanes amazónicos de las Tuberías, hongos psicoactivos, sanación ritual.

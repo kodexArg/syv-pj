@@ -18,4 +18,4 @@ tags:
 
 Caja de plomo sellada para transportar muestras radiactivas o artefactos de campo. Pesado; quien lo carga sabe por qué.
 
-Relacionado: [[geiger_quimico]], [[solvente_quimico]], [[martillo_fragmentacion]].
+Relacionado: [geiger_quimico](geiger_quimico.md), [solvente_quimico](solvente_quimico.md), [martillo_fragmentacion](martillo_fragmentacion.md).

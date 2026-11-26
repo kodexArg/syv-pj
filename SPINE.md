@@ -75,7 +75,7 @@ auditoría → **es tag**. Sin excepciones: los vínculos personales también.
 - Los vínculos —lealtades, aliados, némesis— son **tags relacionales planos**
   (`lealtad.*`/`aliado.*`/`nemesis.*`); el slug referencia una entidad o un
   personaje. La prosa de un vínculo vive en su hito, no en el tag. Ver
-  [[lealtad|docs/lealtad.md]] y [[nemesis-y-aliados|docs/nemesis-y-aliados.md]].
+  [docs/lealtad.md](docs/lealtad.md) y [docs/nemesis-y-aliados.md](docs/nemesis-y-aliados.md).
 - `historial[]` es **de solo añadir**; `tipo` de hito es catálogo **sugerido, abierto**.
 - Canonicidad: `es_canon` se deriva de `canonizado_en != null` (no se persiste).
 
@@ -102,7 +102,7 @@ auditoría → **es tag**. Sin excepciones: los vínculos personales también.
 Concepto unificador: un **contrato** es una palabra o frase corta (el "nombre") que,
 al aplicarse, **entrega un paquete declarado**: modificadores numéricos,
 penalizaciones y/o habilitaciones. El nombre es la cara legible; el efecto, la letra
-chica. Ver [[contratos|docs/habilidades.md]].
+chica. Ver [docs/habilidades.md](docs/contratos.md).
 
 - **aspecto** — identidad mecánicamente activa (carácter, condición, marca con peso
   mecánico). Declara `efecto` (pasivo, lista de deltas sobre el vocabulario canónico)
@@ -183,4 +183,4 @@ al cierre según decida el líder.
 
 ## Referencias
 
-- [[_moc-resources|Catálogo de recursos (mock data / guías)]]
+- [Catálogo de recursos (mock data / guías)](resources/_moc-resources.md)

@@ -32,6 +32,6 @@ apariencia:
   presencia: mestizo
 ---
 
-A Nahuel le dicen Tijera y nadie del [[resistencia_subterranea|Ejército Rojo]] le pregunta por qué. De los tres amigos de [[barrios-del-muro|el Muro]] es el callado, y por eso el más temido. Lo que le tiene a la [[fuerzas_armadas|Confederación]] no hace ruido como el de [[maxi-linares-pandillero|Maxi]] ni se enfría como el de [[brian-curinanco-pandillero|Brian]]. Simplemente está ahí, listo.
+A Nahuel le dicen Tijera y nadie del [Ejército Rojo](../facciones/resistencia_subterranea.md) le pregunta por qué. De los tres amigos de el Muro es el callado, y por eso el más temido. Lo que le tiene a la [Confederación](../facciones/fuerzas_armadas.md) no hace ruido como el de [Maxi](maxi-linares-pandillero.md) ni se enfría como el de [Brian](brian-curinanco-pandillero.md). Simplemente está ahí, listo.
 
-Va de [[militante_resistencia|militante]] como [[especialidad-combate-asalto|asaltante]], el [[machete]] siempre limpio y la [[capucha]] baja, moviéndose por [[instinto]] donde otros dudan. La [[cicatriz_perturbadora|cicatriz]] que le cruza la cara le sobra para que lo dejen pasar. Limpio el machete. Siempre.
+Va de militante como [asaltante](../especialidades/resistencia_subterranea/especialidad-combate-asalto.md), el [machete](../catalogos/equipo/machete.md) siempre limpio y la [capucha](../catalogos/equipo/capucha.md) baja, moviéndose por [instinto](../catalogos/aspecto/instinto.md) donde otros dudan. La [cicatriz](../catalogos/rasgo/cicatriz_perturbadora.md) que le cruza la cara le sobra para que lo dejen pasar. Limpio el machete. Siempre.

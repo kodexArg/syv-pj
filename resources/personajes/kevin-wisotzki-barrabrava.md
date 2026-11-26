@@ -30,6 +30,6 @@ apariencia:
   presencia: rubio
 ---
 
-A Kevin lo llaman el Polaco por un apellido que nadie del barrio sabe pronunciar. Marcha con la [[resistencia_subterranea|columna del Ejército Rojo]] por [[barrios-del-muro|los Barrios del Muro]] haciendo más ruido que daño.
+A Kevin lo llaman el Polaco por un apellido que nadie del barrio sabe pronunciar. Marcha con la [columna del Ejército Rojo](../facciones/resistencia_subterranea.md) por los Barrios del Muro haciendo más ruido que daño.
 
-Apenas un [[simpatizante|simpatizante]] [[sin_especialidad|sin rol de combate]], choca sus [[platillos|platillos improvisados]] —dos tapas de olla atadas con alambre— a contratiempo del bombo, la [[bandera]] roja pegada a la espalda. No lleva fierro ni le hace falta. Su laburo es que la cancha entera del frente cante mientras avanzan contra la [[fuerzas_armadas|Confederación]]. Que canten. Más fuerte.
+Apenas un simpatizante [sin rol de combate](../especialidades/resistencia_subterranea/sin_especialidad.md), choca sus platillos improvisados —dos tapas de olla atadas con alambre— a contratiempo del bombo, la bandera roja pegada a la espalda. No lleva fierro ni le hace falta. Su laburo es que la cancha entera del frente cante mientras avanzan contra la [Confederación](../facciones/fuerzas_armadas.md). Que canten. Más fuerte.

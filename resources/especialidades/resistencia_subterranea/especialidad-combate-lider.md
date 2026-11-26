@@ -6,4 +6,4 @@ tags: ["especialidad/combate/lider", "especialidad/combate", "pool/resistencia_s
 ---
 Coordina el fuego y mantiene la cohesión bajo presión.
 
-[[resistencia_subterranea]]
+[resistencia_subterranea](../../facciones/resistencia_subterranea.md)

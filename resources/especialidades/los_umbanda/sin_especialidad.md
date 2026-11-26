@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/los_umbanda"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[los_umbanda]]
+[los_umbanda](../../facciones/los_umbanda.md)

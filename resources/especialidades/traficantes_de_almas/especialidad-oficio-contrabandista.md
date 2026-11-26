@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/contrabandista", "especialidad/oficio", "pool/trafic
 ---
 Mueve lo que no debería moverse por donde nadie debería mirar.
 
-[[traficantes_de_almas]]
+[traficantes_de_almas](../../facciones/traficantes_de_almas.md)

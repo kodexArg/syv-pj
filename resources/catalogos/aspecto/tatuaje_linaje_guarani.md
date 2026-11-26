@@ -15,4 +15,4 @@ tags:
 
 Marcas geométricas de linaje tatuadas en el cuello y los brazos. Cada símbolo tiene nombre; solo el chamán sabe leerlos todos.
 
-Relacionado: [[cicatriz_bifida]], [[talisman_guarani]], [[cuchillo_ceremonial_guarani]].
+Relacionado: [cicatriz_bifida](cicatriz_bifida.md), [talisman_guarani](../equipo/talisman_guarani.md), [cuchillo_ceremonial_guarani](../equipo/cuchillo_ceremonial_guarani.md).

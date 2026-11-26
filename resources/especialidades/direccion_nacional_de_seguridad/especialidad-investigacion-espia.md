@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/espia", "especialidad/investigacion", "pool/d
 ---
 Infiltra, escucha y nunca revela su nombre real.
 
-[[direccion_nacional_de_seguridad]]
+[direccion_nacional_de_seguridad](../../subfacciones/direccion_nacional_de_seguridad.md)

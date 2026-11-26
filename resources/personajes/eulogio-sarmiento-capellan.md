@@ -36,6 +36,6 @@ apariencia:
   presencia: criollo
 ---
 
-El Padre Eulogio no manda a nadie. Como [[sacerdote]] de la [[iglesia|Iglesia]] camina detrás del sargento, sin arma, la [[pocion_sanadora|poción]] en una mano y el [[rosario]] en la otra.
+El Padre Eulogio no manda a nadie. Como sacerdote de la [Iglesia](../facciones/iglesia.md) camina detrás del sargento, sin arma, la [poción](../catalogos/equipo/pocion_sanadora.md) en una mano y el [rosario](../catalogos/equipo/rosario.md) en la otra.
 
-Ejerce el [[especialidad-oficio-medico|oficio médico]] sobre los heridos de la escuadra, repartiendo [[unguento_medicinal|ungüento]] y últimos sacramentos con la misma [[mirada_cansada]] del que carga [[veterano|demasiadas guerras]] encima. Bajo la [[sotana]] aprieta el [[crucifijo_consagrado|crucifijo]] y reza por todos en el [[barrios-del-muro|Muro]], creyentes y enemigos por igual. Por todos. Sin distinción.
+Ejerce el [oficio médico](../especialidades/iglesia/especialidad-oficio-medico.md) sobre los heridos de la escuadra, repartiendo [ungüento](../catalogos/equipo/unguento_medicinal.md) y últimos sacramentos con la misma [mirada_cansada](../catalogos/rasgo/mirada_cansada.md) del que carga [demasiadas guerras](../catalogos/aspecto/veterano.md) encima. Bajo la [sotana](../catalogos/equipo/sotana.md) aprieta el [crucifijo](../catalogos/equipo/crucifijo_consagrado.md) y reza por todos en el Muro, creyentes y enemigos por igual. Por todos. Sin distinción.

@@ -6,4 +6,4 @@ tags: ["especialidad/combate/asalto", "especialidad/combate", "pool/resistencia_
 ---
 Primero en entrar; combate cuerpo a cuerpo y en espacios estrechos.
 
-[[resistencia_subterranea]]
+[resistencia_subterranea](../../facciones/resistencia_subterranea.md)

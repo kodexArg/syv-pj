@@ -9,7 +9,7 @@ aliases:
 
 # AGENTS.md — syv-pj
 
-Política editorial y convenciones de trabajo de `syv-pj`, el módulo de la **entidad mínima** de *Subordinación y Valor*: el personaje. Para entender el esquema, leer [[hoja-personaje|docs/hoja-personaje.md]] (núcleo) y sus docs hermanos: [[sistema-tags|sistema-tags.md]], [[atributos|atributos.md]], [[contratos|contratos.md]].
+Política editorial y convenciones de trabajo de `syv-pj`, el módulo de la **entidad mínima** de *Subordinación y Valor*: el personaje. Para entender el esquema, leer [docs/hoja-personaje.md](docs/hoja-personaje.md) (núcleo) y sus docs hermanos: [sistema-tags.md](docs/sistema-tags.md), [atributos.md](docs/atributos.md), [contratos.md](docs/contratos.md).
 
 > [!info] Norte del proyecto
 > `syv-pj` clasifica, almacena y entrega un personaje homogeneizado; el consumidor decide el uso. Es **agnóstico al uso** (Diégesis, estrategia, juego de rol, generación visual) pero **fiel al universo** SyV. No es un creador universal de cualquier mundo, y no inventa lore: la terminología del universo se respeta, no se amplía.
@@ -19,7 +19,7 @@ Política editorial y convenciones de trabajo de `syv-pj`, el módulo de la **en
 ## SPINE es la fuente — mantenerlo actualizado es obligatorio
 
 > [!warning] Regla de precedencia
-> [[SPINE]] es el **contrato canónico interno**: fija las decisiones que todos los archivos del inventario respetan al pie de la letra. Es la **fuente del resto del proyecto** — los docs derivan de SPINE, no al revés.
+> [SPINE](SPINE.md) es el **contrato canónico interno**: fija las decisiones que todos los archivos del inventario respetan al pie de la letra. Es la **fuente del resto del proyecto** — los docs derivan de SPINE, no al revés.
 
 - **Toda decisión de diseño que cambie** (taxonomía de etiquetas, nombres canónicos, estructura de la hoja, vocabulario de atributos y estadísticas, convenciones) **se refleja en SPINE en el mismo turno**, antes de cerrar. Un cambio que no llegó a SPINE no está cerrado.
 - Ante conflicto entre un doc y SPINE no quedan divergentes en silencio: o se corrige el doc, o se actualiza SPINE explícitamente.
@@ -42,9 +42,9 @@ Toda la documentación de `syv-pj` es **de versión única**: refleja solo el es
 
 ## Convenciones de identificadores
 
-- **Slug de personaje** (`identidad.slug`): ==patente opaca== `^[A-Z0-9]{8}$` (ej. `K9F2H3M4`). No es el nombre. Estable, inmutable, referenciable. Ver [[hoja-personaje#1.1. slug — la patente del personaje|docs/hoja-personaje.md §1.1]].
+- **Slug de personaje** (`identidad.slug`): ==patente opaca== `^[A-Z0-9]{8}$` (ej. `K9F2H3M4`). No es el nombre. Estable, inmutable, referenciable. Ver [docs/hoja-personaje.md §1.1](docs/hoja-personaje.md#11-slug--la-patente-del-personaje).
 - **Slug de catálogo** (tag, facción): legible, `lowercase_con_underscore`, sin acentos, sin guiones (`pistola`, `lider_de_escuadra`, `ejercito_rojo`). El separador uniforme es `_` para componer en notación punto sin ambigüedad.
-- **Tags**: notación punto `<categoria>[.<subcategoria>].<slug>`. **NO** es multiconjunto: ante repetidos gana el último valor. Ver [[sistema-tags|sistema-tags.md]].
+- **Tags**: notación punto `<categoria>[.<subcategoria>].<slug>`. **NO** es multiconjunto: ante repetidos gana el último valor. Ver [sistema-tags.md](docs/sistema-tags.md).
 - **Campos estructurales en YAML**: `snake_case_castellano` (`atributos`, `historial`, `ultima_actualizacion`).
 
 > [!note] Asimetría deliberada de slugs
@@ -76,7 +76,7 @@ Toda la documentación de `syv-pj` es **de versión única**: refleja solo el es
 `syv-pj` **no fija** un sistema de resolución de azar. Para que fichas, tags y modificadores sean reutilizables entre sistemas, toda magnitud se expresa en una de **tres formas portables** según el tipo:
 
 - **Probabilidades de evento**: porcentaje. `40% de fallar el chequeo`, `5% de paniquear bajo fuego`. Nunca una expresión atada a un sistema concreto.
-- **Modificadores sobre atributos o estadísticas calculadas**: delta entero sobre la escala canónica. `(+1) MENTAL`, `(-1) INICIATIVA`, `(+2) FATIGA`. Las variables y sus escalas viven en [[atributos|atributos.md]].
+- **Modificadores sobre atributos o estadísticas calculadas**: delta entero sobre la escala canónica. `(+1) MENTAL`, `(-1) INICIATIVA`, `(+2) FATIGA`. Las variables y sus escalas viven en [atributos.md](docs/atributos.md).
 - **Modificadores sobre tasas o magnitudes continuas**: porcentaje sobre la magnitud. `-100% MOVIMIENTO` (inmóvil), `+50% defensa por cobertura`.
 
 > [!info] Por qué portable
@@ -92,7 +92,7 @@ El núcleo crece **verticalmente sin migración**: nuevas categorías de tag, nu
 
 ## Trabajo con Claude / agentes de IA
 
-- Antes de tocar el esquema, asegurar que **todos** los docs del inventario queden consistentes entre sí. El núcleo es [[hoja-personaje|docs/hoja-personaje.md]]; un cambio en un bloque se propaga a los hermanos antes de cerrar el turno.
+- Antes de tocar el esquema, asegurar que **todos** los docs del inventario queden consistentes entre sí. El núcleo es [docs/hoja-personaje.md](docs/hoja-personaje.md); un cambio en un bloque se propaga a los hermanos antes de cerrar el turno.
 - La prosa de `historia` y de `historial[].descripcion` es contenido editorial **irreplazable** (no-reproducible aun con semilla). Los cambios destructivos sobre datos con prosa se hacen solo con autorización explícita del usuario en la conversación vigente.
 - No agregar entradas de changelog ni líneas "Versión: X". Si el modelo cambia, reescribir las secciones afectadas en lenguaje atemporal.
 - **Fidelidad al universo**: antes de introducir terminología (geografía, facciones, vocabulario, personajes), verificar contra el lore canon de SyV. `syv-pj` documenta y clasifica; no inventa lore. Las decisiones de mecánica, atributos por rango y modelado del personaje son soberanía de este módulo y se documentan acá.

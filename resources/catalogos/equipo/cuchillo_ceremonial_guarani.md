@@ -21,4 +21,4 @@ tags:
 
 Hoja corta con mango de madera tallada y grabados de linaje. No se usa para pelear; se usa para cortar lo que no se ve.
 
-Relacionado: [[talisman_guarani]], [[tatuaje_linaje_guarani]].
+Relacionado: [talisman_guarani](talisman_guarani.md), [tatuaje_linaje_guarani](../aspecto/tatuaje_linaje_guarani.md).

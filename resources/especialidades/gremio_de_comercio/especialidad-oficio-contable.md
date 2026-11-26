@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/contable", "especialidad/oficio", "pool/gremio_de_co
 ---
 Los números no mienten; él sí puede.
 
-[[gremio_de_comercio]]
+[gremio_de_comercio](../../facciones/gremio_de_comercio.md)

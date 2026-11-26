@@ -16,4 +16,4 @@ tags:
 
 Capucha de tela oscura que cubre cara y cuello. En los Barrios del Muro es casi uniforme: protege del frío, la lluvia y las cámaras.
 
-Relacionado: [[machete]].
+Relacionado: [machete](machete.md).

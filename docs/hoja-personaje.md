@@ -15,15 +15,15 @@ aliases:
 > El **núcleo** de `syv-pj`: define la hoja de personaje campo por campo. Todo lo demás lo referencia. Acá vive el contrato estructural; los ejes que se ramifican tienen su propio documento hermano.
 >
 > **Documentos hermanos**:
-> - [[sistema-tags|sistema-tags.md]] — la lista plana `tags[]`: notación, categorías, catálogo y curaduría.
-> - [[atributos|atributos.md]] — escalas de `cuerpo/mente/alma`, estadísticas derivadas y vocabulario canónico de efectos.
-> - [[apariencia|apariencia.md]] — el campo `apariencia`: descriptores visuales libres, sparse y agnósticos al generador de imágenes.
-> - [[contratos|contratos.md]] — aspectos, habilidades y efectos como contratos.
-> - [[historial|historial.md]] — el registro `historial[]`: campos del hito, catálogo de tipos, `actores[]` y la regla de solo-añadir.
-> - [[nemesis-y-aliados|nemesis-y-aliados.md]] — los vínculos personales (`aliado/*` / `nemesis/*`) como etiquetas relacionales.
-> - [[lealtad|lealtad.md]] — la lealtad (`lealtad/*`) como etiqueta relacional plana.
-> - [[generacion-procedural|generacion-procedural.md]] — cómo se completa una hoja desde el azar portable.
-> - [[diegesis|diegesis.md]] — el contexto del universo (facciones, lugares, lore) vive en `syv-docs`; este doc redirige.
+> - [sistema-tags.md](sistema-tags.md) — la lista plana `tags[]`: notación, categorías, catálogo y curaduría.
+> - [atributos.md](atributos.md) — escalas de `cuerpo/mente/alma`, estadísticas derivadas y vocabulario canónico de efectos.
+> - [apariencia.md](apariencia.md) — el campo `apariencia`: descriptores visuales libres, sparse y agnósticos al generador de imágenes.
+> - [contratos.md](contratos.md) — aspectos, habilidades y efectos como contratos.
+> - [historial.md](historial.md) — el registro `historial[]`: campos del hito, catálogo de tipos, `actores[]` y la regla de solo-añadir.
+> - [nemesis-y-aliados.md](nemesis-y-aliados.md) — los vínculos personales (`aliado/*` / `nemesis/*`) como etiquetas relacionales.
+> - [lealtad.md](lealtad.md) — la lealtad (`lealtad/*`) como etiqueta relacional plana.
+> - [generacion-procedural.md](generacion-procedural.md) — cómo se completa una hoja desde el azar portable.
+> - [diegesis.md](diegesis.md) — el contexto del universo (facciones, lugares, lore) vive en `syv-docs`; este doc redirige.
 
 ---
 
@@ -47,11 +47,11 @@ personaje:
 ```
 
 > [!note] `apariencia` cierra la hoja, no es un bloque más en el medio
-> El bloque `apariencia` figura al **final** de la tabla deliberadamente: es el destilado visual de todo lo anterior (identidad, atributos, tags) y no se puede escribir bien sin conocerlos primero. Ver el porqué en §2.5 y en [[apariencia#§6 — Forma, largo y mutabilidad|apariencia.md §6]].
+> El bloque `apariencia` figura al **final** de la tabla deliberadamente: es el destilado visual de todo lo anterior (identidad, atributos, tags) y no se puede escribir bien sin conocerlos primero. Ver el porqué en §2.5 y en [apariencia.md §6](apariencia.md#6--forma-largo-y-mutabilidad).
 
 > [!tip] Regla rectora — lo discreto es etiqueta
 > Todo lo que es **discreto** y no es identidad, atributo, prosa o auditoría → ==es etiqueta==. Sin excepciones: incluso los vínculos personales (aliados, némesis) son etiquetas.
-> Esa única regla decide dónde va cada dato nuevo. Si dudás entre crear un campo o una etiqueta, casi siempre es etiqueta. La justificación detallada vive en [[sistema-tags|sistema-tags.md]].
+> Esa única regla decide dónde va cada dato nuevo. Si dudás entre crear un campo o una etiqueta, casi siempre es etiqueta. La justificación detallada vive en [sistema-tags.md](sistema-tags.md).
 
 > [!note] Tres clases de dato
 > La hoja distingue tres clases que no hay que confundir:
@@ -70,7 +70,7 @@ Quién es el personaje, fuera de su contexto operativo. La capa operativa (rango
 
 ### 1.1. `slug` — la patente del personaje
 
-El `slug` es la ==patente opaca== del personaje. **No es su nombre.** Es el identificador estable que el sistema usa para referenciarlo en cualquier vínculo: como destino de un tag `aliado/*` / `nemesis/*` (ver [[#§3.4 — Vínculos personales|§3.4]]), en los `actores[]` de un hito, en ediciones por API, en nodos del vault.
+El `slug` es la ==patente opaca== del personaje. **No es su nombre.** Es el identificador estable que el sistema usa para referenciarlo en cualquier vínculo: como destino de un tag `aliado/*` / `nemesis/*` (ver [§3.4](#34-vínculos-personales)), en los `actores[]` de un hito, en ediciones por API, en nodos del vault.
 
 ```yaml
 slug:
@@ -85,7 +85,7 @@ slug:
 > Dos personajes pueden llamarse igual; sus patentes no colisionan. Una refactorización narrativa (cambio de apellido por casamiento, alias revolucionario) no invalida refs existentes. Los renderers muestran `nombre`; los sistemas guardan `slug`.
 
 > [!info] Patente opaca ≠ slug de catálogo
-> El `slug` del personaje es opaco (`^[A-Z0-9]{8}$`) precisamente para ser estable y predecible a escala. Los slugs de catálogo (tags, facciones) son legibles (`lowercase_con_underscore`, ej. `pistola`, `ejercito_rojo`). La asimetría es deliberada: la patente es para máquinas; el slug legible es la pieza humana de la notación punto. Ver [[sistema-tags|sistema-tags.md]].
+> El `slug` del personaje es opaco (`^[A-Z0-9]{8}$`) precisamente para ser estable y predecible a escala. Los slugs de catálogo (tags, facciones) son legibles (`lowercase_con_underscore`, ej. `pistola`, `ejercito_rojo`). La asimetría es deliberada: la patente es para máquinas; el slug legible es la pieza humana de la notación punto. Ver [sistema-tags.md](sistema-tags.md).
 
 ### 1.2. Resto del bloque
 
@@ -139,10 +139,10 @@ alma:    { significado: "Aura, liderazgo, voluntad, temple ante el miedo. En pro
 
 > [!tip] Determinísticos en creación, mutables solo vía hito
 > En creación los atributos son **determinísticos por rango** desde tablas de configuración (cero azar en estadísticas). Después solo cambian vía hito (`triple_cero` o `mejora_atributo`).
-> Toda otra capacidad numérica (fatiga máxima, moral máxima, fuerza aportada, mando vigente) es **derivada en caliente con fórmulas fijas y no se persiste**, para evitar desincronización. Topes, fórmulas y el vocabulario canónico de estadísticas viven en [[atributos|atributos.md]].
+> Toda otra capacidad numérica (fatiga máxima, moral máxima, fuerza aportada, mando vigente) es **derivada en caliente con fórmulas fijas y no se persiste**, para evitar desincronización. Topes, fórmulas y el vocabulario canónico de estadísticas viven en [atributos.md](atributos.md).
 
 > [!info] Azar portable
-> Las magnitudes se expresan en formato portable, agnóstico al sistema de resolución: probabilidades en **porcentaje** (`40% de fallar`), modificadores sobre atributos/estadísticas como **delta entero** (`(+1) ALMA`), modificadores sobre magnitudes continuas en **porcentaje** (`-100% MOVIMIENTO`). Detalle en [[atributos|atributos.md]] y la política editorial en [[AGENTS|AGENTS.md]].
+> Las magnitudes se expresan en formato portable, agnóstico al sistema de resolución: probabilidades en **porcentaje** (`40% de fallar`), modificadores sobre atributos/estadísticas como **delta entero** (`(+1) ALMA`), modificadores sobre magnitudes continuas en **porcentaje** (`-100% MOVIMIENTO`). Detalle en [atributos.md](atributos.md) y la política editorial en [AGENTS.md](../AGENTS.md).
 
 ---
 
@@ -168,13 +168,13 @@ persist:     persistido — mutable sin hito (bajo peso narrativo, como edad)
 > - `figura` — cuerpo entero y porte: cómo se para, cómo **lleva** lo que viste (nunca **qué** viste).
 > - `presencia` — la impresión que deja: luz, aire, cómo cambia una habitación cuando entra.
 >
-> Los tres ejes no se agregan ni se quitan: son el contrato. Detalle, ejemplos por eje y la tabla completa de anti-redundancia viven en [[apariencia|apariencia.md]].
+> Los tres ejes no se agregan ni se quitan: son el contrato. Detalle, ejemplos por eje y la tabla completa de anti-redundancia viven en [apariencia.md](apariencia.md).
 
 > [!tip] Sparse por diseño — lo no dicho queda librado al azar
 > Se escribe **solo lo que el canon quiere fijar**; un párrafo puede ser rico y otro escueto, o los tres pueden faltar (`apariencia: null`). La ausencia no es un dato faltante: es el azar portable del kit aplicado al eje visual.
 
 > [!important] Complementa, no duplica
-> No re-codifica lo que ya tiene hogar: cicatrices con contrato → `rasgos`, prendas y armas → `equipo`, porte/expresión con efecto de juego → `aspectos`, corpulencia base → atributo `cuerpo`. La proyección visual lee **todo el conjunto** junto (párrafos + tags + atributos). La frontera del agnosticismo (hecho visual vs directiva de render) vive en [[apariencia|apariencia.md]].
+> No re-codifica lo que ya tiene hogar: cicatrices con contrato → `rasgos`, prendas y armas → `equipo`, porte/expresión con efecto de juego → `aspectos`, corpulencia base → atributo `cuerpo`. La proyección visual lee **todo el conjunto** junto (párrafos + tags + atributos). La frontera del agnosticismo (hecho visual vs directiva de render) vive en [apariencia.md](apariencia.md).
 
 ---
 
@@ -192,7 +192,7 @@ N3 — cierre común:    fuera de la hoja. Fondo oscuro + spot + triggers técni
 ```
 
 > [!note] Por qué se documenta sin parametrizar
-> N1 y N3 son comunes a todo el roster; parametrizarlos en la hoja rompería esa uniformidad y metería sintaxis de generador donde no corresponde (ver [[apariencia#§5 — La frontera del agnosticismo|apariencia.md §5]]). La hoja describe **qué personaje es**, no **cómo se renderiza**: eso es trabajo del armador de prompt, aguas abajo.
+> N1 y N3 son comunes a todo el roster; parametrizarlos en la hoja rompería esa uniformidad y metería sintaxis de generador donde no corresponde (ver [apariencia.md §5](apariencia.md#5--la-frontera-del-agnosticismo)). La hoja describe **qué personaje es**, no **cómo se renderiza**: eso es trabajo del armador de prompt, aguas abajo.
 
 ---
 
@@ -201,7 +201,7 @@ N3 — cierre común:    fuera de la hoja. Fondo oscuro + spot + triggers técni
 Lista plana de cadenas en notación punto. Es la **fuente de verdad de todo lo discreto** del personaje: rango, mando, equipo, salud, estado mental, rasgos, aspectos, habilidades, lealtades a facción/subfacción y los **vínculos personales** —aliados y némesis— como etiquetas relacionales.
 
 > [!important] El contrato vive en sistema-tags.md
-> La definición completa, las categorías canónicas, el formato y las reglas de catálogo viven en [[sistema-tags|sistema-tags.md]]. Acá solo se fija el contrato con la hoja.
+> La definición completa, las categorías canónicas, el formato y las reglas de catálogo viven en [sistema-tags.md](sistema-tags.md). Acá solo se fija el contrato con la hoja.
 
 ```yaml
 forma:   <categoria>[.<subcategoria>].<slug>
@@ -220,7 +220,7 @@ moral_max:    { fuente: "alma",                       tipo: int }
 fza_aportada: { fuente: "tags especialidad/combate/*",         valores: "{heroe: 3, lider: 2, default: 1}" }
 ```
 
-Las fórmulas canónicas y sus escalas viven en [[atributos|atributos.md]]. Cambios post-creación en `tags[]` se registran como hito `agregar_tag` / `quitar_tag` con metadatos `{tag}`.
+Las fórmulas canónicas y sus escalas viven en [atributos.md](atributos.md). Cambios post-creación en `tags[]` se registran como hito `agregar_tag` / `quitar_tag` con metadatos `{tag}`.
 
 ### 3.2. Etiquetas relacionales
 
@@ -229,11 +229,11 @@ Algunas etiquetas no describen un atributo del personaje sino un **vínculo diri
 - A una **entidad de catálogo** (facción, subfacción, grupo, religión): el slug legible de esa entidad — `lealtad/ejercito_rojo`, `aliado/pelicanos`.
 - A **otro personaje**: su patente — `aliado/K9F2H3M4`, `nemesis/R7T3W1X5`.
 
-Todas se cuentan y se filtran como cualquier tag. La prosa de un vínculo personal —cómo se formó— no vive en la etiqueta sino en su hito de [[historial|historial.md]]. Definición completa en [[nemesis-y-aliados|nemesis-y-aliados.md]].
+Todas se cuentan y se filtran como cualquier tag. La prosa de un vínculo personal —cómo se formó— no vive en la etiqueta sino en su hito de [historial.md](historial.md). Definición completa en [nemesis-y-aliados.md](nemesis-y-aliados.md).
 
 ### 3.3. Extensibilidad
 
-El catálogo canónico es andamiaje, no jaula: etiqueta nueva, subcategoría nueva o categoría nueva entera entran **sin migración**. Una etiqueta desconocida no rompe la hoja. La mitigación es curaduría, no validación. Detalle en [[sistema-tags|sistema-tags.md]].
+El catálogo canónico es andamiaje, no jaula: etiqueta nueva, subcategoría nueva o categoría nueva entera entran **sin migración**. Una etiqueta desconocida no rompe la hoja. La mitigación es curaduría, no validación. Detalle en [sistema-tags.md](sistema-tags.md).
 
 ### 3.4. Vínculos personales
 
@@ -246,7 +246,7 @@ slug:    patente del personaje, o slug de facción/subfacción/grupo
 prosa:   en el hito que formó el vínculo (historial[]), no en la etiqueta
 ```
 
-El contrato del tag está en [[sistema-tags|sistema-tags.md §5]]; el porqué del cambio, los tipos de destino y el ciclo de vida, en [[nemesis-y-aliados|nemesis-y-aliados.md]]; la prosa del vínculo, en el hito de [[historial|historial.md]].
+El contrato del tag está en [sistema-tags.md §5](sistema-tags.md); el porqué del cambio, los tipos de destino y el ciclo de vida, en [nemesis-y-aliados.md](nemesis-y-aliados.md); la prosa del vínculo, en el hito de [historial.md](historial.md).
 
 ---
 
@@ -272,7 +272,7 @@ inmutable_tras:  Canonización. Se congela como artefacto.
 Array de hitos. Cada entrada describe un evento temporal sobre el personaje ya canonizado. Es un **registro de eventos de solo añadir**.
 
 > [!important] El contrato detallado vive en historial.md
-> La definición campo por campo, el catálogo completo de tipos, la semántica de `actores[]` y la proyección en Diégesis viven en [[historial|historial.md]]. Acá solo se fija el contrato con la hoja.
+> La definición campo por campo, el catálogo completo de tipos, la semántica de `actores[]` y la proyección en Diégesis viven en [historial.md](historial.md). Acá solo se fija el contrato con la hoja.
 
 ```yaml
 fecha:       ISO-8601

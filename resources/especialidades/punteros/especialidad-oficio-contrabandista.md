@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/contrabandista", "especialidad/oficio", "pool/punter
 ---
 Mueve lo que no debería moverse por donde nadie debería mirar.
 
-[[punteros]]
+[punteros](../../facciones/punteros.md)

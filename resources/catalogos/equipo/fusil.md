@@ -15,4 +15,4 @@ tags:
 
 Fusil de cerrojo reglamentario. Confiable, de alcance medio.
 
-Relacionado: [[instruccion_basica]].
+Relacionado: [instruccion_basica](../entrenamiento/instruccion_basica.md).

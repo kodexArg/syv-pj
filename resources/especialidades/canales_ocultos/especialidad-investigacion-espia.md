@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/espia", "especialidad/investigacion", "pool/c
 ---
 Infiltra, escucha y nunca revela su nombre real.
 
-[[canales_ocultos]]
+[canales_ocultos](../../facciones/canales_ocultos.md)

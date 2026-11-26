@@ -6,4 +6,4 @@ tags: ["especialidad/combate/fusilero", "especialidad/combate", "pool/seguridad_
 ---
 Infantería de línea; sostiene el frente con disciplina y cadencia de fuego.
 
-[[seguridad_urbana]]
+[seguridad_urbana](../../subfacciones/seguridad_urbana.md)

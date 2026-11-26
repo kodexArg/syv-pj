@@ -6,4 +6,4 @@ tags: ["especialidad/combate/maton", "especialidad/combate", "pool/gremio_de_pes
 ---
 Músculo de alquiler; la negociación ya ocurrió antes de que llegue.
 
-[[gremio_de_pescadores]]
+[gremio_de_pescadores](../../facciones/gremio_de_pescadores.md)

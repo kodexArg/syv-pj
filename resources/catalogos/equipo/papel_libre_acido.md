@@ -19,4 +19,4 @@ tags:
 
 Papel de conservación de pH neutro. No se consigue en cualquier mercado; lo cuidan los archivistas como se cuida el pan.
 
-Relacionado: [[tinta_ferrogalica]], [[anillo_archivista]].
+Relacionado: [tinta_ferrogalica](tinta_ferrogalica.md), [anillo_archivista](anillo_archivista.md).

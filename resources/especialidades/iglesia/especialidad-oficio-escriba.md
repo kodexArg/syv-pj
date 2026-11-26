@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/escriba", "especialidad/oficio", "pool/iglesia"]
 ---
 Registra, copia y controla lo que queda escrito para la posteridad.
 
-[[iglesia]]
+[iglesia](../../facciones/iglesia.md)

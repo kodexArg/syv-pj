@@ -14,4 +14,4 @@ rangos:
   mando_default: null
 ---
 
-Escalera jerárquica de **Independiente** — [[independiente]]. Sin jerarquía real (no hay cadena de mando de facción); cada rango es una descripción narrativa suelta para un personaje sin afiliación cerrada. `probabilidad: 0` en todos los rangos: no participan del sorteo aleatorio, solo asignación curada explícita (ver mock damian-diconte-detective.md).
+Escalera jerárquica de **Independiente** — [independiente](). Sin jerarquía real (no hay cadena de mando de facción); cada rango es una descripción narrativa suelta para un personaje sin afiliación cerrada. `probabilidad: 0` en todos los rangos: no participan del sorteo aleatorio, solo asignación curada explícita (ver mock damian-diconte-detective.md).

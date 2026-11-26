@@ -11,4 +11,4 @@ tags:
 
 Estabilización de heridos y triage bajo fuego.
 
-Relacionado: [[primeros_auxilios]], [[botiquin]].
+Relacionado: primeros_auxilios, [botiquin](../equipo/botiquin.md).

@@ -20,4 +20,4 @@ tags:
 
 Siempre va al frente. Empuja la línea sin que nadie lo pida.
 
-Excluye: [[cobarde]].
+Excluye: [cobarde](cobarde.md).

@@ -31,6 +31,6 @@ apariencia:
   presencia: morocho
 ---
 
-A Diego le dicen el Pulpo porque cuando se agarra del [[bombo]] no lo suelta ni a tiros. Y tiros sobran cuando el [[resistencia_subterranea|Ejército Rojo]] choca de frente con la [[fuerzas_armadas|Confederación]].
+A Diego le dicen el Pulpo porque cuando se agarra del bombo no lo suelta ni a tiros. Y tiros sobran cuando el [Ejército Rojo](../facciones/resistencia_subterranea.md) choca de frente con la [Confederación](../facciones/fuerzas_armadas.md).
 
-No tiene fierro ni especialidad asignada: va de [[simpatizante]] con la [[capucha]] calada por [[barrios-del-muro|los Barrios del Muro]], aporreando el parche para que la columna no afloje el paso. Es [[terco]] como mula vieja: lo bajan, se levanta, vuelve a marcar el ritmo que nació en las canchas de Bahía Blanca. Lo bajan. Se levanta.
+No tiene fierro ni especialidad asignada: va de simpatizante con la [capucha](../catalogos/equipo/capucha.md) calada por los Barrios del Muro, aporreando el parche para que la columna no afloje el paso. Es [terco](../catalogos/aspecto/terco.md) como mula vieja: lo bajan, se levanta, vuelve a marcar el ritmo que nació en las canchas de Bahía Blanca. Lo bajan. Se levanta.

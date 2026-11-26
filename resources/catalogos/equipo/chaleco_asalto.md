@@ -16,4 +16,4 @@ tags:
 
 Chaleco balístico con placas frontales y dorsales. Más protección que el táctico; más peso también.
 
-Relacionado: [[uniforme_tactico_rojo]], [[chaleco]].
+Relacionado: [uniforme_tactico_rojo](uniforme_tactico_rojo.md), [chaleco](chaleco.md).

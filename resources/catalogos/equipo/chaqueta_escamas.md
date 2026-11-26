@@ -15,4 +15,4 @@ tags:
 
 Chaqueta de cuero cubierta con escamas de pez cosidas. Impermeable, resistente; huele permanentemente a sal y brea. No hay forma de quitarle ese olor.
 
-Relacionado: [[galera]], [[olor_pescado]].
+Relacionado: [galera](galera.md), [olor_pescado](../aspecto/olor_pescado.md).

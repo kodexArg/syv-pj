@@ -6,4 +6,4 @@ tags: ["especialidad/combate/maton", "especialidad/combate", "pool/punteros"]
 ---
 Músculo de alquiler; la negociación ya ocurrió antes de que llegue.
 
-[[punteros]]
+[punteros](../../facciones/punteros.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/combate/heroe", "especialidad/combate", "pool/rtu"]
 ---
 Se lanza primero; inspira o muere en el intento.
 
-[[rtu]]
+[rtu](../../subfacciones/rtu.md)

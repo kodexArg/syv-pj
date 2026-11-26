@@ -19,4 +19,4 @@ tags:
 
 Pinza quirúrgica de acero para trabajar en cavidades estrechas. Tan útil en un cuerpo como en un mecanismo.
 
-Relacionado: [[lente_aumento]], [[cincel_acero]].
+Relacionado: [lente_aumento](lente_aumento.md), [cincel_acero](cincel_acero.md).

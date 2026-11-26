@@ -11,4 +11,4 @@ tags:
 
 Combate de línea, fuego y movimiento, uso de cobertura.
 
-Relacionado: [[instruccion_basica]], [[apoyo_de_fuego]].
+Relacionado: [instruccion_basica](instruccion_basica.md), [apoyo_de_fuego](apoyo_de_fuego.md).

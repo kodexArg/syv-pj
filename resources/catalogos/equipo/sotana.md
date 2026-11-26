@@ -15,4 +15,4 @@ tags:
 
 Túnica talar negra hasta los pies. Marca de estado clerical, gastada en los bordes de quien la lleva décadas.
 
-Sesgo: facciones eclesiásticas. Relacionado: [[habito]], [[banda_eclesiastica]].
+Sesgo: facciones eclesiásticas. Relacionado: [habito](habito.md), [banda_eclesiastica](banda_eclesiastica.md).

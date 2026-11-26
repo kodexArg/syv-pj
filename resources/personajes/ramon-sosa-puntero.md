@@ -33,6 +33,6 @@ apariencia:
   presencia: mestizo
 ---
 
-El Cholo Sosa es [[punteros|puntero]] de cuna y conoce cada cancha, cada barra y cada pandilla de [[barrios-del-muro|los Barrios del Muro]] por su nombre de pila. Su lealtad última está con los [[punteros|punteros]]. Pero es el aliado más cercano del comandante [[anibal-painemal-comandante|Aníbal]] en el [[resistencia_subterranea|Ejército Rojo]].
+El Cholo Sosa es [puntero](../facciones/punteros.md) de cuna y conoce cada cancha, cada barra y cada pandilla de los Barrios del Muro por su nombre de pila. Su lealtad última está con los [punteros](../facciones/punteros.md). Pero es el aliado más cercano del comandante [Aníbal](anibal-painemal-comandante.md) en el [Ejército Rojo](../facciones/resistencia_subterranea.md).
 
-Como [[especialidad-combate-lider|líder]] de calle organiza barrabravas y pandilleros, levanta a las masas con la voz y, cuando hace falta, baja el [[machete]] del cinto. Lleva la [[galera]] ladeada y la [[mirada_cansada|mirada cansada]] del que ya vio caer a demasiados. Igual marcha de [[vanguardia|punta de lanza]] cuando suena el bombo contra la [[fuerzas_armadas|Confederación]]. Cuando suena el bombo.
+Como [líder](../especialidades/punteros/especialidad-combate-lider.md) de calle organiza barrabravas y pandilleros, levanta a las masas con la voz y, cuando hace falta, baja el [machete](../catalogos/equipo/machete.md) del cinto. Lleva la [galera](../catalogos/equipo/galera.md) ladeada y la [mirada cansada](../catalogos/rasgo/mirada_cansada.md) del que ya vio caer a demasiados. Igual marcha de [punta de lanza](../catalogos/aspecto/vanguardia.md) cuando suena el bombo contra la [Confederación](../facciones/fuerzas_armadas.md). Cuando suena el bombo.

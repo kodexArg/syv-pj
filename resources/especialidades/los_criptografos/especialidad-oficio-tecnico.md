@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/tecnico", "especialidad/oficio", "pool/los_criptogra
 ---
 Mantiene en pie lo que el tiempo intenta destruir.
 
-[[los_criptografos]]
+[los_criptografos](../../facciones/los_criptografos.md)

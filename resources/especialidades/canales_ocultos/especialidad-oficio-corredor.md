@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/corredor", "especialidad/oficio", "pool/canales_ocul
 ---
 Intermediario entre partes que no quieren verse; la confianza es su capital.
 
-[[canales_ocultos]]
+[canales_ocultos](../../facciones/canales_ocultos.md)

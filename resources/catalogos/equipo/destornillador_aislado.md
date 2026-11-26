@@ -20,4 +20,4 @@ tags:
 
 Mango de goma dura; trabaja en vivo sin matar al que lo sostiene. Básico del técnico que opera sin cortar la corriente.
 
-Relacionado: [[sonda_voltaje]], [[alambre_cobre]], [[herramientas_madera]].
+Relacionado: [sonda_voltaje](sonda_voltaje.md), [alambre_cobre](alambre_cobre.md), [herramientas_madera](herramientas_madera.md).

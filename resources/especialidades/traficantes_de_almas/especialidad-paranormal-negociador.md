@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/negociador", "especialidad/paranormal", "pool/tr
 ---
 Media en la compraventa de artefactos paranormales; conoce el valor de lo que no debería existir.
 
-[[traficantes_de_almas]]
+[traficantes_de_almas](../../facciones/traficantes_de_almas.md)

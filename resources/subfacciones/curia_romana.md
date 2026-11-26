@@ -9,4 +9,4 @@ doc: 1_trasfondo/facciones/iglesia-de-darsena/curia-romana.md
 tags: ["catalogo/subfaccion", "subfaccion/curia_romana", "faccion/iglesia"]
 ---
 
-Ficha de lore: [[curia-romana]]. Consejo de cardenales que, instituido en Dársena, gobierna la Iglesia de toda la Confederación. Facción padre: [[iglesia]].
+Ficha de lore: curia-romana. Consejo de cardenales que, instituido en Dársena, gobierna la Iglesia de toda la Confederación. Facción padre: [iglesia](../facciones/iglesia.md).

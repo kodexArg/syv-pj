@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/espia", "especialidad/investigacion", "pool/i
 ---
 Infiltra, escucha y nunca revela su nombre real.
 
-[[inquisicion]]
+[inquisicion](../../subfacciones/inquisicion.md)

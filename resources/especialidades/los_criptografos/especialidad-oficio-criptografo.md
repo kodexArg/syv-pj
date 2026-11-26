@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/criptografo", "especialidad/oficio", "pool/los_cript
 ---
 Cifra mensajes que solo el destinatario correcto puede leer.
 
-[[los_criptografos]]
+[los_criptografos](../../facciones/los_criptografos.md)

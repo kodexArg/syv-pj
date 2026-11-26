@@ -6,4 +6,4 @@ tags: ["especialidad/combate/zapador", "especialidad/combate", "pool/fuerzas_arm
 ---
 Desmina, vuela puentes y abre brechas donde los demás no pasan.
 
-[[fuerzas_armadas]]
+[fuerzas_armadas](../../facciones/fuerzas_armadas.md)

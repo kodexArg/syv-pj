@@ -26,4 +26,4 @@ Para cualquier contexto del universo, recurrir a `syv-docs`. Puertas de entrada:
 - Proyecto (`0_proyecto/index`) — organización y guías de colaboración del universo.
 
 > [!note] Fidelidad, no invención
-> La terminología del universo se **verifica** contra `syv-docs`, no se amplía desde `syv-pj` (ver [[AGENTS|AGENTS.md]], fidelidad al universo).
+> La terminología del universo se **verifica** contra `syv-docs`, no se amplía desde `syv-pj` (ver [AGENTS.md](../AGENTS.md), fidelidad al universo).

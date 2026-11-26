@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/medium", "especialidad/paranormal", "pool/exorci
 ---
 Canal entre vivos y muertos; carga con voces que nadie más escucha.
 
-[[exorcistas]]
+[exorcistas](../../subfacciones/exorcistas.md)

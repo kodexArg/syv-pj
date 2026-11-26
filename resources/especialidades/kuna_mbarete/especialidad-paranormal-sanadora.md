@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/sanadora", "especialidad/paranormal", "pool/kuna
 ---
 Devuelve el equilibrio con plantas, cantos y algo más antiguo que las palabras.
 
-[[kuna_mbarete]]
+[kuna_mbarete](../../facciones/kuna_mbarete.md)

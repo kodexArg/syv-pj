@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/contrabandista", "especialidad/oficio", "pool/gremio
 ---
 Mueve lo que no debería moverse por donde nadie debería mirar.
 
-[[gremio_de_comercio]]
+[gremio_de_comercio](../../facciones/gremio_de_comercio.md)

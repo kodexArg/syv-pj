@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/medico", "especialidad/oficio", "pool/rtu"]
 ---
 Mantiene cuerpos vivos en condiciones que no deberían permitirlo.
 
-[[rtu]]
+[rtu](../../subfacciones/rtu.md)

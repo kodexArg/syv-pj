@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/astillero", "especialidad/oficio", "pool/gremio_de_p
 ---
 Construye y repara embarcaciones; el río no perdona malas juntas.
 
-[[gremio_de_pescadores]]
+[gremio_de_pescadores](../../facciones/gremio_de_pescadores.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/combate/tirador", "especialidad/combate", "pool/arpistas"]
 ---
 Precisión sobre cantidad; elimina objetivos desde la distancia.
 
-[[arpistas]] [[tiro_de_precision]]
+[arpistas](../../facciones/arpistas.md) [tiro_de_precision](../../catalogos/habilidad/tiro_de_precision.md)

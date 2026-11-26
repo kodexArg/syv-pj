@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/inquisidor", "especialidad/investigacion", "p
 ---
 Juzga la herejía con poder delegado de lo más alto.
 
-[[alto_clero]]
+[alto_clero](../../subfacciones/alto_clero.md)

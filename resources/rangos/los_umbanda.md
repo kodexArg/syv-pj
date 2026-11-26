@@ -37,4 +37,4 @@ rangos:
   mando: terreiro
 ---
 
-Escalera jerárquica de **Los Umbanda** — [[los-umbanda]].
+Escalera jerárquica de **Los Umbanda** — los-umbanda.

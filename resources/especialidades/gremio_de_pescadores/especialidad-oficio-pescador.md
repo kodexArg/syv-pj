@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/pescador", "especialidad/oficio", "pool/gremio_de_pe
 ---
 Conoce las corrientes, los bancos y los peligros del río mejor que nadie.
 
-[[gremio_de_pescadores]]
+[gremio_de_pescadores](../../facciones/gremio_de_pescadores.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/escriba", "especialidad/oficio", "pool/archivistas_y
 ---
 Registra, copia y controla lo que queda escrito para la posteridad.
 
-[[archivistas_y_cientificos_teologicos]]
+[archivistas_y_cientificos_teologicos](../../subfacciones/archivistas_y_cientificos_teologicos.md)

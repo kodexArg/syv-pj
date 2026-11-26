@@ -18,4 +18,4 @@ tags:
 
 Detector portátil de radiación y contaminación química. Cuadrante analógico; lo calibran cada misión.
 
-Relacionado: [[contenedor_plomo]], [[solvente_quimico]], [[manos_temblorosas]].
+Relacionado: [contenedor_plomo](contenedor_plomo.md), [solvente_quimico](solvente_quimico.md), [manos_temblorosas](../aspecto/manos_temblorosas.md).

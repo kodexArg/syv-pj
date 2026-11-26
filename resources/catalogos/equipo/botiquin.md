@@ -13,4 +13,4 @@ tags:
 
 Vendas, torniquete y morfina. Mantiene vivo al de al lado.
 
-Relacionado: [[primeros_auxilios]].
+Relacionado: primeros_auxilios.

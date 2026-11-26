@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/detective", "especialidad/investigacion", "po
 ---
 Lee escenas, conecta cabos y encuentra lo que alguien quiso ocultar.
 
-[[seguridad_urbana]]
+[seguridad_urbana](../../subfacciones/seguridad_urbana.md)

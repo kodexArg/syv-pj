@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/espia", "especialidad/investigacion", "pool/s
 ---
 Infiltra, escucha y nunca revela su nombre real.
 
-[[seguridad_urbana]]
+[seguridad_urbana](../../subfacciones/seguridad_urbana.md)

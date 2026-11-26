@@ -7,7 +7,7 @@ aliases:
 ---
 # Atributos
 
-_Ver [[hoja-personaje]], [[sistema-tags]], [[contratos]]._
+_Ver [hoja-personaje](hoja-personaje.md), [sistema-tags](sistema-tags.md), [contratos](contratos.md)._
 
 ---
 
@@ -25,7 +25,7 @@ Las **únicas** magnitudes numéricas de capacidad que se guardan en la hoja. To
 > En `yaml`/`json`/estadísticas la clave es **siempre** `cuerpo`, `mente`, `alma` —sin reducción a tres caracteres—. En prosa el trío se nombra **"Cuerpo, Mente y Alma"** (o **Espíritu** por Alma); **Físico ≡ Cuerpo** y **Espíritu ≡ Alma**. No existen más las claves `fis`/`tac`/`men`.
 
 > [!info] Escala unificada
-> La escala 2..7 es la misma para los tres atributos. Estos son los valores que un personaje puede alcanzar en creación (ver [[generacion-procedural#fase-3-atributos|Fase 3]]); el uno o el tope solo se alcanza vía hito narrativo. 
+> La escala 2..7 es la misma para los tres atributos. Estos son los valores que un personaje puede alcanzar en creación (ver [Fase 3](generacion-procedural.md#fase-3--atributos)); el uno o el tope solo se alcanza vía hito narrativo. 
 
 
 ### 1.1. Mutabilidad
@@ -128,7 +128,7 @@ SANAR = Σ modificadores_tags   (base 0)
 ```
 
 - Sin contratos que la modifiquen, vale `0`: el personaje no sabe atender heridas.
-- La aportan aspectos y habilidades de competencia sanitaria (ver `primeros_auxilios`, `religioso` en [[contratos]]).
+- La aportan aspectos y habilidades de competencia sanitaria (ver `primeros_auxilios`, `religioso` en [contratos](contratos.md)).
 
 ### 2.7. PERCEPCION
 
@@ -146,7 +146,7 @@ PERCEPCION = Σ modificadores_tags   (base 0)
 
 ## 3. Sistema de efectos: cómo los tags modifican atributos y estadísticas
 
-Un `efecto` es un paquete declarativo dentro de un contrato (`aspecto/*`, `efecto.*`) que apunta al vocabulario canónico de esta sección. Cada modificador es un objeto con datos **separados y extraíbles**: el **objetivo** (la variable), el **valor** y una **nota** opcional. La forma completa del contrato vive en [[contratos]].
+Un `efecto` es un paquete declarativo dentro de un contrato (`aspecto/*`, `efecto.*`) que apunta al vocabulario canónico de esta sección. Cada modificador es un objeto con datos **separados y extraíbles**: el **objetivo** (la variable), el **valor** y una **nota** opcional. La forma completa del contrato vive en [contratos](contratos.md).
 
 ### 3.1. Objetivo en notación punto
 

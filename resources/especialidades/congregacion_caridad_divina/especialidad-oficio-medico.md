@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/medico", "especialidad/oficio", "pool/congregacion_c
 ---
 Mantiene cuerpos vivos en condiciones que no deberían permitirlo.
 
-[[congregacion_caridad_divina]]
+[congregacion_caridad_divina](../../subfacciones/congregacion_caridad_divina.md)

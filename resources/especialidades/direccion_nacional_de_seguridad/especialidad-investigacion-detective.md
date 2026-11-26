@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/detective", "especialidad/investigacion", "po
 ---
 Lee escenas, conecta cabos y encuentra lo que alguien quiso ocultar.
 
-[[direccion_nacional_de_seguridad]]
+[direccion_nacional_de_seguridad](../../subfacciones/direccion_nacional_de_seguridad.md)

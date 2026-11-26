@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/oraculo", "especialidad/paranormal", "pool/los_r
 ---
 Responde preguntas con respuestas que solo se entienden después.
 
-[[los_remanentes]]
+[los_remanentes](../../facciones/los_remanentes.md)

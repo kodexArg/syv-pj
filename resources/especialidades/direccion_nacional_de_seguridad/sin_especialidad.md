@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/direccion_nacional_de_seguridad"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[direccion_nacional_de_seguridad]]
+[direccion_nacional_de_seguridad](../../subfacciones/direccion_nacional_de_seguridad.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/tratante", "especialidad/oficio", "pool/traficantes_
 ---
 Negocia vidas ajenas con la frialdad de quien vende ganado.
 
-[[traficantes_de_almas]]
+[traficantes_de_almas](../../facciones/traficantes_de_almas.md)

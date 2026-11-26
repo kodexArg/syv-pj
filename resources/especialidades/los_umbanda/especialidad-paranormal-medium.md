@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/medium", "especialidad/paranormal", "pool/los_um
 ---
 Canal entre vivos y muertos; carga con voces que nadie más escucha.
 
-[[los_umbanda]]
+[los_umbanda](../../facciones/los_umbanda.md)

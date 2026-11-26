@@ -21,4 +21,4 @@ tags:
 
 Franja de tela al cuello que marca rango y orden. Color según jerarquía.
 
-Relacionado: [[sotana]], [[insignia_rango_militar]].
+Relacionado: [sotana](sotana.md), [insignia_rango_militar](insignia_rango_militar.md).

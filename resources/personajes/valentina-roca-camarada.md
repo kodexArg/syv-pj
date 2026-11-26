@@ -32,6 +32,6 @@ apariencia:
   presencia: criolla
 ---
 
-Valentina Roca es la otra mitad de la cobertura. Una [[cabecilla|camarada]] del Ejército Rojo que se desliza por Ciudad Dársena hablando la lengua que haga falta, sin que un solo músculo la traicione.
+Valentina Roca es la otra mitad de la cobertura. Una camarada del Ejército Rojo que se desliza por Ciudad Dársena hablando la lengua que haga falta, sin que un solo músculo la traicione.
 
-Su [[especialidad-investigacion-espia|trabajo de infiltración]] al servicio de la [[resistencia_subterranea|resistencia]] depende de un [[instinto]] afilado y de una [[radio]] cosida bajo la ropa para reportar desde adentro del régimen. Bajo el ala de la [[galera]] esconde una [[mirada_cansada]] de quien duerme con un ojo abierto. Junto a [[ezequiel-madariaga-camarada|Ezequiel]] arma la pareja de tapadera con la que entran y salen de los [[barrios-del-muro|Barrios del Muro]] hacia el corazón de la [[fuerzas_armadas|Confederación]]. Entran. Salen. Vivos.
+Su [trabajo de infiltración](../especialidades/resistencia_subterranea/especialidad-investigacion-espia.md) al servicio de la [resistencia](../facciones/resistencia_subterranea.md) depende de un [instinto](../catalogos/aspecto/instinto.md) afilado y de una [radio](../catalogos/equipo/radio.md) cosida bajo la ropa para reportar desde adentro del régimen. Bajo el ala de la [galera](../catalogos/equipo/galera.md) esconde una [mirada_cansada](../catalogos/rasgo/mirada_cansada.md) de quien duerme con un ojo abierto. Junto a [Ezequiel](ezequiel-madariaga-camarada.md) arma la pareja de tapadera con la que entran y salen de los Barrios del Muro hacia el corazón de la [Confederación](../facciones/fuerzas_armadas.md). Entran. Salen. Vivos.

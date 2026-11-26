@@ -21,4 +21,4 @@ tags:
 
 Mirada fija y expresión ausente incluso en conversación. Se ve muy presente o completamente ido; no hay término medio. Los no iniciados lo confunden con locura.
 
-Relacionado: [[trance_psiquico]], [[ojos_vacios]].
+Relacionado: trance_psiquico, [ojos_vacios](ojos_vacios.md).

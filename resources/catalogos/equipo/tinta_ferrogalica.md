@@ -19,4 +19,4 @@ tags:
 
 Tinta de tanino y sulfato ferroso. La única que no se desvanece en el papel libre de ácido. Los archivistas la reconocen por el olor.
 
-Relacionado: [[papel_libre_acido]], [[anillo_archivista]], [[lente_aumento]].
+Relacionado: [papel_libre_acido](papel_libre_acido.md), [anillo_archivista](anillo_archivista.md), [lente_aumento](lente_aumento.md).

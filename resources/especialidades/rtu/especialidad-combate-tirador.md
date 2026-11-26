@@ -6,4 +6,4 @@ tags: ["especialidad/combate/tirador", "especialidad/combate", "pool/rtu"]
 ---
 Precisión sobre cantidad; elimina objetivos desde la distancia.
 
-[[rtu]] [[tiro_de_precision]]
+[rtu](../../subfacciones/rtu.md) [tiro_de_precision](../../catalogos/habilidad/tiro_de_precision.md)

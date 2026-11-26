@@ -20,4 +20,4 @@ tags:
 
 Caja pequeña de metal o madera que guarda una reliquia. La abre quien tiene autorización canónica.
 
-Relacionado: [[crucifijo_consagrado]], [[caliz_ceremonial]].
+Relacionado: [crucifijo_consagrado](crucifijo_consagrado.md), [caliz_ceremonial](caliz_ceremonial.md).

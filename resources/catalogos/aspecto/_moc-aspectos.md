@@ -6,30 +6,30 @@ tags:
   - entidad/guia
 ---
 
-Índice de los 23 aspectos del catálogo. Los aspectos se sortean según [[resources/reglas/aspecto_cuota_por_rango|aspecto_cuota_por_rango]].
+Índice de los 23 aspectos del catálogo. Los aspectos se sortean según [aspecto_cuota_por_rango](../../reglas/aspecto_cuota_por_rango.md).
 
-- [[cicatriz_bifida|Cicatriz bífida]]
-- [[cobarde|Cobarde]]
-- [[expresion_trance|Expresión de trance]]
-- [[instinto|Instinto de supervivencia]]
-- [[manos_asperas|Manos ásperas]]
-- [[manos_temblorosas|Manos temblorosas]]
-- [[marca_arpa|Marca del arpa]]
-- [[ojo_de_aguila|Ojo de águila]]
-- [[ojos_vacios|Ojos vacíos]]
-- [[olor_pescado|Olor a pescado]]
-- [[piel_palida|Piel pálida]]
-- [[primeros_auxilios|Primeros Auxilios]]
-- [[quemadura_quimica|Quemadura química]]
-- [[religioso|Religioso]]
-- [[rodilla_vencida|Rodilla vencida]]
-- [[siseo|Siseo]]
-- [[tactico|Táctico]]
-- [[tatuaje_linaje_guarani|Tatuaje de linaje guaraní]]
-- [[tecnico|Técnico]]
-- [[terco|Terco]]
-- [[tirador|Tirador experto]]
-- [[vanguardia|Vanguardia]]
-- [[veterano|Veterano de campo]]
+- [Cicatriz bífida](cicatriz_bifida.md)
+- [Cobarde](cobarde.md)
+- [Expresión de trance](expresion_trance.md)
+- [Instinto de supervivencia](instinto.md)
+- [Manos ásperas](manos_asperas.md)
+- [Manos temblorosas](manos_temblorosas.md)
+- [Marca del arpa](marca_arpa.md)
+- [Ojo de águila](ojo_de_aguila.md)
+- [Ojos vacíos](ojos_vacios.md)
+- [Olor a pescado](olor_pescado.md)
+- [Piel pálida](piel_palida.md)
+- [Primeros Auxilios](primeros_auxilios.md)
+- [Quemadura química](quemadura_quimica.md)
+- [Religioso](religioso.md)
+- [Rodilla vencida](rodilla_vencida.md)
+- [Siseo](siseo.md)
+- [Táctico](tactico.md)
+- [Tatuaje de linaje guaraní](tatuaje_linaje_guarani.md)
+- [Técnico](tecnico.md)
+- [Terco](terco.md)
+- [Tirador experto](tirador.md)
+- [Vanguardia](vanguardia.md)
+- [Veterano de campo](veterano.md)
 
-Ver también: [[resources/reglas/_moc-reglas|MOC Reglas]]
+Ver también: [MOC Reglas](../../reglas/_moc-reglas.md)

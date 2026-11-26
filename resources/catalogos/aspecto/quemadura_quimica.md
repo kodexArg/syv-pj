@@ -15,4 +15,4 @@ tags:
 
 Marcas de corrosivo en manos o cara. La piel no cede igual que antes. Quien las tiene sabe lo que manipuló; los demás prefieren no preguntar.
 
-Relacionado: [[manos_temblorosas]], [[geiger_quimico]].
+Relacionado: [manos_temblorosas](manos_temblorosas.md), [geiger_quimico](../equipo/geiger_quimico.md).

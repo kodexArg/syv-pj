@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/verdugo", "especialidad/oficio", "pool/inquisicion"]
 ---
 Ejecuta lo que el tribunal ordena; no juzga, solo concluye.
 
-[[inquisicion]]
+[inquisicion](../../subfacciones/inquisicion.md)

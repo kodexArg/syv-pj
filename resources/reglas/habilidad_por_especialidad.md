@@ -32,4 +32,4 @@ valor:
   especialidad/paranormal/exorcista_medico: primeros_auxilios
 ---
 Habilidad especial otorgada según la especialidad táctica del personaje en la fase 4. El
-resolver indexa por especialidad exacta. Ver [[especialidades]].
+resolver indexa por especialidad exacta. Ver especialidades.

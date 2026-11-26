@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/exorcista", "especialidad/paranormal", "pool/con
 ---
 Enfrenta lo que habita en otros cuerpos y en otras dimensiones.
 
-[[congregacion_caridad_divina]]
+[congregacion_caridad_divina](../../subfacciones/congregacion_caridad_divina.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/conspirador", "especialidad/investigacion", "
 ---
 Teje redes donde otros ven conversaciones.
 
-[[iluminati]]
+[iluminati](../../facciones/iluminati.md)

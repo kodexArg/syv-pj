@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/heresiarca", "especialidad/investigacion", "p
 ---
 Identifica y documenta desviaciones teológicas antes de que contaminen la grey.
 
-[[alto_clero]]
+[alto_clero](../../subfacciones/alto_clero.md)

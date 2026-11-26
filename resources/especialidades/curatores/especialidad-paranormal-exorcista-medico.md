@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/exorcista-medico", "especialidad/paranormal", "p
 ---
 Combina medicina ortodoxa con supervisión teológica; interviene cuando la ciencia no alcanza.
 
-[[curatores]]
+[curatores](../../subfacciones/curatores.md)

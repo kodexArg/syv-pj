@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/punteros"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[punteros]]
+[punteros](../../facciones/punteros.md)

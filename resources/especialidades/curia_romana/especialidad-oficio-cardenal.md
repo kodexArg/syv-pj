@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/cardenal", "especialidad/oficio", "pool/curia_romana
 ---
 Ejerce gobierno de rango cardenalicio: doctrina, jerarquía y relaciones con la Cúpula.
 
-[[curia_romana]]
+[curia_romana](../../subfacciones/curia_romana.md)

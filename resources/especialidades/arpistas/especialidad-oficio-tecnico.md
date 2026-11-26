@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/tecnico", "especialidad/oficio", "pool/arpistas"]
 ---
 Mantiene en pie lo que el tiempo intenta destruir.
 
-[[arpistas]]
+[arpistas](../../facciones/arpistas.md)

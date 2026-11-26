@@ -6,4 +6,4 @@ tags: ["especialidad/combate/cazadora", "especialidad/combate", "pool/kuna_mbare
 ---
 Guerrera especializada en emboscada y caza; guardiana del perímetro Yaraná en el Pantano.
 
-[[kuna_mbarete]]
+[kuna_mbarete](../../facciones/kuna_mbarete.md)

@@ -14,4 +14,4 @@ tags:
 
 Olor permanente a sal, brea y pescado que la ropa y la piel retienen sin importar cuánto se lave. En el puerto es invisible; en cualquier otra parte, delata.
 
-Relacionado: [[manos_asperas]], [[chaqueta_escamas]].
+Relacionado: [manos_asperas](manos_asperas.md), [chaqueta_escamas](../equipo/chaqueta_escamas.md).

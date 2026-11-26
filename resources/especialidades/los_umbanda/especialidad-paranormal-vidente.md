@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/vidente", "especialidad/paranormal", "pool/los_u
 ---
 Percibe lo que otros no pueden ver; no siempre lo entiende.
 
-[[los_umbanda]]
+[los_umbanda](../../facciones/los_umbanda.md)

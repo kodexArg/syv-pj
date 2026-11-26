@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/interrogador", "especialidad/investigacion", 
 ---
 Extrae información con métodos que la mayoría prefiere ignorar.
 
-[[direccion_nacional_de_seguridad]]
+[direccion_nacional_de_seguridad](../../subfacciones/direccion_nacional_de_seguridad.md)

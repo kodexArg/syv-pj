@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/inteligencia_qia", "especialidad/oficio", "pool/los_
 ---
 Interfaz entre lógica artificial y decisión humana.
 
-[[los_remanentes]]
+[los_remanentes](../../facciones/los_remanentes.md)

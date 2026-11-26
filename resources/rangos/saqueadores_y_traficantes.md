@@ -26,4 +26,4 @@ rangos:
   mando: cuadrilla
 ---
 
-Escalera jerárquica de **Saqueadores y Traficantes** — [[saqueadores-y-traficantes]].
+Escalera jerárquica de **Saqueadores y Traficantes** — saqueadores-y-traficantes.

@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/medico", "especialidad/oficio", "pool/iglesia"]
 ---
 Mantiene cuerpos vivos en condiciones que no deberían permitirlo.
 
-[[iglesia]]
+[iglesia](../../facciones/iglesia.md)

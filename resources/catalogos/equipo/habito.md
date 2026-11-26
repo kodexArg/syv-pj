@@ -15,4 +15,4 @@ tags:
 
 Túnica con capucha de orden religiosa. Más austera que la sotana; sin ornamento.
 
-Relacionado: [[sotana]], [[velo_monacal]].
+Relacionado: [sotana](sotana.md), [velo_monacal](velo_monacal.md).

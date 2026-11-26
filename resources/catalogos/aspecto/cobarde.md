@@ -19,4 +19,4 @@ tags:
 
 Evita el combate directo siempre que puede. Se paraliza ante la presión.
 
-Excluye: [[vanguardia]].
+Excluye: [vanguardia](vanguardia.md).

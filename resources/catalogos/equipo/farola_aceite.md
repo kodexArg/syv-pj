@@ -19,4 +19,4 @@ tags:
 
 Linterna de aceite con pantalla de latón. En las Tuberías es la única fuente de luz que no dispara los sensores de la SIA.
 
-Relacionado: [[escudo_antiratas]], [[vela_sebo]], [[piel_palida]].
+Relacionado: [escudo_antiratas](escudo_antiratas.md), [vela_sebo](vela_sebo.md), [piel_palida](../aspecto/piel_palida.md).

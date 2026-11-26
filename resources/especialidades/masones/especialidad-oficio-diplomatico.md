@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/diplomatico", "especialidad/oficio", "pool/masones"]
 ---
 Negocia donde otros solo ven imposibilidad.
 
-[[masones]]
+[masones](../../facciones/masones.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/cirujano", "especialidad/oficio", "pool/curatores"]
 ---
 Opera donde el bisturí entra y la fe no alcanza.
 
-[[curatores]]
+[curatores](../../subfacciones/curatores.md)

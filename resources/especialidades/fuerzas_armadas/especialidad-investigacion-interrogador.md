@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/interrogador", "especialidad/investigacion", 
 ---
 Extrae información con métodos que la mayoría prefiere ignorar.
 
-[[fuerzas_armadas]]
+[fuerzas_armadas](../../facciones/fuerzas_armadas.md)

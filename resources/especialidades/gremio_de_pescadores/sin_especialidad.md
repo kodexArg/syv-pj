@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/gremio_de_pescadores"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[gremio_de_pescadores]]
+[gremio_de_pescadores](../../facciones/gremio_de_pescadores.md)

@@ -20,4 +20,4 @@ tags:
 
 Placa de metal corrugado atada al antebrazo. En las Tuberías hay ratas del tamaño de gatos; esto no las detiene, pero da tiempo.
 
-Relacionado: [[farola_aceite]], [[guanteletes_cuero]].
+Relacionado: [farola_aceite](farola_aceite.md), [guanteletes_cuero](guanteletes_cuero.md).

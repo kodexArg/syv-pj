@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/arpistas"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[arpistas]]
+[arpistas](../../facciones/arpistas.md)

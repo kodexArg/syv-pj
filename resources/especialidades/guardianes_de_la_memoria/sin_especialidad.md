@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/guardianes_de_la_memoria"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[guardianes_de_la_memoria]]
+[guardianes_de_la_memoria](../../facciones/guardianes_de_la_memoria.md)

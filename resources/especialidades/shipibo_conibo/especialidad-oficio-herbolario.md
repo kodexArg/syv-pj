@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/herbolario", "especialidad/oficio", "pool/shipibo_co
 ---
 Conoce cada planta, raíz y hongo del territorio y sus usos.
 
-[[shipibo_conibo]]
+[shipibo_conibo](../../facciones/shipibo_conibo.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/interprete-tecnico", "especialidad/investigac
 ---
 Descifra criptografía antigua, lenguas muertas y código heredado de sistemas pre-colapso.
 
-[[arpistas]]
+[arpistas](../../facciones/arpistas.md)

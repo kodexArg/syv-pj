@@ -37,4 +37,4 @@ rangos:
   mando: celula_anarquista
 ---
 
-Escalera jerárquica de **Resistencia Subterránea** — [[resistencia-subterranea]].
+Escalera jerárquica de **Resistencia Subterránea** — resistencia-subterranea.

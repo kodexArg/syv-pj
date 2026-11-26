@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/hacker", "especialidad/oficio", "pool/los_hackers"]
 ---
 Entra donde no lo invitan y sale antes de que noten.
 
-[[los_hackers]]
+[los_hackers](../../facciones/los_hackers.md)

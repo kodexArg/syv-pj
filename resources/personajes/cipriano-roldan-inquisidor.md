@@ -35,6 +35,6 @@ apariencia:
   presencia: criollo
 ---
 
-Cipriano entró a la [[inquisicion|Inquisición]] como [[novicio]] y nunca dejó de tratarla como un campo de batalla. Su fe se reza con la [[cadena_bendita]] en la mano. Junto a su par [[baltasar-quevedo-inquisidor|Baltasar]], forma el par de hierro de la escuadra.
+Cipriano entró a la [Inquisición](../subfacciones/inquisicion.md) como novicio y nunca dejó de tratarla como un campo de batalla. Su fe se reza con la [cadena_bendita](../catalogos/equipo/cadena_bendita.md) en la mano. Junto a su par [Baltasar](baltasar-quevedo-inquisidor.md), forma el par de hierro de la escuadra.
 
-Pegado al sargento, ejerce el [[especialidad-combate-cruzado|oficio del cruzado]] como guardaespaldas y ariete de la [[iglesia|Iglesia]], tan [[terco]] como [[veterano]] en el [[barrios-del-muro|cordón del Muro]]. La [[cicatriz_perturbadora]] que le cruza la cara la lleva como insignia. Bajo el [[habito|hábito]], sin más coraza que la fe, aprieta el [[crucifijo_consagrado]], reza por la [[fuerzas_armadas|Confederación]] y golpea por ella sin pestañear. Reza. Golpea.
+Pegado al sargento, ejerce el [oficio del cruzado](../especialidades/inquisicion/especialidad-combate-cruzado.md) como guardaespaldas y ariete de la [Iglesia](../facciones/iglesia.md), tan [terco](../catalogos/aspecto/terco.md) como [veterano](../catalogos/aspecto/veterano.md) en el cordón del Muro. La [cicatriz_perturbadora](../catalogos/rasgo/cicatriz_perturbadora.md) que le cruza la cara la lleva como insignia. Bajo el [hábito](../catalogos/equipo/habito.md), sin más coraza que la fe, aprieta el [crucifijo_consagrado](../catalogos/equipo/crucifijo_consagrado.md), reza por la [Confederación](../facciones/fuerzas_armadas.md) y golpea por ella sin pestañear. Reza. Golpea.

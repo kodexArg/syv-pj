@@ -16,4 +16,4 @@ tags:
 
 Observación a distancia. Ojos de la escuadra.
 
-Sesgo: [[tirador]] y especialidad de apoyo.
+Sesgo: [tirador](../aspecto/tirador.md) y especialidad de apoyo.

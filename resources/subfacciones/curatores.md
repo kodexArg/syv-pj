@@ -9,4 +9,4 @@ doc: 1_trasfondo/facciones/iglesia-de-darsena/curatores.md
 tags: ["catalogo/subfaccion", "subfaccion/curatores", "faccion/iglesia"]
 ---
 
-Ficha de lore: [[curatores]]. Orden médica eclesiástica que administra hospitales y supervisa la práctica médica bajo criterio teológico. Facción padre: [[iglesia]].
+Ficha de lore: [curatores](). Orden médica eclesiástica que administra hospitales y supervisa la práctica médica bajo criterio teológico. Facción padre: [iglesia](../facciones/iglesia.md).

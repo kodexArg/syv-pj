@@ -20,4 +20,4 @@ tags:
 
 Cruz de metal bendecida en rito mayor. Más que símbolo: herramienta de protección para quien sabe usarla.
 
-Relacionado: [[rosario]], [[medallon_bendito]], [[agua_sagrada_frasco]].
+Relacionado: [rosario](rosario.md), [medallon_bendito](medallon_bendito.md), [agua_sagrada_frasco](agua_sagrada_frasco.md).

@@ -34,6 +34,6 @@ apariencia:
   presencia: 'PENDIENTE: redactar (regla §2.5)'
 ---
 
-El pantano le quedó en la ropa. Iracema es [[shipibo_conibo|shipibo-conibo]], rango [[meraya]]. Baja al mercado de la Antigua Estación, en [[tuberias|Las Tuberías]], con el [[atado_de_hierbas|atado de hierbas]] que no prende en cemento.
+El pantano le quedó en la ropa. Iracema es [shipibo-conibo](../facciones/shipibo_conibo.md), rango meraya. Baja al mercado de la Antigua Estación, en Las Tuberías, con el atado de hierbas que no prende en cemento.
 
-Sana con cantos icaros y [[trance_psiquico|visión de planta]], oficio de [[especialidad-paranormal-curandero|curandera paranormal]] que la [[iglesia|Iglesia]] no sabe nombrar sin persignarse. Recompone lo que la posesión dejó en cortocircuito. Lleva la [[pintura_facial]] sobre el [[tatuaje_linaje_guarani|tatuaje de su linaje]] y el [[talisman_guarani]] frío contra el esternón. Su [[afinidad_animal]] con la yarará entra a cada rancho antes que ella. La tolera quien la precisa. La vigilan todos. Hereje útil.
+Sana con cantos icaros y visión de planta, oficio de [curandera paranormal](../especialidades/shipibo_conibo/especialidad-paranormal-curandero.md) que la [Iglesia](../facciones/iglesia.md) no sabe nombrar sin persignarse. Recompone lo que la posesión dejó en cortocircuito. Lleva la pintura_facial sobre el [tatuaje de su linaje](../catalogos/aspecto/tatuaje_linaje_guarani.md) y el [talisman_guarani](../catalogos/equipo/talisman_guarani.md) frío contra el esternón. Su afinidad_animal con la yarará entra a cada rancho antes que ella. La tolera quien la precisa. La vigilan todos. Hereje útil.

@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/espia", "especialidad/investigacion", "pool/g
 ---
 Infiltra, escucha y nunca revela su nombre real.
 
-[[gremio_de_comercio]]
+[gremio_de_comercio](../../facciones/gremio_de_comercio.md)

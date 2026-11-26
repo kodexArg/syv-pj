@@ -73,4 +73,4 @@ rangos:
   mando: regimiento
 ---
 
-Escalera jerárquica de **Fuerzas Armadas** — [[fuerzas-armadas]].
+Escalera jerárquica de **Fuerzas Armadas** — fuerzas-armadas.

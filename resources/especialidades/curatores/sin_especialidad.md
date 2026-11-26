@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/curatores"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[curatores]]
+[curatores](../../subfacciones/curatores.md)

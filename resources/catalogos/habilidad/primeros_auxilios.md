@@ -11,4 +11,4 @@ tags:
 
 Sabe estabilizar una herida bajo presión hasta que llegue un médico.
 
-Relacionado: [[medico_de_campo]], [[botiquin]].
+Relacionado: [medico_de_campo](../entrenamiento/medico_de_campo.md), [botiquin](../equipo/botiquin.md).
