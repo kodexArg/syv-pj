@@ -55,7 +55,7 @@ Toda la documentación de `syv-pj` es **de versión única**: refleja solo el es
 ## Idioma y estilo
 
 - **Castellano rioplatense, voseo sobrio.** Sin emojis salvo pedido explícito del usuario.
-- **Obsidian Flavored Markdown**: la sintaxis (frontmatter, wikilinks, callouts, resaltado `==así==`) y los skills `/obsidian-markdown` y `/obsidian-bases` viven en [[obsidian|docs/obsidian.md]] — única referencia, no se repite acá.
+- **Markdown estándar compatible con GitHub**: enlaces `[texto](ruta/relativa.md)` con rutas relativas que resuelven de verdad, alertas `> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]` y `> [!CAUTION]`, y énfasis con `**negrita**`. Sin wikilinks `[[...]]`, sin callouts de otro tipo y sin resaltado `==así==`.
 - Razonamiento interno en inglés; salida en castellano.
 
 ---
@@ -67,7 +67,7 @@ Toda la documentación de `syv-pj` es **de versión única**: refleja solo el es
 
 - Quedan **siempre en inglés y minúscula**: `title`, `tags`, `aliases`, `folder`, `description`. Lista cerrada salvo decisión explícita del usuario en la conversación vigente.
 - Se traduce el **valor** de un campo cuando es prosa; **jamás su clave**. `description: Texto en castellano` ✓ — `descripcion:` ✗.
-- Los **valores** que son identificadores de herramienta no son prosa y se preservan tal cual: `slug` y los de control `sidebar` / `order` / `hidden`. Los valores de `aliases` sí pueden traducirse cuando no rompen la resolución de wikilinks.
+- Los **valores** que son identificadores de herramienta no son prosa y se preservan tal cual: `slug` y los de control `sidebar` / `order` / `hidden`. Los valores de `aliases` sí pueden traducirse cuando no rompen la resolución de enlaces.
 
 ---
 

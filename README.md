@@ -25,7 +25,6 @@ El universo en que habita este personaje es *Subordinación y Valor*: año 2178,
 | Qué son los atributos y las estadísticas calculadas | [[atributos\|docs/atributos.md]] |
 | Cómo se genera un personaje proceduralmente | [[generacion-procedural\|docs/generacion-procedural.md]] |
 | De dónde sale el contexto del universo (lore, facciones, lugares) | [[diegesis\|docs/diegesis.md]] |
-| Cómo se escribe la documentación (Obsidian, OFM) | [[obsidian\|docs/obsidian.md]] |
 | Casos de uso concretos | [[casos-de-uso\|docs/casos-de-uso.md]] |
 | Entidades, tipos y reglas de persistencia | [[MODEL\|MODEL.md]] |
 | Operaciones, cargas y contratos HTTP | [[API\|API.md]] |
@@ -50,5 +49,4 @@ El universo en que habita este personaje es *Subordinación y Valor*: año 2178,
 - [[atributos|docs/atributos.md]] — Vocabulario canónico de atributos base y estadísticas calculadas.
 - [[generacion-procedural|docs/generacion-procedural.md]] — Flujo de creación procedural: cuatro fases, sorteos, tabla determinística.
 - [[diegesis|docs/diegesis.md]] — Puntero al universo: el lore (facciones, lugares, lore) vive en `syv-docs`, no acá.
-- [[obsidian|docs/obsidian.md]] — Cómo se escribe la documentación: OFM y los skills `/obsidian-markdown` y `/obsidian-bases`.
 - [[casos-de-uso|docs/casos-de-uso.md]] — Catálogo de casos de uso con mapeo a operaciones.

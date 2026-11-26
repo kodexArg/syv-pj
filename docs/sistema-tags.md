@@ -13,7 +13,7 @@ aliases:
 > [!info] Propósito
 > Este documento describe el sistema de tags de syv-pj: qué es un tag, cómo se escribe, cómo se estructura su entrada en el catálogo y cómo se extiende sin migración.
 > En este documento se habla con frecuencia de [[contratos]]. Bien: las habilidades son, en esencia, tags.
-> La relación entre los tags y Obsidian es absolutamente lineal e intencional.
+> La relación entre los tags de la hoja y las entidades del universo es absolutamente lineal e intencional.
 ---
 
 ## §1 — Mecánica universal del tag
@@ -70,7 +70,7 @@ En raras excepciones, se recurre al tercer segmento `<categoria>/<parent>/<slug>
 
 **Huérfanos:** se invita a dejar tags huérfanos con conceptos que pueden llenarse luego, cuando el tag es suficientemente comunicativo, como "aspecto/cicatriz_perturbadora". Otro ejemplo más feliz de tags huérfanos: `habilidad/personal/pianista`, y no sabremos qué tan bueno es hasta que creemos la referencia del tag en la historia del personaje; es decir, un tag subjetivo.
 
-**Resolución contra el catálogo:** el parser troza el tag por `/` y mapea segmentos a directorios. `arma/pistola_9mm` resuelve a `tags/arma/pistola_9mm.yaml`. La barra es deliberada: es **la misma notación que usa Obsidian**, de modo que la jerarquía del dominio y la del grafo del vault son una sola — el tag anida en el árbol de Obsidian exactamente como anida en el catálogo.
+**Resolución contra el catálogo:** el parser troza el tag por `/` y mapea segmentos a directorios. `arma/pistola_9mm` resuelve a `tags/arma/pistola_9mm.yaml`. La barra es deliberada: la jerarquía del dominio y la del catálogo en disco son una sola — el tag anida en el árbol exactamente como anida en el catálogo.
 
 ---
 

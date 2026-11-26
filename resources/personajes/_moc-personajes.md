@@ -14,7 +14,7 @@ Estos son los personajes canónicos de ejemplo del universo *Subordinación y Va
 > Los personajes de `syv-docs/3_personajes/` están **TBD** para incorporarse también acá, como instancias de la hoja (la profundidad narrativa se queda en la SSOT; lo que baja a `syv-pj` es el estereotipo operativo).
 
 > [!important] Convención de autoría — campos dedicados, no el espejo de tags planos
-> Estas fichas son la **proyección Obsidian** de la hoja: cada dimensión controlada vive en **su propio campo** (`faccion`, `rango`, `especialidad`, `estado`, `lealtad`, `aspectos`, `rasgos`, `equipo`, `apariencia`) y las relaciones son **wikilinks** —conforme a `.claude/rules/tags-taxonomy.md` y `.claude/rules/wikilinks-relations.md`—. **No** se duplica la serialización plana `tags/<categoria>/<slug>` del motor: ese espejo redundante era un anti-patrón (dos fuentes de verdad en un archivo a mano) y fue retirado; `tags` queda como **vivero** (`[]`). El motor (`syv-pj-api`) conserva su forma canónica de `tags[]` planos intacta: es su formato de cable/persistencia, separado de cómo se autora una ficha-ejemplo.
+> Estas fichas son la **proyección de autoría** de la hoja: cada dimensión controlada vive en **su propio campo** (`faccion`, `rango`, `especialidad`, `estado`, `lealtad`, `aspectos`, `rasgos`, `equipo`, `apariencia`) y las relaciones son **referencias por slug** —conforme a `.claude/rules/tags-taxonomy.md`—. **No** se duplica la serialización plana `tags/<categoria>/<slug>` del motor: ese espejo redundante era un anti-patrón (dos fuentes de verdad en un archivo a mano) y fue retirado; `tags` queda como **vivero** (`[]`). El motor (`syv-pj-api`) conserva su forma canónica de `tags[]` planos intacta: es su formato de cable/persistencia, separado de cómo se autora una ficha-ejemplo.
 > Todo nuevo campo visual va en `apariencia` (sparse, agnóstico al generador) — ver [[apariencia|docs/apariencia.md]].
 
 ## Cómo se arma una hoja
@@ -31,7 +31,7 @@ El contrato del modelo (campo por campo) vive en [[hoja-personaje|hoja de person
 ```yaml
 slug: ovidio-gauna-sargento     # patente del archivo (kebab, único). Identidad estable, no el nombre.
 nombre: Ovidio Gauna            # nombre de display
-aliases:                        # nombre propio + variantes (protege ante renombres) — regla del vault
+aliases:                        # nombre propio + variantes (protege ante renombres)
   - Ovidio Gauna
   - Sargento Gauna
 description: Sargento curtido…   # 1 línea, obligatoria
@@ -40,8 +40,8 @@ faccion: fuerzas_armadas        # ← CANON CERRADO: resuelve a facciones/fuerza
 rango: sargento                 # ← CANON CERRADO: resuelve a rangos/fuerzas_armadas.md
 especialidad: especialidad-combate-lider   # ← CANON CERRADO: especialidades/<faccion>/…  (o null)
 estado: disponible              # ← VOCABULARIO CONTROLADO: exactamente uno
-lealtad:                        # ← RELACIONAL: wikilink a una entidad existente
-  - "[[confederacion]]"
+lealtad:                        # ← RELACIONAL: slug de una entidad existente
+  - confederacion
 atributos:                      # únicas magnitudes numéricas; enteros 2..7; deterministas por rango
   cuerpo: 4
   mente: 4
@@ -52,22 +52,22 @@ apariencia:                     # ← LIBRE: descriptores de texto plano, sin ca
   - criollo
   - canoso
   - bigote
-aspectos:                       # ← CATÁLOGO: wikilinks a catalogos/aspecto/*  (mecánicamente activos)
-  - "[[veterano]]"
-rasgos:                         # ← CATÁLOGO: wikilinks a catalogos/rasgo/*  (observables, SIN efecto)
-  - "[[tatuaje_de_unidad]]"
-equipo:                         # ← CATÁLOGO: wikilinks a catalogos/equipo/*  (subcat arma/utilitario/vestidura/…)
-  - "[[subfusil]]"
-  - "[[pistola_9mm]]"
-  - "[[chaleco_asalto]]"
-  - "[[uniforme_linea]]"
-  - "[[insignia_rango_militar]]"
-  - "[[radio]]"
+aspectos:                       # ← CATÁLOGO: slugs de catalogos/aspecto/*  (mecánicamente activos)
+  - veterano
+rasgos:                         # ← CATÁLOGO: slugs de catalogos/rasgo/*  (observables, SIN efecto)
+  - tatuaje_de_unidad
+equipo:                         # ← CATÁLOGO: slugs de catalogos/equipo/*  (subcat arma/utilitario/vestidura/…)
+  - subfusil
+  - pistola_9mm
+  - chaleco_asalto
+  - uniforme_linea
+  - insignia_rango_militar
+  - radio
 tags: []                        # ← VIVERO: etiqueta emergente a filtrar exacto. Casi siempre []
 ```
 
 > [!note] Campos vacíos
-> Si un eje no aplica, va como lista vacía (`aspectos: []`) o se omite (un personaje sin rasgos no lleva `rasgos:`). `especialidad: null` es válido. Nunca dejes un wikilink a una entidad que no existe.
+> Si un eje no aplica, va como lista vacía (`aspectos: []`) o se omite (un personaje sin rasgos no lleva `rasgos:`). `especialidad: null` es válido. Nunca dejes una referencia a una entidad que no existe.
 
 ### Los campos, uno por uno
 
@@ -78,21 +78,21 @@ tags: []                        # ← VIVERO: etiqueta emergente a filtrar exact
 | `rango` | Jerarquía de campo | átomo → `rangos/<faccion>.md` | **No** — canon cerrado |
 | `especialidad` | Lo que el personaje *hace* | `especialidad-<eje>-<slug>` → `especialidades/<faccion>/*` · ejes: `combate`, `investigacion`, `oficio`, `paranormal` | **No** — canon cerrado (o `null`) |
 | `estado` | Disponibilidad operativa | átomo (`disponible`, …), **exactamente uno** | **No** — vocabulario controlado |
-| `lealtad` | Adhesión vigente | lista de wikilinks a entidad existente | **No** — apunta a algo que ya existe |
+| `lealtad` | Adhesión vigente | lista de slugs de entidades existentes | **No** — apunta a algo que ya existe |
 | `barrio` | Dónde opera | slug de ubicación del atlas | **No** — entidad existente |
 | `atributos` | Capacidad base | `{cuerpo, mente, alma}` enteros 2..7 | n/a — deterministas por rango |
 | `apariencia` | Cómo se ve | lista de **strings libres** | **Sí, siempre** — texto plano |
-| `aspectos` | Identidad con peso mecánico | wikilinks → `catalogos/aspecto/*` | Sí, **creando la entrada** de catálogo |
-| `rasgos` | Marca física observable, **sin** efecto | wikilinks → `catalogos/rasgo/*` | Sí, **creando la entrada** de catálogo |
-| `equipo` | Lo que carga | wikilinks → `catalogos/equipo/*` | Sí, **creando la entrada** de catálogo |
+| `aspectos` | Identidad con peso mecánico | slugs → `catalogos/aspecto/*` | Sí, **creando la entrada** de catálogo |
+| `rasgos` | Marca física observable, **sin** efecto | slugs → `catalogos/rasgo/*` | Sí, **creando la entrada** de catálogo |
+| `equipo` | Lo que carga | slugs → `catalogos/equipo/*` | Sí, **creando la entrada** de catálogo |
 | `tags` | Vivero abierto | lista plana, normalmente `[]` | Sí — pero la curaduría lo gradúa a campo |
 
 ### Qué se puede inventar y qué no
 
 Tres niveles, de más rígido a más libre:
 
-1. **Canon cerrado — NO se inventa al escribir una ficha.** `faccion`, `subfaccion`, `rango`, `especialidad`, `estado`, `lealtad`, `barrio`. Resuelven contra entidades que ya existen (`facciones/`, `subfacciones/`, `rangos/`, `especialidades/`, el atlas). Acuñar un valor nuevo es **modificar el canon**, no llenar una hoja: va por PR a su directorio, no inline. Un wikilink de `lealtad` que apunte a la nada es un error.
-2. **Catálogo que crece por curaduría — se inventa creando la entrada.** `aspectos`, `rasgos`, `equipo` (y `habilidad`, `entrenamiento`). Podés sumar un valor nuevo, pero **creás el archivo en `catalogos/`** con `origen: emergente` y sus campos obligatorios (ver [[sistema-tags]] §6). No basta el wikilink: si no existe la entrada, no está catalogado.
+1. **Canon cerrado — NO se inventa al escribir una ficha.** `faccion`, `subfaccion`, `rango`, `especialidad`, `estado`, `lealtad`, `barrio`. Resuelven contra entidades que ya existen (`facciones/`, `subfacciones/`, `rangos/`, `especialidades/`, el atlas). Acuñar un valor nuevo es **modificar el canon**, no llenar una hoja: va por PR a su directorio, no inline. Una referencia de `lealtad` que apunte a la nada es un error.
+2. **Catálogo que crece por curaduría — se inventa creando la entrada.** `aspectos`, `rasgos`, `equipo` (y `habilidad`, `entrenamiento`). Podés sumar un valor nuevo, pero **creás el archivo en `catalogos/`** con `origen: emergente` y sus campos obligatorios (ver [[sistema-tags]] §6). No basta citarlo: si no existe la entrada, no está catalogado.
 3. **Libre — se inventa siempre, sin catálogo.** `apariencia` (descriptores de texto plano) y la `historia` (prosa). Acá describís al personaje con tus palabras. Lo que es **descriptivo** (joven, enjuto, mirada fría) NO es un tag ni un rasgo: la semántica lo encuentra sola. Solo graduá a `rasgo` lo que sea una **marca concreta y nombrable** (una cicatriz, un tatuaje de unidad).
 
 > [!important] El vivero `tags[]` no es un atajo
@@ -111,7 +111,7 @@ La `historia` y el frontmatter describen al mismo personaje: no pueden contradec
 2. Capa operativa **contra el canon**: `faccion` → `subfaccion` (si aplica) → `rango` → `especialidad` → `estado` → `lealtad`. Verificá que cada valor exista en su directorio.
 3. `atributos` por rango, más `edad`, `genero`.
 4. `apariencia`: 2–4 descriptores libres.
-5. `aspectos` / `rasgos` / `equipo`: wikilinks al catálogo; si falta una entrada, **creala primero** en `catalogos/`. Respetá las restricciones de facción/rol.
+5. `aspectos` / `rasgos` / `equipo`: slugs del catálogo; si falta una entrada, **creala primero** en `catalogos/`. Respetá las restricciones de facción/rol.
 6. `tags: []` (vivero, salvo etiqueta emergente real).
 7. `historia`: prosa corta y coherente con todos los campos, en la voz del universo (estereotipo, no biografía).
 

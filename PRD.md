@@ -22,7 +22,7 @@ El módulo es:
 
 - **Independiente** — no referencia ni depende de ningún otro repo. Es la evolución limpia y autónoma de bosquejos previos.
 - **Fiel a SyV** — usa los términos, la nomenclatura y captura el espíritu del universo: Anatema Mecánico, voz/gesto/banderín, milicias vs. ejército regular, voseo sobrio.
-- **Agnóstico al uso, no al universo** — un mismo personaje homogeneizado sirve para diégesis (Obsidian, wikilinks, narrativa), juego de estrategia (estadísticas numéricas para combate), juego de rol, y generación de fichas visuales. `syv-pj` clasifica, almacena y entrega; el consumidor decide el uso.
+- **Agnóstico al uso, no al universo** — un mismo personaje homogeneizado sirve para diégesis (tags y enlaces entre notas, narrativa), juego de estrategia (estadísticas numéricas para combate), juego de rol, y generación de fichas visuales. `syv-pj` clasifica, almacena y entrega; el consumidor decide el uso.
 
 ### 1.1. Contexto de universo
 
@@ -64,11 +64,10 @@ El personaje existe dentro de *Subordinación y Valor*:
 | [[atributos\|docs/atributos.md]] | Vocabulario canónico de atributos y estadísticas calculadas. |
 | [[generacion-procedural\|docs/generacion-procedural.md]] | Flujo obligatorio de creación: fases, sorteos, tabla determinística. |
 | [[diegesis\|docs/diegesis.md]] | Puntero al universo SyV: el lore (facciones, lugares, nombres) vive en `syv-docs`. |
-| [[obsidian\|docs/obsidian.md]] | Cómo se escribe la documentación: OFM y los skills de Obsidian. |
 | [[casos-de-uso\|docs/casos-de-uso.md]] | Catálogo de casos de uso y su mapeo a operaciones. |
 
-> [!note] Wikilinks
-> Los wikilinks de esta tabla apuntan a los nombres canónicos fijados en [[SPINE|SPINE.md]]. Otros archivos del inventario se escriben en paralelo y pueden no existir todavía en el momento de leer este PRD — eso es esperado.
+> [!note] Enlaces
+> Los enlaces de esta tabla apuntan a los nombres canónicos fijados en [[SPINE|SPINE.md]]. Otros archivos del inventario se escriben en paralelo y pueden no existir todavía en el momento de leer este PRD — eso es esperado.
 
 ---
 
@@ -83,7 +82,7 @@ El personaje existe dentro de *Subordinación y Valor*:
 - Flujo de generación procedural (fases 1–4).
 - Catálogo abierto de facciones jugables.
 - Rangos operativos canon por facción.
-- Diégesis: puntero al universo — el contexto (facciones, lugares, lore) vive en el vault `syv-docs`, no acá.
+- Diégesis: puntero al universo — el contexto (facciones, lugares, lore) vive en `syv-docs`, no acá.
 - Contrato de API HTTP ([[API|API.md]]).
 - Contrato de persistencia ([[MODEL|MODEL.md]]).
 - Catálogos `/meta/*` dinámicos por categoría de tag.

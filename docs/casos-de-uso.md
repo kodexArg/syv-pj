@@ -25,7 +25,7 @@ aliases:
 
 | | | | |
 |---|---|---|---|
-| 🎰 Generador de personajes | 🪶 Autor narrativo | 👓 Lector del vault | 🛡️ Curador de canon |
+| 🎰 Generador de personajes | 🪶 Autor narrativo | 👓 Lector del universo | 🛡️ Curador de canon |
 | ⚔️ Motor de batalla | 🎲 Árbitro | 🎮 Jugador | 🎨 Proyección visual |
 | 🔌 Cualquier cliente | 🧪 Control de calidad | | |
 
@@ -45,7 +45,7 @@ aliases:
 | Consumidor | Qué le interesa del personaje |
 |---|---|
 | 🎰 **Generadores de personaje** | El catálogo de tags y sus pesos, las tablas de atributos por rango, las restricciones cruzadas y el azar portable — todo lo necesario para producir una hoja válida y, si corresponde, canonizarla. |
-| 📖 **Diégesis** | Tags de lealtad y vínculos, wikilinks a facción, ubicación y demás entidades del vault, historia en prosa, historial como línea de tiempo. |
+| 📖 **Diégesis** | Tags de lealtad y vínculos, enlaces a facción, ubicación y demás entidades del universo, historia en prosa, historial como línea de tiempo. |
 | ⚔️ **Motor de batalla** | Atributos base, estadísticas derivadas (`fza_aportada`, `movimiento`, `moral`, `fatiga`), tags de equipo y habilidades. |
 | 🎲 **Motor de juego** | Tags de aspectos/habilidades, contratos (efectos declarados), historial de hitos, vínculos (tags `aliado/*` / `nemesis/*` / `lealtad/*`). |
 | 🎨 **Generador visual** | Tags de vestidura, rango, facción, género, edad y rasgos — los lee para su proyección; cómo los renderiza es asunto suyo. |
