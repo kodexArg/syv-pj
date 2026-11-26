@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/canonista", "especialidad/oficio", "pool/curia_roman
 ---
 Interpreta la ley sagrada; gana los casos que importan.
 
-[[curia_romana]]
+[curia_romana](../../subfacciones/curia_romana.md)

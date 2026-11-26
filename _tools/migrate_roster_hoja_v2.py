@@ -28,6 +28,7 @@ identidad/atributos/tags/apariencia-object shape) is left untouched.
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from pathlib import Path
 
@@ -55,7 +56,7 @@ FIGURA_KW = [
 
 
 def _slug_to_tag(catalog_dir: Path, slug: str) -> str | None:
-    """Look up a wikilinked catalog slug's canonical tag from its own
+    """Look up a linked catalog slug's canonical tag from its own
     frontmatter `tags` list (first entry with a `/` and matching last
     segment)."""
     path = catalog_dir / f"{slug}.md"
@@ -121,13 +122,17 @@ def _especialidad_nombre(faccion: str | None, esp_slug: str) -> str | None:
     return None
 
 
+_MD_LINK = re.compile(r"^\[[^\]]*\]\(([^)#]*?)(?:#[^)]*)?\)$")
+
+
 def _unlink(items: list[str]) -> list[str]:
-    """Strip `[[slug]]` wikilink wrapper down to the bare slug."""
+    """Strip a Markdown link `[text](path/slug.md)` down to the bare slug."""
     out = []
     for it in items:
         s = it.strip()
-        if s.startswith("[[") and s.endswith("]]"):
-            s = s[2:-2].split("|", 1)[0]
+        m = _MD_LINK.match(s)
+        if m:
+            s = m.group(1).rsplit("/", 1)[-1].removesuffix(".md")
         out.append(s)
     return out
 

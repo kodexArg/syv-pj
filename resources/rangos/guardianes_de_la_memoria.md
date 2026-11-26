@@ -26,4 +26,4 @@ rangos:
   mando: camara_archivos
 ---
 
-Escalera jerárquica de **Guardianes de la Memoria** — [[guardianes-de-la-memoria]].
+Escalera jerárquica de **Guardianes de la Memoria** — guardianes-de-la-memoria.

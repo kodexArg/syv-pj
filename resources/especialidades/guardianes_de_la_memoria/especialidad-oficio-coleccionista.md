@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/coleccionista", "especialidad/oficio", "pool/guardia
 ---
 Acumula objetos que otros tiraron; el valor lo decide él.
 
-[[guardianes_de_la_memoria]]
+[guardianes_de_la_memoria](../../facciones/guardianes_de_la_memoria.md)

@@ -31,6 +31,6 @@ apariencia:
   presencia: morocho
 ---
 
-La Rana va siempre adelante, donde más quema. Repica el [[redoblante]] con una mano y agita la [[bandera]] roja con la otra, como si el trapo fuera escudo suficiente contra la [[fuerzas_armadas|Confederación]].
+La Rana va siempre adelante, donde más quema. Repica el redoblante con una mano y agita la bandera roja con la otra, como si el trapo fuera escudo suficiente contra la [Confederación](../facciones/fuerzas_armadas.md).
 
-No carga ni un mísero cuchillo. Pero es [[vanguardia|punta de lanza]] pura: marca el avance del [[resistencia_subterranea|Ejército Rojo]] por [[barrios-del-muro|los Barrios del Muro]], y los pibes lo siguen porque ver la bandera arriba les saca el frío de las piernas. Como [[simpatizante]] no jura más lealtad que la de Bahía Blanca. Y le alcanza.
+No carga ni un mísero cuchillo. Pero es [punta de lanza](../catalogos/aspecto/vanguardia.md) pura: marca el avance del [Ejército Rojo](../facciones/resistencia_subterranea.md) por los Barrios del Muro, y los pibes lo siguen porque ver la bandera arriba les saca el frío de las piernas. Como simpatizante no jura más lealtad que la de Bahía Blanca. Y le alcanza.

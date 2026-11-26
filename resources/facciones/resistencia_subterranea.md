@@ -7,4 +7,4 @@ doc: 1_trasfondo/facciones/facciones-menores/resistencia-subterranea.md
 tags: ["catalogo/faccion", "faccion/resistencia_subterranea"]
 ---
 
-Ficha de lore: [[resistencia-subterranea]]. Células anarquistas, sabotaje, subterráneos, contra el régimen.
+Ficha de lore: resistencia-subterranea. Células anarquistas, sabotaje, subterráneos, contra el régimen.

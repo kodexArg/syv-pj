@@ -15,4 +15,4 @@ tags:
 
 Prenda de tela oscura que cubre la cabeza. Usada por novicias y consagradas.
 
-Relacionado: [[habito]].
+Relacionado: [habito](habito.md).

@@ -6,4 +6,4 @@ tags: ["especialidad/combate/guerrera", "especialidad/combate", "pool/kuna_mbare
 ---
 Combatiente formada en la tradición; su fuerza es colectiva.
 
-[[kuna_mbarete]]
+[kuna_mbarete](../../facciones/kuna_mbarete.md)

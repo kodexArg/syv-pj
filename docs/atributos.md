@@ -7,7 +7,7 @@ aliases:
 ---
 # Atributos
 
-_Ver [[hoja-personaje]], [[sistema-tags]], [[contratos]]._
+_Ver [hoja-personaje](hoja-personaje.md), [sistema-tags](sistema-tags.md), [contratos](contratos.md)._
 
 ---
 
@@ -21,11 +21,15 @@ Las **únicas** magnitudes numéricas de capacidad que se guardan en la hoja. To
 | `mente` | **MENTE** | Puntería, coordinación, reflejos, lectura táctica, destreza técnica. | 2..7 |
 | `alma` | **ALMA** | Aura, liderazgo, voluntad, temple ante el miedo. En prosa también **Espíritu**. | 2..7 |
 
-> [!info] Nombre determinista vs. nombre popular
+> [!NOTE]
+> **Nombre determinista vs. nombre popular**
+>
 > En `yaml`/`json`/estadísticas la clave es **siempre** `cuerpo`, `mente`, `alma` —sin reducción a tres caracteres—. En prosa el trío se nombra **"Cuerpo, Mente y Alma"** (o **Espíritu** por Alma); **Físico ≡ Cuerpo** y **Espíritu ≡ Alma**. No existen más las claves `fis`/`tac`/`men`.
 
-> [!info] Escala unificada
-> La escala 2..7 es la misma para los tres atributos. Estos son los valores que un personaje puede alcanzar en creación (ver [[generacion-procedural#fase-3-atributos|Fase 3]]); el uno o el tope solo se alcanza vía hito narrativo. 
+> [!NOTE]
+> **Escala unificada**
+>
+> La escala 2..7 es la misma para los tres atributos. Estos son los valores que un personaje puede alcanzar en creación (ver [Fase 3](generacion-procedural.md#fase-3--atributos)); el uno o el tope solo se alcanza vía hito narrativo. 
 
 
 ### 1.1. Mutabilidad
@@ -73,7 +77,9 @@ MORAL = ALMA + Σ modificadores_tags
 - Valor de referencia inicial: igual a `ALMA`.
 - Cada fallo en tirada de moral resta 1 punto (fuera de esta fórmula — es consumo, no modificador de tag).
 
-> [!warning] Caída de moral
+> [!WARNING]
+> **Caída de moral**
+>
 > La caída progresiva puede llevar a **Desesperación** / **Pánico** (pérdida de control), **Furia** (ataques descontrolados) o **Locura** (inutilización permanente para el combate del personaje).
 
 ### 2.3. FATIGA
@@ -128,7 +134,7 @@ SANAR = Σ modificadores_tags   (base 0)
 ```
 
 - Sin contratos que la modifiquen, vale `0`: el personaje no sabe atender heridas.
-- La aportan aspectos y habilidades de competencia sanitaria (ver `primeros_auxilios`, `religioso` en [[contratos]]).
+- La aportan aspectos y habilidades de competencia sanitaria (ver `primeros_auxilios`, `religioso` en [contratos](contratos.md)).
 
 ### 2.7. PERCEPCION
 
@@ -146,7 +152,7 @@ PERCEPCION = Σ modificadores_tags   (base 0)
 
 ## 3. Sistema de efectos: cómo los tags modifican atributos y estadísticas
 
-Un `efecto` es un paquete declarativo dentro de un contrato (`aspecto/*`, `efecto.*`) que apunta al vocabulario canónico de esta sección. Cada modificador es un objeto con datos **separados y extraíbles**: el **objetivo** (la variable), el **valor** y una **nota** opcional. La forma completa del contrato vive en [[contratos]].
+Un `efecto` es un paquete declarativo dentro de un contrato (`aspecto/*`, `efecto.*`) que apunta al vocabulario canónico de esta sección. Cada modificador es un objeto con datos **separados y extraíbles**: el **objetivo** (la variable), el **valor** y una **nota** opcional. La forma completa del contrato vive en [contratos](contratos.md).
 
 ### 3.1. Objetivo en notación punto
 
@@ -200,7 +206,9 @@ efecto:
     condicion: calcular_encuentros   # SOLO al calcular encuentros
 ```
 
-> [!important] Por qué "+1 percepción" ≠ "+1 percepción para calcular encuentros"
+> [!IMPORTANT]
+> **Por qué "+1 percepción" ≠ "+1 percepción para calcular encuentros"**
+>
 > El primero es un bono permanente: el personaje ve mejor siempre. El segundo es un bono **situacional**: solo pesa cuando el motor resuelve si hay un encuentro (una emboscada, un avistaje), y es invisible el resto del tiempo. Mismo número, alcance distinto. La `condicion` separa "es más perceptivo" de "es más perceptivo *para esto*".
 
 **Palabras clave iniciales** (catálogo abierto, igual que el resto):
@@ -213,5 +221,7 @@ efecto:
 
 Un modificador sin `condicion` es el caso por defecto y el más común. La palabra clave es un slug legible (minúsculas, guion bajo); el motor decide qué condiciones evalúa en cada momento de juego. Agregar una palabra clave nueva no rompe nada: un modificador con una `condicion` que el motor aún no evalúa simplemente no se aplica todavía.
 
-> [!tip] Acumulación
+> [!TIP]
+> **Acumulación**
+>
 > Varios tags activos con efectos sobre la misma variable se acumulan algebraicamente. No existe límite de acumulación salvo el que imponga el `clamp` de cada estadística (donde corresponda).

@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/archivista", "especialidad/investigacion", "p
 ---
 Custodia el pasado y decide qué versión sobrevive.
 
-[[guardianes_de_la_memoria]]
+[guardianes_de_la_memoria](../../facciones/guardianes_de_la_memoria.md)

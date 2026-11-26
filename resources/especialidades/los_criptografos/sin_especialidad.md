@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/los_criptografos"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[los_criptografos]]
+[los_criptografos](../../facciones/los_criptografos.md)

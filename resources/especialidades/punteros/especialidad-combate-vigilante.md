@@ -6,4 +6,4 @@ tags: ["especialidad/combate/vigilante", "especialidad/combate", "pool/punteros"
 ---
 Strongman del barrio: protege su manzana con intimidación y fuerza; conoce cada rincón.
 
-[[punteros]]
+[punteros](../../facciones/punteros.md)

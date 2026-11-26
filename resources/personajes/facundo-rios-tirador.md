@@ -33,6 +33,6 @@ apariencia:
   presencia: criollo
 ---
 
-Facundo busca el respiro entre dos latidos. Suelta el [[rifle]] cuando el blanco ya dejó de respirar. Es el [[especialidad-combate-tirador|tirador designado]] de la escuadra, no el bruto de la ametralladora: [[tirador|paciencia]] antes que pólvora.
+Facundo busca el respiro entre dos latidos. Suelta el [rifle](../catalogos/equipo/rifle.md) cuando el blanco ya dejó de respirar. Es el [tirador designado](../especialidades/fuerzas_armadas/especialidad-combate-tirador.md) de la escuadra, no el bruto de la ametralladora: [paciencia](../catalogos/aspecto/tirador.md) antes que pólvora.
 
-Sirve a las [[fuerzas_armadas]] de la [[barrios-del-muro|Ciudad]] como [[soldado_linea|soldado de línea]], y su [[ojo_de_aguila|ojo de águila]] alcanza donde el resto solo lee humo. Con los [[prismaticos]] al cuello y el [[uniforme_linea|uniforme]] descolorido por el sol del Muro, cuenta cabezas de la [[resistencia_subterranea|resistencia]] antes de que nadie las extrañe. Una. Otra.
+Sirve a las [fuerzas_armadas](../facciones/fuerzas_armadas.md) de la Ciudad como soldado de línea, y su [ojo de águila](../catalogos/aspecto/ojo_de_aguila.md) alcanza donde el resto solo lee humo. Con los [prismaticos](../catalogos/equipo/prismaticos.md) al cuello y el [uniforme](../catalogos/equipo/uniforme_linea.md) descolorido por el sol del Muro, cuenta cabezas de la [resistencia](../facciones/resistencia_subterranea.md) antes de que nadie las extrañe. Una. Otra.

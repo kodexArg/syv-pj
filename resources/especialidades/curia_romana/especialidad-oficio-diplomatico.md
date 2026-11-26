@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/diplomatico", "especialidad/oficio", "pool/curia_rom
 ---
 Negocia donde otros solo ven imposibilidad.
 
-[[curia_romana]]
+[curia_romana](../../subfacciones/curia_romana.md)

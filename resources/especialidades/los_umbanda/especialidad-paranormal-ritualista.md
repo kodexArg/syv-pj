@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/ritualista", "especialidad/paranormal", "pool/lo
 ---
 Ejecuta ceremonias cuyo sentido solo la tradición preserva.
 
-[[los_umbanda]]
+[los_umbanda](../../facciones/los_umbanda.md)

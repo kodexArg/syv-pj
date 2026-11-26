@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/explorador-arqueologico", "especialidad/oficio", "po
 ---
 Lidera expediciones de alto riesgo a zonas contaminadas para recuperar artefactos pre-colapso.
 
-[[arpistas]]
+[arpistas](../../facciones/arpistas.md)

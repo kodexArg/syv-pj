@@ -35,6 +35,6 @@ apariencia:
   presencia: afrodescendiente
 ---
 
-Yara dirige un terreiro escondido entre los callejones húmedos de [[barrios-del-muro|Barrios del Muro]], vestida de blanco y sedas del color de su orixá, un escapulario católico sobre las cuentas africanas. Es [[los_umbanda|umbandista]] de rango [[pai_de_santo|pai de santo]], [[veterano|vieja]] en el oficio del santo.
+Yara dirige un terreiro escondido entre los callejones húmedos de Barrios del Muro, vestida de blanco y sedas del color de su orixá, un escapulario católico sobre las cuentas africanas. Es [umbandista](../facciones/los_umbanda.md) de rango pai de santo, [vieja](../catalogos/aspecto/veterano.md) en el oficio del santo.
 
-Cuando suena el [[agogo]] y el incienso satura el aire, ejerce de [[especialidad-paranormal-medium|médium]]: su [[expresion_trance|cuerpo entra en trance]] y baja el santo. Lleva la [[medalla_sincretica]] —Virgen e Iemanjá en una sola cara— y un [[tocado_de_plumas]] que la [[iglesia]] llamaría herejía. Su [[afinidad_animal]] con los bichos del agua y su [[silencio_sagrado]] guardan lo que el río le dice del Pantano. El río habla. Ella calla.
+Cuando suena el [agogo](../catalogos/equipo/agogo.md) y el incienso satura el aire, ejerce de [médium](../especialidades/los_umbanda/especialidad-paranormal-medium.md): su [cuerpo entra en trance](../catalogos/aspecto/expresion_trance.md) y baja el santo. Lleva la medalla_sincretica —Virgen e Iemanjá en una sola cara— y un tocado_de_plumas que la [iglesia](../facciones/iglesia.md) llamaría herejía. Su afinidad_animal con los bichos del agua y su silencio_sagrado guardan lo que el río le dice del Pantano. El río habla. Ella calla.

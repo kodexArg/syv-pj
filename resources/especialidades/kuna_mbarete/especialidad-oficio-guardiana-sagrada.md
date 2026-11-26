@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/guardiana-sagrada", "especialidad/oficio", "pool/kun
 ---
 Transmite y protege los saberes ancestrales del Teko'a; vínculo entre lo vivo y lo sagrado.
 
-[[kuna_mbarete]]
+[kuna_mbarete](../../facciones/kuna_mbarete.md)

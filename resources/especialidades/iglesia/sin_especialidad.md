@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/iglesia"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[iglesia]]
+[iglesia](../../facciones/iglesia.md)

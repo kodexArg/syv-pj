@@ -6,4 +6,4 @@ tags: ["especialidad/combate/fusilero", "especialidad/combate", "pool/fuerzas_ar
 ---
 Infantería de línea; sostiene el frente con disciplina y cadencia de fuego.
 
-[[fuerzas_armadas]]
+[fuerzas_armadas](../../facciones/fuerzas_armadas.md)

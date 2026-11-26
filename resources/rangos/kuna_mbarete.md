@@ -37,4 +37,4 @@ rangos:
   mando: hermandad
 ---
 
-Escalera jerárquica de **Kuna Mbarete** — [[kuna-mbarete]].
+Escalera jerárquica de **Kuna Mbarete** — kuna-mbarete.

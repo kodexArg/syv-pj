@@ -32,6 +32,6 @@ apariencia:
   presencia: mestizo
 ---
 
-Yair se sumó a la pandilla después que [[brian-curinanco-pandillero|Brian]], [[maxi-linares-pandillero|Maxi]] y [[nahuel-antieco-pandillero|Nahuel]], pero llegó más curtido que ninguno. La calle de [[barrios-del-muro|los Barrios del Muro]] ya lo había masticado antes de que el [[resistencia_subterranea|Ejército Rojo]] le diera un lugar.
+Yair se sumó a la pandilla después que [Brian](brian-curinanco-pandillero.md), [Maxi](maxi-linares-pandillero.md) y [Nahuel](nahuel-antieco-pandillero.md), pero llegó más curtido que ninguno. La calle de los Barrios del Muro ya lo había masticado antes de que el [Ejército Rojo](../facciones/resistencia_subterranea.md) le diera un lugar.
 
-Va de [[militante_resistencia|militante]] al frente como [[especialidad-combate-asalto|asaltante]], con un solo [[machete]] gastado y nada más, porque dice que el que carga de más corre de menos: puro cálculo [[tactico|táctico]] de pibe de calle. Es [[terco]] como una mula contra la [[fuerzas_armadas|Confederación]] y lleva el [[tatuaje_de_unidad|tatuaje de la unidad]] como quien por fin encontró de qué lado del Muro pertenece. De qué lado. Por fin.
+Va de militante al frente como [asaltante](../especialidades/resistencia_subterranea/especialidad-combate-asalto.md), con un solo [machete](../catalogos/equipo/machete.md) gastado y nada más, porque dice que el que carga de más corre de menos: puro cálculo [táctico](../catalogos/aspecto/tactico.md) de pibe de calle. Es [terco](../catalogos/aspecto/terco.md) como una mula contra la [Confederación](../facciones/fuerzas_armadas.md) y lleva el [tatuaje de la unidad](../catalogos/rasgo/tatuaje_de_unidad.md) como quien por fin encontró de qué lado del Muro pertenece. De qué lado. Por fin.

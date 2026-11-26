@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/ocultista", "especialidad/paranormal", "pool/gua
 ---
 Estudia lo prohibido con la disciplina de lo académico.
 
-[[guardianes_de_la_memoria]]
+[guardianes_de_la_memoria](../../facciones/guardianes_de_la_memoria.md)

@@ -11,4 +11,4 @@ tags:
 
 Prepara, coloca y detona cargas. También sabe cuándo no hacerlo.
 
-Relacionado: [[demolicion]], [[granada]].
+Relacionado: [demolicion](../entrenamiento/demolicion.md), [granada](../equipo/granada.md).

@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/criptografo", "especialidad/investigacion", "
 ---
 Cifra y descifra textos prohibidos para proteger el conocimiento teológico sensible.
 
-[[archivistas_y_cientificos_teologicos]]
+[archivistas_y_cientificos_teologicos](../../subfacciones/archivistas_y_cientificos_teologicos.md)

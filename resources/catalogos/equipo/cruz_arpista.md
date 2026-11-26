@@ -17,4 +17,4 @@ tags:
 
 Cruz con arpa sin cuerdas grabada. Identificador de filiación para los que saben leer el símbolo.
 
-Relacionado: [[anillo_archivista]], [[marca_arpa]].
+Relacionado: [anillo_archivista](anillo_archivista.md), [marca_arpa](../aspecto/marca_arpa.md).

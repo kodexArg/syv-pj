@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/curandero", "especialidad/paranormal", "pool/shi
 ---
 Sana con métodos que la medicina institucional prefiere ignorar.
 
-[[shipibo_conibo]]
+[shipibo_conibo](../../facciones/shipibo_conibo.md)

@@ -32,8 +32,8 @@ apariencia:
   presencia: 'PENDIENTE: redactar (regla §2.5)'
 ---
 
-[[damian-diconte|Damián DiConte]], "El Sabueso". Exiliado de Córdoba, instalado años después en una oficina del Ministerio de Defensa/Seguridad de Dársena al servicio de la Iglesia. Mente deductiva brillante, memoria pésima para los nombres propios: reverso exacto de Pedro de los Santos.
+Damián DiConte, "El Sabueso". Exiliado de Córdoba, instalado años después en una oficina del Ministerio de Defensa/Seguridad de Dársena al servicio de la Iglesia. Mente deductiva brillante, memoria pésima para los nombres propios: reverso exacto de Pedro de los Santos.
 
-Un gigante en decadencia dentro de un [[chaqueta_de_cuero|impermeable de cuero]] desgastado que huele a tabaco frío, [[galera|sombrero]] de cuero calado, [[mirada_cansada|ojeras que ya son parte de su cara]]. Nada lo detiene una vez que huele el patrón — [[ojo_de_aguila|olfato para el detalle]] forjado por años de investigación, [[veterano|veterano]] de una carrera que casi lo mató en Córdoba.
+Un gigante en decadencia dentro de un impermeable de cuero desgastado que huele a tabaco frío, [sombrero](../catalogos/equipo/galera.md) de cuero calado, [ojeras que ya son parte de su cara](../catalogos/rasgo/mirada_cansada.md). Nada lo detiene una vez que huele el patrón — [olfato para el detalle](../catalogos/aspecto/ojo_de_aguila.md) forjado por años de investigación, [veterano](../catalogos/aspecto/veterano.md) de una carrera que casi lo mató en Córdoba.
 
-Ficha SyV-pj basada en el canon [[3_personajes/principales/damian-diconte|Damián DiConte]] (`syv-docs`). Sin facción cerrada: opera como independiente, contratado por eclesiásticos de primera línea.
+Ficha SyV-pj basada en el canon Damián DiConte (`syv-docs`). Sin facción cerrada: opera como independiente, contratado por eclesiásticos de primera línea.

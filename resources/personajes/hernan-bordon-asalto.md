@@ -34,6 +34,6 @@ apariencia:
   presencia: criollo, rapado
 ---
 
-[[soldado_linea|Soldado]] [[fuerzas_armadas|Bordón]] va en [[vanguardia|punta]], como le gusta. El [[subfusil]] corto pegado al pecho, una [[granada]] colgando lista, el [[uniforme_linea|uniforme]] sin un gramo de más. Ejerce el [[especialidad-combate-asalto|asalto]] entrando primero a los cuartos cerrados, donde la luz llega tarde.
+Soldado [Bordón](../facciones/fuerzas_armadas.md) va en [punta](../catalogos/aspecto/vanguardia.md), como le gusta. El [subfusil](../catalogos/equipo/subfusil.md) corto pegado al pecho, una [granada](../catalogos/equipo/granada.md) colgando lista, el [uniforme](../catalogos/equipo/uniforme_linea.md) sin un gramo de más. Ejerce el [asalto](../especialidades/fuerzas_armadas/especialidad-combate-asalto.md) entrando primero a los cuartos cerrados, donde la luz llega tarde.
 
-El [[tatuaje_de_unidad|tatuaje de unidad]] le asoma bajo el [[chaleco_asalto|chaleco]] cada vez que levanta el arma. Cuando la escuadra de [[ovidio-gauna-sargento|Gauna]] irrumpe en una casa de los [[barrios-del-muro|Barrios del Muro]], es la silueta de Bordón la que cruza el umbral antes que la luz. Antes que el grito. Antes que nadie.
+El [tatuaje de unidad](../catalogos/rasgo/tatuaje_de_unidad.md) le asoma bajo el [chaleco](../catalogos/equipo/chaleco_asalto.md) cada vez que levanta el arma. Cuando la escuadra de [Gauna](ovidio-gauna-sargento.md) irrumpe en una casa de los Barrios del Muro, es la silueta de Bordón la que cruza el umbral antes que la luz. Antes que el grito. Antes que nadie.

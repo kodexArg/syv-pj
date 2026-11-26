@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/diplomatico", "especialidad/oficio", "pool/alto_cler
 ---
 Negocia donde otros solo ven imposibilidad.
 
-[[alto_clero]]
+[alto_clero](../../subfacciones/alto_clero.md)

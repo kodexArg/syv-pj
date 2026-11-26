@@ -26,4 +26,4 @@ rangos:
   mando: red_trata
 ---
 
-Escalera jerárquica de **Traficantes de Almas** — [[traficantes-de-almas]].
+Escalera jerárquica de **Traficantes de Almas** — traficantes-de-almas.

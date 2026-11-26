@@ -26,4 +26,4 @@ rangos:
   mando: red_canales
 ---
 
-Escalera jerárquica de **Canales Ocultos** — [[canales-ocultos]].
+Escalera jerárquica de **Canales Ocultos** — canales-ocultos.

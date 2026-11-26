@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/comerciante", "especialidad/oficio", "pool/gremio_de
 ---
 Compra bajo, vende alto, y no pregunta demasiado.
 
-[[gremio_de_comercio]]
+[gremio_de_comercio](../../facciones/gremio_de_comercio.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/predicador", "especialidad/oficio", "pool/curia_roma
 ---
 La palabra como arma: convierte, moviliza, justifica.
 
-[[curia_romana]]
+[curia_romana](../../subfacciones/curia_romana.md)

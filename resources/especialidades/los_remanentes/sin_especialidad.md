@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/los_remanentes"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[los_remanentes]]
+[los_remanentes](../../facciones/los_remanentes.md)

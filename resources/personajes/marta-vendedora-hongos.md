@@ -31,10 +31,10 @@ apariencia:
   presencia: hermosa
 ---
 
-[[3_personajes/secundarios/marta-la-curandera|Marta, la Curandera]], sanadora de las Tuberías que vende hongos raros cultivados en la humedad subterránea. Su reputación prospera en susurros: cicatrización imposible, razón restaurada, visión devuelta. Vive de donaciones, nunca de dinero.
+Marta, la Curandera, sanadora de las Tuberías que vende hongos raros cultivados en la humedad subterránea. Su reputación prospera en susurros: cicatrización imposible, razón restaurada, visión devuelta. Vive de donaciones, nunca de dinero.
 
 **Nota de reinterpretación visual:** el canon la describe anciana; esta ficha la retrata hermosa y de porte guerrero por pedido explícito, priorizando esa lectura visual sobre la edad canónica sin alterar su rol ni su historia.
 
-Habla poco; cuando lo hace, sus palabras pesan como piedras en agua profunda. [[veterano|Ecuanimidad sobrenatural]], como si hubiera visto todo el sufrimiento posible y decidido permanecer serena. [[terco|Amabilidad translúcida]]: existe, pero a distancia.
+Habla poco; cuando lo hace, sus palabras pesan como piedras en agua profunda. [Ecuanimidad sobrenatural](../catalogos/aspecto/veterano.md), como si hubiera visto todo el sufrimiento posible y decidido permanecer serena. [Amabilidad translúcida](../catalogos/aspecto/terco.md): existe, pero a distancia.
 
-Ficha SyV-pj basada en el canon [[3_personajes/secundarios/marta-la-curandera|Marta, la Curandera]] (`syv-docs`), con desviación visual solicitada.
+Ficha SyV-pj basada en el canon Marta, la Curandera (`syv-docs`), con desviación visual solicitada.

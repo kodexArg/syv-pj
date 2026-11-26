@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/chamana", "especialidad/paranormal", "pool/kuna_
 ---
 Media entre el mundo de los vivos y las fuerzas del monte.
 
-[[kuna_mbarete]]
+[kuna_mbarete](../../facciones/kuna_mbarete.md)

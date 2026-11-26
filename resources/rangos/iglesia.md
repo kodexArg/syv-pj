@@ -84,4 +84,4 @@ rangos:
   mando: curia
 ---
 
-Escalera jerárquica de **Iglesia Católica** — [[iglesia]].
+Escalera jerárquica de **Iglesia Católica** — [iglesia]().

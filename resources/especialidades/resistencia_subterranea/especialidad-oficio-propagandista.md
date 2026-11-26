@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/propagandista", "especialidad/oficio", "pool/resiste
 ---
 Construye relatos que la gente adopta como propios.
 
-[[resistencia_subterranea]]
+[resistencia_subterranea](../../facciones/resistencia_subterranea.md)

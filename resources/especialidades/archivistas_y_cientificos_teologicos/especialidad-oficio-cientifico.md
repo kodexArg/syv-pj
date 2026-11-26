@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/cientifico", "especialidad/oficio", "pool/archivista
 ---
 Aplica método y dogma en proporciones que prefiere no explicar.
 
-[[archivistas_y_cientificos_teologicos]]
+[archivistas_y_cientificos_teologicos](../../subfacciones/archivistas_y_cientificos_teologicos.md)

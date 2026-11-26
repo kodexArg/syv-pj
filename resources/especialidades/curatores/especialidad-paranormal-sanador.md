@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/sanador", "especialidad/paranormal", "pool/curat
 ---
 Cura mediante la fe o algo que se le parece bastante.
 
-[[curatores]]
+[curatores](../../subfacciones/curatores.md)

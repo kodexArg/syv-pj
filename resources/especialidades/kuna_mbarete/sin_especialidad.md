@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/kuna_mbarete"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[kuna_mbarete]]
+[kuna_mbarete](../../facciones/kuna_mbarete.md)

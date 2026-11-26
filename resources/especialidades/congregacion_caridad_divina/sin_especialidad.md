@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/congregacion_caridad_divina"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[congregacion_caridad_divina]]
+[congregacion_caridad_divina](../../subfacciones/congregacion_caridad_divina.md)

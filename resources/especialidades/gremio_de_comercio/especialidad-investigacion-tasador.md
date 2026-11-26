@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/tasador", "especialidad/investigacion", "pool
 ---
 Pone precio a lo que no tiene precio oficial.
 
-[[gremio_de_comercio]]
+[gremio_de_comercio](../../facciones/gremio_de_comercio.md)

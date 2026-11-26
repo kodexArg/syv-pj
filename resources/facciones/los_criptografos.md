@@ -7,4 +7,4 @@ doc: 1_trasfondo/facciones/facciones-menores/los-criptografos.md
 tags: ["catalogo/faccion", "faccion/los_criptografos"]
 ---
 
-Ficha de lore: [[los-criptografos]]. Aclaración terminológica, oficiales estatales o hackers clandestinos.
+Ficha de lore: los-criptografos. Aclaración terminológica, oficiales estatales o hackers clandestinos.

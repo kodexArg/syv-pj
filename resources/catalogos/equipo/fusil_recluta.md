@@ -18,4 +18,4 @@ tags:
 
 Arma vieja y gastada que se le da al que recién llega.
 
-Sesgo: rangos recluta y militante. Relacionado: [[fusil]].
+Sesgo: rangos recluta y militante. Relacionado: [fusil](fusil.md).

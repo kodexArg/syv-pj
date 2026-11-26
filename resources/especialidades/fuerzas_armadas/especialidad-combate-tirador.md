@@ -6,4 +6,4 @@ tags: ["especialidad/combate/tirador", "especialidad/combate", "pool/fuerzas_arm
 ---
 Precisión sobre cantidad; elimina objetivos desde la distancia.
 
-[[fuerzas_armadas]] [[tiro_de_precision]]
+[fuerzas_armadas](../../facciones/fuerzas_armadas.md) [tiro_de_precision](../../catalogos/habilidad/tiro_de_precision.md)

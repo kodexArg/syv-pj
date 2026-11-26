@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/marinero", "especialidad/oficio", "pool/gremio_de_pe
 ---
 Navega por aguas que otros evitan; el mar es su domicilio.
 
-[[gremio_de_pescadores]]
+[gremio_de_pescadores](../../facciones/gremio_de_pescadores.md)

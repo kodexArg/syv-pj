@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/erudito", "especialidad/oficio", "pool/guardianes_de
 ---
 Lee más de lo que habla; sabe más de lo que muestra.
 
-[[guardianes_de_la_memoria]]
+[guardianes_de_la_memoria](../../facciones/guardianes_de_la_memoria.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/arqueologo_tech", "especialidad/oficio", "pool/saque
 ---
 Recupera tecnología perdida sin entender del todo cómo funciona.
 
-[[saqueadores_y_traficantes]]
+[saqueadores_y_traficantes](../../facciones/saqueadores_y_traficantes.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/informante", "especialidad/investigacion", "p
 ---
 Vende datos al mejor postor; su lealtad dura lo que el pago.
 
-[[canales_ocultos]]
+[canales_ocultos](../../facciones/canales_ocultos.md)

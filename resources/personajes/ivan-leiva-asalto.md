@@ -34,6 +34,6 @@ apariencia:
   presencia: criollo, morocho
 ---
 
-[[soldado_linea|Soldado]] [[fuerzas_armadas|Leiva]] entra siempre detrás de [[hernan-bordon-asalto|Bordón]] y le cubre la espalda sin que se lo pidan. [[terco|Obstinado]] en no quedarse atrás. Ejerce el [[especialidad-combate-asalto|asalto]] con el [[subfusil]] firme y [[cargador|cargadores]] de repuesto en el [[chaleco_asalto|chaleco]].
+Soldado [Leiva](../facciones/fuerzas_armadas.md) entra siempre detrás de [Bordón](hernan-bordon-asalto.md) y le cubre la espalda sin que se lo pidan. [Obstinado](../catalogos/aspecto/terco.md) en no quedarse atrás. Ejerce el [asalto](../especialidades/fuerzas_armadas/especialidad-combate-asalto.md) con el [subfusil](../catalogos/equipo/subfusil.md) firme y [cargadores](../catalogos/equipo/cargador.md) de repuesto en el [chaleco](../catalogos/equipo/chaleco_asalto.md).
 
-La [[mirada_cansada|mirada]] ya le pesa de tantas puertas pateadas, el [[uniforme_linea|uniforme]] con olor a humedad y a humo viejo. En los [[barrios-del-muro|Barrios del Muro]] cumple órdenes y calla, que es lo que la [[fuerzas_armadas|Confederación]] espera de un soldado de línea. Entra. Cubre. Calla.
+La [mirada](../catalogos/rasgo/mirada_cansada.md) ya le pesa de tantas puertas pateadas, el [uniforme](../catalogos/equipo/uniforme_linea.md) con olor a humedad y a humo viejo. En los Barrios del Muro cumple órdenes y calla, que es lo que la [Confederación](../facciones/fuerzas_armadas.md) espera de un soldado de línea. Entra. Cubre. Calla.

@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/sanidad"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[sanidad]]
+[sanidad](../../subfacciones/sanidad.md)

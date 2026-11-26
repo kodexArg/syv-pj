@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/saqueador", "especialidad/oficio", "pool/saqueadores
 ---
 Toma lo que encuentra; devuelve lo que no puede cargar.
 
-[[saqueadores_y_traficantes]]
+[saqueadores_y_traficantes](../../facciones/saqueadores_y_traficantes.md)

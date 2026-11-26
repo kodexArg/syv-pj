@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/investigador", "especialidad/paranormal", "pool/
 ---
 Registra posesiones, estudia demonología y conecta patrones en los márgenes de la fe.
 
-[[congregacion_caridad_divina]]
+[congregacion_caridad_divina](../../subfacciones/congregacion_caridad_divina.md)

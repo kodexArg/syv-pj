@@ -35,6 +35,6 @@ apariencia:
   presencia: criollo
 ---
 
-[[cabo|Cabo]] [[fuerzas_armadas|Ferreyra]] es el segundo del [[sargento]] [[ovidio-gauna-sargento|Gauna]] y el que entra primero, porque nadie se lo discute. [[terco|Terco]] como una mula, de [[constitucion_robusta|espaldas anchas]], aguanta lo que sea con tal de no retroceder.
+Cabo [Ferreyra](../facciones/fuerzas_armadas.md) es el segundo del sargento [Gauna](ovidio-gauna-sargento.md) y el que entra primero, porque nadie se lo discute. [Terco](../catalogos/aspecto/terco.md) como una mula, de [espaldas anchas](../catalogos/rasgo/constitucion_robusta.md), aguanta lo que sea con tal de no retroceder.
 
-Carga el [[fusil]], un par de [[granada|granadas]] y [[cargador|cargadores]] de sobra bajo el [[chaleco_asalto|chaleco]], el [[uniforme_linea|uniforme]] reventado en los codos de tanto suelo. Ejerce el [[especialidad-combate-asalto|asalto]] sin teorías ni dudas. En los [[barrios-del-muro|Barrios del Muro]] dicen que Ferreyra patea puertas hasta cuando están abiertas. Hasta cuando están abiertas.
+Carga el [fusil](../catalogos/equipo/fusil.md), un par de [granadas](../catalogos/equipo/granada.md) y [cargadores](../catalogos/equipo/cargador.md) de sobra bajo el [chaleco](../catalogos/equipo/chaleco_asalto.md), el [uniforme](../catalogos/equipo/uniforme_linea.md) reventado en los codos de tanto suelo. Ejerce el [asalto](../especialidades/fuerzas_armadas/especialidad-combate-asalto.md) sin teorías ni dudas. En los Barrios del Muro dicen que Ferreyra patea puertas hasta cuando están abiertas. Hasta cuando están abiertas.

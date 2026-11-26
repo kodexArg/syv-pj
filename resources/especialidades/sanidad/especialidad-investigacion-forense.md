@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/forense", "especialidad/investigacion", "pool
 ---
 Lee cadáveres; cada cuerpo tiene algo que contar.
 
-[[sanidad]]
+[sanidad](../../subfacciones/sanidad.md)

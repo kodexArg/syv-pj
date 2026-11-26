@@ -9,4 +9,4 @@ doc: 1_trasfondo/facciones/iglesia-de-darsena/archivistas-y-cientificos-teologic
 tags: ["catalogo/subfaccion", "subfaccion/archivistas_y_cientificos_teologicos", "faccion/iglesia"]
 ---
 
-Ficha de lore: [[archivistas-y-cientificos-teologicos]]. Grupos eclesiásticos que gestionan educación, archivos y conocimiento dentro de los límites del dogma. Facción padre: [[iglesia]].
+Ficha de lore: archivistas-y-cientificos-teologicos. Grupos eclesiásticos que gestionan educación, archivos y conocimiento dentro de los límites del dogma. Facción padre: [iglesia](../facciones/iglesia.md).

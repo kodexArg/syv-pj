@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/masones"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[masones]]
+[masones](../../facciones/masones.md)

@@ -11,4 +11,4 @@ tags:
 
 Cargas, brechas y trampas. El oficio del zapador.
 
-Relacionado: [[manejo_de_explosivos]], [[granada]].
+Relacionado: [manejo_de_explosivos](../habilidad/manejo_de_explosivos.md), [granada](../equipo/granada.md).

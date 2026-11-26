@@ -13,4 +13,4 @@ tags:
 
 Carga explosiva de fragmentación para asalto cercano.
 
-Relacionado: [[manejo_de_explosivos]].
+Relacionado: [manejo_de_explosivos](../habilidad/manejo_de_explosivos.md).

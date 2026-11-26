@@ -18,4 +18,4 @@ tags:
 
 Medalla de santo patrono colgada al cuello. Protección cotidiana más que ceremonial.
 
-Relacionado: [[crucifijo_consagrado]], [[rosario]].
+Relacionado: [crucifijo_consagrado](crucifijo_consagrado.md), [rosario](rosario.md).

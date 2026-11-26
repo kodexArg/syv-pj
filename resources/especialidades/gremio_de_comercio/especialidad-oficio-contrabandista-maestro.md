@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/contrabandista-maestro", "especialidad/oficio", "poo
 ---
 Opera el mercado negro sofisticado de metales y PIAs; red de rutas invisibles al SIA.
 
-[[gremio_de_comercio]]
+[gremio_de_comercio](../../facciones/gremio_de_comercio.md)

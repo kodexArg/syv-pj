@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/arqueologo_tech", "especialidad/oficio", "pool/arpis
 ---
 Recupera tecnología perdida sin entender del todo cómo funciona.
 
-[[arpistas]]
+[arpistas](../../facciones/arpistas.md)

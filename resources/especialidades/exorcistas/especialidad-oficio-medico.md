@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/medico", "especialidad/oficio", "pool/exorcistas"]
 ---
 Mantiene cuerpos vivos en condiciones que no deberían permitirlo.
 
-[[exorcistas]]
+[exorcistas](../../subfacciones/exorcistas.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/enfermero", "especialidad/oficio", "pool/sanidad"]
 ---
 Primer contacto con el dolor; sostiene lo que el médico no puede atender.
 
-[[sanidad]]
+[sanidad](../../subfacciones/sanidad.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/ocultista", "especialidad/paranormal", "pool/mas
 ---
 Estudia lo prohibido con la disciplina de lo académico.
 
-[[masones]]
+[masones](../../facciones/masones.md)

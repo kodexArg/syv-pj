@@ -38,4 +38,4 @@ rangos:
   mando: turf
 ---
 
-Escalera jerárquica de **Punteros** — [[barrios-del-muro]].
+Escalera jerárquica de **Punteros** — barrios-del-muro.

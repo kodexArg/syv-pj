@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/vigilante", "especialidad/investigacion", "po
 ---
 Ojos y oídos del poder en la calle.
 
-[[seguridad_urbana]]
+[seguridad_urbana](../../subfacciones/seguridad_urbana.md)

@@ -7,4 +7,4 @@ doc: 1_trasfondo/facciones/facciones-menores/arpistas.md
 tags: ["catalogo/faccion", "faccion/arpistas"]
 ---
 
-Ficha de lore: [[arpistas]]. Red proscrita internacional, conocimiento, arqueología tecnológica, neutralización.
+Ficha de lore: [arpistas](). Red proscrita internacional, conocimiento, arqueología tecnológica, neutralización.

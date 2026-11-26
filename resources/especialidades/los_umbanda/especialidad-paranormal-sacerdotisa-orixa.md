@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/sacerdotisa-orixa", "especialidad/paranormal", "
 ---
 Sacerdotisa consagrada a un orixá; oficia ritos de iniciación y puente entre terreiro y barrio.
 
-[[los_umbanda]]
+[los_umbanda](../../facciones/los_umbanda.md)

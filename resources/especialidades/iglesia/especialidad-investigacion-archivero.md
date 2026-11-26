@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/archivero", "especialidad/investigacion", "po
 ---
 Custodia secretos de la Iglesia; acceso a registros que no deben ver la luz.
 
-[[iglesia]]
+[iglesia](../../facciones/iglesia.md)

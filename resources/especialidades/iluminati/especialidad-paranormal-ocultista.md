@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/ocultista", "especialidad/paranormal", "pool/ilu
 ---
 Estudia lo prohibido con la disciplina de lo académico.
 
-[[iluminati]]
+[iluminati](../../facciones/iluminati.md)

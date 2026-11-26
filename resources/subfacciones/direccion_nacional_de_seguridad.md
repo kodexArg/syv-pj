@@ -9,4 +9,4 @@ doc: 1_trasfondo/facciones/fuerzas-armadas/direccion-nacional-de-seguridad.md
 tags: ["catalogo/subfaccion", "subfaccion/direccion_nacional_de_seguridad", "faccion/fuerzas_armadas"]
 ---
 
-Ficha de lore: [[direccion-nacional-de-seguridad]]. Aparato de seguridad e investigación criminal de la Confederación, con sede de poder en Córdoba. Facción padre: [[fuerzas_armadas]].
+Ficha de lore: direccion-nacional-de-seguridad. Aparato de seguridad e investigación criminal de la Confederación, con sede de poder en Córdoba. Facción padre: [fuerzas_armadas](../facciones/fuerzas_armadas.md).

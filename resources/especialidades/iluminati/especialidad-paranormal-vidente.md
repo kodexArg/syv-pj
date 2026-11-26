@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/vidente", "especialidad/paranormal", "pool/ilumi
 ---
 Percibe lo que otros no pueden ver; no siempre lo entiende.
 
-[[iluminati]]
+[iluminati](../../facciones/iluminati.md)

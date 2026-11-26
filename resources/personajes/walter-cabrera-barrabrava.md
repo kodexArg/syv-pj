@@ -31,6 +31,6 @@ apariencia:
   presencia: morocho
 ---
 
-El Mono cruza al choque con algo más que un bombo. Lleva el [[machete]] al cinto y la [[capucha]] calada hasta los ojos. Cuando la columna del [[resistencia_subterranea|Ejército Rojo]] se trenza con la [[fuerzas_armadas|Confederación]], él va de [[especialidad-combate-asalto|asaltante]], en la primera línea, donde el aire huele a pólvora y a goma quemada.
+El Mono cruza al choque con algo más que un bombo. Lleva el [machete](../catalogos/equipo/machete.md) al cinto y la [capucha](../catalogos/equipo/capucha.md) calada hasta los ojos. Cuando la columna del [Ejército Rojo](../facciones/resistencia_subterranea.md) se trenza con la [Confederación](../facciones/fuerzas_armadas.md), él va de [asaltante](../especialidades/resistencia_subterranea/especialidad-combate-asalto.md), en la primera línea, donde el aire huele a pólvora y a goma quemada.
 
-Sigue siendo [[simpatizante]] y nunca pidió galones. Igual nadie le discute el lugar adelante por [[barrios-del-muro|los Barrios del Muro]]. Es [[terco]] hasta lo bestia: lo querés frenar y se le sube la sangre, y un Cabrera con la sangre arriba y un machete en la mano es problema para cualquier conscripto de Bahía Blanca. Serio.
+Sigue siendo simpatizante y nunca pidió galones. Igual nadie le discute el lugar adelante por los Barrios del Muro. Es [terco](../catalogos/aspecto/terco.md) hasta lo bestia: lo querés frenar y se le sube la sangre, y un Cabrera con la sangre arriba y un machete en la mano es problema para cualquier conscripto de Bahía Blanca. Serio.

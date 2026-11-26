@@ -20,4 +20,4 @@ tags:
 
 Copa litúrgica de metal para la eucaristía. Solo quien oficia la misa lo toca.
 
-Relacionado: [[relicario]], [[agua_sagrada_frasco]].
+Relacionado: [relicario](relicario.md), [agua_sagrada_frasco](agua_sagrada_frasco.md).

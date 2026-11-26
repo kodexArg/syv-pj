@@ -17,4 +17,4 @@ tags:
 
 Delantal de cuero o tela gruesa con manchas de sangre vieja, aceite y reactivos. El médico clandestino que lo carga no tiene tiempo de lavarlo entre trabajo y trabajo.
 
-Relacionado: [[botiquin]], [[primeros_auxilios]].
+Relacionado: [botiquin](botiquin.md), primeros_auxilios.

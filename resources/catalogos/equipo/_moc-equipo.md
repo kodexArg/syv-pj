@@ -11,66 +11,66 @@ tags:
 
 63 ítems.
 
-- [[agogo|Agogô]]
-- [[agua_sagrada_frasco|Frasco de agua sagrada]]
-- [[alambre_cobre|Alambre de cobre]]
-- [[anillo_archivista|Anillo del archivista]]
-- [[antidoto_paranormal|Antídoto paranormal]]
-- [[antiparras|Antiparras opacas]]
-- [[banda_eclesiastica|Banda eclesiástica]]
-- [[botiquin|Botiquín]]
-- [[cadena_bendita|Cadena bendita]]
-- [[caliz_ceremonial|Cáliz ceremonial]]
-- [[capucha|Capucha]]
-- [[cargador|Cargador extra]]
-- [[chaleco_asalto|Chaleco de asalto]]
-- [[chaleco|Chaleco táctico]]
-- [[chaqueta_escamas|Chaqueta de escamas]]
-- [[cincel_acero|Cincel de acero]]
-- [[contenedor_plomo|Contenedor de plomo]]
-- [[crucifijo_consagrado|Crucifijo consagrado]]
-- [[cruz_arpista|Cruz arpista]]
-- [[cuchillo_ceremonial_guarani|Cuchillo ceremonial guaraní]]
-- [[delantal_manchado|Delantal manchado]]
-- [[destornillador_aislado|Destornillador aislado]]
-- [[escudo_antiratas|Escudo antiratas]]
-- [[espada_consagrada|Espada consagrada]]
-- [[farola_aceite|Farola de aceite]]
-- [[fusil|Fusil estándar]]
-- [[fusil_recluta|Fusil de recluta]]
-- [[galera|Galera]]
-- [[garrafa_ritual|Garrafa ritual]]
-- [[geiger_quimico|Contador Geiger químico]]
-- [[granada|Granada de mano]]
-- [[guanteletes_cuero|Guanteletes de cuero]]
-- [[habito|Hábito monacal]]
-- [[herramientas_madera|Herramientas de madera]]
-- [[insignia_rango_militar|Insignia de rango militar]]
-- [[latigo_consagrado|Látigo consagrado]]
-- [[lente_aumento|Lente de aumento]]
-- [[machete|Machete]]
-- [[martillo_fragmentacion|Martillo de fragmentación]]
-- [[medallon_bendito|Medallón bendito]]
-- [[papel_libre_acido|Papel libre de ácido]]
-- [[pinza_hueso|Pinza de hueso]]
-- [[pistola_9mm|Pistola 9mm]]
-- [[pocion_sanadora|Poción sanadora]]
-- [[prismaticos|Prismáticos]]
-- [[radio|Radio de campo]]
-- [[red_de_pesca|Red de pesca remendada]]
-- [[relicario|Relicario]]
-- [[rifle|Rifle de alcance largo]]
-- [[rosario|Rosario]]
-- [[solvente_quimico|Solvente químico]]
-- [[sonda_voltaje|Sonda de voltaje]]
-- [[sotana|Sotana]]
-- [[subfusil|Subfusil]]
-- [[talisman_guarani|Talismán guaraní]]
-- [[tinta_ferrogalica|Tinta ferrogálica]]
-- [[unguento_medicinal|Ungüento medicinal]]
-- [[uniforme_gris_dns|Uniforme gris DNS]]
-- [[uniforme_linea|Uniforme de línea]]
-- [[uniforme_rojo|Uniforme rojo]]
-- [[uniforme_tactico_rojo|Uniforme táctico rojo]]
-- [[vela_sebo|Vela de sebo]]
-- [[velo_monacal|Velo monacal]]
+- [Agogô](agogo.md)
+- [Frasco de agua sagrada](agua_sagrada_frasco.md)
+- [Alambre de cobre](alambre_cobre.md)
+- [Anillo del archivista](anillo_archivista.md)
+- [Antídoto paranormal](antidoto_paranormal.md)
+- [Antiparras opacas](antiparras.md)
+- [Banda eclesiástica](banda_eclesiastica.md)
+- [Botiquín](botiquin.md)
+- [Cadena bendita](cadena_bendita.md)
+- [Cáliz ceremonial](caliz_ceremonial.md)
+- [Capucha](capucha.md)
+- [Cargador extra](cargador.md)
+- [Chaleco de asalto](chaleco_asalto.md)
+- [Chaleco táctico](chaleco.md)
+- [Chaqueta de escamas](chaqueta_escamas.md)
+- [Cincel de acero](cincel_acero.md)
+- [Contenedor de plomo](contenedor_plomo.md)
+- [Crucifijo consagrado](crucifijo_consagrado.md)
+- [Cruz arpista](cruz_arpista.md)
+- [Cuchillo ceremonial guaraní](cuchillo_ceremonial_guarani.md)
+- [Delantal manchado](delantal_manchado.md)
+- [Destornillador aislado](destornillador_aislado.md)
+- [Escudo antiratas](escudo_antiratas.md)
+- [Espada consagrada](espada_consagrada.md)
+- [Farola de aceite](farola_aceite.md)
+- [Fusil estándar](fusil.md)
+- [Fusil de recluta](fusil_recluta.md)
+- [Galera](galera.md)
+- [Garrafa ritual](garrafa_ritual.md)
+- [Contador Geiger químico](geiger_quimico.md)
+- [Granada de mano](granada.md)
+- [Guanteletes de cuero](guanteletes_cuero.md)
+- [Hábito monacal](habito.md)
+- [Herramientas de madera](herramientas_madera.md)
+- [Insignia de rango militar](insignia_rango_militar.md)
+- [Látigo consagrado](latigo_consagrado.md)
+- [Lente de aumento](lente_aumento.md)
+- [Machete](machete.md)
+- [Martillo de fragmentación](martillo_fragmentacion.md)
+- [Medallón bendito](medallon_bendito.md)
+- [Papel libre de ácido](papel_libre_acido.md)
+- [Pinza de hueso](pinza_hueso.md)
+- [Pistola 9mm](pistola_9mm.md)
+- [Poción sanadora](pocion_sanadora.md)
+- [Prismáticos](prismaticos.md)
+- [Radio de campo](radio.md)
+- [Red de pesca remendada](red_de_pesca.md)
+- [Relicario](relicario.md)
+- [Rifle de alcance largo](rifle.md)
+- [Rosario](rosario.md)
+- [Solvente químico](solvente_quimico.md)
+- [Sonda de voltaje](sonda_voltaje.md)
+- [Sotana](sotana.md)
+- [Subfusil](subfusil.md)
+- [Talismán guaraní](talisman_guarani.md)
+- [Tinta ferrogálica](tinta_ferrogalica.md)
+- [Ungüento medicinal](unguento_medicinal.md)
+- [Uniforme gris DNS](uniforme_gris_dns.md)
+- [Uniforme de línea](uniforme_linea.md)
+- [Uniforme rojo](uniforme_rojo.md)
+- [Uniforme táctico rojo](uniforme_tactico_rojo.md)
+- [Vela de sebo](vela_sebo.md)
+- [Velo monacal](velo_monacal.md)

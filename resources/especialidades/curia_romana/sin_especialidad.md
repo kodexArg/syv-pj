@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/curia_romana"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[curia_romana]]
+[curia_romana](../../subfacciones/curia_romana.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/portuario", "especialidad/oficio", "pool/gremio_de_p
 ---
 Carga, descarga y mueve mercancía en los muelles de Dársena; sabe lo que entra y lo que sale.
 
-[[gremio_de_pescadores]]
+[gremio_de_pescadores](../../facciones/gremio_de_pescadores.md)

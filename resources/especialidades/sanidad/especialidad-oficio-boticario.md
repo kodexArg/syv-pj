@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/boticario", "especialidad/oficio", "pool/sanidad"]
 ---
 Prepara remedios, ungüentos y otras mezclas de efecto variable.
 
-[[sanidad]]
+[sanidad](../../subfacciones/sanidad.md)

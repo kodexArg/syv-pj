@@ -18,4 +18,4 @@ tags:
 
 Palmas callosas, dedos agrietados con costras de sal y soga. El trabajo portuario o pesquero escribe en las manos antes que en la cara.
 
-Relacionado: [[constitucion_robusta]], [[red_de_pesca]], [[galera]].
+Relacionado: [constitucion_robusta](../rasgo/constitucion_robusta.md), [red_de_pesca](../equipo/red_de_pesca.md), [galera](../equipo/galera.md).

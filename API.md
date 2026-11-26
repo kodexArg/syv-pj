@@ -9,20 +9,22 @@ aliases:
 
 # API — syv-pj
 
-> [!info] Fuente de Verdad del Contrato HTTP
-> Cualquier mención a rutas en [[PRD|PRD.md]], `docs/*` o datos de ejemplo se resuelve contra este archivo. Si una ruta no figura acá, no existe en el contrato.
+> [!NOTE]
+> **Fuente de Verdad del Contrato HTTP**
 >
-> Los tipos de campo y reglas de mutabilidad viven en [[MODEL|MODEL.md]]. **Sincronía absoluta con [[MODEL|MODEL.md]].**
+> Cualquier mención a rutas en [PRD.md](PRD.md), `docs/*` o datos de ejemplo se resuelve contra este archivo. Si una ruta no figura acá, no existe en el contrato.
 >
-> Convenciones de carga: ver [[hoja-personaje|docs/hoja-personaje.md]] y [[sistema-tags|docs/sistema-tags.md]]. Castellano rioplatense, `snake_case_castellano`.
+> Los tipos de campo y reglas de mutabilidad viven en [MODEL.md](MODEL.md). **Sincronía absoluta con [MODEL.md](MODEL.md).**
+>
+> Convenciones de carga: ver [docs/hoja-personaje.md](docs/hoja-personaje.md) y [docs/sistema-tags.md](docs/sistema-tags.md). Castellano rioplatense, `snake_case_castellano`.
 
 ---
 
 ## Convención `GET /meta/{categoria}` — catálogos dinámicos
 
-`GET /meta/{categoria}` devuelve el catálogo curado de esa categoría de tag. La estructura de cada entrada es la definida en [[sistema-tags|docs/sistema-tags.md]].
+`GET /meta/{categoria}` devuelve el catálogo curado de esa categoría de tag. La estructura de cada entrada es la definida en [docs/sistema-tags.md](docs/sistema-tags.md).
 
-Las categorías curadas de referencia (`destreza`, `rasgo`, `ventaja`, `equipo`, `especialidad`, etc.) se detallan en [[sistema-tags#Categorías de referencia|docs/sistema-tags.md]]. Categorías nuevas se exponen automáticamente bajo `/meta/{categoria}` desde que existen — no requieren entrada en este archivo.
+Las categorías curadas de referencia (`destreza`, `rasgo`, `ventaja`, `equipo`, `especialidad`, etc.) se detallan en [docs/sistema-tags.md](docs/sistema-tags.md#3--categorías-de-referencia). Categorías nuevas se exponen automáticamente bajo `/meta/{categoria}` desde que existen — no requieren entrada en este archivo.
 
 Para sub-categorías: `GET /meta/equipo/arma`, `GET /meta/especialidad/oficio`, etc. La ruta y el tag interno comparten la **misma notación de barras**: `/meta/equipo/arma` carga el catálogo del tag `equipo/arma`. (Los `campos=` de poda siguen usando puntos —`identidad.slug`—, porque direccionan el árbol de la respuesta, no tags.)
 
@@ -61,7 +63,7 @@ Incluye los campos derivados (`es_canon`, `fatiga_max`, `moral_max`, `fza_aporta
 
 ### `GET /personaje/{slug}`
 
-Devuelve la ficha vigente del personaje con `identidad.slug` exacto. 404 si no existe. Acepta `campos=` (rutas de punto CSV) para podar la respuesta. Incluye los campos derivados definidos en [[MODEL#1. personaje|MODEL.md §1]].
+Devuelve la ficha vigente del personaje con `identidad.slug` exacto. 404 si no existe. Acepta `campos=` (rutas de punto CSV) para podar la respuesta. Incluye los campos derivados definidos en [MODEL.md §1](MODEL.md#1-personaje).
 
 ### `GET /personaje/{slug}/historial`
 
@@ -85,7 +87,7 @@ numericas de nodo → `class_type`/`inputs`), no envuelto en el contrato
 
 ### `POST /personaje/{slug}/evento`
 
-Registra un hito sobre un personaje canonizado. Cuerpo: una entrada de `hito` (estructura en [[historial|docs/historial.md]]).
+Registra un hito sobre un personaje canonizado. Cuerpo: una entrada de `hito` (estructura en [docs/historial.md](docs/historial.md)).
 
 Efecto: añade el hito, aplica su efecto sobre los campos vigentes, actualiza `metadatos.ultima_actualizacion`, devuelve la ficha actualizada.
 
@@ -105,8 +107,10 @@ Tipos de hito y sus efectos sobre la ficha:
 | `identificacion_nemesis` | Añade el tag `nemesis.<ref>` a `tags[]`; la prosa del vínculo viaja en `descripcion`. |
 | Otros tipos | Solo añaden el hito. Los efectos colaterales son responsabilidad del cliente. |
 
-> [!note] `actores[]` y `encuentro` se registran tal cual
-> Ningún tipo de hito deriva efectos de `actores[]` ni de `encuentro`: se persisten en el hito sin tocar la ficha vigente. Alimentan la línea de tiempo y el grafo de Diégesis (ver [[historial#§4 — Proyección en Diégesis|docs/historial.md §4]]).
+> [!NOTE]
+> **`actores[]` y `encuentro` se registran tal cual**
+>
+> Ningún tipo de hito deriva efectos de `actores[]` ni de `encuentro`: se persisten en el hito sin tocar la ficha vigente. Alimentan la línea de tiempo y el grafo de Diégesis (ver [docs/historial.md §4](docs/historial.md)).
 
 ### `POST /canonizar`
 
@@ -124,7 +128,7 @@ Idempotente por `(semilla, faccion, rango)`: si ya existe un canonizado con esa 
 
 Equivalente semántico de `GET /personaje` con énfasis en el flujo completo de generación. Acepta los mismos parámetros (`faccion`, `rango`, `semilla`, `campos`, `tag`).
 
-Internamente ejecuta las cuatro fases de generación procedural documentadas en [[generacion-procedural|docs/generacion-procedural.md]]:
+Internamente ejecuta las cuatro fases de generación procedural documentadas en [docs/generacion-procedural.md](docs/generacion-procedural.md):
 
 1. Identidad sorteada (nombre, género, edad desde depósitos).
 2. Atributos determinísticos por rango desde tabla de configuración.
@@ -184,7 +188,7 @@ Ver convención genérica al inicio de este documento. Devuelve las entradas de 
 
 ### 5.1. `GET /meta/encuentro/nuevo`
 
-Genera y devuelve una patente opaca de encuentro, referenciable desde el campo `encuentro` de un hito de `personaje.historial[]` (ver [[historial|docs/historial.md]]).
+Genera y devuelve una patente opaca de encuentro, referenciable desde el campo `encuentro` de un hito de `personaje.historial[]` (ver [docs/historial.md](docs/historial.md)).
 
 Respuesta:
 
@@ -212,4 +216,4 @@ Sin parámetros. Sin efectos colaterales: `syv-pj` no persiste la patente en una
 | GET | `/meta/tipos_hito` | Enumeración sugerida de tipos de hito |
 | GET | `/meta/encuentro/nuevo` | Genera patente de encuentro |
 
-Catálogo completo de casos de uso en [[casos-de-uso|docs/casos-de-uso.md]].
+Catálogo completo de casos de uso en [docs/casos-de-uso.md](docs/casos-de-uso.md).

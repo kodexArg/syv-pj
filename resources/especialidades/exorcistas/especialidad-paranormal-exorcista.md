@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/exorcista", "especialidad/paranormal", "pool/exo
 ---
 Enfrenta lo que habita en otros cuerpos y en otras dimensiones.
 
-[[exorcistas]]
+[exorcistas](../../subfacciones/exorcistas.md)

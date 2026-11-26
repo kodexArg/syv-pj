@@ -17,4 +17,4 @@ tags:
 
 Cesto de mimbre cargado de hongos raros cultivados en la humedad de las Tuberías. Mitad mercancía, mitad farmacopea.
 
-Relacionado: [[clara-cultivadora-de-hongos]] (canon), botánica subterránea de Dársena.
+Relacionado: clara-cultivadora-de-hongos (canon), botánica subterránea de Dársena.

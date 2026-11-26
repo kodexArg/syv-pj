@@ -11,4 +11,4 @@ tags:
 
 Mantiene a la escuadra cohesionada y obediente bajo fuego.
 
-Relacionado: [[liderazgo_de_campo]], [[radio]].
+Relacionado: [liderazgo_de_campo](../entrenamiento/liderazgo_de_campo.md), [radio](../equipo/radio.md).

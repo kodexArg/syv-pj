@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/curandero", "especialidad/oficio", "pool/los_umbanda
 ---
 Sana con métodos locales y transmitidos de generación en generación.
 
-[[los_umbanda]]
+[los_umbanda](../../facciones/los_umbanda.md)

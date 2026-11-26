@@ -11,4 +11,4 @@ tags:
 
 Servir y dirigir el fuego de apoyo de la escuadra.
 
-Relacionado: [[infanteria]].
+Relacionado: [infanteria](infanteria.md).

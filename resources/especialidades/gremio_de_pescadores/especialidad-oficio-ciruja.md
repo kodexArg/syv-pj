@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/ciruja", "especialidad/oficio", "pool/gremio_de_pesc
 ---
 Recupera chatarra y materiales de zonas inundadas; lee el metal al tacto, sabe dónde buscar.
 
-[[gremio_de_pescadores]]
+[gremio_de_pescadores](../../facciones/gremio_de_pescadores.md)

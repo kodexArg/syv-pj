@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/contrabandista", "especialidad/oficio", "pool/canale
 ---
 Mueve lo que no debería moverse por donde nadie debería mirar.
 
-[[canales_ocultos]]
+[canales_ocultos](../../facciones/canales_ocultos.md)

@@ -20,4 +20,4 @@ tags:
 
 Martillo de punta de acero endurecido para fracturar sellos, cascos y muros delgados. Doble uso: trabajo y combate de necesidad.
 
-Relacionado: [[cincel_acero]], [[contenedor_plomo]].
+Relacionado: [cincel_acero](cincel_acero.md), [contenedor_plomo](contenedor_plomo.md).

@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/medico", "especialidad/oficio", "pool/curatores"]
 ---
 Mantiene cuerpos vivos en condiciones que no deberían permitirlo.
 
-[[curatores]]
+[curatores](../../subfacciones/curatores.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/traductor", "especialidad/oficio", "pool/archivistas
 ---
 Vierte manuales técnicos en inglés al latín litúrgico; puente entre ciencia y doctrina.
 
-[[archivistas_y_cientificos_teologicos]]
+[archivistas_y_cientificos_teologicos](../../subfacciones/archivistas_y_cientificos_teologicos.md)

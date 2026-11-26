@@ -10,19 +10,19 @@ tags:
 
 ## Iglesia Católica
 
-- [[alto_clero|Alto Clero]] — facción padre: [[iglesia]]
-- [[archivistas_y_cientificos_teologicos|Archivistas y Científicos Teológicos]] — facción padre: [[iglesia]]
-- [[congregacion_caridad_divina|Congregación de la Caridad Divina]] — facción padre: [[iglesia]]
-- [[curatores|Curatores]] — facción padre: [[iglesia]]
-- [[curia_romana|Curia Romana]] — facción padre: [[iglesia]]
-- [[exorcistas|Exorcistas]] — facción padre: [[iglesia]]
-- [[inquisicion|Sagrada Inquisición Argentina]] — facción padre: [[iglesia]]
-- [[sanidad|Sanidad]] — facción padre: [[iglesia]]
+- [Alto Clero](alto_clero.md) — facción padre: [iglesia](../facciones/iglesia.md)
+- [Archivistas y Científicos Teológicos](archivistas_y_cientificos_teologicos.md) — facción padre: [iglesia](../facciones/iglesia.md)
+- [Congregación de la Caridad Divina](congregacion_caridad_divina.md) — facción padre: [iglesia](../facciones/iglesia.md)
+- [Curatores](curatores.md) — facción padre: [iglesia](../facciones/iglesia.md)
+- [Curia Romana](curia_romana.md) — facción padre: [iglesia](../facciones/iglesia.md)
+- [Exorcistas](exorcistas.md) — facción padre: [iglesia](../facciones/iglesia.md)
+- [Sagrada Inquisición Argentina](inquisicion.md) — facción padre: [iglesia](../facciones/iglesia.md)
+- [Sanidad](sanidad.md) — facción padre: [iglesia](../facciones/iglesia.md)
 
 ## Fuerzas Armadas
 
-- [[direccion_nacional_de_seguridad|Dirección Nacional de Seguridad]] — facción padre: [[fuerzas_armadas]]
-- [[rtu|Unidad de Respuesta Táctica Urbana]] — facción padre: [[fuerzas_armadas]]
-- [[seguridad_urbana|Seguridad Urbana]] — facción padre: [[fuerzas_armadas]]
+- [Dirección Nacional de Seguridad](direccion_nacional_de_seguridad.md) — facción padre: [fuerzas_armadas](../facciones/fuerzas_armadas.md)
+- [Unidad de Respuesta Táctica Urbana](rtu.md) — facción padre: [fuerzas_armadas](../facciones/fuerzas_armadas.md)
+- [Seguridad Urbana](seguridad_urbana.md) — facción padre: [fuerzas_armadas](../facciones/fuerzas_armadas.md)
 
-Ver también: [[resources/facciones/_moc-facciones|MOC Facciones]] · [[resources/rangos/_moc-rangos|MOC Rangos]]
+Ver también: [MOC Facciones](../facciones/_moc-facciones.md) · [MOC Rangos](../rangos/_moc-rangos.md)

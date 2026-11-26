@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/shipibo_conibo"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[shipibo_conibo]]
+[shipibo_conibo](../../facciones/shipibo_conibo.md)

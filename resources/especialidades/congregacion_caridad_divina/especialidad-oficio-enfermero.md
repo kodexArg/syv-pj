@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/enfermero", "especialidad/oficio", "pool/congregacio
 ---
 Clínico social que opera en zonas marginales; acceso a las Tuberías donde la Iglesia no llega.
 
-[[congregacion_caridad_divina]]
+[congregacion_caridad_divina](../../subfacciones/congregacion_caridad_divina.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/predicador", "especialidad/oficio", "pool/iglesia"]
 ---
 La palabra como arma: convierte, moviliza, justifica.
 
-[[iglesia]]
+[iglesia](../../facciones/iglesia.md)

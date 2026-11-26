@@ -18,4 +18,4 @@ tags:
 
 Hoja larga bendecida en rito mayor por el alto clero. Para los exorcistas, es la única arma que puede cerrar ciertas heridas antes de abrirlas.
 
-Relacionado: [[latigo_consagrado]], [[cadena_bendita]], [[agua_sagrada_frasco]].
+Relacionado: [latigo_consagrado](latigo_consagrado.md), [cadena_bendita](cadena_bendita.md), [agua_sagrada_frasco](agua_sagrada_frasco.md).

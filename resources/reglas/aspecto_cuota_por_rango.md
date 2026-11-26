@@ -15,4 +15,4 @@ valor:
   - 1
   - 3
 ---
-Cuota [min, max] de aspectos sorteados por rango en la fase 5. Ver [[rangos]].
+Cuota [min, max] de aspectos sorteados por rango en la fase 5. Ver rangos.

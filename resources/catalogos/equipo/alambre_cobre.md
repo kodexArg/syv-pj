@@ -20,4 +20,4 @@ tags:
 
 Rollo de alambre conductor en la muñeca. Sin metal visible al ojo, pero suficiente para puentear un circuito, armar una trampa o reparar un PIA en campo.
 
-Relacionado: [[destornillador_aislado]], [[sonda_voltaje]], [[herramientas_madera]].
+Relacionado: [destornillador_aislado](destornillador_aislado.md), [sonda_voltaje](sonda_voltaje.md), [herramientas_madera](herramientas_madera.md).

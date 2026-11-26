@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/boticario", "especialidad/oficio", "pool/curatores"]
 ---
 Prepara remedios, ungüentos y otras mezclas de efecto variable.
 
-[[curatores]]
+[curatores](../../subfacciones/curatores.md)

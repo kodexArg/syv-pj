@@ -6,4 +6,4 @@ tags: ["especialidad/investigacion/espia", "especialidad/investigacion", "pool/r
 ---
 Infiltra, escucha y nunca revela su nombre real.
 
-[[resistencia_subterranea]]
+[resistencia_subterranea](../../facciones/resistencia_subterranea.md)

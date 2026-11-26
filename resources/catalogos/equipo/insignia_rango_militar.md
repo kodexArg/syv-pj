@@ -18,4 +18,4 @@ tags:
 
 Galones o placa que indica grado. En las Fuerzas Armadas o la DNS es obligatoria en uniforme; fuera de él es un riesgo.
 
-Relacionado: [[banda_eclesiastica]], [[uniforme_gris_dns]], [[uniforme_tactico_rojo]].
+Relacionado: [banda_eclesiastica](banda_eclesiastica.md), [uniforme_gris_dns](uniforme_gris_dns.md), [uniforme_tactico_rojo](uniforme_tactico_rojo.md).

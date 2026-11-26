@@ -26,4 +26,4 @@ rangos:
   mando: maloca
 ---
 
-Escalera jerárquica de **Shipibo-Conibo** — [[shipibo-conibo]].
+Escalera jerárquica de **Shipibo-Conibo** — shipibo-conibo.

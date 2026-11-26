@@ -11,21 +11,25 @@ aliases:
 
 # Casos de uso — Responde a la pregunta ¿Para qué sirve syv-pj, el creador de personajes?
 
-> [!info] El eje de homogeneización
+> [!NOTE]
+> **El eje de homogeneización**
+>
 > `syv-pj` entrega un único personaje bien definido consumible por cualquier otro sistema, como creadores de personaje o juegos de estrategia.
 
 ---
 
 ## Referencias de íconos
 
-> [!note] Cómo leer las tablas
+> [!NOTE]
+> **Cómo leer las tablas**
+>
 > Columna **🎭** = quién pide. El primer ícono de **Quiere** = la acción; **Para** es el propósito, en prosa.
 
 **🎭 Actores**
 
 | | | | |
 |---|---|---|---|
-| 🎰 Generador de personajes | 🪶 Autor narrativo | 👓 Lector del vault | 🛡️ Curador de canon |
+| 🎰 Generador de personajes | 🪶 Autor narrativo | 👓 Lector del universo | 🛡️ Curador de canon |
 | ⚔️ Motor de batalla | 🎲 Árbitro | 🎮 Jugador | 🎨 Proyección visual |
 | 🔌 Cualquier cliente | 🧪 Control de calidad | | |
 
@@ -45,7 +49,7 @@ aliases:
 | Consumidor | Qué le interesa del personaje |
 |---|---|
 | 🎰 **Generadores de personaje** | El catálogo de tags y sus pesos, las tablas de atributos por rango, las restricciones cruzadas y el azar portable — todo lo necesario para producir una hoja válida y, si corresponde, canonizarla. |
-| 📖 **Diégesis** | Tags de lealtad y vínculos, wikilinks a facción, ubicación y demás entidades del vault, historia en prosa, historial como línea de tiempo. |
+| 📖 **Diégesis** | Tags de lealtad y vínculos, enlaces a facción, ubicación y demás entidades del universo, historia en prosa, historial como línea de tiempo. |
 | ⚔️ **Motor de batalla** | Atributos base, estadísticas derivadas (`fza_aportada`, `movimiento`, `moral`, `fatiga`), tags de equipo y habilidades. |
 | 🎲 **Motor de juego** | Tags de aspectos/habilidades, contratos (efectos declarados), historial de hitos, vínculos (tags `aliado/*` / `nemesis/*` / `lealtad/*`). |
 | 🎨 **Generador visual** | Tags de vestidura, rango, facción, género, edad y rasgos — los lee para su proyección; cómo los renderiza es asunto suyo. |
@@ -58,7 +62,7 @@ Ningún consumidor necesita el personaje completo. El esquema es único; la proy
 
 ### Bloque A — Generadores de personaje
 
-Cómo se completa una hoja desde el azar portable vive en [[generacion-procedural|generacion-procedural.md]].
+Cómo se completa una hoja desde el azar portable vive en [generacion-procedural.md](generacion-procedural.md).
 
 | UC | Actor | Quiere | Para |
 |---|---|---|---|
@@ -111,7 +115,9 @@ Cómo se completa una hoja desde el azar portable vive en [[generacion-procedura
 | UC-V03 | 🎨 | 👁️ edad y rasgos (`rasgo/*`) | Ajustar la apariencia del personaje |
 | UC-V04 | 🎨 | 👁️ el catálogo de `equipo/vestidura` | No inventar prendas fuera del canon de SyV |
 
-> [!note] El medio es asunto del consumidor
+> [!NOTE]
+> **El medio es asunto del consumidor**
+>
 > `syv-pj` solo expone los tags. Si la proyección termina en una imagen, una ficha o una página publicada —y cómo la arma— no es asunto de este módulo.
 
 ---
@@ -149,7 +155,7 @@ Comportamientos que todos los consumidores deben asumir.
 - **Los personajes de ejemplo son inmutables.** Ningún consumidor puede registrar hitos sobre los personajes de ejemplo — son fichas de referencia, no entidades vivas.
 - **Los efímeros no acumulan hitos.** Sin patente persistida, no hay historia que registrar. El consumidor que quiera evolucionar un efímero debe canonizarlo primero.
 - **La canonización es idempotente.** `(semilla, facción, especialidad)` no produce duplicados si ya existe. El consumidor puede reintentar sin riesgo.
-- **`?campos=` poda por rutas de punto, incluida subcampo.** El motor de batalla puede pedir solo `atributos` y `tags`; el generador visual puede pedir solo `tags` e `identidad`; cualquiera puede acotar aún más con una ruta de punto (`campos=identidad.slug,atributos.cuerpo`), que atraviesa subdocumentos. Ver [[../API.md#GET /personaje|API.md]].
+- **`?campos=` poda por rutas de punto, incluida subcampo.** El motor de batalla puede pedir solo `atributos` y `tags`; el generador visual puede pedir solo `tags` e `identidad`; cualquiera puede acotar aún más con una ruta de punto (`campos=identidad.slug,atributos.cuerpo`), que atraviesa subdocumentos. Ver [API.md](../API.md#get-personaje).
 - **Filtros `?tag=` son Y lógico.** `?tag=A&tag=B` devuelve personajes que tienen ambos. O no está soportado en v1 — el consumidor hace N llamadas y une los resultados.
-- **Vínculos personales sí son filtrables por tag.** Aliados, némesis y lealtades son tags `aliado/*` / `nemesis/*` / `lealtad/*` en `tags[]`: se filtran por `?tag=` y se cuentan como cualquier etiqueta. La prosa del vínculo vive en su hito (ver [[nemesis-y-aliados|nemesis-y-aliados.md]]).
+- **Vínculos personales sí son filtrables por tag.** Aliados, némesis y lealtades son tags `aliado/*` / `nemesis/*` / `lealtad/*` en `tags[]`: se filtran por `?tag=` y se cuentan como cualquier etiqueta. La prosa del vínculo vive en su hito (ver [nemesis-y-aliados.md](nemesis-y-aliados.md)).
 - **Hitos con `tipo` desconocido son legales.** El consumidor descendente los trata como operación-nula sobre los campos que conoce.

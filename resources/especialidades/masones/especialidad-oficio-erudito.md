@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/erudito", "especialidad/oficio", "pool/masones"]
 ---
 Lee más de lo que habla; sabe más de lo que muestra.
 
-[[masones]]
+[masones](../../facciones/masones.md)

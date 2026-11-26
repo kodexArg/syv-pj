@@ -37,4 +37,4 @@ rangos:
   mando: barco
 ---
 
-Escalera jerárquica de **Gremio de Pescadores** — [[zona-militar-eclesiastica]].
+Escalera jerárquica de **Gremio de Pescadores** — zona-militar-eclesiastica.

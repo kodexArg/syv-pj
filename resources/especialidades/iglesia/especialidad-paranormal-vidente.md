@@ -6,4 +6,4 @@ tags: ["especialidad/paranormal/vidente", "especialidad/paranormal", "pool/igles
 ---
 Percibe lo que otros no pueden ver; no siempre lo entiende.
 
-[[iglesia]]
+[iglesia](../../facciones/iglesia.md)

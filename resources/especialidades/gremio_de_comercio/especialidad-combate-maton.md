@@ -6,4 +6,4 @@ tags: ["especialidad/combate/maton", "especialidad/combate", "pool/gremio_de_com
 ---
 Músculo de alquiler; la negociación ya ocurrió antes de que llegue.
 
-[[gremio_de_comercio]]
+[gremio_de_comercio](../../facciones/gremio_de_comercio.md)

@@ -15,7 +15,7 @@ personaje**. Documentación + reglas + especificación de diseño en **Markdown*
   universo (Anatema Mecánico, voz/gesto/banderín, milicias vs. ejército regular,
   voseo sobrio). NO es un creador "universal de cualquier universo".
 - **Agnóstico al USO, no al universo** — un mismo personaje homogeneizado sirve
-  para: (a) historias de **Diégesis** (vinculado por tags/vínculos Obsidian al resto
+  para: (a) historias de **Diégesis** (vinculado por tags y enlaces al resto
   del mundo), (b) **juego de estrategia** (estadísticas numéricas para combate), (c)
   **juego de rol**, (d) **generador de personajes visuales**. syv-pj clasifica,
   almacena y entrega; el consumidor decide.
@@ -26,9 +26,10 @@ personaje**. Documentación + reglas + especificación de diseño en **Markdown*
 - **Castellano voseo sobrio.** (NO inglés — esto corrige el
   `ORCHESTRATOR.md` sembrado, que pedía inglés/universo-agnóstico; el líder asume
   esta divergencia siguiendo la orden viva del usuario.)
-- Markdown con **Markdown de Obsidian (OFM)**: cómo se escribe (frontmatter,
-  wikilinks, callouts, resaltado, skills `/obsidian-markdown` y `/obsidian-bases`)
-  es la única referencia `docs/obsidian.md` — no se repite en otros docs. Sin
+- **Markdown estándar compatible con GitHub**: enlaces `[texto](ruta/relativa.md)`
+  con rutas relativas que resuelven de verdad, alertas `> [!NOTE]`/`[!TIP]`/
+  `[!IMPORTANT]`/`[!WARNING]`/`[!CAUTION]` y énfasis con `**negrita**`. Sin
+  wikilinks `[[...]]`, sin callouts de otro tipo y sin resaltado `==así==`. Sin
   emojis salvo pedido.
 - Sin versionado ni changelog dentro de los docs (lanzamiento continuo). El historial
   vive en git.
@@ -62,7 +63,9 @@ personaje:
   extras:     object | null           # válvula de escape para clientes
 ```
 
-> [!warning] `rol` cambió de significado — no confundir
+> [!WARNING]
+> **`rol` cambió de significado — no confundir**
+>
 > El **nuevo** `identidad.rol` es la **jerarquía legible** (ej. "Cabo Primero"), lectura humana del tag `rango/*`. El **viejo** campo `rol` (que nombraba la *especialidad*) fue renombrado a `identidad.especialidad`. Ahora conviven ambos: `rol` = jerarquía, `especialidad` = función táctica (ej. "Apuntador"). Cualquier `rol` residual en este documento o en `ORCHESTRATOR.md` que refiera a la especialidad es legado.
 
 **Regla rectora**: todo lo que es discreto y no es identidad, atributo, prosa o
@@ -74,7 +77,7 @@ auditoría → **es tag**. Sin excepciones: los vínculos personales también.
 - Los vínculos —lealtades, aliados, némesis— son **tags relacionales planos**
   (`lealtad.*`/`aliado.*`/`nemesis.*`); el slug referencia una entidad o un
   personaje. La prosa de un vínculo vive en su hito, no en el tag. Ver
-  [[lealtad|docs/lealtad.md]] y [[nemesis-y-aliados|docs/nemesis-y-aliados.md]].
+  [docs/lealtad.md](docs/lealtad.md) y [docs/nemesis-y-aliados.md](docs/nemesis-y-aliados.md).
 - `historial[]` es **de solo añadir**; `tipo` de hito es catálogo **sugerido, abierto**.
 - Canonicidad: `es_canon` se deriva de `canonizado_en != null` (no se persiste).
 
@@ -101,7 +104,7 @@ auditoría → **es tag**. Sin excepciones: los vínculos personales también.
 Concepto unificador: un **contrato** es una palabra o frase corta (el "nombre") que,
 al aplicarse, **entrega un paquete declarado**: modificadores numéricos,
 penalizaciones y/o habilitaciones. El nombre es la cara legible; el efecto, la letra
-chica. Ver [[contratos|docs/habilidades.md]].
+chica. Ver [docs/habilidades.md](docs/contratos.md).
 
 - **aspecto** — identidad mecánicamente activa (carácter, condición, marca con peso
   mecánico). Declara `efecto` (pasivo, lista de deltas sobre el vocabulario canónico)
@@ -112,7 +115,9 @@ chica. Ver [[contratos|docs/habilidades.md]].
 - **efecto** — bloque estructurado referenciable (`efecto.*`); inline (pasivo) o
   externo (disparado por un disparador).
 
-> [!warning] Colisión de `rasgo` — leer
+> [!WARNING]
+> **Colisión de `rasgo` — leer**
+>
 > En el refactor vigente `rasgo` = **rasgo físico observable** (cicatriz, tatuaje),
 > NO la identidad mecánica. La identidad mecánicamente activa es `aspecto`. (Una
 > versión previa de este SPINE usaba `rasgo` al revés.)
@@ -134,15 +139,14 @@ Modelar aspecto/habilidad/efecto como variantes del mismo patrón-contrato:
   sin ella es permanente; con ella solo cuenta cuando el motor evalúa esa palabra clave.
   Keywords iniciales: `calcular_encuentros`, `tiradas_activas`, `chequeo_miedo`.
 
-## Diégesis y Obsidian (eje del usuario)
+## Diégesis (eje del usuario)
 
-El personaje se conecta al resto del mundo SyV por **tags y wikilinks Obsidian**:
-lealtades, facción, ubicaciones, otros personajes. **Las etiquetas SON tags
-de Obsidian**: la relación es lineal e intencional — cada tag de la hoja es
-directamente un tag del vault. El **lore del universo no vive en syv-pj**: vive en
-`syv-docs` (SSOT). Dos docs separan la responsabilidad: `docs/diegesis.md` es el
-puntero a `syv-docs` (hoy un stub; crecerá con la convención de linkeo
-personaje↔vault), y `docs/obsidian.md` es la única referencia de cómo se escribe en OFM.
+El personaje se conecta al resto del mundo SyV por **tags y enlaces**:
+lealtades, facción, ubicaciones, otros personajes. La relación es lineal e
+intencional — cada tag de la hoja apunta directamente a una entidad del universo.
+El **lore del universo no vive en syv-pj**: vive en `syv-docs` (SSOT).
+`docs/diegesis.md` es el puntero a `syv-docs` (hoy un stub; crecerá con la
+convención de linkeo personaje↔universo).
 
 ## Abierto/Cerrado
 
@@ -176,11 +180,11 @@ efímero; el canonizado pierde reproducibilidad tras el primer hito.
 - `docs/hoja-personaje.md` (núcleo), `docs/sistema-tags.md`,
   `docs/habilidades.md`, `docs/atributos.md`,
   `docs/generacion-procedural.md`, `docs/open-close.md`,
-  `docs/diegesis.md`, `docs/obsidian.md`, `docs/casos-de-uso.md`
+  `docs/diegesis.md`, `docs/casos-de-uso.md`
 
 `SPINE.md` y `ORCHESTRATOR.md` NO se publican como entregables; quedan o se borran
 al cierre según decida el líder.
 
 ## Referencias
 
-- [[_moc-resources|Catálogo de recursos (mock data / guías)]]
+- [Catálogo de recursos (mock data / guías)](resources/_moc-resources.md)

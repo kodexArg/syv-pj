@@ -6,4 +6,4 @@ tags: ["especialidad/combate/asalto", "especialidad/combate", "pool/direccion_na
 ---
 Primero en entrar; combate cuerpo a cuerpo y en espacios estrechos.
 
-[[direccion_nacional_de_seguridad]]
+[direccion_nacional_de_seguridad](../../subfacciones/direccion_nacional_de_seguridad.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/fuerzas_armadas"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[fuerzas_armadas]]
+[fuerzas_armadas](../../facciones/fuerzas_armadas.md)

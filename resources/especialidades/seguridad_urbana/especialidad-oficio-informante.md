@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/informante", "especialidad/oficio", "pool/seguridad_
 ---
 Vende datos al mejor postor; su lealtad dura lo que el pago.
 
-[[seguridad_urbana]]
+[seguridad_urbana](../../subfacciones/seguridad_urbana.md)

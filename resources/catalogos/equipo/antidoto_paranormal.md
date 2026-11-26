@@ -22,4 +22,4 @@ tags:
 
 Compuesto de origen incierto. Revierte síntomas de contaminación psíquica o exposición a artefactos. Teológicamente controversial; clínicamente funciona.
 
-Relacionado: [[pocion_sanadora]], [[agua_sagrada_frasco]], [[trance_psiquico]].
+Relacionado: [pocion_sanadora](pocion_sanadora.md), [agua_sagrada_frasco](agua_sagrada_frasco.md), trance_psiquico.

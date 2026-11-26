@@ -18,4 +18,4 @@ tags:
 
 Hoja templada para labrar piedra, sellos cerámicos y cierres oxidados. Trabajo de precisión cuando hay que abrir sin romper.
 
-Relacionado: [[martillo_fragmentacion]], [[pinza_hueso]].
+Relacionado: [martillo_fragmentacion](martillo_fragmentacion.md), [pinza_hueso](pinza_hueso.md).

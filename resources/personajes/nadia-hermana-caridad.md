@@ -33,8 +33,8 @@ apariencia:
   presencia: joven y rústica
 ---
 
-Hermana Nadia, novicia de la [[congregacion-caridad-divina|Congregación de la Caridad Divina]], asignada a los [[barrios-del-muro|Barrios del Muro]]. Recién iniciada, todavía sin pulir, con las manos ya curtidas de cargar heridos y repartir lo poco que hay.
+Hermana Nadia, novicia de la Congregación de la Caridad Divina, asignada a los Barrios del Muro. Recién iniciada, todavía sin pulir, con las manos ya curtidas de cargar heridos y repartir lo poco que hay.
 
-[[religioso|Fe]] sin adornos, aprendida en el barro antes que en el catecismo. [[manos_asperas|Manos ásperas]] de quien trabaja antes de rezar. Su [[habito|hábito]] gastado y un [[botiquin|botiquín]] siempre a mano son todo lo que carga entre casa y casa.
+[Fe](../catalogos/aspecto/religioso.md) sin adornos, aprendida en el barro antes que en el catecismo. [Manos ásperas](../catalogos/aspecto/manos_asperas.md) de quien trabaja antes de rezar. Su [hábito](../catalogos/equipo/habito.md) gastado y un [botiquín](../catalogos/equipo/botiquin.md) siempre a mano son todo lo que carga entre casa y casa.
 
 Ficha SyV-pj original — personaje nuevo creado a pedido, sin canon previo en `syv-docs`.

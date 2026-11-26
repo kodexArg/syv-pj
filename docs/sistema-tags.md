@@ -10,18 +10,22 @@ aliases:
 
 # Sistema de Tags
 
-> [!info] Propósito
+> [!NOTE]
+> **Propósito**
+>
 > Este documento describe el sistema de tags de syv-pj: qué es un tag, cómo se escribe, cómo se estructura su entrada en el catálogo y cómo se extiende sin migración.
-> En este documento se habla con frecuencia de [[contratos]]. Bien: las habilidades son, en esencia, tags.
-> La relación entre los tags y Obsidian es absolutamente lineal e intencional.
+> En este documento se habla con frecuencia de [contratos](contratos.md). Bien: las habilidades son, en esencia, tags.
+> La relación entre los tags de la hoja y las entidades del universo es absolutamente lineal e intencional.
 ---
 
 ## §1 — Mecánica universal del tag
 
 Un **tag** es la unidad atómica del esquema. Es un identificador discreto que se aplica a un personaje y comunica una cosa concreta: una habilidad ganada, un estado de pánico, un fusil al hombro, una lealtad jurada, una cicatriz en la mejilla.
 
-> [!tip] Regla rectora
-> Todo lo que es discreto y no es identidad, atributo, prosa o auditoría **es un tag**. Sin excepciones: incluso los vínculos personales —aliados y némesis— son tags. Ver [[#§5 — Categorías relacionales: `aliado` y `nemesis`]] y [[nemesis-y-aliados|nemesis-y-aliados.md]].
+> [!TIP]
+> **Regla rectora**
+>
+> Todo lo que es discreto y no es identidad, atributo, prosa o auditoría **es un tag**. Sin excepciones: incluso los vínculos personales —aliados y némesis— son tags. Ver [§5 — Categorías relacionales: `aliado` y `nemesis`](#5--categorías-relacionales-aliado-y-nemesis) y [nemesis-y-aliados.md](nemesis-y-aliados.md).
 
 Esta regla es expansiva por diseño. El sistema no predice los tipos de tag que existirán; provee una notación plana y declarativa para que cualquier hecho futuro encaje sin migración.
 
@@ -63,20 +67,22 @@ En raras excepciones, se recurre al tercer segmento `<categoria>/<parent>/<slug>
 
 **Reglas del slug de tag:** minúsculas, guiones bajos como único separador, sin acentos, sin espacios, sin caracteres especiales. Ejemplos: `pistola`, `precision`, `ejercito_rojo`, `lider_de_escuadra`.
 
-> [!important] Asimetría de slugs
+> [!IMPORTANT]
+> **Asimetría de slugs**
+>
 > El slug de tag es **legible por diseño**. El slug de personaje (`identidad.slug`) es la antítesis: patente opaca `^[A-Z0-9]{8}$` (ej. `K9F2H3M4`), inmutable y no semántica. No confundir.
 
 **Prohibido multiconjunto:** `tags[]` no puede funcionar como un multiconjunto. Por ejemplo, tres `equipo/utilitario/cargador` **NO** significan tres cargadores físicos; el motor se queda con el último valor (que deberá estar en la referencia del tag, o será `vacío`).
 
 **Huérfanos:** se invita a dejar tags huérfanos con conceptos que pueden llenarse luego, cuando el tag es suficientemente comunicativo, como "aspecto/cicatriz_perturbadora". Otro ejemplo más feliz de tags huérfanos: `habilidad/personal/pianista`, y no sabremos qué tan bueno es hasta que creemos la referencia del tag en la historia del personaje; es decir, un tag subjetivo.
 
-**Resolución contra el catálogo:** el parser troza el tag por `/` y mapea segmentos a directorios. `arma/pistola_9mm` resuelve a `tags/arma/pistola_9mm.yaml`. La barra es deliberada: es **la misma notación que usa Obsidian**, de modo que la jerarquía del dominio y la del grafo del vault son una sola — el tag anida en el árbol de Obsidian exactamente como anida en el catálogo.
+**Resolución contra el catálogo:** el parser troza el tag por `/` y mapea segmentos a directorios. `arma/pistola_9mm` resuelve a `tags/arma/pistola_9mm.yaml`. La barra es deliberada: la jerarquía del dominio y la del catálogo en disco son una sola — el tag anida en el árbol exactamente como anida en el catálogo.
 
 ---
 
 ## §3 — Categorías de referencia
 
-Las categorías curadas a la fecha. La tabla es **ilustrativa, no exhaustiva**: por el principio abierto/cerrado, el universo de tags es **abierto e infinito** — el sistema acepta categorías nuevas sin migración ni rupturas (ver [[#§7 — Extensibilidad]]). Son puntos de referencia, no menú restrictivo.
+Las categorías curadas a la fecha. La tabla es **ilustrativa, no exhaustiva**: por el principio abierto/cerrado, el universo de tags es **abierto e infinito** — el sistema acepta categorías nuevas sin migración ni rupturas (ver [§7 — Extensibilidad](#7--extensibilidad)). Son puntos de referencia, no menú restrictivo.
 
 | Categoría | Significado |
 |---|---|
@@ -88,16 +94,16 @@ Las categorías curadas a la fecha. La tabla es **ilustrativa, no exhaustiva**: 
 | `salud` | Estado físico actual. Acumulable. |
 | `moral` | Estado anímico actual. Acumulable. |
 | `mental` | Estado de concentración actual. Acumulable. |
-| `rasgo` | Rasgo físico observable y **sin efecto** (cicatriz, tatuaje, constitución). Si tiene peso mecánico es un `aspecto`, no un `rasgo` (ver [[contratos]]). |
-| `aspecto` | Identidad mecánicamente activa. Ver [[contratos]]. |
-| `habilidad` | Habilitador de tirada contra atributo dominante. Ver [[contratos]]. |
+| `rasgo` | Rasgo físico observable y **sin efecto** (cicatriz, tatuaje, constitución). Si tiene peso mecánico es un `aspecto`, no un `rasgo` (ver [contratos](contratos.md)). |
+| `aspecto` | Identidad mecánicamente activa. Ver [contratos](contratos.md). |
+| `habilidad` | Habilitador de tirada contra atributo dominante. Ver [contratos](contratos.md). |
 | `entrenamiento` | Adiestramiento o formación recibida (militar, sanitaria, técnica). |
 | `efecto` | Bloque estructurado referenciable por otros tags. |
 | `equipo` | Equipo cargado. Subcategorías: `arma`, `utilitario`, `vestidura`. |
 | `especialidad` | Especialidad táctica (lo que *hace*: fusilero, médico, inquisidor…). Subcategorías: `oficio`, `jerarquia`, `narrativo`, `combate`. La vocación de pertenencia la da el `rango`. |
-| `lealtad` | Lealtad vigente. Apunta a cualquier entidad (facción, subfacción, grupo, religión, personaje…). Ver [[#§4 — Categoría relacional: `lealtad`]]. |
-| `aliado` | Vínculo de alianza vigente. Apunta a personaje, facción, subfacción o grupo. Ver [[#§5 — Categorías relacionales: `aliado` y `nemesis`]]. |
-| `nemesis` | Enemistad vigente. Mismo destino que `aliado`, sin restricción de bando. Ver [[#§5 — Categorías relacionales: `aliado` y `nemesis`]]. |
+| `lealtad` | Lealtad vigente. Apunta a cualquier entidad (facción, subfacción, grupo, religión, personaje…). Ver [§4 — Categoría relacional: `lealtad`](#4--categoría-relacional-lealtad). |
+| `aliado` | Vínculo de alianza vigente. Apunta a personaje, facción, subfacción o grupo. Ver [§5 — Categorías relacionales: `aliado` y `nemesis`](#5--categorías-relacionales-aliado-y-nemesis). |
+| `nemesis` | Enemistad vigente. Mismo destino que `aliado`, sin restricción de bando. Ver [§5 — Categorías relacionales: `aliado` y `nemesis`](#5--categorías-relacionales-aliado-y-nemesis). |
 
 El motor acepta tags fuera del canon. La coherencia la sostiene la curaduría, no la integridad referencial.
 
@@ -107,7 +113,7 @@ El motor acepta tags fuera del canon. La coherencia la sostiene la curaduría, n
 
 `lealtad` codifica un vínculo de adhesión vigente, en forma **plana** `lealtad.{slug}`. El slug es una **referencia** al destino —facción, subfacción, grupo, religión o incluso otro personaje (por su patente)—, no un slug libre; sin segmento intermedio que anuncie el tipo. No tiene entradas propias en el catálogo: la resolución apunta al catálogo de la entidad referida.
 
-Misma mecánica que `aliado` / `nemesis` (§5). Detalle en [[lealtad|lealtad.md]].
+Misma mecánica que `aliado` / `nemesis` (§5). Detalle en [lealtad.md](lealtad.md).
 
 ---
 
@@ -122,10 +128,12 @@ nemesis.{slug}    →  ídem, sin restricción de bando
 
 A diferencia de `lealtad` —que solo apunta a entidades de catálogo— estos pueden apuntar también a **otro personaje**, por su patente (`aliado/K9F2H3M4`). La referencia carga el identificador literal del destino: patente opaca para personajes, slug legible para entidades de catálogo (la asimetría de §2).
 
-**La prosa del vínculo no vive en el tag.** El tag afirma la relación; la **cuenta** el hito que la formó (`formacion_lealtad` / `identificacion_nemesis`) en el [[historial|historial.md]]. Así el vínculo se cuenta y se filtra como cualquier tag, sin perder su textura narrativa.
+**La prosa del vínculo no vive en el tag.** El tag afirma la relación; la **cuenta** el hito que la formó (`formacion_lealtad` / `identificacion_nemesis`) en el [historial.md](historial.md). Así el vínculo se cuenta y se filtra como cualquier tag, sin perder su textura narrativa.
 
-> [!info] Detalle completo en su propio documento
-> Esta sección fija solo el contrato del tag. El porqué del cambio, los tipos de destino, el ciclo de vida y la división tag/hito viven en [[nemesis-y-aliados|nemesis-y-aliados.md]].
+> [!NOTE]
+> **Detalle completo en su propio documento**
+>
+> Esta sección fija solo el contrato del tag. El porqué del cambio, los tipos de destino, el ciclo de vida y la división tag/hito viven en [nemesis-y-aliados.md](nemesis-y-aliados.md).
 
 ---
 
@@ -172,7 +180,7 @@ efecto:
     o categoria = efecto
   uso: >
     Lista de modificadores estructurados. Cada uno con `objetivo` (attr.* / stat.*),
-    un valor (`mod` entero o `pct` porcentaje) y una `nota` opcional. Ver [[contratos]].
+    un valor (`mod` entero o `pct` porcentaje) y una `nota` opcional. Ver contratos.md.
 
 equipo_arma.tipo_accion:
   obligatorio_si: subcategoria = arma
@@ -237,10 +245,12 @@ requires:
     - mando/oficial_de_campo
 ```
 
-> [!important] `requires` es documentación ejecutable, no validación dura
+> [!IMPORTANT]
+> **`requires` es documentación ejecutable, no validación dura**
+>
 > La API acepta personajes con tags incoherentes. La coherencia es responsabilidad del generador y del curador. Cualquier validador opcional puede consultar `requires`; el contrato duro no lo impone.
 
-**Los aspectos de origen narrativo no usan `requires`.** Son recompensas otorgadas al azar (lo que antes era *ventaja*); no tienen depósito por rango ni precondiciones. Ver [[contratos]].
+**Los aspectos de origen narrativo no usan `requires`.** Son recompensas otorgadas al azar (lo que antes era *ventaja*); no tienen depósito por rango ni precondiciones. Ver [contratos](contratos.md).
 
 ---
 
@@ -283,10 +293,12 @@ trigger:
     - efecto.panico_momentaneo
 ```
 
-> [!tip] Vocabulario canónico de efectos
+> [!TIP]
+> **Vocabulario canónico de efectos**
+>
 > El campo `objetivo` de cada modificador apunta a una variable en notación punto:
 > - Atributos base: `attr.cuerpo`, `attr.mente`, `attr.alma`
 > - Estadísticas calculadas: `stat.iniciativa`, `stat.moral`, `stat.fatiga`, `stat.movimiento`, `stat.estress`, `stat.sanar`, `stat.percepcion`
 >
 > El valor va en `mod` (delta entero) o `pct` (porcentaje). Un campo opcional `condicion` (palabra clave) restringe cuándo cuenta el modificador; `nota` es opcional.
-> Ver [[contratos]] para la forma completa y [[atributos]] para la mecánica de cada variable.
+> Ver [contratos](contratos.md) para la forma completa y [atributos](atributos.md) para la mecánica de cada variable.

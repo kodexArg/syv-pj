@@ -20,4 +20,4 @@ tags:
 
 Probador eléctrico de punta aislada. Lee tensión en circuitos sin encender lo que no hay que encender.
 
-Relacionado: [[destornillador_aislado]], [[alambre_cobre]].
+Relacionado: [destornillador_aislado](destornillador_aislado.md), [alambre_cobre](alambre_cobre.md).

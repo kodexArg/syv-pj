@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/canales_ocultos"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[canales_ocultos]]
+[canales_ocultos](../../facciones/canales_ocultos.md)

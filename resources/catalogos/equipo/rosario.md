@@ -19,4 +19,4 @@ tags:
 
 Cadena de cuentas para el rezo. Lo carga casi todo devoto; el de metal tiene otro peso.
 
-Relacionado: [[crucifijo_consagrado]], [[medallon_bendito]].
+Relacionado: [crucifijo_consagrado](crucifijo_consagrado.md), [medallon_bendito](medallon_bendito.md).

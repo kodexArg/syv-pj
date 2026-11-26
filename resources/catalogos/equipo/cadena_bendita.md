@@ -18,4 +18,4 @@ tags:
 
 Cadena de hierro impregnada de agua bendita y aceite sagrado. Se usa para inmovilizar; también golpea cuando no queda otra.
 
-Relacionado: [[espada_consagrada]], [[latigo_consagrado]], [[agua_sagrada_frasco]].
+Relacionado: [espada_consagrada](espada_consagrada.md), [latigo_consagrado](latigo_consagrado.md), [agua_sagrada_frasco](agua_sagrada_frasco.md).

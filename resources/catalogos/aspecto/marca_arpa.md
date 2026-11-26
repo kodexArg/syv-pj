@@ -14,4 +14,4 @@ tags:
 
 Arpa sin cuerdas tatuada o marcada a fuego en la muñeca o el cuello. Identifica afiliación arpista para los que saben leerla.
 
-Relacionado: [[anillo_archivista]], [[cruz_arpista]].
+Relacionado: [anillo_archivista](../equipo/anillo_archivista.md), [cruz_arpista](../equipo/cruz_arpista.md).

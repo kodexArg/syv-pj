@@ -20,4 +20,4 @@ tags:
 
 Juego de palancas, cuñas y brocas talladas en madera dura sin metal. No activan los sensores SIA. Las fabrican los técnicos clandestinos de las Tuberías.
 
-Relacionado: [[alambre_cobre]], [[destornillador_aislado]].
+Relacionado: [alambre_cobre](alambre_cobre.md), [destornillador_aislado](destornillador_aislado.md).

@@ -31,6 +31,6 @@ apariencia:
   presencia: morocho, criollo
 ---
 
-Jonatan arrastra la pierna desde hace años —de ahí el Rengo—. Pero ninguna [[rodilla_vencida|rodilla vencida]] lo deja en el rancho cuando el [[resistencia_subterranea|Ejército Rojo]] sale a la calle. [[simpatizante|Simpatizante]] [[sin_especialidad|sin rol de combate]], cojea adelante igual.
+Jonatan arrastra la pierna desde hace años —de ahí el Rengo—. Pero ninguna [rodilla vencida](../catalogos/aspecto/rodilla_vencida.md) lo deja en el rancho cuando el [Ejército Rojo](../facciones/resistencia_subterranea.md) sale a la calle. Simpatizante [sin rol de combate](../especialidades/resistencia_subterranea/sin_especialidad.md), cojea adelante igual.
 
-Lleva la [[bandera]] roja en alto y la [[capucha]] hasta las cejas, marcando el paso de la columna por [[barrios-del-muro|los Barrios del Muro]] con un balanceo que es puro pulso terco. No corre, pero no se queda. Prefiere que la [[fuerzas_armadas|Confederación]] lo vea avanzar rengo antes que retroceder entero. Rengo. Pero adelante.
+Lleva la bandera roja en alto y la [capucha](../catalogos/equipo/capucha.md) hasta las cejas, marcando el paso de la columna por los Barrios del Muro con un balanceo que es puro pulso terco. No corre, pero no se queda. Prefiere que la [Confederación](../facciones/fuerzas_armadas.md) lo vea avanzar rengo antes que retroceder entero. Rengo. Pero adelante.

@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/asistente", "especialidad/oficio", "pool/congregacio
 ---
 Asistencia directa en el terreno; los olvidados son su parroquia.
 
-[[congregacion_caridad_divina]]
+[congregacion_caridad_divina](../../subfacciones/congregacion_caridad_divina.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/combate/heroe", "especialidad/combate", "pool/kuna_mbarete"
 ---
 Se lanza primero; inspira o muere en el intento.
 
-[[kuna_mbarete]]
+[kuna_mbarete](../../facciones/kuna_mbarete.md)

@@ -6,4 +6,4 @@ tags: ["especialidad/oficio/maestro", "especialidad/oficio", "pool/archivistas_y
 ---
 Transmite lo que se debe saber; omite lo que no conviene.
 
-[[archivistas_y_cientificos_teologicos]]
+[archivistas_y_cientificos_teologicos](../../subfacciones/archivistas_y_cientificos_teologicos.md)

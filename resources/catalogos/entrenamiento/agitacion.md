@@ -11,4 +11,4 @@ tags:
 
 Oratoria de barricada y organización de la tropa civil.
 
-Relacionado: [[liderazgo]].
+Relacionado: [liderazgo](../habilidad/liderazgo.md).

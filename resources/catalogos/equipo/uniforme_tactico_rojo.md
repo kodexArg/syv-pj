@@ -16,4 +16,4 @@ tags:
 
 Uniforme de operaciones especiales con panel rojo en el pecho. Indica unidad de choque; quien lo ve sabe que ya no hay negociación.
 
-Relacionado: [[chaleco_asalto]], [[insignia_rango_militar]], [[uniforme_gris_dns]].
+Relacionado: [chaleco_asalto](chaleco_asalto.md), [insignia_rango_militar](insignia_rango_militar.md), [uniforme_gris_dns](uniforme_gris_dns.md).

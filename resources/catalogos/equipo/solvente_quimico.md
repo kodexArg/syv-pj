@@ -18,4 +18,4 @@ tags:
 
 Frasco de disolvente industrial para desactivar adhesivos, cubiertas selladas o residuos tóxicos. Olor inconfundible.
 
-Relacionado: [[geiger_quimico]], [[contenedor_plomo]].
+Relacionado: [geiger_quimico](geiger_quimico.md), [contenedor_plomo](contenedor_plomo.md).

@@ -9,4 +9,4 @@ doc: 1_trasfondo/facciones/iglesia-de-darsena/sanidad.md
 tags: ["catalogo/subfaccion", "subfaccion/sanidad", "faccion/iglesia"]
 ---
 
-Ficha de lore: [[sanidad]]. Departamento que administra la salud pública de Dársena bajo supervisión eclesiástica. Facción padre: [[iglesia]].
+Ficha de lore: [sanidad](). Departamento que administra la salud pública de Dársena bajo supervisión eclesiástica. Facción padre: [iglesia](../facciones/iglesia.md).

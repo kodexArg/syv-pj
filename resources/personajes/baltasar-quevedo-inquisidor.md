@@ -34,6 +34,6 @@ apariencia:
   presencia: criollo
 ---
 
-Baltasar es la otra mitad del par de hierro de la [[inquisicion|Inquisición]]. Misma [[novicio|iniciación]] que [[cipriano-roldan-inquisidor|Cipriano]], misma sangre en los nudillos. Empuña la [[espada_consagrada]] con la [[constitucion_robusta|constitución de un buey]] y se mete al frente como [[especialidad-combate-cruzado|cruzado]] de la [[iglesia|Iglesia]].
+Baltasar es la otra mitad del par de hierro de la [Inquisición](../subfacciones/inquisicion.md). Misma iniciación que [Cipriano](cipriano-roldan-inquisidor.md), misma sangre en los nudillos. Empuña la [espada_consagrada](../catalogos/equipo/espada_consagrada.md) con la [constitución de un buey](../catalogos/rasgo/constitucion_robusta.md) y se mete al frente como [cruzado](../especialidades/inquisicion/especialidad-combate-cruzado.md) de la [Iglesia](../facciones/iglesia.md).
 
-En el [[barrios-del-muro|Muro]] reza la misma misa, el [[medallon_bendito|medallón]] golpeándole el pecho a cada paso, la [[sotana]] arremangada y sin más coraza que el dogma. Es [[terco]] como un dogma sin enmienda. Golpea por la Confederación y deja la teología para después. Pega primero. Absuelve después.
+En el Muro reza la misma misa, el [medallón](../catalogos/equipo/medallon_bendito.md) golpeándole el pecho a cada paso, la [sotana](../catalogos/equipo/sotana.md) arremangada y sin más coraza que el dogma. Es [terco](../catalogos/aspecto/terco.md) como un dogma sin enmienda. Golpea por la Confederación y deja la teología para después. Pega primero. Absuelve después.

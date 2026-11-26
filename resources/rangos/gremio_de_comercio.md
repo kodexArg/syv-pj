@@ -49,4 +49,4 @@ rangos:
   mando: consejo_gremial
 ---
 
-Escalera jerárquica de **Gremio de Comercio** — [[gremio-de-comercio]].
+Escalera jerárquica de **Gremio de Comercio** — gremio-de-comercio.

@@ -75,4 +75,4 @@ valor:
 ---
 Entrenamiento base asignado a cada rango en la fase 4. El resolver indexa por
 rango exacto; `default` documenta el piso (`instruccion_basica`) y las entradas
-por rango lo materializan en cada escalera viva. Ver [[rangos]].
+por rango lo materializan en cada escalera viva. Ver rangos.

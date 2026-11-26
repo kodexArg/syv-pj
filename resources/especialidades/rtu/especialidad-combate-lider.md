@@ -6,4 +6,4 @@ tags: ["especialidad/combate/lider", "especialidad/combate", "pool/rtu"]
 ---
 Coordina el fuego y mantiene la cohesión bajo presión.
 
-[[rtu]]
+[rtu](../../subfacciones/rtu.md)

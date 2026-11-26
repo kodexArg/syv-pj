@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/rtu"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[rtu]]
+[rtu](../../subfacciones/rtu.md)

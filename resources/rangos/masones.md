@@ -37,4 +37,4 @@ rangos:
   mando: logia
 ---
 
-Escalera jerárquica de **Masones** — [[masones]].
+Escalera jerárquica de **Masones** — [masones]().

@@ -6,4 +6,4 @@ tags: ["especialidad/sin-especialidad", "pool/resistencia_subterranea"]
 ---
 Sin especialidad táctica; cumple las funciones base de su rango.
 
-[[resistencia_subterranea]]
+[resistencia_subterranea](../../facciones/resistencia_subterranea.md)

@@ -32,6 +32,6 @@ apariencia:
   presencia: joven, morocho
 ---
 
-Maxi grita lo que [[brian-curinanco-pandillero|Brian]] se calla. Lo que le tiene a la [[fuerzas_armadas|Confederación]] le sale a los empujones, ruidoso y sin freno, y más de una vez lo metió en quilombos que solo el [[resistencia_subterranea|Ejército Rojo]] le sacó de encima.
+Maxi grita lo que [Brian](brian-curinanco-pandillero.md) se calla. Lo que le tiene a la [Confederación](../facciones/fuerzas_armadas.md) le sale a los empujones, ruidoso y sin freno, y más de una vez lo metió en quilombos que solo el [Ejército Rojo](../facciones/resistencia_subterranea.md) le sacó de encima.
 
-Va de [[militante_resistencia|militante]] al frente como [[especialidad-combate-asalto|asaltante]], con la [[pistola_9mm|nueve milímetros]] que consiguió de prepo y un [[chaleco]] que le sobra de los hombros. Es [[terco]] hasta lo suicida. Carga una [[cicatriz_perturbadora|cicatriz que incomoda]] a quien lo mira de cerca, recuerdo de una redada en [[barrios-del-muro|el Muro]] de la que solo él y sus dos amigos volvieron caminando. Tres entraron. Tres salieron.
+Va de militante al frente como [asaltante](../especialidades/resistencia_subterranea/especialidad-combate-asalto.md), con la [nueve milímetros](../catalogos/equipo/pistola_9mm.md) que consiguió de prepo y un [chaleco](../catalogos/equipo/chaleco.md) que le sobra de los hombros. Es [terco](../catalogos/aspecto/terco.md) hasta lo suicida. Carga una [cicatriz que incomoda](../catalogos/rasgo/cicatriz_perturbadora.md) a quien lo mira de cerca, recuerdo de una redada en el Muro de la que solo él y sus dos amigos volvieron caminando. Tres entraron. Tres salieron.

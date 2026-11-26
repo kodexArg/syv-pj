@@ -19,4 +19,4 @@ tags:
 
 Lupa de bolsillo con montura de metal. Lee lo que el ojo no alcanza: inscripciones, circuitos, heridas finas.
 
-Relacionado: [[tinta_ferrogalica]], [[pinza_hueso]], [[antiparras]].
+Relacionado: [tinta_ferrogalica](tinta_ferrogalica.md), [pinza_hueso](pinza_hueso.md), [antiparras](antiparras.md).
