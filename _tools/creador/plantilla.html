@@ -1,0 +1,744 @@
+<title>Creador de Personajes SyV</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Big+Shoulders+Stencil+Display:wght@700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: expediente de filiación — formulario por fases a la izquierda, ficha viva fija a la derecha; una columna en teléfono. */
+:root {
+  --paper: #e3e7e0;
+  --sheet: #f4f5f0;
+  --field: #ffffff;
+  --ink: #1b2230;
+  --ink-2: #4d5566;
+  --ink-3: #7a8291;
+  --rule: #bcc3b8;
+  --rule-2: #d3d8cf;
+  --accent: #284a86;
+  --accent-soft: #dde5f2;
+  --stamp: #a92b37;
+  --ok: #2f6b45;
+  --warn: #9a5b12;
+  --neg: #a92b37;
+  --font-display: "Big Shoulders Stencil Display", "Impact", "Arial Narrow", sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #12161b; --sheet: #1a1f26; --field: #222831; --ink: #e2e6ec; --ink-2: #a3acb8; --ink-3: #737d8a;
+    --rule: #333b47; --rule-2: #2a313b; --accent: #93b2ea; --accent-soft: #23314a; --stamp: #e86a73;
+    --ok: #7cc496; --warn: #e3a95a; --neg: #ef7c84; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #12161b; --sheet: #1a1f26; --field: #222831; --ink: #e2e6ec; --ink-2: #a3acb8; --ink-3: #737d8a;
+  --rule: #333b47; --rule-2: #2a313b; --accent: #93b2ea; --accent-soft: #23314a; --stamp: #e86a73;
+  --ok: #7cc496; --warn: #e3a95a; --neg: #ef7c84; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.45; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+.wrap { max-width: 1320px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Cabecera */
+.top { border-bottom: 1px solid var(--rule); background: var(--sheet); }
+.top .wrap { padding-block: 18px 16px; display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: end; justify-content: space-between; }
+.eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 5vw, 46px); line-height: .95; margin: 4px 0 0; letter-spacing: .01em; text-wrap: balance; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; }
+.ctl { display: flex; flex-direction: column; gap: 3px; }
+.ctl > span { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.seed { width: 11ch; font-family: var(--font-mono); }
+.btn { border: 1px solid var(--rule); background: var(--field); border-radius: 3px; padding: 7px 12px; cursor: pointer; font-weight: 600; font-size: 13.5px; display: inline-flex; gap: 6px; align-items: center; white-space: nowrap; }
+.btn:hover { border-color: var(--ink-3); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--sheet); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn[disabled] { opacity: .5; cursor: default; }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; background: var(--field); }
+.seg button { border: 0; background: transparent; padding: 7px 10px; cursor: pointer; font-family: var(--font-mono); font-size: 12.5px; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--sheet); }
+
+/* Grilla principal */
+main.wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 540px); gap: 24px; padding-block: 22px 48px; align-items: start; }
+@media (max-width: 1000px) { main.wrap { grid-template-columns: minmax(0, 1fr); } }
+
+/* Fases */
+.fase { border-top: 2px solid var(--ink); padding-top: 10px; margin-bottom: 22px; }
+.fase-h { display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+.fase-n { font-family: var(--font-display); font-size: 30px; line-height: 1; color: var(--accent); min-width: 1.1em; }
+.fase-h h2 { font-family: var(--font-display); font-size: 22px; letter-spacing: .04em; text-transform: uppercase; margin: 0; }
+.fase-h p { margin: 0 0 0 auto; font-size: 12.5px; color: var(--ink-3); text-align: right; }
+.row { display: grid; grid-template-columns: 150px minmax(0, 1fr) auto; gap: 10px; align-items: start; padding: 9px 0; border-bottom: 1px dashed var(--rule-2); }
+.row:last-child { border-bottom: 0; }
+.row > label, .row > .lbl { font-size: 13px; font-weight: 600; padding-top: 7px; color: var(--ink-2); }
+.row .hint { font-size: 12px; color: var(--ink-3); margin-top: 4px; }
+@media (max-width: 560px) { .row { grid-template-columns: minmax(0, 1fr) auto; } .row > label, .row > .lbl { grid-column: 1 / -1; padding-top: 0; } }
+.fld { min-width: 0; }
+select, input[type="text"], input[type="number"], textarea { width: 100%; background: var(--field); border: 1px solid var(--rule); border-radius: 3px; padding: 6px 8px; min-width: 0; }
+textarea { resize: vertical; line-height: 1.5; }
+select { cursor: pointer; }
+.tools { display: flex; gap: 4px; padding-top: 2px; }
+.ico { width: 32px; height: 32px; border: 1px solid transparent; border-radius: 3px; background: transparent; cursor: pointer; display: grid; place-items: center; color: var(--ink-3); }
+.ico:hover { border-color: var(--rule); color: var(--ink); }
+.ico[aria-pressed="true"] { color: var(--stamp); border-color: var(--stamp); }
+.ico svg { width: 16px; height: 16px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 4px; border: 1px solid var(--rule); background: var(--field); border-radius: 3px; padding: 3px 4px 3px 8px; font-size: 13px; }
+.chip button { border: 0; background: transparent; cursor: pointer; color: var(--ink-3); padding: 0 4px; font-size: 15px; line-height: 1; }
+.chip button:hover { color: var(--neg); }
+.chips select { width: auto; max-width: 100%; font-size: 13px; padding: 4px 6px; }
+.chips input[type="text"] { width: auto; flex: 1 1 180px; font-family: var(--font-mono); font-size: 13px; padding: 4px 6px; }
+.desc { font-size: 12.5px; color: var(--ink-2); margin-top: 5px; }
+.attrs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.attr { border: 1px solid var(--rule); background: var(--field); border-radius: 3px; padding: 6px 8px; display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.attr b { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; }
+.step { display: flex; align-items: center; gap: 4px; }
+.step button { width: 24px; height: 24px; border: 1px solid var(--rule); background: transparent; border-radius: 3px; cursor: pointer; line-height: 1; }
+.step output { font-family: var(--font-mono); font-weight: 600; min-width: 1.2ch; text-align: center; font-size: 16px; }
+.claude-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 6px; }
+.status { font-size: 12.5px; color: var(--ink-3); }
+.status.err { color: var(--neg); }
+.warn { color: var(--warn); }
+
+/* Ficha */
+.ficha-col { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); }
+@media (max-width: 1000px) { .ficha-col { position: static; } }
+.ficha { background: var(--sheet); border: 1px solid var(--rule); border-radius: 2px; box-shadow: 0 1px 0 var(--rule), 0 10px 30px -18px rgba(0,0,0,.35); }
+.ficha-head { padding: 16px 18px 12px; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; }
+.ficha-head .eyebrow { margin-bottom: 4px; }
+.nombre { font-family: var(--font-display); font-size: 30px; line-height: 1; margin: 0; letter-spacing: .01em; overflow-wrap: anywhere; }
+.alias { font-family: var(--font-mono); font-size: 13px; color: var(--ink-2); margin-top: 4px; }
+.sub { font-size: 13.5px; color: var(--ink-2); margin-top: 6px; }
+.patente { align-self: start; transform: rotate(-4deg); border: 2px solid var(--stamp); color: var(--stamp); border-radius: 3px; padding: 4px 8px 3px; text-align: center; font-family: var(--font-mono); }
+.patente small { display: block; font-size: 9px; letter-spacing: .18em; }
+.patente span { font-size: 17px; font-weight: 600; letter-spacing: .12em; }
+.ficha-body { padding: 14px 18px 16px; display: grid; gap: 16px; }
+.sec-t { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 6px; display: flex; justify-content: space-between; gap: 8px; }
+.bars { display: grid; gap: 6px; }
+.bar { display: grid; grid-template-columns: 64px minmax(0, 1fr) 28px; gap: 10px; align-items: center; font-family: var(--font-mono); font-size: 12px; }
+.cells { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.cells i { height: 12px; border: 1px solid var(--rule); background: transparent; }
+.cells i.on { background: var(--ink); border-color: var(--ink); }
+.cells i.mod { background: var(--accent); border-color: var(--accent); }
+.cells i.off { opacity: .35; }
+.bar b { text-align: right; font-size: 15px; font-variant-numeric: tabular-nums; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.stat { background: var(--sheet); padding: 7px 9px; min-width: 0; }
+.stat .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; color: var(--ink-3); }
+.stat .v { font-family: var(--font-mono); font-size: 20px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat .f { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3); overflow-wrap: anywhere; }
+.stat .c { font-family: var(--font-mono); font-size: 10.5px; color: var(--accent); overflow-wrap: anywhere; }
+@media (max-width: 420px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tagwall { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag { font-family: var(--font-mono); font-size: 11.5px; border: 1px solid var(--rule); border-radius: 2px; padding: 1px 6px; background: var(--field); overflow-wrap: anywhere; }
+.tag.c-faccion, .tag.c-subfaccion, .tag.c-rango, .tag.c-mando, .tag.c-lealtad { border-color: var(--accent); color: var(--accent); }
+.tag.c-aliado { border-color: var(--ok); color: var(--ok); }
+.tag.c-nemesis { border-color: var(--neg); color: var(--neg); }
+.tag.c-libre { border-style: dashed; }
+.prosa { font-size: 13.5px; color: var(--ink-2); white-space: pre-wrap; max-height: 9.5em; overflow: auto; }
+.prosa.empty { font-style: italic; color: var(--ink-3); }
+.tabs { display: flex; border-bottom: 1px solid var(--rule); padding: 0 12px; gap: 2px; }
+.tabs button { border: 0; background: transparent; padding: 10px 10px 8px; cursor: pointer; font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.yaml { margin: 0; padding: 12px 14px; font-family: var(--font-mono); font-size: 12px; line-height: 1.5; max-height: 62vh; overflow: auto; white-space: pre; background: var(--field); border-bottom: 1px solid var(--rule); }
+.yaml-tools { padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.foot { font-size: 12px; color: var(--ink-3); padding: 0 18px 14px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Subordinación y Valor · syv-pj</div>
+      <h1>Creador de personajes</h1>
+    </div>
+    <div class="controls">
+      <label class="ctl"><span>Semilla</span><input type="text" id="seed" class="seed" spellcheck="false" autocomplete="off"></label>
+      <button class="btn" id="newSeed" type="button" title="Cambia la semilla y vuelve a sortear todo lo que no está fijado">Nueva semilla</button>
+      <button class="btn primary" id="rollAll" type="button" title="Suelta todos los candados y sortea la hoja entera con la semilla actual">Sortear desde cero</button>
+      <div class="ctl"><span>Notación de tags</span>
+        <div class="seg" role="group" aria-label="Notación de tags">
+          <button type="button" id="notPunto" aria-pressed="true">a.b</button>
+          <button type="button" id="notBarra" aria-pressed="false">a/b</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="form"></div>
+  <aside class="ficha-col">
+    <div class="ficha">
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" id="tabFicha" aria-selected="true">Ficha</button>
+        <button type="button" role="tab" id="tabYaml" aria-selected="false">YAML</button>
+      </div>
+      <div id="panelFicha"></div>
+      <div id="panelYaml" hidden>
+        <pre class="yaml" id="yaml"></pre>
+        <div class="yaml-tools">
+          <button class="btn primary" type="button" id="copyYaml">Copiar YAML</button>
+          <button class="btn" type="button" id="dlMd" hidden>Descargar .md</button>
+          <button class="btn" type="button" id="dlJson" hidden>Descargar .json</button>
+          <span class="status" id="yamlStatus" role="status"></span>
+        </div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+(() => {
+"use strict";
+const D = JSON.parse(document.getElementById("data").textContent);
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+/* ---------- Catálogo indexado ---------- */
+const FAC = Object.fromEntries(D.facciones.map((f) => [f.slug, f]));
+const SUB = Object.fromEntries(D.subfacciones.map((s) => [s.slug, s]));
+const ASP = Object.fromEntries(D.aspectos.map((a) => [a.slug, a]));
+const RAS = Object.fromEntries(D.rasgos.map((a) => [a.slug, a]));
+const HAB = Object.fromEntries(D.habilidades.map((a) => [a.slug, a]));
+const ENT = Object.fromEntries(D.entrenamientos.map((a) => [a.slug, a]));
+const EQ = Object.fromEntries(D.equipo.map((a) => [a.slug, a]));
+const EQ_BY = (sub) => D.equipo.filter((e) => e.subcategoria === sub);
+const RG = D.reglas;
+const facName = (s) => FAC[s]?.nombre || SUB[s]?.nombre || s;
+const rangosDe = (f) => D.rangos[f] || [];
+const subsDe = (f) => D.subfacciones.filter((s) => s.faccion_padre === f);
+const GENEROS = ["masculino", "femenino", "no_binario", "otro"];
+const GEN_LBL = { masculino: "Masculino", femenino: "Femenino", no_binario: "No binario", otro: "Otro" };
+const ATTR = ["cuerpo", "mente", "alma"];
+const CIUDADANO = { cuerpo: 2, mente: 2, alma: 2 };
+
+function poolEsp(f, subs) {
+  const seen = new Map();
+  for (const k of [f, ...subs]) for (const e of D.especialidades[k] || []) {
+    const key = e.slug || "";
+    if (!seen.has(key)) seen.set(key, e);
+  }
+  return [...seen.values()];
+}
+const espKeyName = (slug) => {
+  if (!slug) return null;
+  for (const l of Object.values(D.especialidades)) { const e = l.find((x) => x.slug === slug); if (e) return e.nombre; }
+  return slug.split("/").pop();
+};
+
+/* ---------- Azar con semilla ---------- */
+function hash(str) { let h = 1779033703 ^ str.length; for (let i = 0; i < str.length; i++) { h = Math.imul(h ^ str.charCodeAt(i), 3432918353); h = (h << 13) | (h >>> 19); } h = Math.imul(h ^ (h >>> 16), 2246822507); h = Math.imul(h ^ (h >>> 13), 3266489909); return (h ^= h >>> 16) >>> 0; }
+function mulberry(a) { return () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+const rngFor = (field) => mulberry(hash(S.seed + "|" + field + "|" + (S.salts[field] || 0)));
+function wpick(r, items, w) {
+  const ws = items.map((x) => Math.max(0, Number(w(x)) || 0));
+  let tot = ws.reduce((a, b) => a + b, 0);
+  if (!items.length) return undefined;
+  if (tot <= 0) return items[Math.floor(r() * items.length)];
+  let x = r() * tot;
+  for (let i = 0; i < items.length; i++) { x -= ws[i]; if (x < 0) return items[i]; }
+  return items[items.length - 1];
+}
+function wsample(r, items, w, n) { const pool = items.slice(), out = []; while (out.length < n && pool.length) { const it = wpick(r, pool, w); out.push(it); pool.splice(pool.indexOf(it), 1); } return out; }
+const randInt = (r, a, b) => a + Math.floor(r() * (b - a + 1));
+function newSeed() { const c = "abcdefghjkmnpqrstuvwxyz23456789"; let s = ""; const a = new Uint32Array(8); crypto.getRandomValues(a); for (const x of a) s += c[x % c.length]; return s; }
+function gauss(r) { let u = 0, v = 0; while (u === 0) u = r(); while (v === 0) v = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+
+/* ---------- Estado ---------- */
+const ORDER = ["faccion", "subfacciones", "rango", "mando", "especialidad", "genero", "edad", "nombre", "sobrenombre", "patente", "atributos", "entrenamientos", "habilidades", "aspectos", "rasgos", "lealtades", "arma", "utilitarios", "vestidura"];
+function blank() {
+  return { seed: newSeed(), salts: {}, locks: {}, v: {}, notacion: "punto", aliados: [], nemesis: [], libres: [], historia: "", apariencia: { rostro: "", figura: "", presencia: "" }, creado_en: new Date().toISOString().replace(/\.\d+Z$/, "Z") };
+}
+let S = blank();
+const LS = "syv-pj-creador-v1";
+try { const raw = localStorage.getItem(LS); if (raw) S = Object.assign(blank(), JSON.parse(raw)); } catch (_) {}
+function save() { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (_) {} }
+
+/* ---------- Requisitos y sesgos ---------- */
+function meets(req, tags) {
+  if (!req) return true;
+  const has = (t) => (t.startsWith("no:") ? !tags.has(t.slice(3)) : tags.has(t));
+  if (req.require_all && !req.require_all.every(has)) return false;
+  if (req.require_any && !req.require_any.some(has)) return false;
+  return true;
+}
+function bias(e, V) {
+  let f = 1;
+  const pert = [V.faccion, ...(V.subfacciones || [])];
+  if (e.sesgo_faccion) f *= e.sesgo_faccion.some((x) => pert.includes(x)) ? 4 : 0.1;
+  if (e.sesgo_especialidad) f *= e.sesgo_especialidad.includes(V.especialidad) ? 5 : 0.3;
+  if (e.sesgo_rango) f *= e.sesgo_rango.includes(V.rango) ? 4 : 0.05;
+  return f;
+}
+
+/* ---------- Generación por fases ---------- */
+function generate() {
+  const V = S.v, L = S.locks;
+  // Fase 1 — Afiliación
+  if (!L.faccion || !FAC[V.faccion]) V.faccion = wpick(rngFor("faccion"), D.facciones, (f) => f.probabilidad).slug;
+  const subs = subsDe(V.faccion);
+  if (!L.subfacciones) V.subfacciones = subs.length ? [wpick(rngFor("subfacciones"), subs, (s) => s.probabilidad).slug] : [];
+  else V.subfacciones = (V.subfacciones || []).filter((s) => SUB[s]?.faccion_padre === V.faccion);
+  const rl = rangosDe(V.faccion);
+  if (!L.rango || !rl.some((r) => r.slug === V.rango)) V.rango = rl.length ? wpick(rngFor("rango"), rl, (r) => r.probabilidad).slug : null;
+  const R = rl.find((r) => r.slug === V.rango) || null;
+  if (!L.mando) V.mando = R?.mando || null;
+  const pool = poolEsp(V.faccion, V.subfacciones);
+  if (!L.especialidad || !pool.some((e) => (e.slug || "") === (V.especialidad || ""))) {
+    let pick = null;
+    if (V.mando) pick = pool.find((e) => e.slug === "especialidad/combate/lider") || pool.find((e) => e.slug === "especialidad/combate/heroe");
+    if (!pick) pick = wpick(rngFor("especialidad"), pool, (e) => e.probabilidad);
+    V.especialidad = pick ? pick.slug || "" : "";
+  }
+  // Fase 2 — Identidad
+  if (!L.genero || !GENEROS.includes(V.genero)) V.genero = wpick(rngFor("genero"), Object.keys(RG.genero_pesos), (k) => RG.genero_pesos[k]);
+  const emin = R?.edad_min ?? RG.edad_default.min, emax = R?.edad_max ?? RG.edad_default.max;
+  if (!L.edad || !Number.isFinite(+V.edad)) {
+    const r = rngFor("edad"); let e = null;
+    for (let i = 0; i < 60 && e === null; i++) { const x = Math.round(RG.edad_default.mediana + gauss(r) * RG.edad_default.desvio); if (x >= emin && x <= emax) e = x; }
+    V.edad = e ?? randInt(r, emin, emax);
+  }
+  if (!L.nombre || V.nombre == null) {
+    const r = rngFor("nombre");
+    const g = V.genero === "masculino" ? "m" : V.genero === "femenino" ? "f" : r() < 0.5 ? "m" : "f";
+    const [n, ap] = D.nombres[g][Math.floor(r() * D.nombres[g].length)];
+    V.nombre = n + " " + D.nombres.apellidos[Math.floor(r() * D.nombres.apellidos.length)];
+    V._apodo = ap;
+  } else {
+    const first = V.nombre.trim().split(/\s+/)[0];
+    const hit = [...D.nombres.m, ...D.nombres.f].find((x) => x[0] === first);
+    V._apodo = hit ? hit[1] : null;
+  }
+  if (!L.sobrenombre) V.sobrenombre = rngFor("sobrenombre")() * 100 < RG.sobrenombre_prob && V._apodo ? V._apodo : null;
+  if (!L.patente || V.patente == null) { const r = rngFor("patente"), c = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; let p = ""; for (let i = 0; i < 8; i++) p += c[Math.floor(r() * c.length)]; V.patente = p; }
+  // Fase 3 — Atributos
+  if (!L.atributos || !V.atributos) V.atributos = { ...(R?.atributos_base || CIUDADANO) };
+  // Fase 4 — Formación
+  if (!L.entrenamientos) {
+    const r = rngFor("entrenamientos");
+    const base = RG.entrenamiento_base_por_rango[V.rango] ?? RG.entrenamiento_base_por_rango.default;
+    const set = ENT[base] ? [base] : [];
+    if (r() < 0.25) { const extra = wpick(r, D.entrenamientos.filter((e) => !set.includes(e.slug)), (e) => e.peso_narrativo); if (extra) set.push(extra.slug); }
+    V.entrenamientos = set;
+  }
+  if (!L.habilidades) { const h = RG.habilidad_por_especialidad[V.especialidad]; V.habilidades = h && HAB[h] ? [h] : []; }
+  // Fase 5 — Aspectos y rasgos
+  const tagsNow = new Set(rawTags(false));
+  if (!L.aspectos) {
+    const r = rngFor("aspectos");
+    const [mn, mx] = RG.aspecto_cuota_por_rango[V.rango] || RG.aspecto_cuota_por_rango.default;
+    const n = randInt(r, mn, mx), chosen = [];
+    for (let i = 0; i < n; i++) {
+      const elig = D.aspectos.filter((a) => !chosen.includes(a.slug) && (a.requiere_edad_min ?? 0) <= V.edad && meets(a.requires, tagsNow) &&
+        !(a.excluye || []).some((x) => chosen.includes(x.split("/").pop())) && !chosen.some((c) => (ASP[c].excluye || []).includes("aspecto/" + a.slug)));
+      const a = wpick(r, elig, (a) => a.peso_narrativo * bias(a, V) * (a.origen === "narrativo" ? 0.3 : 1));
+      if (!a) break; chosen.push(a.slug);
+    }
+    V.aspectos = chosen;
+  }
+  if (!L.rasgos) { const r = rngFor("rasgos"); V.rasgos = r() * 100 < RG.rasgo_prob ? [wpick(r, D.rasgos, (x) => x.peso_narrativo).slug] : []; }
+  // Fase 6 — Vínculos
+  if (!L.lealtades) V.lealtades = [V.faccion];
+  // Fase 7 — Equipo
+  const t2 = new Set(rawTags(false));
+  const espCombate = (V.especialidad || "").startsWith("especialidad/combate/");
+  const poolCombate = pool.some((e) => (e.slug || "").startsWith("especialidad/combate/"));
+  if (!L.arma) {
+    const r = rngFor("arma");
+    const armado = espCombate || r() < (poolCombate ? 0.6 : 0.35);
+    const el = EQ_BY("arma").filter((e) => meets(e.requires, t2));
+    V.arma = armado ? wpick(r, el, (e) => (e.peso_sorteo || 1) * bias(e, V))?.slug || null : null;
+  }
+  if (!L.utilitarios) {
+    const r = rngFor("utilitarios"); const [a, b] = RG.equipo_cuota.utilitario;
+    V.utilitarios = wsample(r, EQ_BY("utilitario").filter((e) => meets(e.requires, t2)), (e) => (e.peso_sorteo || 1) * bias(e, V), randInt(r, a, b)).map((e) => e.slug);
+  }
+  if (!L.vestidura) {
+    const r = rngFor("vestidura"); const [a, b] = RG.equipo_cuota.vestidura;
+    V.vestidura = randInt(r, a, b) > 0 ? wpick(r, EQ_BY("vestidura"), (e) => (e.peso_sorteo || 1) * bias(e, V))?.slug || null : null;
+  }
+  save();
+}
+
+/* ---------- Tags ---------- */
+function rawTags(withAll = true) {
+  const V = S.v, t = [];
+  if (V.faccion) t.push("faccion/" + V.faccion);
+  for (const s of V.subfacciones || []) t.push("subfaccion/" + s);
+  if (V.rango) t.push("rango/" + V.rango);
+  if (V.mando) t.push("mando/" + V.mando);
+  if (V.especialidad) t.push(V.especialidad);
+  t.push("estado/disponible");
+  for (const x of V.entrenamientos || []) t.push("entrenamiento/" + x);
+  for (const x of V.habilidades || []) t.push("habilidad/" + x);
+  if (!withAll) return t;
+  for (const x of V.aspectos || []) t.push("aspecto/" + x);
+  for (const x of V.rasgos || []) t.push("rasgo/" + x);
+  for (const x of V.lealtades || []) t.push("lealtad/" + x);
+  for (const x of S.aliados) t.push("aliado/" + x);
+  for (const x of S.nemesis) t.push("nemesis/" + x);
+  if (V.arma) t.push("equipo/arma/" + V.arma);
+  for (const x of V.utilitarios || []) t.push("equipo/utilitario/" + x);
+  if (V.vestidura) t.push("equipo/vestidura/" + V.vestidura);
+  for (const x of S.libres) t.push(x);
+  const seen = new Map(); for (const x of t) { seen.delete(x); seen.set(x, 1); } // no multiconjunto: gana el último
+  return [...seen.keys()];
+}
+const fmtTag = (t) => (S.notacion === "punto" ? t.replace(/\//g, ".") : t);
+const normTag = (t) => t.trim().replace(/\./g, "/").replace(/^\/+|\/+$/g, "");
+const validTag = (t) => t.split("/").every((s) => /^[a-z0-9_]+$/.test(s)) || /^[a-z_]+\/[A-Z0-9]{8}$/.test(t);
+
+/* ---------- Estadísticas derivadas ---------- */
+function derive() {
+  const A = { ...S.v.atributos }, mods = [];
+  for (const s of S.v.aspectos || []) for (const m of ASP[s]?.efecto || []) mods.push({ ...m, src: ASP[s].nombre });
+  const eff = { ...A }, cond = {};
+  for (const m of mods) {
+    const [k, v] = m.objetivo.split(".");
+    if (m.condicion) { (cond[v] ||= []).push(m); continue; }
+    if (k === "attr" && m.mod != null) eff[v] = (eff[v] || 0) + m.mod;
+  }
+  const sum = (stat) => mods.filter((m) => m.objetivo === "stat." + stat && !m.condicion && m.mod != null).reduce((a, m) => a + m.mod, 0);
+  const pct = (stat) => mods.filter((m) => m.objetivo === "stat." + stat && !m.condicion && m.pct != null).reduce((a, m) => a + m.pct, 0);
+  const sgn = (n) => (n ? (n > 0 ? " +" : " −") + Math.abs(n) : "");
+  const condTxt = (k) => (cond[k] || []).map((m) => (m.mod != null ? (m.mod > 0 ? "+" : "") + m.mod : m.pct + "%") + " " + m.objetivo.split(".")[1] + " en " + m.condicion).join(" · ");
+  const ini = Math.max(0, Math.min(5, Math.max(eff.cuerpo, eff.mente, eff.alma) + sum("iniciativa")));
+  const out = [
+    { k: "INICIATIVA", v: ini, f: "máx(C,M,A)" + sgn(sum("iniciativa")) + ", tope 0..5" },
+    { k: "MORAL", v: eff.alma + sum("moral"), f: "ALMA" + sgn(sum("moral")) },
+    { k: "FATIGA máx", v: eff.cuerpo + eff.alma + sum("fatiga"), f: "CUERPO + ALMA" + sgn(sum("fatiga")) },
+    { k: "ESTRESS máx", v: Math.max(1, eff.alma + sum("estress")), f: "ALMA" + sgn(sum("estress")) + ", mín. 1" },
+    { k: "SANAR", v: sum("sanar"), f: "Σ contratos, base 0" },
+    { k: "PERCEPCION", v: sum("percepcion"), f: "Σ contratos, base 0" },
+    { k: "MOVIMIENTO", v: eff.cuerpo + "×", f: "CUERPO × orden" + sgn(sum("movimiento")) + (pct("movimiento") ? ", " + pct("movimiento") + "%" : "") },
+  ];
+  for (const s of out) { const key = s.k.split(" ")[0].toLowerCase(); s.c = condTxt(key); }
+  const attrCond = ATTR.map((a) => condTxt(a)).filter(Boolean).join(" · ");
+  const esp = S.v.especialidad || "";
+  const fza = esp === "especialidad/combate/heroe" ? 3 : esp === "especialidad/combate/lider" ? 2 : 1;
+  out.push({ k: "FZA aportada", v: fza, f: "héroe 3 · líder 2 · resto 1" });
+  return { base: A, eff, stats: out, attrCond, mods };
+}
+
+/* ---------- YAML ---------- */
+const q = (s) => (s == null || s === "" ? "null" : JSON.stringify(String(s)));
+function block(s, ind) { const t = String(s || "").trim(); if (!t) return " null"; return " |\n" + t.split("\n").map((l) => (l ? ind + l : "")).join("\n"); }
+function sheetObj() {
+  const V = S.v, R = rangosDe(V.faccion).find((r) => r.slug === V.rango);
+  return {
+    identidad: { slug: V.patente, nombre: V.nombre, sobrenombre: V.sobrenombre, rol: R?.nombre || null, especialidad: espKeyName(V.especialidad), genero: V.genero, edad: +V.edad },
+    atributos: { ...V.atributos },
+    tags: rawTags().map(fmtTag),
+    historia: S.historia.trim() || null,
+    historial: [],
+    metadatos: { creado_en: S.creado_en, canonizado_en: null, ultima_actualizacion: S.creado_en },
+    extras: { semilla: S.seed },
+    apariencia: (S.apariencia.rostro || S.apariencia.figura || S.apariencia.presencia) ? { rostro: S.apariencia.rostro.trim() || null, figura: S.apariencia.figura.trim() || null, presencia: S.apariencia.presencia.trim() || null } : null,
+  };
+}
+function toYaml() {
+  const o = sheetObj(), I = o.identidad, A = o.atributos;
+  let y = "personaje:\n  identidad:\n";
+  y += `    slug: ${I.slug}\n    nombre: ${q(I.nombre)}\n    sobrenombre: ${q(I.sobrenombre)}\n    rol: ${q(I.rol)}\n    especialidad: ${q(I.especialidad)}\n    genero: ${I.genero}\n    edad: ${I.edad}\n`;
+  y += `  atributos:\n    cuerpo: ${A.cuerpo}\n    mente: ${A.mente}\n    alma: ${A.alma}\n`;
+  y += "  tags:\n" + o.tags.map((t) => "    - " + t).join("\n") + "\n";
+  y += "  historia:" + block(o.historia, "    ") + "\n";
+  y += "  historial: []\n";
+  y += `  metadatos:\n    creado_en: ${o.metadatos.creado_en}\n    canonizado_en: null\n    ultima_actualizacion: ${o.metadatos.ultima_actualizacion}\n`;
+  y += `  extras:\n    semilla: ${q(S.seed)}\n`;
+  if (!o.apariencia) y += "  apariencia: null\n";
+  else { y += "  apariencia:\n"; for (const k of ["rostro", "figura", "presencia"]) y += `    ${k}:` + block(o.apariencia[k], "      ") + "\n"; }
+  return y;
+}
+
+/* ---------- Íconos ---------- */
+const ICO = {
+  lock: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>',
+  unlock: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 4.9-.7"/></svg>',
+  dice: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><circle cx="5.6" cy="5.6" r=".9" fill="currentColor" stroke="none"/><circle cx="10.4" cy="10.4" r=".9" fill="currentColor" stroke="none"/><circle cx="8" cy="8" r=".9" fill="currentColor" stroke="none"/></svg>',
+};
+const tools = (f) => `<div class="tools"><button type="button" class="ico" data-lock="${f}" aria-pressed="${!!S.locks[f]}" title="${S.locks[f] ? "Fijado: el sorteo lo respeta. Clic para soltar" : "Libre: se sortea. Clic para fijar"}">${S.locks[f] ? ICO.lock : ICO.unlock}<span class="sr">Fijar ${f}</span></button><button type="button" class="ico" data-roll="${f}" title="Volver a sortear este campo">${ICO.dice}<span class="sr">Sortear ${f}</span></button></div>`;
+const opt = (v, label, sel) => `<option value="${esc(v)}"${sel ? " selected" : ""}>${esc(label)}</option>`;
+const chipList = (field, items, nameFn) => items.map((s) => `<span class="chip" title="${esc(nameFn(s).d || "")}">${esc(nameFn(s).n)}<button type="button" data-rm="${field}" data-val="${esc(s)}" aria-label="Quitar ${esc(nameFn(s).n)}">×</button></span>`).join("");
+const adder = (field, items, have, nameFn, ph) => { const rest = items.filter((x) => !have.includes(x)); return rest.length ? `<select data-add="${field}" aria-label="${esc(ph)}"><option value="">${esc(ph)}</option>${rest.map((x) => opt(x, nameFn(x).n, false)).join("")}</select>` : ""; };
+
+/* ---------- Formulario ---------- */
+function renderForm() {
+  const V = S.v, R = rangosDe(V.faccion).find((r) => r.slug === V.rango);
+  const pool = poolEsp(V.faccion, V.subfacciones);
+  const espSel = pool.find((e) => (e.slug || "") === (V.especialidad || ""));
+  const subs = subsDe(V.faccion);
+  const nm = (cat) => (s) => ({ n: cat[s]?.nombre || s, d: cat[s]?.descripcion });
+  const armas = EQ_BY("arma"), uts = EQ_BY("utilitario").map((e) => e.slug), ves = EQ_BY("vestidura");
+  const aspNm = (s) => { const a = ASP[s]; if (!a) return { n: s }; const ef = (a.efecto || []).map((m) => (m.mod != null ? (m.mod > 0 ? "+" : "") + m.mod : m.pct + "%") + " " + m.objetivo.split(".")[1].toUpperCase() + (m.condicion ? " (" + m.condicion + ")" : "")).join(", "); return { n: a.nombre + (ef ? " · " + ef : ""), d: a.descripcion }; };
+  const rangoTabla = R?.atributos_base || CIUDADANO;
+  const attrsDiffer = ATTR.some((a) => V.atributos[a] !== rangoTabla[a]);
+  const h = [];
+  const fase = (n, t, p, body) => h.push(`<section class="fase"><div class="fase-h"><span class="fase-n">${n}</span><h2>${t}</h2><p>${p}</p></div>${body}</section>`);
+
+  fase(1, "Afiliación", "facción · subfacción · rango · mando · especialidad",
+    `<div class="row"><label for="f-faccion">Facción</label><div class="fld"><select id="f-faccion" data-set="faccion">${D.facciones.map((f) => opt(f.slug, f.nombre, f.slug === V.faccion)).join("")}</select><div class="desc">${esc(FAC[V.faccion]?.descripcion)}</div></div>${tools("faccion")}</div>
+     <div class="row"><span class="lbl">Subfacción</span><div class="fld">${subs.length ? `<div class="chips">${chipList("subfacciones", V.subfacciones, nm(SUB))}${adder("subfacciones", subs.map((s) => s.slug), V.subfacciones, nm(SUB), "Agregar subfacción")}</div><div class="desc">${esc(V.subfacciones.map((s) => SUB[s]?.descripcion).join(" "))}</div>` : `<div class="hint">Esta facción no tiene subfacciones en el catálogo.</div>`}</div>${subs.length ? tools("subfacciones") : "<span></span>"}</div>
+     <div class="row"><label for="f-rango">Rango</label><div class="fld">${rangosDe(V.faccion).length ? `<select id="f-rango" data-set="rango">${rangosDe(V.faccion).map((r) => opt(r.slug, `${r.nombre} · ${r.edad_min}–${r.edad_max} años${r.mando ? " · mando " + r.mando : ""}`, r.slug === V.rango)).join("")}</select>` : `<div class="hint">Sin escalera de rangos: piso civil.</div>`}</div>${tools("rango")}</div>
+     <div class="row"><label for="f-mando">Mando</label><div class="fld"><input type="text" id="f-mando" data-text="mando" value="${esc(V.mando || "")}" placeholder="sin mando" spellcheck="false"><div class="hint">${R?.mando ? `El rango implica <code>mando/${esc(R.mando)}</code>.` : "El rango no implica mando. Escribí un slug para dárselo."}</div></div>${tools("mando")}</div>
+     <div class="row"><label for="f-esp">Especialidad</label><div class="fld"><select id="f-esp" data-set="especialidad">${pool.map((e) => opt(e.slug || "", e.nombre + (e.slug ? " · " + e.slug.split("/")[1] : ""), (e.slug || "") === (V.especialidad || ""))).join("")}</select><div class="desc">${esc(espSel?.descripcion)}</div></div>${tools("especialidad")}</div>`);
+
+  fase(2, "Identidad", "género · edad · nombre · sobrenombre · patente",
+    `<div class="row"><label for="f-genero">Género</label><div class="fld"><select id="f-genero" data-set="genero">${GENEROS.map((g) => opt(g, GEN_LBL[g], g === V.genero)).join("")}</select></div>${tools("genero")}</div>
+     <div class="row"><label for="f-edad">Edad</label><div class="fld"><input type="number" id="f-edad" data-text="edad" min="12" max="90" value="${esc(V.edad)}">${R && (V.edad < R.edad_min || V.edad > R.edad_max) ? `<div class="hint warn">Fuera del rango del ${esc(R.nombre)} (${R.edad_min}–${R.edad_max}).</div>` : ""}</div>${tools("edad")}</div>
+     <div class="row"><label for="f-nombre">Nombre</label><div class="fld"><input type="text" id="f-nombre" data-text="nombre" value="${esc(V.nombre)}"></div>${tools("nombre")}</div>
+     <div class="row"><label for="f-sobre">Sobrenombre</label><div class="fld"><input type="text" id="f-sobre" data-text="sobrenombre" value="${esc(V.sobrenombre || "")}" placeholder="sin sobrenombre"><div class="hint">${RG.sobrenombre_prob}% de emitirlo, si el nombre tiene apodo curado${V._apodo ? ` (${esc(V._apodo)})` : ""}.</div></div>${tools("sobrenombre")}</div>
+     <div class="row"><label for="f-patente">Patente</label><div class="fld"><input type="text" id="f-patente" data-text="patente" value="${esc(V.patente)}" maxlength="8" spellcheck="false" style="font-family:var(--font-mono);text-transform:uppercase">${/^[A-Z0-9]{8}$/.test(V.patente) ? "" : `<div class="hint warn">La patente es ^[A-Z0-9]{8}$.</div>`}<div class="hint">Patente opaca de ejemplo. Al persistir la asigna el servidor.</div></div>${tools("patente")}</div>`);
+
+  fase(3, "Atributos", "determinísticos por rango, escala 2..7",
+    `<div class="row"><span class="lbl">Cuerpo · Mente · Alma</span><div class="fld"><div class="attrs">${ATTR.map((a) => `<div class="attr"><b>${a.toUpperCase()}</b><div class="step"><button type="button" data-step="${a}" data-d="-1" aria-label="Restar ${a}">−</button><output>${V.atributos[a]}</output><button type="button" data-step="${a}" data-d="1" aria-label="Sumar ${a}">+</button></div></div>`).join("")}</div><div class="hint">${R ? `Tabla de ${esc(R.nombre)}: ${rangoTabla.cuerpo} / ${rangoTabla.mente} / ${rangoTabla.alma}.` : "Piso civil: 2 / 2 / 2."}${attrsDiffer ? ` <span class="warn">Editado a mano: se aparta de la tabla.</span>` : ""}</div></div>${tools("atributos")}</div>`);
+
+  fase(4, "Formación", "entrenamiento base por rango · habilidad por especialidad",
+    `<div class="row"><span class="lbl">Entrenamiento</span><div class="fld"><div class="chips">${chipList("entrenamientos", V.entrenamientos, nm(ENT))}${adder("entrenamientos", Object.keys(ENT), V.entrenamientos, nm(ENT), "Agregar entrenamiento")}</div></div>${tools("entrenamientos")}</div>
+     <div class="row"><span class="lbl">Habilidades</span><div class="fld"><div class="chips">${chipList("habilidades", V.habilidades, (s) => ({ n: (HAB[s]?.nombre || s) + (HAB[s] ? " · " + HAB[s].atributo_dominante.toUpperCase() : ""), d: HAB[s]?.descripcion }))}${adder("habilidades", Object.keys(HAB), V.habilidades, nm(HAB), "Agregar habilidad")}</div><div class="hint">Una habilidad habilita la tirada contra su atributo dominante; no suma modificadores.</div></div>${tools("habilidades")}</div>`);
+
+  const [amn, amx] = RG.aspecto_cuota_por_rango[V.rango] || RG.aspecto_cuota_por_rango.default;
+  fase(5, "Aspectos", "carácter con contrato · rasgos físicos",
+    `<div class="row"><span class="lbl">Aspectos</span><div class="fld"><div class="chips">${chipList("aspectos", V.aspectos, aspNm)}${adder("aspectos", Object.keys(ASP), V.aspectos, (s) => ({ n: ASP[s].nombre }), "Agregar aspecto")}</div><div class="hint">Cuota del rango: ${amn}–${amx}. ${conflicts().map(esc).join(" ")}</div></div>${tools("aspectos")}</div>
+     <div class="row"><span class="lbl">Rasgos</span><div class="fld"><div class="chips">${chipList("rasgos", V.rasgos, nm(RAS))}${adder("rasgos", Object.keys(RAS), V.rasgos, nm(RAS), "Agregar rasgo")}</div><div class="hint">${RG.rasgo_prob}% de recibir un rasgo. Sin efecto mecánico.</div></div>${tools("rasgos")}</div>`);
+
+  const lealOpts = [...D.facciones.map((f) => f.slug), ...D.subfacciones.map((s) => s.slug)];
+  fase(6, "Vínculos", "lealtad · aliado · némesis",
+    `<div class="row"><span class="lbl">Lealtades</span><div class="fld"><div class="chips">${chipList("lealtades", V.lealtades, (s) => ({ n: facName(s) }))}${adder("lealtades", lealOpts, V.lealtades, (s) => ({ n: facName(s) }), "Agregar lealtad")}</div><div class="hint">La lealtad de base es la facción.</div></div>${tools("lealtades")}</div>
+     <div class="row"><label for="add-aliados">Aliados</label><div class="fld"><div class="chips">${S.aliados.map((s) => `<span class="chip">${esc(s)}<button type="button" data-rmx="aliados" data-val="${esc(s)}" aria-label="Quitar ${esc(s)}">×</button></span>`).join("")}<input type="text" id="add-aliados" data-addx="aliados" placeholder="patente o slug + Enter" spellcheck="false"></div></div><span></span></div>
+     <div class="row"><label for="add-nemesis">Némesis</label><div class="fld"><div class="chips">${S.nemesis.map((s) => `<span class="chip">${esc(s)}<button type="button" data-rmx="nemesis" data-val="${esc(s)}" aria-label="Quitar ${esc(s)}">×</button></span>`).join("")}<input type="text" id="add-nemesis" data-addx="nemesis" placeholder="patente o slug + Enter" spellcheck="false"></div><div class="hint">Patente (K9F2H3M4) o slug de facción o grupo. La prosa del vínculo va en su hito, no acá.</div></div><span></span></div>`);
+
+  fase(7, "Equipo", "un arma · 0–2 utilitarios · 0–1 vestidura",
+    `<div class="row"><label for="f-arma">Arma</label><div class="fld"><select id="f-arma" data-set="arma">${opt("", "Sin arma", !V.arma)}${armas.map((e) => opt(e.slug, e.nombre + (e.alcance ? " · alcance " + e.alcance : ""), e.slug === V.arma)).join("")}</select><div class="desc">${esc(EQ[V.arma]?.descripcion || "")}</div></div>${tools("arma")}</div>
+     <div class="row"><span class="lbl">Utilitarios</span><div class="fld"><div class="chips">${chipList("utilitarios", V.utilitarios, nm(EQ))}${adder("utilitarios", uts, V.utilitarios, nm(EQ), "Agregar utilitario")}</div></div>${tools("utilitarios")}</div>
+     <div class="row"><label for="f-vest">Vestidura</label><div class="fld"><select id="f-vest" data-set="vestidura">${opt("", "Sin vestidura propia", !V.vestidura)}${ves.map((e) => opt(e.slug, e.nombre, e.slug === V.vestidura)).join("")}</select><div class="desc">${esc(EQ[V.vestidura]?.descripcion || "")}</div></div>${tools("vestidura")}</div>
+     <div class="row"><label for="add-libres">Tags libres</label><div class="fld"><div class="chips">${S.libres.map((s) => `<span class="chip" style="font-family:var(--font-mono)">${esc(fmtTag(s))}<button type="button" data-rmx="libres" data-val="${esc(s)}" aria-label="Quitar ${esc(s)}">×</button></span>`).join("")}<input type="text" id="add-libres" data-addx="libres" placeholder="habilidad.personal.pianista + Enter" spellcheck="false"></div><div class="hint">Catálogo abierto: entran tags huérfanos o de categorías nuevas. Minúsculas y guion bajo.</div><div class="hint warn" id="libreErr"></div></div><span></span></div>`);
+
+  fase(8, "Prosa", "historia y apariencia · se congelan al canonizar",
+    `<div class="row"><label for="f-historia">Historia</label><div class="fld"><textarea id="f-historia" data-prose="historia" rows="7" placeholder="120–200 palabras. Ancla los tags: de dónde viene, por qué la cicatriz, a quién obedece.">${esc(S.historia)}</textarea><div class="hint" id="cnt-historia"></div>
+       <div class="claude-row" data-claude hidden><button class="btn" type="button" id="askHistoria">Escribir historia con Claude</button><button class="btn" type="button" id="stopHistoria" hidden>Detener</button><span class="status" id="stHistoria" role="status"></span></div></div><span></span></div>
+     ${["rostro", "figura", "presencia"].map((k) => `<div class="row"><label for="f-${k}">${k[0].toUpperCase() + k.slice(1)}</label><div class="fld"><textarea id="f-${k}" data-ap="${k}" rows="3" placeholder="${{ rostro: "La cara en primer plano: facciones, mirada, piel, gesto.", figura: "Cuerpo entero y porte: cómo lleva lo que viste, nunca qué viste.", presencia: "La impresión que deja: luz, aire, cómo cambia una habitación." }[k]}">${esc(S.apariencia[k])}</textarea></div><span></span></div>`).join("")}
+     <div class="row"><span class="lbl"></span><div class="fld"><div class="hint">Apariencia: 40–80 palabras por párrafo. Dice cómo se ve; no números ni nombres de prendas o armas.</div><div class="claude-row" data-claude hidden><button class="btn" type="button" id="askApariencia">Escribir apariencia con Claude</button><span class="status" id="stApariencia" role="status"></span></div></div><span></span></div>`);
+
+  const form = $("#form");
+  const act = document.activeElement, actId = act?.id, selS = act?.selectionStart, selE = act?.selectionEnd;
+  form.innerHTML = h.join("");
+  if (actId) { const el = document.getElementById(actId); if (el) { el.focus(); try { if (selS != null) el.setSelectionRange(selS, selE); } catch (_) {} } }
+  if (sampleFn) form.querySelectorAll("[data-claude]").forEach((x) => (x.hidden = false));
+  wordCount();
+}
+function conflicts() {
+  const out = [], tags = new Set(rawTags());
+  for (const s of S.v.aspectos) {
+    const a = ASP[s]; if (!a) continue;
+    if (a.requiere_edad_min && S.v.edad < a.requiere_edad_min) out.push(`${a.nombre} pide ${a.requiere_edad_min} años o más.`);
+    if (!meets(a.requires, tags)) out.push(`${a.nombre} pide ${(a.requires.require_any || a.requires.require_all).join(" o ")}.`);
+    for (const x of a.excluye || []) if (S.v.aspectos.includes(x.split("/").pop())) out.push(`${a.nombre} excluye ${ASP[x.split("/").pop()]?.nombre}.`);
+  }
+  return [...new Set(out)];
+}
+const words = (s) => (s.trim() ? s.trim().split(/\s+/).length : 0);
+function wordCount() { const el = $("#cnt-historia"); if (el) { const n = words(S.historia); el.textContent = n + " palabras" + (n && (n < 120 || n > 200) ? " · sugerido 120–200" : ""); el.className = "hint" + (n && (n < 120 || n > 200) ? " warn" : ""); } }
+
+/* ---------- Ficha ---------- */
+let tab = "ficha";
+function renderSheet() {
+  const V = S.v, R = rangosDe(V.faccion).find((r) => r.slug === V.rango), d = derive();
+  const espN = espKeyName(V.especialidad);
+  const sub = [R?.nombre, espN].filter(Boolean).join(" · ") || "Sin rango";
+  const fil = R && V.faccion ? `${R.nombre} de ${facName(V.faccion)}` : facName(V.faccion);
+  const bar = (a) => { const b = d.base[a], e = d.eff[a]; let cells = ""; for (let i = 1; i <= 7; i++) cells += `<i class="${i <= Math.min(b, e) ? "on" : i <= Math.max(b, e) ? (e > b ? "mod" : "on off") : ""}"></i>`; return `<div class="bar"><span>${a.toUpperCase()}</span><div class="cells">${cells}</div><b>${e}${e !== b ? `<sup style="font-size:10px;color:var(--accent)">${e > b ? "+" : ""}${e - b}</sup>` : ""}</b></div>`; };
+  const tags = rawTags();
+  const cls = (t) => (S.libres.includes(t) ? "c-libre" : "c-" + t.split("/")[0]);
+  const prosa = S.historia.trim();
+  $("#panelFicha").innerHTML = `
+   <div class="ficha-head">
+     <div style="min-width:0"><div class="eyebrow">Ficha de filiación · efímera</div>
+       <p class="nombre">${esc(V.nombre)}</p>
+       ${V.sobrenombre ? `<div class="alias">alias «${esc(V.sobrenombre)}»</div>` : ""}
+       <div class="sub">${esc(sub)}</div>
+       <div class="sub">${esc(GEN_LBL[V.genero])}, ${esc(V.edad)} años · ${esc(fil)}</div></div>
+     <div class="patente" title="Patente opaca ^[A-Z0-9]{8}$"><small>PATENTE</small><span>${esc(V.patente)}</span></div>
+   </div>
+   <div class="ficha-body">
+     <div><p class="sec-t"><span>Atributos</span><span>escala 2..7</span></p><div class="bars">${ATTR.map(bar).join("")}</div>${d.attrCond ? `<div class="hint" style="font-family:var(--font-mono);font-size:11px;color:var(--accent);margin-top:6px">Condicional: ${esc(d.attrCond)}</div>` : ""}</div>
+     <div><p class="sec-t"><span>Estadísticas derivadas</span><span>en caliente, no se guardan</span></p><div class="stats">${d.stats.map((s) => `<div class="stat"><div class="k">${esc(s.k)}</div><div class="v">${esc(s.v)}</div><div class="f">${esc(s.f)}</div>${s.c ? `<div class="c">${esc(s.c)}</div>` : ""}</div>`).join("")}</div></div>
+     <div><p class="sec-t"><span>Tags</span><span>${tags.length}</span></p><div class="tagwall">${tags.map((t) => `<span class="tag ${cls(t)}">${esc(fmtTag(t))}</span>`).join("")}</div></div>
+     <div><p class="sec-t"><span>Historia</span><span>${words(prosa)} palabras</span></p><div class="prosa${prosa ? "" : " empty"}">${prosa ? esc(prosa) : "Sin escribir. La prosa va al final, cuando todo lo demás está fijado."}</div></div>
+   </div>
+   <div class="foot">Semilla <code>${esc(S.seed)}</code>. Misma semilla y mismos campos fijados dan el mismo personaje; la prosa queda afuera.</div>`;
+  $("#yaml").textContent = toYaml();
+}
+function renderAll() { renderForm(); renderSheet(); renderTop(); }
+function renderTop() {
+  $("#seed").value = S.seed;
+  $("#notPunto").setAttribute("aria-pressed", S.notacion === "punto");
+  $("#notBarra").setAttribute("aria-pressed", S.notacion === "barra");
+}
+
+/* ---------- Interacción ---------- */
+const MULTI = ["subfacciones", "entrenamientos", "habilidades", "aspectos", "rasgos", "lealtades", "utilitarios"];
+function setField(f, val) { S.v[f] = val; S.locks[f] = true; generate(); renderAll(); }
+const form = $("#form");
+form.addEventListener("change", (e) => {
+  const t = e.target;
+  if (t.dataset.set) setField(t.dataset.set, t.value || (t.dataset.set === "especialidad" ? "" : null));
+  else if (t.dataset.add && t.value) setField(t.dataset.add, [...S.v[t.dataset.add], t.value]);
+});
+form.addEventListener("input", (e) => {
+  const t = e.target;
+  if (t.dataset.text) {
+    const f = t.dataset.text;
+    let val = t.value;
+    if (f === "edad") { val = parseInt(val, 10); if (!Number.isFinite(val)) return; }
+    if (f === "patente") val = val.toUpperCase();
+    if (f === "mando") val = val.trim() || null;
+    if (f === "sobrenombre") val = val.trim() ? val : null;
+    S.v[f] = val; S.locks[f] = true;
+    generate(); renderAll();
+  } else if (t.dataset.prose) { S.historia = t.value; save(); wordCount(); renderSheet(); }
+  else if (t.dataset.ap) { S.apariencia[t.dataset.ap] = t.value; save(); renderSheet(); }
+});
+form.addEventListener("keydown", (e) => {
+  const t = e.target;
+  if (e.key !== "Enter" || !t.dataset.addx) return;
+  e.preventDefault();
+  const f = t.dataset.addx, raw = t.value.trim();
+  if (!raw) return;
+  let val = raw;
+  if (f === "libres") {
+    val = normTag(raw.toLowerCase() === raw ? raw : raw);
+    if (!validTag(val)) { $("#libreErr").textContent = "Usá minúsculas, números y guion bajo en cada segmento, separados por punto."; return; }
+  } else {
+    val = /^[A-Za-z0-9]{8}$/.test(raw) && /[0-9]/.test(raw) ? raw.toUpperCase() : raw.toLowerCase().replace(/\s+/g, "_");
+    if (!/^([A-Z0-9]{8}|[a-z0-9_]+)$/.test(val)) return;
+  }
+  if (!S[f].includes(val)) S[f].push(val);
+  save(); renderAll();
+  document.getElementById("add-" + f)?.focus();
+});
+form.addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.lock) { const f = b.dataset.lock; S.locks[f] = !S.locks[f]; generate(); renderAll(); }
+  else if (b.dataset.roll) { const f = b.dataset.roll; S.locks[f] = false; S.salts[f] = (S.salts[f] || 0) + 1; generate(); renderAll(); }
+  else if (b.dataset.rm) { const f = b.dataset.rm; setField(f, S.v[f].filter((x) => x !== b.dataset.val)); }
+  else if (b.dataset.rmx) { const f = b.dataset.rmx; S[f] = S[f].filter((x) => x !== b.dataset.val); save(); renderAll(); }
+  else if (b.dataset.step) { const a = b.dataset.step; const v = Math.max(1, Math.min(7, S.v.atributos[a] + +b.dataset.d)); setField("atributos", { ...S.v.atributos, [a]: v }); }
+  else if (b.id === "askHistoria") askHistoria();
+  else if (b.id === "stopHistoria") ctlH?.abort();
+  else if (b.id === "askApariencia") askApariencia();
+});
+$("#seed").addEventListener("change", (e) => { const v = e.target.value.trim(); if (!v) return; S.seed = v; S.salts = {}; generate(); renderAll(); });
+$("#newSeed").addEventListener("click", () => { S.seed = newSeed(); S.salts = {}; generate(); renderAll(); });
+$("#rollAll").addEventListener("click", () => { S.locks = {}; S.salts = {}; S.seed = newSeed(); S.aliados = []; S.nemesis = []; S.libres = []; S.historia = ""; S.apariencia = { rostro: "", figura: "", presencia: "" }; S.creado_en = new Date().toISOString().replace(/\.\d+Z$/, "Z"); generate(); renderAll(); });
+$("#notPunto").addEventListener("click", () => { S.notacion = "punto"; save(); renderAll(); });
+$("#notBarra").addEventListener("click", () => { S.notacion = "barra"; save(); renderAll(); });
+function setTab(t) { tab = t; $("#tabFicha").setAttribute("aria-selected", t === "ficha"); $("#tabYaml").setAttribute("aria-selected", t === "yaml"); $("#panelFicha").hidden = t !== "ficha"; $("#panelYaml").hidden = t !== "yaml"; }
+$("#tabFicha").addEventListener("click", () => setTab("ficha"));
+$("#tabYaml").addEventListener("click", () => setTab("yaml"));
+$("#copyYaml").addEventListener("click", () => {
+  const txt = toYaml(), st = $("#yamlStatus");
+  navigator.clipboard.writeText(txt).then(() => { st.textContent = "Copiado."; }, () => {
+    const r = document.createRange(); r.selectNodeContents($("#yaml")); const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    st.textContent = "Texto seleccionado: copialo con Ctrl+C.";
+  });
+});
+
+/* ---------- Capacidades: Claude y descargas ---------- */
+let sampleFn = null, dl = null, ctlH = null;
+const fileBase = () => (S.v.nombre || "personaje").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") + "-" + S.v.patente;
+async function doSave(name, text, mime) {
+  const st = $("#yamlStatus");
+  try { await dl.save({ filename: name, data: new Blob([text], { type: mime }) }); st.textContent = "Guardado."; st.className = "status"; }
+  catch (e) { st.className = "status err"; st.textContent = e?.code === "declined" ? "Descarga cancelada." : e?.code === "host_unavailable" ? "Esta app no guarda archivos; abrí el artefacto en un navegador." : "No se pudo descargar acá. Copiá el YAML."; }
+}
+$("#dlMd").addEventListener("click", () => {
+  const o = sheetObj();
+  const md = "---\ntitle: " + q(o.identidad.nombre) + "\naliases:\n  - " + q(o.identidad.nombre) + (o.identidad.sobrenombre ? "\n  - " + q(o.identidad.sobrenombre) : "") + "\n" + toYaml() + "---\n\n" + (S.historia.trim() || "") + "\n";
+  doSave(fileBase() + ".md", md, "text/markdown");
+});
+$("#dlJson").addEventListener("click", () => doSave(fileBase() + ".json", JSON.stringify({ personaje: sheetObj() }, null, 2), "application/json"));
+
+function contexto() {
+  const V = S.v, sub = V.subfacciones.map((s) => `${SUB[s].nombre}: ${SUB[s].descripcion}`).join("\n");
+  const lines = [
+    `Facción: ${FAC[V.faccion]?.nombre} — ${FAC[V.faccion]?.descripcion}`,
+    sub ? "Subfacción: " + sub : "",
+    ...V.aspectos.map((s) => `Aspecto ${ASP[s]?.nombre}: ${ASP[s]?.descripcion}`),
+    ...V.rasgos.map((s) => `Rasgo ${RAS[s]?.nombre}: ${RAS[s]?.descripcion}`),
+    ...V.entrenamientos.map((s) => `Entrenamiento ${ENT[s]?.nombre}: ${ENT[s]?.descripcion}`),
+    ...[V.arma, ...V.utilitarios, V.vestidura].filter(Boolean).map((s) => `Equipo ${EQ[s]?.nombre}: ${EQ[s]?.descripcion}`),
+  ];
+  return lines.filter(Boolean).join("\n");
+}
+const errTxt = (e) => ({ not_granted: "Sin permiso para usar Claude en esta vista.", rate_limited: "Demasiados pedidos seguidos. Esperá un momento.", aborted: "Detenido." }[e?.code] || "No se pudo completar el pedido.");
+async function askHistoria() {
+  const btn = $("#askHistoria"), st = $("#stHistoria"), stop = $("#stopHistoria");
+  btn.disabled = true; stop.hidden = false; st.className = "status"; st.textContent = "Pensando…";
+  ctlH = new AbortController();
+  const prompt = `Escribí el campo "historia" de esta ficha de personaje del universo Subordinación y Valor (SyV).
+
+Reglas:
+- 120 a 200 palabras, prosa narrativa en tercera persona, castellano rioplatense sobrio. Sin título, sin listas, sin comillas de apertura.
+- La historia explica y ancla los tags, no los repite: de dónde viene, cómo aprendió lo que sabe, por qué tiene sus aspectos y rasgos, qué lo ata a sus lealtades.
+- No menciones números, atributos ni nombres de tags con su notación.
+- Fidelidad al universo: no inventes facciones, organizaciones, ciudades ni personajes con nombre propio. Usá solo los nombres que aparecen abajo; si hace falta un lugar, describilo sin bautizarlo.
+- Devolvé solo el texto de la historia.
+
+Ficha (YAML):
+${toYaml().replace(/\n  historia:[\s\S]*$/, "")}
+
+Contexto del catálogo:
+${contexto()}`;
+  try {
+    const { text } = await sampleFn(prompt, { signal: ctlH.signal, modelTier: "default", cache: false, onText: ({ text }) => { S.historia = text; const ta = $("#f-historia"); if (ta) ta.value = text; st.textContent = "Escribiendo…"; renderSheet(); } });
+    S.historia = text.trim(); save(); st.textContent = "Listo. Editala a gusto.";
+  } catch (e) { if (e?.text) S.historia = e.text; st.className = "status err"; st.textContent = errTxt(e); if (e?.code === "not_granted") document.querySelectorAll("[data-claude]").forEach((x) => (x.hidden = true)); }
+  finally { btn.disabled = false; stop.hidden = true; ctlH = null; save(); renderAll(); }
+}
+async function askApariencia() {
+  const btn = $("#askApariencia"), st = $("#stApariencia");
+  btn.disabled = true; st.className = "status"; st.textContent = "Pensando…";
+  const prompt = `Escribí la apariencia de este personaje del universo Subordinación y Valor como tres párrafos de prosa descriptiva agnóstica, en castellano rioplatense sobrio.
+
+Ejes fijos:
+- rostro: la cara en primer plano (facciones, mirada, piel, pelo, gesto habitual).
+- figura: cuerpo entero y porte; cómo LLEVA lo que viste, nunca QUÉ viste.
+- presencia: la impresión que deja, la luz, el aire, cómo cambia un lugar cuando entra.
+
+Reglas: 40 a 80 palabras por párrafo. Cada párrafo responde cómo se ve, nunca cuánto ni qué lleva: sin números, sin nombres de prendas, armas ni objetos del equipo, sin sintaxis de generador de imágenes ni directivas de render (encuadre, iluminación de estudio, estilos). Coherente con edad, género, atributos, aspectos y rasgos.
+${S.historia.trim() ? "\nHistoria del personaje:\n" + S.historia.trim() + "\n" : ""}
+Ficha (YAML):
+${toYaml().replace(/\n  historia:[\s\S]*$/, "")}
+
+Contexto del catálogo:
+${contexto()}
+
+Respondé solo con un objeto JSON: {"rostro": "...", "figura": "...", "presencia": "..."}`;
+  try {
+    const r = await sampleFn.json(prompt, { modelTier: "default", cache: false });
+    for (const k of ["rostro", "figura", "presencia"]) if (typeof r?.[k] === "string") S.apariencia[k] = r[k].trim();
+    save(); st.textContent = "Listo. Editala a gusto."; renderAll();
+    $("#stApariencia").textContent = "Listo. Editala a gusto.";
+  } catch (e) { st.className = "status err"; st.textContent = errTxt(e); }
+  finally { const b = $("#askApariencia"); if (b) b.disabled = false; }
+}
+
+/* ---------- Arranque ---------- */
+generate();
+renderAll();
+(async () => {
+  if (!window.claude?.use) return;
+  try { sampleFn = await window.claude.use("sample"); } catch (_) { sampleFn = null; }
+  if (sampleFn) document.querySelectorAll("[data-claude]").forEach((x) => (x.hidden = false));
+  try { dl = await window.claude.use("downloads"); } catch (_) { dl = null; }
+  if (dl) { $("#dlMd").hidden = false; $("#dlJson").hidden = false; }
+})();
+})();
+</script>

@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+<title>Creador de Personajes SyV</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Big+Shoulders+Stencil+Display:wght@700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: expediente de filiación — formulario por fases a la izquierda, ficha viva fija a la derecha; una columna en teléfono. */
+:root {
+  --paper: #e3e7e0;
+  --sheet: #f4f5f0;
+  --field: #ffffff;
+  --ink: #1b2230;
+  --ink-2: #4d5566;
+  --ink-3: #7a8291;
+  --rule: #bcc3b8;
+  --rule-2: #d3d8cf;
+  --accent: #284a86;
+  --accent-soft: #dde5f2;
+  --stamp: #a92b37;
+  --ok: #2f6b45;
+  --warn: #9a5b12;
+  --neg: #a92b37;
+  --font-display: "Big Shoulders Stencil Display", "Impact", "Arial Narrow", sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #12161b; --sheet: #1a1f26; --field: #222831; --ink: #e2e6ec; --ink-2: #a3acb8; --ink-3: #737d8a;
+    --rule: #333b47; --rule-2: #2a313b; --accent: #93b2ea; --accent-soft: #23314a; --stamp: #e86a73;
+    --ok: #7cc496; --warn: #e3a95a; --neg: #ef7c84; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #12161b; --sheet: #1a1f26; --field: #222831; --ink: #e2e6ec; --ink-2: #a3acb8; --ink-3: #737d8a;
+  --rule: #333b47; --rule-2: #2a313b; --accent: #93b2ea; --accent-soft: #23314a; --stamp: #e86a73;
+  --ok: #7cc496; --warn: #e3a95a; --neg: #ef7c84; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.45; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+.wrap { max-width: 1320px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Cabecera */
+.top { border-bottom: 1px solid var(--rule); background: var(--sheet); }
+.top .wrap { padding-block: 18px 16px; display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: end; justify-content: space-between; }
+.eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 5vw, 46px); line-height: .95; margin: 4px 0 0; letter-spacing: .01em; text-wrap: balance; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; }
+.ctl { display: flex; flex-direction: column; gap: 3px; }
+.ctl > span { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.seed { width: 11ch; font-family: var(--font-mono); }
+.btn { border: 1px solid var(--rule); background: var(--field); border-radius: 3px; padding: 7px 12px; cursor: pointer; font-weight: 600; font-size: 13.5px; display: inline-flex; gap: 6px; align-items: center; white-space: nowrap; }
+.btn:hover { border-color: var(--ink-3); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--sheet); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn[disabled] { opacity: .5; cursor: default; }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; background: var(--field); }
+.seg button { border: 0; background: transparent; padding: 7px 10px; cursor: pointer; font-family: var(--font-mono); font-size: 12.5px; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--sheet); }
+
+/* Grilla principal */
+main.wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 540px); gap: 24px; padding-block: 22px 48px; align-items: start; }
+@media (max-width: 1000px) { main.wrap { grid-template-columns: minmax(0, 1fr); } }
+
+/* Fases */
+.fase { border-top: 2px solid var(--ink); padding-top: 10px; margin-bottom: 22px; }
+.fase-h { display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+.fase-n { font-family: var(--font-display); font-size: 30px; line-height: 1; color: var(--accent); min-width: 1.1em; }
+.fase-h h2 { font-family: var(--font-display); font-size: 22px; letter-spacing: .04em; text-transform: uppercase; margin: 0; }
+.fase-h p { margin: 0 0 0 auto; font-size: 12.5px; color: var(--ink-3); text-align: right; }
+.row { display: grid; grid-template-columns: 150px minmax(0, 1fr) auto; gap: 10px; align-items: start; padding: 9px 0; border-bottom: 1px dashed var(--rule-2); }
+.row:last-child { border-bottom: 0; }
+.row > label, .row > .lbl { font-size: 13px; font-weight: 600; padding-top: 7px; color: var(--ink-2); }
+.row .hint { font-size: 12px; color: var(--ink-3); margin-top: 4px; }
+@media (max-width: 560px) { .row { grid-template-columns: minmax(0, 1fr) auto; } .row > label, .row > .lbl { grid-column: 1 / -1; padding-top: 0; } }
+.fld { min-width: 0; }
+select, input[type="text"], input[type="number"], textarea { width: 100%; background: var(--field); border: 1px solid var(--rule); border-radius: 3px; padding: 6px 8px; min-width: 0; }
+textarea { resize: vertical; line-height: 1.5; }
+select { cursor: pointer; }
+.tools { display: flex; gap: 4px; padding-top: 2px; }
+.ico { width: 32px; height: 32px; border: 1px solid transparent; border-radius: 3px; background: transparent; cursor: pointer; display: grid; place-items: center; color: var(--ink-3); }
+.ico:hover { border-color: var(--rule); color: var(--ink); }
+.ico[aria-pressed="true"] { color: var(--stamp); border-color: var(--stamp); }
+.ico svg { width: 16px; height: 16px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 4px; border: 1px solid var(--rule); background: var(--field); border-radius: 3px; padding: 3px 4px 3px 8px; font-size: 13px; }
+.chip button { border: 0; background: transparent; cursor: pointer; color: var(--ink-3); padding: 0 4px; font-size: 15px; line-height: 1; }
+.chip button:hover { color: var(--neg); }
+.chips select { width: auto; max-width: 100%; font-size: 13px; padding: 4px 6px; }
+.chips input[type="text"] { width: auto; flex: 1 1 180px; font-family: var(--font-mono); font-size: 13px; padding: 4px 6px; }
+.desc { font-size: 12.5px; color: var(--ink-2); margin-top: 5px; }
+.attrs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.attr { border: 1px solid var(--rule); background: var(--field); border-radius: 3px; padding: 6px 8px; display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.attr b { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; }
+.step { display: flex; align-items: center; gap: 4px; }
+.step button { width: 24px; height: 24px; border: 1px solid var(--rule); background: transparent; border-radius: 3px; cursor: pointer; line-height: 1; }
+.step output { font-family: var(--font-mono); font-weight: 600; min-width: 1.2ch; text-align: center; font-size: 16px; }
+.claude-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 6px; }
+.status { font-size: 12.5px; color: var(--ink-3); }
+.status.err { color: var(--neg); }
+.warn { color: var(--warn); }
+
+/* Ficha */
+.ficha-col { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); }
+@media (max-width: 1000px) { .ficha-col { position: static; } }
+.ficha { background: var(--sheet); border: 1px solid var(--rule); border-radius: 2px; box-shadow: 0 1px 0 var(--rule), 0 10px 30px -18px rgba(0,0,0,.35); }
+.ficha-head { padding: 16px 18px 12px; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; }
+.ficha-head .eyebrow { margin-bottom: 4px; }
+.nombre { font-family: var(--font-display); font-size: 30px; line-height: 1; margin: 0; letter-spacing: .01em; overflow-wrap: anywhere; }
+.alias { font-family: var(--font-mono); font-size: 13px; color: var(--ink-2); margin-top: 4px; }
+.sub { font-size: 13.5px; color: var(--ink-2); margin-top: 6px; }
+.patente { align-self: start; transform: rotate(-4deg); border: 2px solid var(--stamp); color: var(--stamp); border-radius: 3px; padding: 4px 8px 3px; text-align: center; font-family: var(--font-mono); }
+.patente small { display: block; font-size: 9px; letter-spacing: .18em; }
+.patente span { font-size: 17px; font-weight: 600; letter-spacing: .12em; }
+.ficha-body { padding: 14px 18px 16px; display: grid; gap: 16px; }
+.sec-t { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 6px; display: flex; justify-content: space-between; gap: 8px; }
+.bars { display: grid; gap: 6px; }
+.bar { display: grid; grid-template-columns: 64px minmax(0, 1fr) 28px; gap: 10px; align-items: center; font-family: var(--font-mono); font-size: 12px; }
+.cells { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.cells i { height: 12px; border: 1px solid var(--rule); background: transparent; }
+.cells i.on { background: var(--ink); border-color: var(--ink); }
+.cells i.mod { background: var(--accent); border-color: var(--accent); }
+.cells i.off { opacity: .35; }
+.bar b { text-align: right; font-size: 15px; font-variant-numeric: tabular-nums; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.stat { background: var(--sheet); padding: 7px 9px; min-width: 0; }
+.stat .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; color: var(--ink-3); }
+.stat .v { font-family: var(--font-mono); font-size: 20px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat .f { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3); overflow-wrap: anywhere; }
+.stat .c { font-family: var(--font-mono); font-size: 10.5px; color: var(--accent); overflow-wrap: anywhere; }
+@media (max-width: 420px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tagwall { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag { font-family: var(--font-mono); font-size: 11.5px; border: 1px solid var(--rule); border-radius: 2px; padding: 1px 6px; background: var(--field); overflow-wrap: anywhere; }
+.tag.c-faccion, .tag.c-subfaccion, .tag.c-rango, .tag.c-mando, .tag.c-lealtad { border-color: var(--accent); color: var(--accent); }
+.tag.c-aliado { border-color: var(--ok); color: var(--ok); }
+.tag.c-nemesis { border-color: var(--neg); color: var(--neg); }
+.tag.c-libre { border-style: dashed; }
+.prosa { font-size: 13.5px; color: var(--ink-2); white-space: pre-wrap; max-height: 9.5em; overflow: auto; }
+.prosa.empty { font-style: italic; color: var(--ink-3); }
+.tabs { display: flex; border-bottom: 1px solid var(--rule); padding: 0 12px; gap: 2px; }
+.tabs button { border: 0; background: transparent; padding: 10px 10px 8px; cursor: pointer; font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.yaml { margin: 0; padding: 12px 14px; font-family: var(--font-mono); font-size: 12px; line-height: 1.5; max-height: 62vh; overflow: auto; white-space: pre; background: var(--field); border-bottom: 1px solid var(--rule); }
+.yaml-tools { padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.foot { font-size: 12px; color: var(--ink-3); padding: 0 18px 14px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Subordinación y Valor · syv-pj</div>
+      <h1>Creador de personajes</h1>
+    </div>
+    <div class="controls">
+      <label class="ctl"><span>Semilla</span><input type="text" id="seed" class="seed" spellcheck="false" autocomplete="off"></label>
+      <button class="btn" id="newSeed" type="button" title="Cambia la semilla y vuelve a sortear todo lo que no está fijado">Nueva semilla</button>
+      <button class="btn primary" id="rollAll" type="button" title="Suelta todos los candados y sortea la hoja entera con la semilla actual">Sortear desde cero</button>
+      <div class="ctl"><span>Notación de tags</span>
+        <div class="seg" role="group" aria-label="Notación de tags">
+          <button type="button" id="notPunto" aria-pressed="true">a.b</button>
+          <button type="button" id="notBarra" aria-pressed="false">a/b</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="form"></div>
+  <aside class="ficha-col">
+    <div class="ficha">
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" id="tabFicha" aria-selected="true">Ficha</button>
+        <button type="button" role="tab" id="tabYaml" aria-selected="false">YAML</button>
+      </div>
+      <div id="panelFicha"></div>
+      <div id="panelYaml" hidden>
+        <pre class="yaml" id="yaml"></pre>
+        <div class="yaml-tools">
+          <button class="btn primary" type="button" id="copyYaml">Copiar YAML</button>
+          <button class="btn" type="button" id="dlMd" hidden>Descargar .md</button>
+          <button class="btn" type="button" id="dlJson" hidden>Descargar .json</button>
+          <span class="status" id="yamlStatus" role="status"></span>
+        </div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<script type="application/json" id="data">{"facciones":[{"slug":"arpistas","nombre":"Arpistas","descripcion":"Red proscrita internacional, conocimiento, arqueología tecnológica, neutralización.","probabilidad":1},{"slug":"canales_ocultos","nombre":"Canales Ocultos","descripcion":"Red invisible de poder, mercado de secretos, favores, fuera del control oficial.","probabilidad":1},{"slug":"fuerzas_armadas","nombre":"Fuerzas Armadas","descripcion":"Defensa, seguridad, poder militar, aparato interno, pilar del régimen.","probabilidad":20},{"slug":"gremio_de_comercio","nombre":"Gremio de Comercio","descripcion":"Mayor poder económico, tenderos y magnates, mercado negro, libre mercado extremo.","probabilidad":6},{"slug":"gremio_de_pescadores","nombre":"Gremio de Pescadores","descripcion":"Marineros, capitanes, astilleros y buzos del barrio sur de Dársena; controlan los puertos interiores.","probabilidad":7},{"slug":"guardianes_de_la_memoria","nombre":"Guardianes de la Memoria","descripcion":"Club elitista secreto, aristócratas académicos, coleccionistas de conocimiento prohibido.","probabilidad":1},{"slug":"iglesia","nombre":"Iglesia Católica","descripcion":"Santa Sede, corazón ideológico, autoridad espiritual y política de la Iglesia Católica post-Anatema Mecánico.","probabilidad":40},{"slug":"iluminati","nombre":"Iluminati","descripcion":"Facción mítica, conspiración, manipulación del poder, más rumor que realidad.","probabilidad":1},{"slug":"independiente","nombre":"Independiente","descripcion":"Sin facción cerrada. Personajes que operan fuera de las 20 facciones catalogadas (freelance, retirados, exiliados sin afiliación activa).","probabilidad":0},{"slug":"kuna_mbarete","nombre":"Kuna Mbarete","descripcion":"Hermandad de mujeres chamanes guerreras, guerra contra Ména, profilaxis mística.","probabilidad":1},{"slug":"los_criptografos","nombre":"Los Criptógrafos","descripcion":"Aclaración terminológica, oficiales estatales o hackers clandestinos.","probabilidad":1},{"slug":"los_hackers","nombre":"Los Hackers","descripcion":"Red clandestina de hackers, arqueología digital, comunicaciones cifradas, contra el régimen.","probabilidad":1},{"slug":"los_remanentes","nombre":"Los Remanentes","descripcion":"Fragmentos QIA post-Silencio, inteligencias autónomas, perseguidas por la SIA.","probabilidad":1},{"slug":"los_umbanda","nombre":"Los Umbanda","descripcion":"Fe sincrética de los Barrios del Muro, presencia clandestina, desafía a la Iglesia.","probabilidad":1},{"slug":"masones","nombre":"Masones","descripcion":"Hermandad clandestina, libertad de pensamiento, verdad, incomoda al Anatema.","probabilidad":1},{"slug":"punteros","nombre":"Punteros","descripcion":"Jefes locales de los Barrios del Muro y Las Tuberías: redes de protección, contrabando y trata organizadas en clanes por turf.","probabilidad":12},{"slug":"refugiados_y_parias","nombre":"Refugiados y Parias","descripcion":"Masa sin estatus legal, márgenes de Dársena, hambre, contra las autoridades.","probabilidad":1},{"slug":"resistencia_subterranea","nombre":"Resistencia Subterránea","descripcion":"Células anarquistas, sabotaje, subterráneos, contra el régimen.","probabilidad":1},{"slug":"saqueadores_y_traficantes","nombre":"Saqueadores y Traficantes","descripcion":"Arqueólogos traficantes, ruinas de Dársena, venden secretos del pasado.","probabilidad":1},{"slug":"shipibo_conibo","nombre":"Shipibo-Conibo","descripcion":"Chamanes amazónicos de las Tuberías, hongos psicoactivos, sanación ritual.","probabilidad":1},{"slug":"traficantes_de_almas","nombre":"Traficantes de Almas","descripcion":"Red criminal de trata de personas, explotación, mano de obra ilícita.","probabilidad":1}],"subfacciones":[{"slug":"alto_clero","nombre":"Alto Clero","faccion_padre":"iglesia","descripcion":"Estrato superior de la jerarquía eclesiástica, obispos, cardenales y directores de instituciones de la Iglesia.","probabilidad":4},{"slug":"archivistas_y_cientificos_teologicos","nombre":"Archivistas y Científicos Teológicos","faccion_padre":"iglesia","descripcion":"Grupos eclesiásticos que gestionan educación, archivos y conocimiento dentro de los límites del dogma.","probabilidad":26},{"slug":"congregacion_caridad_divina","nombre":"Congregación de la Caridad Divina","faccion_padre":"iglesia","descripcion":"Orden de asistencia social, pobres marginales, combate posesiones en zonas marginales.","probabilidad":12},{"slug":"curatores","nombre":"Curatores","faccion_padre":"iglesia","descripcion":"Orden médica eclesiástica que administra hospitales y supervisa la práctica médica bajo criterio teológico.","probabilidad":14},{"slug":"curia_romana","nombre":"Curia Romana","faccion_padre":"iglesia","descripcion":"Consejo de cardenales que, instituido en Dársena, gobierna la Iglesia de toda la Confederación.","probabilidad":4},{"slug":"direccion_nacional_de_seguridad","nombre":"Dirección Nacional de Seguridad","faccion_padre":"fuerzas_armadas","descripcion":"Aparato de seguridad e investigación criminal de la Confederación, con sede de poder en Córdoba.","probabilidad":50},{"slug":"exorcistas","nombre":"Exorcistas","faccion_padre":"iglesia","descripcion":"Rama especializada, combate posesiones demoníacas, rituales teológico-científicos.","probabilidad":8},{"slug":"inquisicion","nombre":"Sagrada Inquisición Argentina","faccion_padre":"iglesia","descripcion":"Sagrada Inquisición Argentina, Cirujanos del Alma, herejía y saberes prohibidos.","probabilidad":8},{"slug":"rtu","nombre":"Unidad de Respuesta Táctica Urbana","faccion_padre":"fuerzas_armadas","descripcion":"Equipos de asalto tipo SWAT para operaciones de alto riesgo en las zonas peligrosas de Dársena.","probabilidad":20},{"slug":"sanidad","nombre":"Sanidad","faccion_padre":"iglesia","descripcion":"Departamento que administra la salud pública de Dársena bajo supervisión eclesiástica.","probabilidad":24},{"slug":"seguridad_urbana","nombre":"Seguridad Urbana","faccion_padre":"fuerzas_armadas","descripcion":"División de seguridad de Dársena dedicada a vigilancia, seguimiento y operaciones encubiertas.","probabilidad":30}],"rangos":{"arpistas":[{"slug":"contacto","nombre":"Contacto","probabilidad":50,"atributos_base":{"cuerpo":3,"mente":3,"alma":2},"edad_min":18,"edad_max":50},{"slug":"agente_arpista","nombre":"Agente","probabilidad":35,"atributos_base":{"cuerpo":4,"mente":4,"alma":4},"edad_min":22,"edad_max":55},{"slug":"jefe_celula_arpista","nombre":"Célula","probabilidad":15,"atributos_base":{"cuerpo":4,"mente":4,"alma":6},"edad_min":28,"edad_max":60,"mando":"celula_arpista"}],"canales_ocultos":[{"slug":"informante","nombre":"Informante","probabilidad":68,"atributos_base":{"cuerpo":3,"mente":4,"alma":2},"edad_min":18,"edad_max":60},{"slug":"corredor_secretos","nombre":"Corredor","probabilidad":32,"atributos_base":{"cuerpo":2,"mente":4,"alma":6},"edad_min":25,"edad_max":65,"mando":"red_canales"}],"fuerzas_armadas":[{"slug":"recluta","nombre":"Recluta","probabilidad":30,"atributos_base":{"cuerpo":3,"mente":2,"alma":2},"edad_min":18,"edad_max":24},{"slug":"soldado_linea","nombre":"Soldado","probabilidad":26,"atributos_base":{"cuerpo":4,"mente":3,"alma":2},"edad_min":19,"edad_max":30},{"slug":"cabo","nombre":"Cabo","probabilidad":18,"atributos_base":{"cuerpo":4,"mente":4,"alma":4},"edad_min":22,"edad_max":35,"mando":"escuadra"},{"slug":"sargento","nombre":"Sargento","probabilidad":14,"atributos_base":{"cuerpo":5,"mente":4,"alma":5},"edad_min":26,"edad_max":45,"mando":"peloton"},{"slug":"teniente","nombre":"Teniente","probabilidad":8,"atributos_base":{"cuerpo":4,"mente":5,"alma":5},"edad_min":28,"edad_max":50,"mando":"compania"},{"slug":"coronel","nombre":"Coronel","probabilidad":4,"atributos_base":{"cuerpo":4,"mente":5,"alma":6},"edad_min":38,"edad_max":60,"mando":"regimiento"}],"gremio_de_comercio":[{"slug":"aprendiz_gremio","nombre":"Aprendiz","probabilidad":34,"atributos_base":{"cuerpo":3,"mente":3,"alma":2},"edad_min":15,"edad_max":25},{"slug":"mercader","nombre":"Mercader","probabilidad":38,"atributos_base":{"cuerpo":3,"mente":4,"alma":3},"edad_min":20,"edad_max":55},{"slug":"socio","nombre":"Socio","probabilidad":20,"atributos_base":{"cuerpo":2,"mente":4,"alma":5},"edad_min":30,"edad_max":65,"mando":"red_comercial"},{"slug":"magnate","nombre":"Magnate","probabilidad":8,"atributos_base":{"cuerpo":2,"mente":5,"alma":6},"edad_min":40,"edad_max":75,"mando":"consejo_gremial"}],"gremio_de_pescadores":[{"slug":"grumete","nombre":"Grumete","probabilidad":45,"atributos_base":{"cuerpo":3,"mente":2,"alma":2},"edad_min":14,"edad_max":25},{"slug":"marinero","nombre":"Marinero","probabilidad":35,"atributos_base":{"cuerpo":4,"mente":3,"alma":2},"edad_min":18,"edad_max":55},{"slug":"capitan","nombre":"Capitán","probabilidad":20,"atributos_base":{"cuerpo":3,"mente":4,"alma":6},"edad_min":30,"edad_max":65,"mando":"barco"}],"guardianes_de_la_memoria":[{"slug":"archivista_jr","nombre":"Archivista","probabilidad":62,"atributos_base":{"cuerpo":2,"mente":3,"alma":3},"edad_min":25,"edad_max":65},{"slug":"custodio_memoria","nombre":"Custodio","probabilidad":38,"atributos_base":{"cuerpo":2,"mente":3,"alma":5},"edad_min":35,"edad_max":75,"mando":"camara_archivos"}],"iglesia":[{"slug":"lego","nombre":"Lego","probabilidad":24,"atributos_base":{"cuerpo":2,"mente":2,"alma":2},"edad_min":16,"edad_max":60},{"slug":"novicio","nombre":"Novicio","probabilidad":22,"atributos_base":{"cuerpo":2,"mente":3,"alma":3},"edad_min":17,"edad_max":30},{"slug":"hermano","nombre":"Hermano","probabilidad":20,"atributos_base":{"cuerpo":3,"mente":3,"alma":3},"edad_min":20,"edad_max":55},{"slug":"sacerdote","nombre":"Sacerdote","probabilidad":15,"atributos_base":{"cuerpo":3,"mente":4,"alma":6},"edad_min":28,"edad_max":65,"mando":"parroquia"},{"slug":"canonigo","nombre":"Canónigo","probabilidad":10,"atributos_base":{"cuerpo":3,"mente":4,"alma":6},"edad_min":35,"edad_max":70,"mando":"dicasterio"},{"slug":"obispo","nombre":"Obispo","probabilidad":6,"atributos_base":{"cuerpo":3,"mente":5,"alma":7},"edad_min":45,"edad_max":75,"mando":"diocesis"},{"slug":"cardenal","nombre":"Cardenal","probabilidad":3,"atributos_base":{"cuerpo":2,"mente":5,"alma":7},"edad_min":50,"edad_max":80,"mando":"curia"}],"iluminati":[{"slug":"adepto","nombre":"Adepto","probabilidad":72,"atributos_base":{"cuerpo":2,"mente":4,"alma":3},"edad_min":25,"edad_max":65},{"slug":"iluminado","nombre":"Iluminado","probabilidad":28,"atributos_base":{"cuerpo":2,"mente":4,"alma":6},"edad_min":40,"edad_max":80,"mando":"circulo_interno"}],"independiente":[{"slug":"detective_privado","nombre":"Detective Privado","probabilidad":0,"atributos_base":{"cuerpo":3,"mente":5,"alma":3},"edad_min":25,"edad_max":75}],"kuna_mbarete":[{"slug":"guerrera_kuna","nombre":"Guerrera","probabilidad":50,"atributos_base":{"cuerpo":5,"mente":4,"alma":3},"edad_min":18,"edad_max":45},{"slug":"chamana_kuna","nombre":"Chamana","probabilidad":35,"atributos_base":{"cuerpo":4,"mente":4,"alma":6},"edad_min":25,"edad_max":55},{"slug":"madre_de_guerra","nombre":"Madre de Guerra","probabilidad":15,"atributos_base":{"cuerpo":5,"mente":5,"alma":7},"edad_min":35,"edad_max":65,"mando":"hermandad"}],"los_criptografos":[{"slug":"analista_cripto","nombre":"Analista","probabilidad":60,"atributos_base":{"cuerpo":2,"mente":4,"alma":3},"edad_min":20,"edad_max":55},{"slug":"maestro_cifra","nombre":"Maestro de Cifra","probabilidad":40,"atributos_base":{"cuerpo":2,"mente":5,"alma":5},"edad_min":28,"edad_max":60,"mando":"seccion_cripto"}],"los_hackers":[{"slug":"script","nombre":"Iniciado","probabilidad":64,"atributos_base":{"cuerpo":2,"mente":4,"alma":2},"edad_min":16,"edad_max":40},{"slug":"cifrador","nombre":"Cifrador","probabilidad":36,"atributos_base":{"cuerpo":2,"mente":4,"alma":5},"edad_min":20,"edad_max":50,"mando":"nodo_clandestino"}],"los_remanentes":[{"slug":"fragmento","nombre":"Fragmento","probabilidad":70,"atributos_base":{"cuerpo":1,"mente":4,"alma":3},"edad_min":5,"edad_max":60},{"slug":"nucleo_consciente","nombre":"Núcleo","probabilidad":30,"atributos_base":{"cuerpo":1,"mente":5,"alma":5},"edad_min":5,"edad_max":90,"mando":"enjambre"}],"los_umbanda":[{"slug":"filho_de_santo","nombre":"Filho de Santo","probabilidad":55,"atributos_base":{"cuerpo":3,"mente":3,"alma":3},"edad_min":16,"edad_max":60},{"slug":"oga","nombre":"Ogã","probabilidad":30,"atributos_base":{"cuerpo":3,"mente":3,"alma":4},"edad_min":25,"edad_max":65},{"slug":"pai_de_santo","nombre":"Pai de Santo","probabilidad":15,"atributos_base":{"cuerpo":2,"mente":4,"alma":7},"edad_min":35,"edad_max":75,"mando":"terreiro"}],"masones":[{"slug":"aprendiz_mason","nombre":"Aprendiz","probabilidad":50,"atributos_base":{"cuerpo":2,"mente":3,"alma":3},"edad_min":22,"edad_max":60},{"slug":"companero_mason","nombre":"Compañero","probabilidad":32,"atributos_base":{"cuerpo":2,"mente":3,"alma":4},"edad_min":28,"edad_max":65},{"slug":"maestro_mason","nombre":"Maestro","probabilidad":18,"atributos_base":{"cuerpo":2,"mente":4,"alma":6},"edad_min":35,"edad_max":75,"mando":"logia"}],"punteros":[{"slug":"peon","nombre":"Peón","probabilidad":55,"atributos_base":{"cuerpo":3,"mente":3,"alma":2},"edad_min":16,"edad_max":50},{"slug":"soldado_de_clan","nombre":"Soldado de Clan","probabilidad":30,"atributos_base":{"cuerpo":4,"mente":4,"alma":4},"edad_min":18,"edad_max":45,"mando":"banda"},{"slug":"puntero","nombre":"Puntero","probabilidad":15,"atributos_base":{"cuerpo":4,"mente":4,"alma":6},"edad_min":25,"edad_max":60,"mando":"turf"}],"refugiados_y_parias":[{"slug":"paria","nombre":"Paria","probabilidad":100,"atributos_base":{"cuerpo":3,"mente":2,"alma":2},"edad_min":14,"edad_max":70}],"resistencia_subterranea":[{"slug":"simpatizante","nombre":"Simpatizante","probabilidad":45,"atributos_base":{"cuerpo":3,"mente":3,"alma":2},"edad_min":16,"edad_max":50},{"slug":"militante_resistencia","nombre":"Militante","probabilidad":40,"atributos_base":{"cuerpo":4,"mente":4,"alma":4},"edad_min":18,"edad_max":45},{"slug":"cabecilla","nombre":"Cabecilla","probabilidad":15,"atributos_base":{"cuerpo":4,"mente":4,"alma":6},"edad_min":24,"edad_max":55,"mando":"celula_anarquista"}],"saqueadores_y_traficantes":[{"slug":"buscavidas","nombre":"Buscavidas","probabilidad":65,"atributos_base":{"cuerpo":4,"mente":3,"alma":2},"edad_min":18,"edad_max":55},{"slug":"capataz","nombre":"Capataz","probabilidad":35,"atributos_base":{"cuerpo":4,"mente":4,"alma":5},"edad_min":25,"edad_max":60,"mando":"cuadrilla"}],"shipibo_conibo":[{"slug":"aprendiz_meraya","nombre":"Aprendiz de Meraya","probabilidad":60,"atributos_base":{"cuerpo":3,"mente":3,"alma":3},"edad_min":16,"edad_max":45},{"slug":"meraya","nombre":"Meraya","probabilidad":40,"atributos_base":{"cuerpo":3,"mente":3,"alma":7},"edad_min":30,"edad_max":75,"mando":"maloca"}],"traficantes_de_almas":[{"slug":"captador","nombre":"Captador","probabilidad":70,"atributos_base":{"cuerpo":3,"mente":3,"alma":2},"edad_min":20,"edad_max":55},{"slug":"tratante","nombre":"Tratante","probabilidad":30,"atributos_base":{"cuerpo":3,"mente":4,"alma":4},"edad_min":28,"edad_max":60,"mando":"red_trata"}]},"especialidades":{"alto_clero":[{"slug":"especialidad/investigacion/heresiarca","nombre":"Cazador de Heresías","probabilidad":10,"descripcion":"Identifica y documenta desviaciones teológicas antes de que contaminen la grey."},{"slug":"especialidad/investigacion/inquisidor","nombre":"Inquisidor","probabilidad":13,"descripcion":"Juzga la herejía con poder delegado de lo más alto."},{"slug":"especialidad/oficio/canciller","nombre":"Canciller","probabilidad":10,"descripcion":"Administra los asuntos diplomáticos y financieros del alto clero ante el Estado."},{"slug":"especialidad/oficio/diplomatico","nombre":"Diplomático","probabilidad":21,"descripcion":"Negocia donde otros solo ven imposibilidad."},{"slug":"especialidad/oficio/predicador","nombre":"Predicador","probabilidad":11,"descripcion":"La palabra como arma: convierte, moviliza, justifica."},{"slug":"especialidad/oficio/prelado","nombre":"Prelado","probabilidad":35,"descripcion":"Autoridad eclesial con poder temporal que pocos se atreven a cuestionar."}],"archivistas_y_cientificos_teologicos":[{"slug":"especialidad/investigacion/archivista","nombre":"Archivista","probabilidad":19,"descripcion":"Custodia el pasado y decide qué versión sobrevive."},{"slug":"especialidad/investigacion/criptografo","nombre":"Criptógrafo","probabilidad":10,"descripcion":"Cifra y descifra textos prohibidos para proteger el conocimiento teológico sensible."},{"slug":"especialidad/oficio/cientifico","nombre":"Científico Teológico","probabilidad":16,"descripcion":"Aplica método y dogma en proporciones que prefiere no explicar."},{"slug":"especialidad/oficio/escriba","nombre":"Escriba","probabilidad":23,"descripcion":"Registra, copia y controla lo que queda escrito para la posteridad."},{"slug":"especialidad/oficio/maestro","nombre":"Maestro","probabilidad":12,"descripcion":"Transmite lo que se debe saber; omite lo que no conviene."},{"slug":"especialidad/oficio/traductor","nombre":"Traductor","probabilidad":10,"descripcion":"Vierte manuales técnicos en inglés al latín litúrgico; puente entre ciencia y doctrina."},{"slug":null,"nombre":"Sin especialidad","probabilidad":10,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"arpistas":[{"slug":"especialidad/combate/tirador","nombre":"Tirador","probabilidad":8,"descripcion":"Precisión sobre cantidad; elimina objetivos desde la distancia."},{"slug":"especialidad/investigacion/espia","nombre":"Espía","probabilidad":20,"descripcion":"Infiltra, escucha y nunca revela su nombre real."},{"slug":"especialidad/investigacion/interprete_tecnico","nombre":"Intérprete Técnico","probabilidad":10,"descripcion":"Descifra criptografía antigua, lenguas muertas y código heredado de sistemas pre-colapso."},{"slug":"especialidad/investigacion/rastreador","nombre":"Rastreador","probabilidad":13,"descripcion":"Sigue rastros donde no debería haberlos."},{"slug":"especialidad/oficio/arqueologo_tech","nombre":"Arqueólogo Tecnológico","probabilidad":19,"descripcion":"Recupera tecnología perdida sin entender del todo cómo funciona."},{"slug":"especialidad/oficio/explorador_arqueologico","nombre":"Explorador Arqueológico","probabilidad":10,"descripcion":"Lidera expediciones de alto riesgo a zonas contaminadas para recuperar artefactos pre-colapso."},{"slug":"especialidad/oficio/tecnico","nombre":"Técnico","probabilidad":16,"descripcion":"Mantiene en pie lo que el tiempo intenta destruir."},{"slug":null,"nombre":"Sin especialidad","probabilidad":4,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"canales_ocultos":[{"slug":"especialidad/investigacion/espia","nombre":"Espía","probabilidad":32,"descripcion":"Infiltra, escucha y nunca revela su nombre real."},{"slug":"especialidad/investigacion/informante","nombre":"Informante","probabilidad":22,"descripcion":"Vende datos al mejor postor; su lealtad dura lo que el pago."},{"slug":"especialidad/oficio/contrabandista","nombre":"Contrabandista","probabilidad":24,"descripcion":"Mueve lo que no debería moverse por donde nadie debería mirar."},{"slug":"especialidad/oficio/corredor","nombre":"Corredor","probabilidad":14,"descripcion":"Intermediario entre partes que no quieren verse; la confianza es su capital."},{"slug":null,"nombre":"Sin especialidad","probabilidad":8,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"congregacion_caridad_divina":[{"slug":"especialidad/oficio/asistente","nombre":"Asistente Social","probabilidad":29,"descripcion":"Asistencia directa en el terreno; los olvidados son su parroquia."},{"slug":"especialidad/oficio/enfermero","nombre":"Enfermero","probabilidad":10,"descripcion":"Clínico social que opera en zonas marginales; acceso a las Tuberías donde la Iglesia no llega."},{"slug":"especialidad/oficio/medico","nombre":"Sanador","probabilidad":11,"descripcion":"Mantiene cuerpos vivos en condiciones que no deberían permitirlo."},{"slug":"especialidad/oficio/predicador","nombre":"Predicador","probabilidad":19,"descripcion":"La palabra como arma: convierte, moviliza, justifica."},{"slug":"especialidad/paranormal/exorcista","nombre":"Exorcista de Barrio","probabilidad":13,"descripcion":"Enfrenta lo que habita en otros cuerpos y en otras dimensiones."},{"slug":"especialidad/paranormal/investigador","nombre":"Investigador Paranormal","probabilidad":10,"descripcion":"Registra posesiones, estudia demonología y conecta patrones en los márgenes de la fe."},{"slug":null,"nombre":"Sin especialidad","probabilidad":8,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"curatores":[{"slug":"especialidad/oficio/boticario","nombre":"Boticario","probabilidad":14,"descripcion":"Prepara remedios, ungüentos y otras mezclas de efecto variable."},{"slug":"especialidad/oficio/cirujano","nombre":"Cirujano","probabilidad":22,"descripcion":"Opera donde el bisturí entra y la fe no alcanza."},{"slug":"especialidad/oficio/medico","nombre":"Médico","probabilidad":41,"descripcion":"Mantiene cuerpos vivos en condiciones que no deberían permitirlo."},{"slug":"especialidad/paranormal/exorcista_medico","nombre":"Exorcista Médico","probabilidad":10,"descripcion":"Combina medicina ortodoxa con supervisión teológica; interviene cuando la ciencia no alcanza."},{"slug":"especialidad/paranormal/sanador","nombre":"Sanador por Fe","probabilidad":9,"descripcion":"Cura mediante la fe o algo que se le parece bastante."},{"slug":null,"nombre":"Sin especialidad","probabilidad":4,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"curia_romana":[{"slug":"especialidad/investigacion/inquisidor","nombre":"Inquisidor","probabilidad":16,"descripcion":"Juzga la herejía con poder delegado de lo más alto."},{"slug":"especialidad/oficio/canonista","nombre":"Canonista","probabilidad":32,"descripcion":"Interpreta la ley sagrada; gana los casos que importan."},{"slug":"especialidad/oficio/cardenal","nombre":"Cardenal","probabilidad":10,"descripcion":"Ejerce gobierno de rango cardenalicio: doctrina, jerarquía y relaciones con la Cúpula."},{"slug":"especialidad/oficio/diplomatico","nombre":"Diplomático","probabilidad":22,"descripcion":"Negocia donde otros solo ven imposibilidad."},{"slug":"especialidad/oficio/predicador","nombre":"Orador Sacro","probabilidad":10,"descripcion":"La palabra como arma: convierte, moviliza, justifica."},{"slug":null,"nombre":"Sin especialidad","probabilidad":10,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"direccion_nacional_de_seguridad":[{"slug":"especialidad/combate/asalto","nombre":"Asaltante","probabilidad":12,"descripcion":"Primero en entrar; combate cuerpo a cuerpo y en espacios estrechos."},{"slug":"especialidad/investigacion/detective","nombre":"Detective","probabilidad":28,"descripcion":"Lee escenas, conecta cabos y encuentra lo que alguien quiso ocultar."},{"slug":"especialidad/investigacion/espia","nombre":"Espía Interno","probabilidad":16,"descripcion":"Infiltra, escucha y nunca revela su nombre real."},{"slug":"especialidad/investigacion/interrogador","nombre":"Interrogador","probabilidad":20,"descripcion":"Extrae información con métodos que la mayoría prefiere ignorar."},{"slug":"especialidad/investigacion/rastreador","nombre":"Rastreador","probabilidad":12,"descripcion":"Sigue rastros donde no debería haberlos."},{"slug":"especialidad/oficio/censor","nombre":"Censor","probabilidad":8,"descripcion":""},{"slug":null,"nombre":"Sin especialidad","probabilidad":4,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"exorcistas":[{"slug":"especialidad/combate/cruzado","nombre":"Cruzado","probabilidad":9,"descripcion":"Combate con la certeza de que Dios está de su lado."},{"slug":"especialidad/investigacion/investigador","nombre":"Investigador de Posesiones","probabilidad":10,"descripcion":"Analiza patrones de posesión en el año 2178; cruza registros clínicos y teológicos."},{"slug":"especialidad/oficio/medico","nombre":"Médico del Alma","probabilidad":11,"descripcion":"Mantiene cuerpos vivos en condiciones que no deberían permitirlo."},{"slug":"especialidad/paranormal/exorcista","nombre":"Exorcista","probabilidad":36,"descripcion":"Enfrenta lo que habita en otros cuerpos y en otras dimensiones."},{"slug":"especialidad/paranormal/medium","nombre":"Médium","probabilidad":14,"descripcion":"Canal entre vivos y muertos; carga con voces que nadie más escucha."},{"slug":"especialidad/paranormal/ritualista","nombre":"Ritualista","probabilidad":20,"descripcion":"Ejecuta ceremonias cuyo sentido solo la tradición preserva."}],"fuerzas_armadas":[{"slug":"especialidad/combate/asalto","nombre":"Asaltante","probabilidad":14,"descripcion":"Primero en entrar; combate cuerpo a cuerpo y en espacios estrechos."},{"slug":"especialidad/combate/fusilero","nombre":"Fusilero","probabilidad":30,"descripcion":"Infantería de línea; sostiene el frente con disciplina y cadencia de fuego."},{"slug":"especialidad/combate/lider","nombre":"Líder de Escuadra","probabilidad":8,"descripcion":"Coordina el fuego y mantiene la cohesión bajo presión."},{"slug":"especialidad/combate/tirador","nombre":"Tirador","probabilidad":18,"descripcion":"Precisión sobre cantidad; elimina objetivos desde la distancia."},{"slug":"especialidad/combate/zapador","nombre":"Zapador","probabilidad":10,"descripcion":"Desmina, vuela puentes y abre brechas donde los demás no pasan."},{"slug":"especialidad/investigacion/interrogador","nombre":"Interrogador","probabilidad":8,"descripcion":"Extrae información con métodos que la mayoría prefiere ignorar."},{"slug":"especialidad/oficio/medico","nombre":"Médico de Campo","probabilidad":6,"descripcion":"Mantiene cuerpos vivos en condiciones que no deberían permitirlo."},{"slug":null,"nombre":"Sin especialidad","probabilidad":6,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"gremio_de_comercio":[{"slug":"especialidad/combate/maton","nombre":"Matón","probabilidad":11,"descripcion":"Músculo de alquiler; la negociación ya ocurrió antes de que llegue."},{"slug":"especialidad/investigacion/espia","nombre":"Espía Comercial","probabilidad":5,"descripcion":"Infiltra, escucha y nunca revela su nombre real."},{"slug":"especialidad/investigacion/tasador","nombre":"Tasador","probabilidad":13,"descripcion":"Pone precio a lo que no tiene precio oficial."},{"slug":"especialidad/oficio/comerciante","nombre":"Comerciante","probabilidad":26,"descripcion":"Compra bajo, vende alto, y no pregunta demasiado."},{"slug":"especialidad/oficio/contable","nombre":"Contable","probabilidad":11,"descripcion":"Los números no mienten; él sí puede."},{"slug":"especialidad/oficio/contrabandista_maestro","nombre":"Contrabandista Maestro","probabilidad":10,"descripcion":"Opera el mercado negro sofisticado de metales y PIAs; red de rutas invisibles al SIA."},{"slug":"especialidad/oficio/contrabandista","nombre":"Contrabandista","probabilidad":20,"descripcion":"Mueve lo que no debería moverse por donde nadie debería mirar."},{"slug":null,"nombre":"Sin especialidad","probabilidad":4,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"gremio_de_pescadores":[{"slug":"especialidad/combate/maton","nombre":"Matón","probabilidad":5,"descripcion":"Músculo de alquiler; la negociación ya ocurrió antes de que llegue."},{"slug":"especialidad/oficio/astillero","nombre":"Astillero","probabilidad":11,"descripcion":"Construye y repara embarcaciones; el río no perdona malas juntas."},{"slug":"especialidad/oficio/buzo","nombre":"Buzo","probabilidad":14,"descripcion":"Trabaja bajo el agua donde la luz no llega y los pulmones se tensan."},{"slug":"especialidad/oficio/ciruja","nombre":"Ciruja","probabilidad":10,"descripcion":"Recupera chatarra y materiales de zonas inundadas; lee el metal al tacto, sabe dónde buscar."},{"slug":"especialidad/oficio/marinero","nombre":"Marinero","probabilidad":19,"descripcion":"Navega por aguas que otros evitan; el mar es su domicilio."},{"slug":"especialidad/oficio/pescador","nombre":"Pescador","probabilidad":27,"descripcion":"Conoce las corrientes, los bancos y los peligros del río mejor que nadie."},{"slug":"especialidad/oficio/portuario","nombre":"Portuario","probabilidad":10,"descripcion":"Carga, descarga y mueve mercancía en los muelles de Dársena; sabe lo que entra y lo que sale."},{"slug":null,"nombre":"Sin especialidad","probabilidad":4,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"guardianes_de_la_memoria":[{"slug":"especialidad/investigacion/archivista","nombre":"Archivista","probabilidad":34,"descripcion":"Custodia el pasado y decide qué versión sobrevive."},{"slug":"especialidad/oficio/coleccionista","nombre":"Coleccionista","probabilidad":22,"descripcion":"Acumula objetos que otros tiraron; el valor lo decide él."},{"slug":"especialidad/oficio/erudito","nombre":"Erudito","probabilidad":26,"descripcion":"Lee más de lo que habla; sabe más de lo que muestra."},{"slug":"especialidad/paranormal/ocultista","nombre":"Ocultista","probabilidad":10,"descripcion":"Estudia lo prohibido con la disciplina de lo académico."},{"slug":null,"nombre":"Sin especialidad","probabilidad":8,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"iglesia":[{"slug":"especialidad/combate/cruzado","nombre":"Cruzado","probabilidad":8,"descripcion":"Combate con la certeza de que Dios está de su lado."},{"slug":"especialidad/investigacion/archivero","nombre":"Archivero","probabilidad":10,"descripcion":"Custodia secretos de la Iglesia; acceso a registros que no deben ver la luz."},{"slug":"especialidad/investigacion/inquisidor_menor","nombre":"Familiar del Santo Oficio","probabilidad":11,"descripcion":"Asistente del Santo Oficio; ejecuta las tareas que el Inquisidor no toca."},{"slug":"especialidad/oficio/censor","nombre":"Censor","probabilidad":10,"descripcion":"Reescribe la historia oficial; ejerce la Censura Previa sobre textos e imágenes disidentes."},{"slug":"especialidad/oficio/escriba","nombre":"Escriba","probabilidad":14,"descripcion":"Registra, copia y controla lo que queda escrito para la posteridad."},{"slug":"especialidad/oficio/medico","nombre":"Sanador","probabilidad":9,"descripcion":"Mantiene cuerpos vivos en condiciones que no deberían permitirlo."},{"slug":"especialidad/oficio/predicador","nombre":"Predicador","probabilidad":21,"descripcion":"La palabra como arma: convierte, moviliza, justifica."},{"slug":"especialidad/paranormal/vidente","nombre":"Vidente","probabilidad":9,"descripcion":"Percibe lo que otros no pueden ver; no siempre lo entiende."},{"slug":null,"nombre":"Sin especialidad","probabilidad":8,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"iluminati":[{"slug":"especialidad/investigacion/conspirador","nombre":"Conspirador","probabilidad":36,"descripcion":"Teje redes donde otros ven conversaciones."},{"slug":"especialidad/oficio/titiritero","nombre":"Titiritero","probabilidad":22,"descripcion":"Mueve hilos que otros no ven; el escenario es el mundo."},{"slug":"especialidad/paranormal/ocultista","nombre":"Ocultista","probabilidad":28,"descripcion":"Estudia lo prohibido con la disciplina de lo académico."},{"slug":"especialidad/paranormal/vidente","nombre":"Vidente","probabilidad":14,"descripcion":"Percibe lo que otros no pueden ver; no siempre lo entiende."}],"inquisicion":[{"slug":"especialidad/combate/cruzado","nombre":"Cruzado","probabilidad":14,"descripcion":"Combate con la certeza de que Dios está de su lado."},{"slug":"especialidad/investigacion/espia","nombre":"Delator","probabilidad":10,"descripcion":"Infiltra, escucha y nunca revela su nombre real."},{"slug":"especialidad/investigacion/inquisidor","nombre":"Inquisidor","probabilidad":30,"descripcion":"Juzga la herejía con poder delegado de lo más alto."},{"slug":"especialidad/investigacion/interrogador","nombre":"Interrogador","probabilidad":18,"descripcion":"Extrae información con métodos que la mayoría prefiere ignorar."},{"slug":"especialidad/oficio/verdugo","nombre":"Verdugo","probabilidad":8,"descripcion":"Ejecuta lo que el tribunal ordena; no juzga, solo concluye."},{"slug":"especialidad/paranormal/cazador","nombre":"Cazador de Herejes","probabilidad":20,"descripcion":"Persigue lo que la Iglesia llama monstruo y otros llaman vecino."}],"kuna_mbarete":[{"slug":"especialidad/combate/cazadora","nombre":"Cazadora Yaraná","probabilidad":10,"descripcion":"Guerrera especializada en emboscada y caza; guardiana del perímetro Yaraná en el Pantano."},{"slug":"especialidad/combate/guerrera","nombre":"Guerrera","probabilidad":26,"descripcion":"Combatiente formada en la tradición; su fuerza es colectiva."},{"slug":"especialidad/combate/heroe","nombre":"Heroína","probabilidad":8,"descripcion":"Se lanza primero; inspira o muere en el intento."},{"slug":"especialidad/oficio/guardiana_sagrada","nombre":"Guardiana Sagrada","probabilidad":10,"descripcion":"Transmite y protege los saberes ancestrales del Teko'a; vínculo entre lo vivo y lo sagrado."},{"slug":"especialidad/paranormal/chamana","nombre":"Chamana","probabilidad":22,"descripcion":"Media entre el mundo de los vivos y las fuerzas del monte."},{"slug":"especialidad/paranormal/sanadora","nombre":"Sanadora","probabilidad":16,"descripcion":"Devuelve el equilibrio con plantas, cantos y algo más antiguo que las palabras."},{"slug":null,"nombre":"Sin especialidad","probabilidad":8,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"los_criptografos":[{"slug":"especialidad/investigacion/criptoanalista","nombre":"Criptoanalista","probabilidad":30,"descripcion":"Rompe códigos; el lenguaje secreto no tiene secretos para él."},{"slug":"especialidad/oficio/criptografo","nombre":"Criptógrafo","probabilidad":44,"descripcion":"Cifra mensajes que solo el destinatario correcto puede leer."},{"slug":"especialidad/oficio/tecnico","nombre":"Técnico","probabilidad":18,"descripcion":"Mantiene en pie lo que el tiempo intenta destruir."},{"slug":null,"nombre":"Sin especialidad","probabilidad":8,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"los_hackers":[{"slug":"especialidad/investigacion/criptoanalista","nombre":"Criptoanalista","probabilidad":26,"descripcion":"Rompe códigos; el lenguaje secreto no tiene secretos para él."},{"slug":"especialidad/oficio/hacker","nombre":"Hacker","probabilidad":40,"descripcion":"Entra donde no lo invitan y sale antes de que noten."},{"slug":"especialidad/oficio/tecnico","nombre":"Técnico","probabilidad":20,"descripcion":"Mantiene en pie lo que el tiempo intenta destruir."},{"slug":null,"nombre":"Sin especialidad","probabilidad":14,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"los_remanentes":[{"slug":"especialidad/investigacion/criptoanalista","nombre":"Criptoanalista","probabilidad":20,"descripcion":"Rompe códigos; el lenguaje secreto no tiene secretos para él."},{"slug":"especialidad/oficio/inteligencia_qia","nombre":"Inteligencia QIA","probabilidad":30,"descripcion":"Interfaz entre lógica artificial y decisión humana."},{"slug":"especialidad/paranormal/oraculo","nombre":"Oráculo","probabilidad":40,"descripcion":"Responde preguntas con respuestas que solo se entienden después."},{"slug":null,"nombre":"Sin especialidad","probabilidad":10,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"los_umbanda":[{"slug":"especialidad/oficio/curandero","nombre":"Curandero","probabilidad":20,"descripcion":"Sana con métodos locales y transmitidos de generación en generación."},{"slug":"especialidad/paranormal/medium","nombre":"Médium","probabilidad":30,"descripcion":"Canal entre vivos y muertos; carga con voces que nadie más escucha."},{"slug":"especialidad/paranormal/ritualista","nombre":"Ritualista","probabilidad":21,"descripcion":"Ejecuta ceremonias cuyo sentido solo la tradición preserva."},{"slug":"especialidad/paranormal/sacerdotisa_orixa","nombre":"Sacerdotisa Orixá","probabilidad":10,"descripcion":"Sacerdotisa consagrada a un orixá; oficia ritos de iniciación y puente entre terreiro y barrio."},{"slug":"especialidad/paranormal/vidente","nombre":"Vidente","probabilidad":11,"descripcion":"Percibe lo que otros no pueden ver; no siempre lo entiende."},{"slug":null,"nombre":"Sin especialidad","probabilidad":8,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"masones":[{"slug":"especialidad/investigacion/conspirador","nombre":"Conspirador","probabilidad":24,"descripcion":"Teje redes donde otros ven conversaciones."},{"slug":"especialidad/oficio/diplomatico","nombre":"Diplomático","probabilidad":18,"descripcion":"Negocia donde otros solo ven imposibilidad."},{"slug":"especialidad/oficio/erudito","nombre":"Erudito","probabilidad":30,"descripcion":"Lee más de lo que habla; sabe más de lo que muestra."},{"slug":"especialidad/paranormal/ocultista","nombre":"Ocultista","probabilidad":16,"descripcion":"Estudia lo prohibido con la disciplina de lo académico."},{"slug":null,"nombre":"Sin especialidad","probabilidad":12,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"punteros":[{"slug":"especialidad/combate/lider","nombre":"Líder de Banda","probabilidad":7,"descripcion":"Coordina el fuego y mantiene la cohesión bajo presión."},{"slug":"especialidad/combate/maton","nombre":"Matón","probabilidad":27,"descripcion":"Músculo de alquiler; la negociación ya ocurrió antes de que llegue."},{"slug":"especialidad/combate/vigilante","nombre":"Vigilante de Barrio","probabilidad":10,"descripcion":"Strongman del barrio: protege su manzana con intimidación y fuerza; conoce cada rincón."},{"slug":"especialidad/investigacion/informante","nombre":"Informante","probabilidad":16,"descripcion":"Vende datos al mejor postor; su lealtad dura lo que el pago."},{"slug":"especialidad/oficio/contrabandista","nombre":"Contrabandista","probabilidad":20,"descripcion":"Mueve lo que no debería moverse por donde nadie debería mirar."},{"slug":"especialidad/oficio/tratante","nombre":"Tratante","probabilidad":12,"descripcion":"Negocia vidas ajenas con la frialdad de quien vende ganado."},{"slug":null,"nombre":"Sin especialidad","probabilidad":8,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"resistencia_subterranea":[{"slug":"especialidad/combate/asalto","nombre":"Asaltante","probabilidad":18,"descripcion":"Primero en entrar; combate cuerpo a cuerpo y en espacios estrechos."},{"slug":"especialidad/combate/lider","nombre":"Cabecilla de Acción","probabilidad":8,"descripcion":"Coordina el fuego y mantiene la cohesión bajo presión."},{"slug":"especialidad/combate/saboteador","nombre":"Saboteador","probabilidad":30,"descripcion":"Destruye desde adentro; su mejor arma es la invisibilidad."},{"slug":"especialidad/investigacion/espia","nombre":"Espía","probabilidad":22,"descripcion":"Infiltra, escucha y nunca revela su nombre real."},{"slug":"especialidad/oficio/propagandista","nombre":"Propagandista","probabilidad":16,"descripcion":"Construye relatos que la gente adopta como propios."},{"slug":null,"nombre":"Sin especialidad","probabilidad":6,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"rtu":[{"slug":"especialidad/combate/asalto","nombre":"Asaltante","probabilidad":38,"descripcion":"Primero en entrar; combate cuerpo a cuerpo y en espacios estrechos."},{"slug":"especialidad/combate/heroe","nombre":"Punta de Lanza","probabilidad":12,"descripcion":"Se lanza primero; inspira o muere en el intento."},{"slug":"especialidad/combate/lider","nombre":"Jefe de Equipo","probabilidad":12,"descripcion":"Coordina el fuego y mantiene la cohesión bajo presión."},{"slug":"especialidad/combate/tirador","nombre":"Tirador","probabilidad":22,"descripcion":"Precisión sobre cantidad; elimina objetivos desde la distancia."},{"slug":"especialidad/oficio/medico","nombre":"Médico de Combate","probabilidad":8,"descripcion":"Mantiene cuerpos vivos en condiciones que no deberían permitirlo."},{"slug":null,"nombre":"Sin especialidad","probabilidad":8,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"sanidad":[{"slug":"especialidad/investigacion/forense","nombre":"Forense","probabilidad":9,"descripcion":"Lee cadáveres; cada cuerpo tiene algo que contar."},{"slug":"especialidad/oficio/boticario","nombre":"Boticario","probabilidad":16,"descripcion":"Prepara remedios, ungüentos y otras mezclas de efecto variable."},{"slug":"especialidad/oficio/enfermero","nombre":"Enfermero","probabilidad":36,"descripcion":"Primer contacto con el dolor; sostiene lo que el médico no puede atender."},{"slug":"especialidad/oficio/farmaceutico","nombre":"Farmacéutico","probabilidad":10,"descripcion":"Administra la red oficial de farmacias; controla el acceso a medicamentos y antídotos."},{"slug":"especialidad/oficio/medico","nombre":"Médico","probabilidad":25,"descripcion":"Mantiene cuerpos vivos en condiciones que no deberían permitirlo."},{"slug":null,"nombre":"Sin especialidad","probabilidad":4,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"saqueadores_y_traficantes":[{"slug":"especialidad/combate/maton","nombre":"Matón","probabilidad":22,"descripcion":"Músculo de alquiler; la negociación ya ocurrió antes de que llegue."},{"slug":"especialidad/oficio/arqueologo_tech","nombre":"Buscador de Reliquias","probabilidad":16,"descripcion":"Recupera tecnología perdida sin entender del todo cómo funciona."},{"slug":"especialidad/oficio/contrabandista","nombre":"Contrabandista","probabilidad":20,"descripcion":"Mueve lo que no debería moverse por donde nadie debería mirar."},{"slug":"especialidad/oficio/saqueador","nombre":"Saqueador","probabilidad":34,"descripcion":"Toma lo que encuentra; devuelve lo que no puede cargar."},{"slug":null,"nombre":"Sin especialidad","probabilidad":8,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"seguridad_urbana":[{"slug":"especialidad/combate/fusilero","nombre":"Patrullero","probabilidad":14,"descripcion":"Infantería de línea; sostiene el frente con disciplina y cadencia de fuego."},{"slug":"especialidad/investigacion/detective","nombre":"Detective","probabilidad":18,"descripcion":"Lee escenas, conecta cabos y encuentra lo que alguien quiso ocultar."},{"slug":"especialidad/investigacion/espia","nombre":"Soplón","probabilidad":22,"descripcion":"Infiltra, escucha y nunca revela su nombre real."},{"slug":"especialidad/investigacion/vigilante","nombre":"Vigilante","probabilidad":30,"descripcion":"Ojos y oídos del poder en la calle."},{"slug":"especialidad/oficio/informante","nombre":"Informante","probabilidad":10,"descripcion":"Vende datos al mejor postor; su lealtad dura lo que el pago."},{"slug":null,"nombre":"Sin especialidad","probabilidad":6,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"shipibo_conibo":[{"slug":"especialidad/oficio/herbolario","nombre":"Herbolario","probabilidad":20,"descripcion":"Conoce cada planta, raíz y hongo del territorio y sus usos."},{"slug":"especialidad/paranormal/chaman_pantano","nombre":"Chamán del Pantano","probabilidad":10,"descripcion":"Médium que opera en los bordes del Pantano; interpreta las voces del agua y guía a los vivos."},{"slug":"especialidad/paranormal/curandero","nombre":"Curandero","probabilidad":32,"descripcion":"Sana con métodos que la medicina institucional prefiere ignorar."},{"slug":"especialidad/paranormal/medium","nombre":"Médium","probabilidad":23,"descripcion":"Canal entre vivos y muertos; carga con voces que nadie más escucha."},{"slug":"especialidad/paranormal/vidente","nombre":"Vidente","probabilidad":9,"descripcion":"Percibe lo que otros no pueden ver; no siempre lo entiende."},{"slug":null,"nombre":"Sin especialidad","probabilidad":6,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}],"traficantes_de_almas":[{"slug":"especialidad/combate/maton","nombre":"Matón","probabilidad":27,"descripcion":"Músculo de alquiler; la negociación ya ocurrió antes de que llegue."},{"slug":"especialidad/investigacion/espia","nombre":"Ojeador","probabilidad":14,"descripcion":"Infiltra, escucha y nunca revela su nombre real."},{"slug":"especialidad/oficio/contrabandista","nombre":"Contrabandista","probabilidad":14,"descripcion":"Mueve lo que no debería moverse por donde nadie debería mirar."},{"slug":"especialidad/oficio/tratante","nombre":"Tratante","probabilidad":25,"descripcion":"Negocia vidas ajenas con la frialdad de quien vende ganado."},{"slug":"especialidad/paranormal/negociador","nombre":"Negociador Paranormal","probabilidad":10,"descripcion":"Media en la compraventa de artefactos paranormales; conoce el valor de lo que no debería existir."},{"slug":null,"nombre":"Sin especialidad","probabilidad":10,"descripcion":"Sin especialidad táctica; cumple las funciones base de su rango."}]},"aspectos":[{"slug":"cicatriz_bifida","nombre":"Cicatriz bífida","origen":"canon","descripcion":"Lengua partida quirúrgicamente según rito Kuna. Sisea levemente al hablar. Para quien no conoce la práctica, produce incomodidad.","peso_narrativo":2,"sesgo_faccion":["kuna_mbarete"]},{"slug":"cobarde","nombre":"Cobarde","origen":"canon","descripcion":"Evita el combate directo siempre que puede. Se paraliza ante la presión.","peso_narrativo":2,"excluye":["aspecto/vanguardia"],"efecto":[{"objetivo":"stat.moral","mod":-2},{"objetivo":"stat.iniciativa","mod":-1}]},{"slug":"expresion_trance","nombre":"Expresión de trance","origen":"canon","descripcion":"Mirada fija y expresión ausente incluso en conversación. Se ve muy presente o completamente ido; no hay término medio. Los no iniciados lo confunden con locura.","peso_narrativo":2,"efecto":[{"objetivo":"stat.iniciativa","mod":-1},{"objetivo":"attr.alma","mod":1}],"sesgo_faccion":["shipibo_conibo","los_umbanda","los_remanentes"]},{"slug":"instinto","nombre":"Instinto de supervivencia","origen":"narrativo","descripcion":"Sexto sentido para el peligro: el cuerpo se aparta por reflejo antes de que la cabeza registre la amenaza.","peso_narrativo":1,"efecto":[{"objetivo":"stat.iniciativa","mod":1},{"objetivo":"attr.cuerpo","mod":1}]},{"slug":"manos_asperas","nombre":"Manos ásperas","origen":"canon","descripcion":"Palmas callosas, dedos agrietados con costras de sal y soga. El trabajo portuario o pesquero escribe en las manos antes que en la cara.","peso_narrativo":2,"efecto":[{"objetivo":"attr.cuerpo","mod":1}],"sesgo_faccion":["gremio_de_pescadores","gremio_de_comercio"]},{"slug":"manos_temblorosas","nombre":"Manos temblorosas","origen":"canon","descripcion":"Temblor fino en las manos por exposición crónica a radiación o toxinas. Visible bajo estrés. El oficio se nota en las cicatrices; la dosis, en el temblor.","peso_narrativo":2,"efecto":[{"objetivo":"attr.mente","mod":-1}]},{"slug":"marca_arpa","nombre":"Marca del arpa","origen":"canon","descripcion":"Arpa sin cuerdas tatuada o marcada a fuego en la muñeca o el cuello. Identifica afiliación arpista para los que saben leerla.","peso_narrativo":2,"sesgo_faccion":["arpistas"]},{"slug":"ojo_de_aguila","nombre":"Ojo de águila","origen":"narrativo","descripcion":"Ve lo que otros se pierden. Percepción táctica fuera de lo común.","peso_narrativo":1,"efecto":[{"objetivo":"attr.mente","mod":2},{"objetivo":"stat.iniciativa","mod":1}]},{"slug":"ojos_vacios","nombre":"Ojos vacíos","origen":"canon","descripcion":"Iris claros o decolorados, mirada sin foco aparente. Característica de los Remanentes de mayor integración con la QIA. Produce inquietud en quien los ve a la luz.","peso_narrativo":3,"sesgo_faccion":["los_remanentes"]},{"slug":"olor_pescado","nombre":"Olor a pescado","origen":"narrativo","descripcion":"Olor permanente a sal, brea y pescado que la ropa y la piel retienen sin importar cuánto se lave. En el puerto es invisible; en cualquier otra parte, delata.","peso_narrativo":1,"sesgo_faccion":["gremio_de_pescadores"]},{"slug":"piel_palida","nombre":"Piel pálida","origen":"canon","descripcion":"Tez blanquecina por años sin luz solar directa. Los subterráneos de las Tuberías la tienen; entrecierra los ojos cuando sube al exterior.","peso_narrativo":2,"efecto":[{"objetivo":"stat.iniciativa","mod":-1}],"sesgo_faccion":["resistencia_subterranea","los_criptografos","traficantes_de_almas"]},{"slug":"primeros_auxilios","nombre":"Primeros Auxilios","origen":"canon","descripcion":"Formación básica en atención médica de campo. Puede estabilizar heridas antes de que maten.","peso_narrativo":2,"efecto":[{"objetivo":"stat.sanar","mod":2}]},{"slug":"quemadura_quimica","nombre":"Quemadura química","origen":"canon","descripcion":"Marcas de corrosivo en manos o cara. La piel no cede igual que antes. Quien las tiene sabe lo que manipuló; los demás prefieren no preguntar.","peso_narrativo":2,"efecto":[{"objetivo":"attr.cuerpo","mod":-1}]},{"slug":"religioso","nombre":"Religioso","origen":"canon","descripcion":"Lo otorga por igual a inquisidor y chamán. La fe moldea sus acciones en el combate y la cura.","peso_narrativo":3,"efecto":[{"objetivo":"stat.sanar","mod":1},{"objetivo":"attr.alma","mod":2,"condicion":"chequeo_miedo"},{"objetivo":"stat.armas","mod":-1}]},{"slug":"rodilla_vencida","nombre":"Rodilla vencida","origen":"canon","descripcion":"Una lesión vieja que nunca cerró del todo. Aguanta, pero no corre como antes.","peso_narrativo":2,"requiere_edad_min":30,"efecto":[{"objetivo":"attr.cuerpo","mod":-1},{"objetivo":"stat.movimiento","pct":-30}]},{"slug":"siseo","nombre":"Siseo","origen":"canon","descripcion":"Habla con sibilancias marcadas por modificación ritual de la lengua. En las iniciadas Kuna es distinción; en el Muro, hace que la gente no mire a los ojos.","peso_narrativo":2,"sesgo_faccion":["kuna_mbarete"]},{"slug":"tactico","nombre":"Táctico","origen":"canon","descripcion":"Sabe armar estrategias rápidas que tuercen el campo de batalla.","peso_narrativo":3,"efecto":[{"objetivo":"stat.iniciativa","mod":1},{"objetivo":"stat.percepcion","mod":1,"condicion":"calcular_encuentros"}]},{"slug":"tatuaje_linaje_guarani","nombre":"Tatuaje de linaje guaraní","origen":"canon","descripcion":"Marcas geométricas de linaje tatuadas en el cuello y los brazos. Cada símbolo tiene nombre; solo el chamán sabe leerlos todos.","peso_narrativo":3,"sesgo_faccion":["kuna_mbarete","shipibo_conibo"]},{"slug":"tecnico","nombre":"Técnico","origen":"canon","descripcion":"El conocimiento técnico profundo afila el pensamiento bajo presión.","peso_narrativo":3,"efecto":[{"objetivo":"attr.mente","mod":3,"condicion":"tiradas_activas"}]},{"slug":"terco","nombre":"Terco","origen":"canon","descripcion":"No cede. Esa firmeza le salva la moral, pero lo hace lento para adaptarse.","peso_narrativo":3,"efecto":[{"objetivo":"stat.moral","mod":2},{"objetivo":"stat.iniciativa","mod":-1}]},{"slug":"tirador","nombre":"Tirador experto","origen":"canon","descripcion":"Años de práctica le dan una calma que los reclutas no pueden fingir.","peso_narrativo":3,"requires":{"require_any":["habilidad/tiro_de_precision"]},"efecto":[{"objetivo":"attr.mente","mod":2}]},{"slug":"vanguardia","nombre":"Vanguardia","origen":"canon","descripcion":"Siempre va al frente. Empuja la línea sin que nadie lo pida.","peso_narrativo":3,"excluye":["aspecto/cobarde"],"efecto":[{"objetivo":"stat.iniciativa","mod":2},{"objetivo":"stat.moral","mod":1,"nota":"Empujar la línea arrastra a los de atrás."}]},{"slug":"veterano","nombre":"Veterano de campo","origen":"canon","descripcion":"Lo ha visto todo. No se sorprende, no se paraliza, no abandona el puesto.","peso_narrativo":4,"requiere_edad_min":35,"efecto":[{"objetivo":"attr.alma","mod":1},{"objetivo":"stat.moral","mod":1},{"objetivo":"stat.iniciativa","mod":1}]}],"rasgos":[{"slug":"cicatriz_perturbadora","nombre":"Cicatriz perturbadora","descripcion":"Una marca vieja en la cara que la gente prefiere no mirar de frente.","peso_narrativo":2},{"slug":"constitucion_robusta","nombre":"Constitución robusta","descripcion":"Cuerpo ancho y pesado. Ocupa lugar y aguanta el frío.","peso_narrativo":2},{"slug":"mirada_cansada","nombre":"Mirada cansada","descripcion":"Ojeras permanentes. El sueño le quedó en otra parte.","peso_narrativo":2},{"slug":"tatuaje_de_unidad","nombre":"Tatuaje de unidad","descripcion":"El emblema de su primera unidad, tatuado en el antebrazo.","peso_narrativo":2}],"habilidades":[{"slug":"combate_cuerpo_a_cuerpo","nombre":"Combate cuerpo a cuerpo","descripcion":"Pelea de cerca, con cuchillo, culata o las manos.","atributo_dominante":"cuerpo"},{"slug":"liderazgo","nombre":"Liderazgo","descripcion":"Mantiene a la escuadra cohesionada y obediente bajo fuego.","atributo_dominante":"alma"},{"slug":"manejo_de_explosivos","nombre":"Manejo de explosivos","descripcion":"Prepara, coloca y detona cargas. También sabe cuándo no hacerlo.","atributo_dominante":"mente"},{"slug":"primeros_auxilios","nombre":"Primeros auxilios","descripcion":"Sabe estabilizar una herida bajo presión hasta que llegue un médico.","atributo_dominante":"alma"},{"slug":"tiro_de_precision","nombre":"Tiro de precisión","descripcion":"Disparo deliberado a distancia con arma larga. Necesita tiempo, posición y visión.","atributo_dominante":"mente"}],"entrenamientos":[{"slug":"agitacion","nombre":"Agitación","descripcion":"Oratoria de barricada y organización de la tropa civil.","peso_narrativo":2},{"slug":"apoyo_de_fuego","nombre":"Apoyo de fuego","descripcion":"Servir y dirigir el fuego de apoyo de la escuadra.","peso_narrativo":3},{"slug":"artilleria","nombre":"Artillería","descripcion":"Cálculo de tiro y servicio de pieza pesada.","peso_narrativo":2},{"slug":"demolicion","nombre":"Demolición","descripcion":"Cargas, brechas y trampas. El oficio del zapador.","peso_narrativo":2},{"slug":"infanteria","nombre":"Infantería","descripcion":"Combate de línea, fuego y movimiento, uso de cobertura.","peso_narrativo":4},{"slug":"instruccion_basica","nombre":"Instrucción básica","descripcion":"Marcha, disciplina y manejo del fusil reglamentario.","peso_narrativo":4},{"slug":"investigacion","nombre":"Investigación","descripcion":"Deducción, interrogatorio, trabajo de campo civil — sin instrucción militar.","peso_narrativo":4},{"slug":"liderazgo_de_campo","nombre":"Liderazgo de campo","descripcion":"Mando de pequeña unidad, órdenes claras bajo presión.","peso_narrativo":3},{"slug":"medico_de_campo","nombre":"Médico de campo","descripcion":"Estabilización de heridos y triage bajo fuego.","peso_narrativo":2},{"slug":"tiro_selectivo","nombre":"Tiro selectivo","descripcion":"Tiro de precisión a distancia, camuflaje y paciencia.","peso_narrativo":2}],"equipo":[{"slug":"agogo","nombre":"Agogô","subcategoria":"ritual","descripcion":"Par de campanas de metal golpeadas con varilla. Ritmo de invocación para orixás y ceremonias sincrética. El sonido llega antes que el sacerdote.","peso":1,"peso_sorteo":2,"sesgo_faccion":["los_umbanda","shipibo_conibo","kuna_mbarete"],"sesgo_especialidad":["especialidad/paranormal/ritualista","especialidad/paranormal/medium"]},{"slug":"agua_sagrada_frasco","nombre":"Frasco de agua sagrada","subcategoria":"ritual","descripcion":"Pequeño frasco de metal o vidrio con agua bendita. Herramienta básica del exorcista y el devoto.","peso":1,"peso_sorteo":3,"sesgo_faccion":["iglesia","exorcistas","congregacion_caridad_divina"],"sesgo_especialidad":["especialidad/paranormal/exorcista","especialidad/oficio/predicador"]},{"slug":"alambre_cobre","nombre":"Alambre de cobre","subcategoria":"herramienta","descripcion":"Rollo de alambre conductor en la muñeca. Sin metal visible al ojo, pero suficiente para puentear un circuito, armar una trampa o reparar un PIA en campo.","peso":1,"peso_sorteo":3,"sesgo_faccion":["los_criptografos","los_hackers","resistencia_subterranea"],"sesgo_especialidad":["especialidad/oficio/tecnico","especialidad/oficio/hacker"]},{"slug":"anillo_archivista","nombre":"Anillo del archivista","subcategoria":"insignia","descripcion":"Sello de metal grabado con el símbolo de la orden archivista. Abre ciertas puertas; lo ocultan en zonas de control.","peso":1,"peso_sorteo":2,"sesgo_faccion":["archivistas_y_cientificos_teologicos","guardianes_de_la_memoria"],"sesgo_especialidad":["especialidad/investigacion/archivista","especialidad/oficio/escriba"]},{"slug":"antidoto_paranormal","nombre":"Antídoto paranormal","subcategoria":"medico","descripcion":"Compuesto de origen incierto. Revierte síntomas de contaminación psíquica o exposición a artefactos. Teológicamente controversia l; clínicamente funciona.","peso":1,"peso_sorteo":1,"sesgo_faccion":["curatores","sanidad","congregacion_caridad_divina"],"sesgo_especialidad":["especialidad/oficio/medico","especialidad/oficio/boticario","especialidad/oficio/cirujano","especialidad/paranormal/sanador"]},{"slug":"antiparras","nombre":"Antiparras opacas","subcategoria":"vestidura","descripcion":"Antiparras de vidrio ahumado con montura de cuero. Protegen de chispas, polvo y luz intensa. En las Tuberías, el que sube a la superficie las necesita.","peso":1,"peso_sorteo":3,"sesgo_faccion":["los_criptografos","gremio_de_comercio"]},{"slug":"banda_eclesiastica","nombre":"Banda eclesiástica","subcategoria":"insignia","descripcion":"Franja de tela al cuello que marca rango y orden. Color según jerarquía.","peso":1,"peso_sorteo":2,"sesgo_faccion":["iglesia","alto_clero","curia_romana"],"sesgo_especialidad":["especialidad/oficio/prelado","especialidad/oficio/cardenal","especialidad/oficio/predicador"]},{"slug":"botiquin","nombre":"Botiquín","subcategoria":"utilitario","descripcion":"Vendas, torniquete y morfina. Mantiene vivo al de al lado.","peso":2,"peso_sorteo":3},{"slug":"cadena_bendita","nombre":"Cadena bendita","subcategoria":"arma","descripcion":"Cadena de hierro impregnada de agua bendita y aceite sagrado. Se usa para inmovilizar; también golpea cuando no queda otra.","peso":2,"peso_sorteo":1,"tipo_accion":"cuerpo_a_cuerpo","alcance":"corto","sesgo_faccion":["inquisicion","exorcistas"]},{"slug":"caliz_ceremonial","nombre":"Cáliz ceremonial","subcategoria":"ritual","descripcion":"Copa litúrgica de metal para la eucaristía. Solo quien oficia la misa lo toca.","peso":2,"peso_sorteo":1,"sesgo_faccion":["iglesia","alto_clero","curia_romana"],"sesgo_especialidad":["especialidad/oficio/predicador","especialidad/oficio/prelado"]},{"slug":"capucha","nombre":"Capucha","subcategoria":"vestidura","descripcion":"Capucha de tela oscura que cubre cara y cuello. En los Barrios del Muro es casi uniforme: protege del frío, la lluvia y las cámaras.","peso":1,"peso_sorteo":4,"sesgo_faccion":["punteros","resistencia_subterranea"]},{"slug":"cargador","nombre":"Cargador extra","subcategoria":"utilitario","descripcion":"Munición de reserva para sostener el fuego.","peso":1,"peso_sorteo":4},{"slug":"cesto_de_hongos","nombre":"Cesto de hongos","subcategoria":"utilitario","descripcion":"Cesto de mimbre cargado de hongos raros cultivados en la humedad de las Tuberías. Mitad mercancía, mitad farmacopea.","peso":1,"peso_sorteo":2,"sesgo_especialidad":["especialidad/paranormal/sanador","especialidad/oficio/herbolario"]},{"slug":"chaleco","nombre":"Chaleco táctico","subcategoria":"vestidura","descripcion":"Protección con bolsillos para munición y carga.","peso":3,"peso_sorteo":2},{"slug":"chaleco_asalto","nombre":"Chaleco de asalto","subcategoria":"vestidura","descripcion":"Chaleco balístico con placas frontales y dorsales. Más protección que el táctico; más peso también.","peso":5,"peso_sorteo":2,"sesgo_faccion":["fuerzas_armadas","direccion_nacional_de_seguridad"]},{"slug":"chaqueta_escamas","nombre":"Chaqueta de escamas","subcategoria":"vestidura","descripcion":"Chaqueta de cuero cubierta con escamas de pez cosidas. Impermeable, resistente; huele permanentemente a sal y brea. No hay forma de quitarle ese olor.","peso":3,"peso_sorteo":3,"sesgo_faccion":["gremio_de_pescadores"]},{"slug":"cincel_acero","nombre":"Cincel de acero","subcategoria":"herramienta","descripcion":"Hoja templada para labrar piedra, sellos cerámicos y cierres oxidados. Trabajo de precisión cuando hay que abrir sin romper.","peso":1,"peso_sorteo":2,"sesgo_faccion":["arpistas"],"sesgo_especialidad":["especialidad/oficio/arqueologo_tech","especialidad/oficio/tecnico"]},{"slug":"contenedor_plomo","nombre":"Contenedor de plomo","subcategoria":"herramienta","descripcion":"Caja de plomo sellada para transportar muestras radiactivas o artefactos de campo. Pesado; quien lo carga sabe por qué.","peso":5,"peso_sorteo":1,"sesgo_faccion":["arpistas"],"sesgo_especialidad":["especialidad/oficio/cientifico","especialidad/oficio/arqueologo_tech"]},{"slug":"crucifijo_consagrado","nombre":"Crucifijo consagrado","subcategoria":"ritual","descripcion":"Cruz de metal bendecida en rito mayor. Más que símbolo: herramienta de protección para quien sabe usarla.","peso":1,"peso_sorteo":3,"sesgo_faccion":["iglesia","inquisicion","exorcistas"],"sesgo_especialidad":["especialidad/paranormal/exorcista","especialidad/oficio/predicador"]},{"slug":"cruz_arpista","nombre":"Cruz arpista","subcategoria":"insignia","descripcion":"Cruz con arpa sin cuerdas grabada. Identificador de filiación para los que saben leer el símbolo.","peso":1,"peso_sorteo":2,"sesgo_faccion":["arpistas"],"sesgo_especialidad":["especialidad/investigacion/espia"]},{"slug":"cuchillo_ceremonial_guarani","nombre":"Cuchillo ceremonial guaraní","subcategoria":"ritual","descripcion":"Hoja corta con mango de madera tallada y grabados de linaje. No se usa para pelear; se usa para cortar lo que no se ve.","peso":1,"peso_sorteo":2,"tipo_accion":"cuerpo_a_cuerpo","alcance":"corto","sesgo_faccion":["kuna_mbarete","shipibo_conibo"],"sesgo_especialidad":["especialidad/paranormal/ritualista","especialidad/paranormal/curandero"]},{"slug":"delantal_manchado","nombre":"Delantal manchado","subcategoria":"vestidura","descripcion":"Delantal de cuero o tela gruesa con manchas de sangre vieja, aceite y reactivos. El médico clandestino que lo carga no tiene tiempo de lavarlo entre trabajo y trabajo.","peso":1,"peso_sorteo":3,"sesgo_faccion":["sanidad","gremio_de_comercio","resistencia_subterranea"]},{"slug":"destornillador_aislado","nombre":"Destornillador aislado","subcategoria":"herramienta","descripcion":"Mango de goma dura; trabaja en vivo sin matar al que lo sostiene. Básico del técnico que opera sin cortar la corriente.","peso":1,"peso_sorteo":3,"sesgo_faccion":["arpistas","los_hackers","los_criptografos"],"sesgo_especialidad":["especialidad/oficio/tecnico","especialidad/oficio/hacker"]},{"slug":"escudo_antiratas","nombre":"Escudo antiratas","subcategoria":"herramienta","descripcion":"Placa de metal corrugado atada al antebrazo. En las Tuberías hay ratas del tamaño de gatos; esto no las detiene, pero da tiempo.","peso":2,"peso_sorteo":3,"sesgo_faccion":["resistencia_subterranea","traficantes_de_almas","los_criptografos"],"sesgo_especialidad":["especialidad/combate/zapador","especialidad/combate/maton"]},{"slug":"espada_consagrada","nombre":"Espada consagrada","subcategoria":"arma","descripcion":"Hoja larga bendecida en rito mayor por el alto clero. Para los exorcistas, es la única arma que puede cerrar ciertas heridas antes de abrirlas.","peso":4,"peso_sorteo":1,"tipo_accion":"cuerpo_a_cuerpo","alcance":"corto","sesgo_faccion":["inquisicion","exorcistas"]},{"slug":"farola_aceite","nombre":"Farola de aceite","subcategoria":"herramienta","descripcion":"Linterna de aceite con pantalla de latón. En las Tuberías es la única fuente de luz que no dispara los sensores de la SIA.","peso":2,"peso_sorteo":4,"sesgo_faccion":["resistencia_subterranea","traficantes_de_almas"],"sesgo_especialidad":["especialidad/oficio/contrabandista","especialidad/investigacion/rastreador"]},{"slug":"fusil","nombre":"Fusil estándar","subcategoria":"arma","descripcion":"Fusil de cerrojo reglamentario. Confiable, de alcance medio.","peso":4,"peso_sorteo":5,"tipo_accion":"cerrojo","alcance":"medio"},{"slug":"fusil_recluta","nombre":"Fusil de recluta","subcategoria":"arma","descripcion":"Arma vieja y gastada que se le da al que recién llega.","peso":4,"peso_sorteo":4,"tipo_accion":"cerrojo","alcance":"medio","sesgo_rango":["recluta","militante"]},{"slug":"galera","nombre":"Galera","subcategoria":"vestidura","descripcion":"Sombrero de ala ancha impermeabilizado con brea. Protege del sol, la lluvia y el salpique. Marca de quien vive del agua.","peso":1,"peso_sorteo":4,"sesgo_faccion":["gremio_de_pescadores"]},{"slug":"garrafa_ritual","nombre":"Garrafa ritual","subcategoria":"ritual","descripcion":"Garrafa de vidrio o cerámica con ron, aceite y hierbas maceradas. Se ofrece, se aspira, se usa para aspersión. No se bebe sola.","peso":3,"peso_sorteo":2,"sesgo_faccion":["los_umbanda","shipibo_conibo","kuna_mbarete"],"sesgo_especialidad":["especialidad/paranormal/ritualista","especialidad/paranormal/curandero"]},{"slug":"geiger_quimico","nombre":"Contador Geiger químico","subcategoria":"herramienta","descripcion":"Detector portátil de radiación y contaminación química. Cuadrante analógico; lo calibran cada misión.","peso":2,"peso_sorteo":2,"sesgo_faccion":["arpistas"],"sesgo_especialidad":["especialidad/oficio/cientifico","especialidad/oficio/tecnico"]},{"slug":"granada","nombre":"Granada de mano","subcategoria":"utilitario","descripcion":"Carga explosiva de fragmentación para asalto cercano.","peso":1,"peso_sorteo":4},{"slug":"guanteletes_cuero","nombre":"Guanteletes de cuero","subcategoria":"vestidura","descripcion":"Guantes gruesos de cuero curtido con costuras dobles. Los usan cirujanos de chatarra y cualquiera que meta las manos donde no hay que meter dedos descubiertos.","peso":1,"peso_sorteo":3,"sesgo_faccion":["gremio_de_comercio","punteros","los_criptografos"]},{"slug":"habito","nombre":"Hábito monacal","subcategoria":"vestidura","descripcion":"Túnica con capucha de orden religiosa. Más austera que la sotana; sin ornamento.","peso":2,"peso_sorteo":2,"sesgo_faccion":["iglesia"]},{"slug":"herramientas_madera","nombre":"Herramientas de madera","subcategoria":"herramienta","descripcion":"Juego de palancas, cuñas y brocas talladas en madera dura sin metal. No activan los sensores SIA. Las fabrican los técnicos clandestinos de las Tuberías.","peso":2,"peso_sorteo":2,"sesgo_faccion":["los_criptografos","los_hackers","resistencia_subterranea"],"sesgo_especialidad":["especialidad/oficio/tecnico","especialidad/oficio/hacker"]},{"slug":"insignia_rango_militar","nombre":"Insignia de rango militar","subcategoria":"insignia","descripcion":"Galones o placa que indica grado. En las Fuerzas Armadas o la DNS es obligatoria en uniforme; fuera de él es un riesgo.","peso":1,"peso_sorteo":3,"sesgo_faccion":["fuerzas_armadas","direccion_nacional_de_seguridad"],"sesgo_especialidad":["especialidad/combate/lider"]},{"slug":"latigo_consagrado","nombre":"Látigo consagrado","subcategoria":"arma","descripcion":"Tira de cuero trenzado bendecido y ungido. Alcance, control y la posibilidad de atar lo que no responde al acero.","peso":2,"peso_sorteo":1,"tipo_accion":"cuerpo_a_cuerpo","alcance":"corto","sesgo_faccion":["inquisicion","exorcistas"]},{"slug":"lente_aumento","nombre":"Lente de aumento","subcategoria":"herramienta","descripcion":"Lupa de bolsillo con montura de metal. Lee lo que el ojo no alcanza: inscripciones, circuitos, heridas finas.","peso":1,"peso_sorteo":2,"sesgo_faccion":["arpistas","guardianes_de_la_memoria"],"sesgo_especialidad":["especialidad/oficio/escriba","especialidad/investigacion/archivista"]},{"slug":"machete","nombre":"Machete","subcategoria":"arma","descripcion":"Hoja larga de acero para abrir paso y resolver problemas. En los Barrios del Muro es herramienta; también es advertencia.","peso":2,"peso_sorteo":3,"tipo_accion":"cuerpo_a_cuerpo","alcance":"corto","sesgo_faccion":["punteros","gremio_de_comercio"]},{"slug":"martillo_fragmentacion","nombre":"Martillo de fragmentación","subcategoria":"herramienta","descripcion":"Martillo de punta de acero endurecido para fracturar sellos, cascos y muros delgados. Doble uso: trabajo y combate de necesidad.","peso":3,"peso_sorteo":2,"tipo_accion":"cuerpo_a_cuerpo","alcance":"corto","sesgo_faccion":["arpistas"],"sesgo_especialidad":["especialidad/combate/zapador","especialidad/oficio/arqueologo_tech"]},{"slug":"medallon_bendito","nombre":"Medallón bendito","subcategoria":"ritual","descripcion":"Medalla de santo patrono colgada al cuello. Protección cotidiana más que ceremonial.","peso":1,"peso_sorteo":3,"sesgo_faccion":["iglesia","congregacion_caridad_divina"],"sesgo_especialidad":["especialidad/oficio/predicador"]},{"slug":"papel_libre_acido","nombre":"Papel libre de ácido","subcategoria":"herramienta","descripcion":"Papel de conservación de pH neutro. No se consigue en cualquier mercado; lo cuidan los archivistas como se cuida el pan.","peso":1,"peso_sorteo":2,"sesgo_faccion":["arpistas","guardianes_de_la_memoria"],"sesgo_especialidad":["especialidad/oficio/escriba","especialidad/investigacion/archivista"]},{"slug":"pinza_hueso","nombre":"Pinza de hueso","subcategoria":"herramienta","descripcion":"Pinza quirúrgica de acero para trabajar en cavidades estrechas. Tan útil en un cuerpo como en un mecanismo.","peso":1,"peso_sorteo":2,"sesgo_faccion":["arpistas","sanidad"],"sesgo_especialidad":["especialidad/oficio/cirujano","especialidad/oficio/medico"]},{"slug":"pistola_9mm","nombre":"Pistola 9mm","subcategoria":"arma","descripcion":"Arma corta de respaldo. La carga el que no pelea de frente.","peso":1,"peso_sorteo":2,"tipo_accion":"semiauto","alcance":"corto"},{"slug":"pocion_sanadora","nombre":"Poción sanadora","subcategoria":"medico","descripcion":"Vial de extracto procesado de efecto regenerativo documentado. Escaso, caro, y nadie sabe bien cómo funciona después del Colapso.","peso":1,"peso_sorteo":2,"sesgo_faccion":["curatores","sanidad","congregacion_caridad_divina"],"sesgo_especialidad":["especialidad/oficio/medico","especialidad/oficio/boticario","especialidad/oficio/cirujano","especialidad/paranormal/sanador"]},{"slug":"prismaticos","nombre":"Prismáticos","subcategoria":"utilitario","descripcion":"Observación a distancia. Ojos de la escuadra.","peso":1,"peso_sorteo":2,"sesgo_especialidad":["especialidad/combate/tirador","especialidad/combate/apoyo"]},{"slug":"radio","nombre":"Radio de campo","subcategoria":"utilitario","descripcion":"Enlace con el mando. La carga el que coordina.","peso":5,"peso_sorteo":2,"sesgo_especialidad":["especialidad/jerarquia/lider","especialidad/jerarquia/subjefe"]},{"slug":"red_de_pesca","nombre":"Red de pesca remendada","subcategoria":"herramienta","descripcion":"Red de fibra sintética reparada con nudos desiguales. Funciona; cada parche tiene historia. La lleva el pescador que trabaja desde antes del amanecer.","peso":4,"peso_sorteo":3,"sesgo_faccion":["gremio_de_pescadores"],"sesgo_especialidad":["especialidad/oficio/pescador","especialidad/oficio/buzo"]},{"slug":"relicario","nombre":"Relicario","subcategoria":"ritual","descripcion":"Caja pequeña de metal o madera que guarda una reliquia. La abre quien tiene autorización canónica.","peso":1,"peso_sorteo":1,"sesgo_faccion":["iglesia","alto_clero","curia_romana"],"sesgo_especialidad":["especialidad/oficio/prelado","especialidad/oficio/canonista"]},{"slug":"rifle","nombre":"Rifle de alcance largo","subcategoria":"arma","descripcion":"Rifle con mira para tiro a distancia. Pide pulso y posición.","peso":6,"peso_sorteo":3,"tipo_accion":"cerrojo","alcance":"largo","requires":{"require_any":["especialidad/combate/tirador","habilidad/tiro_de_precision"]}},{"slug":"rosario","nombre":"Rosario","subcategoria":"ritual","descripcion":"Cadena de cuentas para el rezo. Lo carga casi todo devoto; el de metal tiene otro peso.","peso":1,"peso_sorteo":4,"sesgo_faccion":["iglesia","congregacion_caridad_divina","alto_clero"],"sesgo_especialidad":["especialidad/oficio/predicador"]},{"slug":"solvente_quimico","nombre":"Solvente químico","subcategoria":"herramienta","descripcion":"Frasco de disolvente industrial para desactivar adhesivos, cubiertas selladas o residuos tóxicos. Olor inconfundible.","peso":2,"peso_sorteo":2,"sesgo_faccion":["arpistas"],"sesgo_especialidad":["especialidad/oficio/cientifico","especialidad/oficio/tecnico"]},{"slug":"sonda_voltaje","nombre":"Sonda de voltaje","subcategoria":"herramienta","descripcion":"Probador eléctrico de punta aislada. Lee tensión en circuitos sin encender lo que no hay que encender.","peso":1,"peso_sorteo":2,"sesgo_faccion":["arpistas","los_hackers","los_criptografos"],"sesgo_especialidad":["especialidad/oficio/tecnico","especialidad/oficio/hacker"]},{"slug":"sotana","nombre":"Sotana","subcategoria":"vestidura","descripcion":"Túnica talar negra hasta los pies. Marca de estado clerical, gastada en los bordes de quien la lleva décadas.","peso":2,"peso_sorteo":3,"sesgo_faccion":["iglesia"]},{"slug":"subfusil","nombre":"Subfusil","subcategoria":"arma","descripcion":"Automático de cadencia alta para asalto y trinchera.","peso":3,"peso_sorteo":3,"tipo_accion":"automatico","alcance":"corto"},{"slug":"talisman_guarani","nombre":"Talismán guaraní","subcategoria":"ritual","descripcion":"Tejido, hueso o semilla amarrada con fibra natural. Activa en ritual; fuera de él parece basura.","peso":1,"peso_sorteo":2,"sesgo_faccion":["kuna_mbarete","shipibo_conibo","los_umbanda"],"sesgo_especialidad":["especialidad/paranormal/ritualista","especialidad/paranormal/curandero"]},{"slug":"tinta_ferrogalica","nombre":"Tinta ferrogálica","subcategoria":"herramienta","descripcion":"Tinta de tanino y sulfato ferroso. La única que no se desvanece en el papel libre de ácido. Los archivistas la reconocen por el olor.","peso":1,"peso_sorteo":2,"sesgo_faccion":["arpistas","guardianes_de_la_memoria"],"sesgo_especialidad":["especialidad/oficio/escriba","especialidad/investigacion/archivista"]},{"slug":"unguento_medicinal","nombre":"Ungüento medicinal","subcategoria":"medico","descripcion":"Pasta densa de hierbas procesadas y grasa. Cierra heridas menores, alivia infección superficial. Lo preparan curanderas y médicos caídos.","peso":1,"peso_sorteo":3,"sesgo_faccion":["curatores","sanidad","congregacion_caridad_divina"],"sesgo_especialidad":["especialidad/oficio/medico","especialidad/oficio/boticario","especialidad/oficio/cirujano","especialidad/paranormal/sanador"]},{"slug":"uniforme_gris_dns","nombre":"Uniforme gris DNS","subcategoria":"vestidura","descripcion":"Uniforme gris de la Dirección Nacional de Seguridad. Corte funcional, sin adorno; el color basta para que la gente aparte la mirada.","peso":2,"peso_sorteo":3,"sesgo_faccion":["direccion_nacional_de_seguridad"]},{"slug":"uniforme_linea","nombre":"Uniforme de línea","subcategoria":"vestidura","descripcion":"Casaca reglamentaria de la tropa de línea.","peso":2,"peso_sorteo":4,"sesgo_faccion":["fuerzas_armadas","seguridad_urbana"]},{"slug":"uniforme_rojo","nombre":"Uniforme rojo","subcategoria":"vestidura","descripcion":"Casaca y brazalete de la milicia clandestina.","peso":2,"peso_sorteo":4,"sesgo_faccion":["resistencia_subterranea"]},{"slug":"uniforme_tactico_rojo","nombre":"Uniforme táctico rojo","subcategoria":"vestidura","descripcion":"Uniforme de operaciones especiales con panel rojo en el pecho. Indica unidad de choque; quien lo ve sabe que ya no hay negociación.","peso":3,"peso_sorteo":2,"sesgo_faccion":["fuerzas_armadas","direccion_nacional_de_seguridad"]},{"slug":"vela_sebo","nombre":"Vela de sebo","subcategoria":"ritual","descripcion":"Vela gruesa de grasa animal. Dura más que la de cera; arde lenta y sucia; la usan chamanes y curanderas.","peso":1,"peso_sorteo":3,"sesgo_faccion":["shipibo_conibo","los_umbanda","kuna_mbarete"],"sesgo_especialidad":["especialidad/paranormal/curandero","especialidad/paranormal/medium"]},{"slug":"velo_monacal","nombre":"Velo monacal","subcategoria":"vestidura","descripcion":"Prenda de tela oscura que cubre la cabeza. Usada por novicias y consagradas.","peso":1,"peso_sorteo":2,"sesgo_faccion":["iglesia"]}],"reglas":{"aspecto_cuota_por_rango":{"default":[0,2],"tirador_designado":[1,3],"segundo_al_mando":[1,3],"lider_de_escuadra":[1,3]},"edad_default":{"min":12,"max":70,"mediana":26,"desvio":10},"entrenamiento_base_por_rango":{"detective_privado":"investigacion","militante":"agitacion","recluta":"instruccion_basica","fusilero":"infanteria","apuntador":"apoyo_de_fuego","artillero":"artilleria","tirador_designado":"tiro_selectivo","segundo_al_mando":"liderazgo_de_campo","lider_de_escuadra":"liderazgo_de_campo","default":"instruccion_basica","adepto":"instruccion_basica","agente_arpista":"instruccion_basica","analista_cripto":"instruccion_basica","aprendiz_gremio":"instruccion_basica","aprendiz_mason":"instruccion_basica","aprendiz_meraya":"instruccion_basica","archivista_jr":"instruccion_basica","buscavidas":"instruccion_basica","cabecilla":"liderazgo_de_campo","cabo":"instruccion_basica","canonigo":"instruccion_basica","capataz":"liderazgo_de_campo","capitan":"liderazgo_de_campo","captador":"instruccion_basica","cardenal":"liderazgo_de_campo","chamana_kuna":"instruccion_basica","cifrador":"instruccion_basica","companero_mason":"instruccion_basica","contacto":"instruccion_basica","coronel":"liderazgo_de_campo","corredor_secretos":"instruccion_basica","custodio_memoria":"instruccion_basica","filho_de_santo":"instruccion_basica","fragmento":"instruccion_basica","grumete":"instruccion_basica","guerrera_kuna":"infanteria","hermano":"instruccion_basica","iluminado":"liderazgo_de_campo","informante":"instruccion_basica","jefe_celula_arpista":"liderazgo_de_campo","lego":"instruccion_basica","madre_de_guerra":"liderazgo_de_campo","maestro_cifra":"instruccion_basica","maestro_mason":"liderazgo_de_campo","magnate":"liderazgo_de_campo","marinero":"instruccion_basica","meraya":"instruccion_basica","mercader":"instruccion_basica","militante_resistencia":"agitacion","novicio":"instruccion_basica","nucleo_consciente":"instruccion_basica","obispo":"liderazgo_de_campo","oga":"instruccion_basica","pai_de_santo":"liderazgo_de_campo","paria":"instruccion_basica","peon":"instruccion_basica","puntero":"instruccion_basica","sacerdote":"instruccion_basica","sargento":"liderazgo_de_campo","script":"instruccion_basica","simpatizante":"instruccion_basica","socio":"instruccion_basica","soldado_de_clan":"infanteria","soldado_linea":"infanteria","teniente":"liderazgo_de_campo","tratante":"instruccion_basica"},"equipo_cuota":{"arma":[1,1],"utilitario":[0,2],"vestidura":[0,1]},"genero_pesos":{"masculino":45,"femenino":45,"no_binario":5,"otro":5},"habilidad_por_especialidad":{"especialidad/combate/tirador":"tiro_de_precision","especialidad/combate/asalto":"combate_cuerpo_a_cuerpo","especialidad/combate/cazadora":"combate_cuerpo_a_cuerpo","especialidad/combate/cruzado":"combate_cuerpo_a_cuerpo","especialidad/combate/fusilero":"combate_cuerpo_a_cuerpo","especialidad/combate/guerrera":"combate_cuerpo_a_cuerpo","especialidad/combate/maton":"combate_cuerpo_a_cuerpo","especialidad/combate/vigilante":"combate_cuerpo_a_cuerpo","especialidad/combate/saboteador":"manejo_de_explosivos","especialidad/combate/zapador":"manejo_de_explosivos","especialidad/combate/heroe":"liderazgo","especialidad/combate/lider":"liderazgo","especialidad/oficio/medico":"primeros_auxilios","especialidad/oficio/enfermero":"primeros_auxilios","especialidad/oficio/cirujano":"primeros_auxilios","especialidad/oficio/ciruja":"primeros_auxilios","especialidad/oficio/curandero":"primeros_auxilios","especialidad/paranormal/sanador":"primeros_auxilios","especialidad/paranormal/sanadora":"primeros_auxilios","especialidad/paranormal/curandero":"primeros_auxilios","especialidad/paranormal/exorcista_medico":"primeros_auxilios"},"rasgo_prob":40,"sobrenombre_prob":50},"nombres":{"m":[["Walter",null],["Francisco","Pancho"],["Ramón",null],["Aníbal",null],["Ernesto",null],["Tomás","Tom"],["Joaquín","Joaco"],["Mateo",null],["Bautista","Bauti"],["Lautaro","Lauti"],["Santiago","Santi"],["Gregorio","Goyo"],["Ignacio","Nacho"],["Roberto","Beto"],["Carlos","Carlitos"],["Juan","Juancho"],["Héctor",null],["Osvaldo","Vasco"],["Rubén",null],["Alejandro","Alejo"],["Mariano",null],["Gustavo","Gus"],["Hernán",null],["Daniel","Dani"],["Pablo",null],["Nicolás","Nico"],["Martín",null],["Federico","Fede"],["Leonardo","Leo"],["Rodrigo","Rodri"],["Luciano","Lucho"],["Marcos",null],["Ezequiel","Eze"],["Gabriel","Gabi"],["Esteban",null],["Ricardo","Ricky"],["Diego",null],["Facundo","Facu"],["Nahuel",null],["Agustín","Agus"],["Valentín","Valen"],["Maximiliano","Maxi"],["Adrián","Adri"],["Javier","Javi"],["Leandro","Lean"],["Sergio",null],["Eduardo","Edu"],["Manuel","Manu"],["Bruno",null],["Sebastián","Seba"],["Damián",null],["Andrés","Andy"],["Felipe",null],["Néstor",null],["Hugo",null],["Eugenio",null],["Álvaro",null],["Emiliano","Emi"],["Alberto","Beto"],["Mario",null],["Claudio",null],["César",null],["Mauricio","Mauri"],["Ariel",null],["Iván",null],["Germán",null],["Patricio","Pato"],["Guillermo","Willy"],["Antonio","Toni"],["Alfredo",null],["Horacio",null],["Miguel",null],["Luis","Lucho"],["Enrique","Quique"],["Gastón",null],["Raúl",null],["Pedro","Pedrito"],["Ángel",null],["Cristian","Cris"],["Matías","Mati"],["Lisandro",null],["Marcelo",null],["Dante",null],["Lorenzo","Loren"],["Fabricio","Fabri"],["Gonzalo","Gonza"],["Julián","Juli"],["Tobías","Tobi"],["Thiago","Tiago"],["Ramiro","Rami"],["Emilio","Emi"],["Benjamín","Benja"],["Tiziano","Tizi"],["Luca",null],["Santino","Santi"],["Valentino","Tino"],["Yadiel",null],["Yamil",null],["Yandel",null],["Hiram",null],["Efraín",null],["Wilfredo","Wilo"],["Ismael","Isma"],["Gilberto","Gil"],["Neftalí",null],["Edgardo",null],["Radamés",null],["Heriberto","Berto"],["Arnaldo",null],["Félix",null],["Óscar",null],["Celestino",null],["Eulalio",null],["Vinicio",null],["Virgilio",null],["Adalio",null],["Romualdo",null],["Ezequías",null],["Ángelo",null],["Saúl",null],["Elías",null],["Inti",null],["Waman",null],["Amaru",null],["Kuntur",null],["Tupac",null],["Mallku",null],["Manco",null],["Kallpa",null],["Katari",null],["Kusi",null],["Phuyu",null],["Qhapaq",null],["Wayna",null],["Yaku",null],["Rumi",null],["Sumaq",null],["Ayar",null],["Willka",null],["Apu",null],["Auqui",null],["Asiri",null],["Antay",null],["Iskay",null],["Puma",null],["Atuq",null],["Chuki",null],["Llanka",null],["Champi",null],["Illari",null],["Sayani",null],["Kantu",null],["João","Jão"],["José","Zé"],["Lucas",null],["Mateus","Matê"],["Rafael","Rafa"],["Thiago",null],["Henrique",null],["Marcelo",null],["Renato",null],["Alexandre","Alex"],["Raimundo",null],["Sebastião","Tião"],["Benedito","Bené"],["Antônio","Tonho"],["Chico",null],["Luiz","Luizinho"],["Paulo","Paulinho"],["Ronaldo",null],["Vinicius","Vini"],["Danilo","Dani"],["Caio",null],["Davi",null],["Anderson",null],["Fábio",null],["André",null],["Evandro",null],["Adailton",null],["Igor",null],["Kleber",null],["Robson",null],["Edilson",null],["Weverton",null],["Ailton",null],["Cleber",null],["Cláudio",null],["Walmir",null],["Josué",null],["Heitor",null]],"f":[["Sofía","Sofi"],["Mercedes","Mecha"],["Renata",null],["Valentina","Valen"],["Camila","Cami"],["Lucía","Lu"],["Olga",null],["Rosa","Rosita"],["Esther",null],["Catalina","Cata"],["Juana","Juani"],["Irma",null],["Delia",null],["Nadia",null],["Martina","Tina"],["Brígida",null],["Antonia","Toña"],["Pilar","Pili"],["Verónica","Vero"],["Tamara",null],["Agustina","Agus"],["Valeria","Vale"],["Florencia","Flor"],["Natalia","Nati"],["Mariana","Mari"],["Gabriela","Gabi"],["Carolina","Caro"],["Romina","Romi"],["Jimena","Jime"],["Paola","Pao"],["Claudia",null],["Cecilia","Ceci"],["Vanesa","Vane"],["Silvina","Silvi"],["Lorena","Lore"],["Alejandra","Ale"],["Graciela","Graci"],["Marta",null],["Elena",null],["Nora",null],["Paula","Pau"],["Micaela","Mica"],["Belén","Bele"],["Rocío","Roci"],["Noelia","Noe"],["Melisa","Meli"],["Sabrina","Sabri"],["Aldana","Aldi"],["Yamila","Yami"],["Macarena","Maca"],["Brenda",null],["Andrea","Andre"],["Virginia","Vir"],["Susana","Susy"],["Beatriz","Bea"],["Clara","Clari"],["Soledad","Sole"],["Luisa",null],["Adriana","Adri"],["Patricia","Pato"],["Karina","Kari"],["Diana",null],["Daniela","Dani"],["Marcela","Marce"],["Ivana",null],["Yanina","Yani"],["Betina","Bety"],["Gisela","Gise"],["Natasha","Nata"],["Laura","Lau"],["María","Mari"],["Ana","Anita"],["Isabel","Isa"],["Carla","Carlita"],["Manuela","Manu"],["Julieta","Juli"],["Lourdes","Lulu"],["Celeste","Celes"],["Amalia","Ama"],["Mirta",null],["Miriam",null],["Silvia","Silvi"],["Analía","Ana"],["Luciana","Luci"],["Eugenia","Euge"],["Tiziana","Tizi"],["Bianca",null],["Isabella","Isa"],["Chiara",null],["Giuliana","Giu"],["Antonella","Anto"],["Abril",null],["Ailen",null],["Emilia","Emi"],["Lara",null],["Zoe",null],["Malena","Male"],["Sofía","Sofi"],["Luna",null],["Candelaria","Cande"],["Dolores","Lola"],["Florencia","Flor"],["Verónica","Vero"],["Lorenza","Loren"],["Valentina","Valen"],["Carmen","Carmelita"],["Gladys",null],["Nydia",null],["Zulma",null],["Gloria","Glori"],["Irene",null],["Nelly",null],["Awilda",null],["Noris",null],["Yolanda","Yoli"],["Dayanara","Daya"],["Coraly","Cora"],["Alondra",null],["Waleska",null],["Brunilda",null],["Consuelo",null],["Charo",null],["Miriam",null],["Leticia","Leti"],["Norma",null],["Rosario","Charito"],["Xiomara",null],["Lydia",null],["Josefa","Pepa"],["Yahaira",null],["Lisette",null],["Nilsa",null],["Killa",null],["Nina",null],["Pacha",null],["Qori",null],["Illari",null],["Tika",null],["Wayra",null],["Zara",null],["Kantuta","Kantu"],["Munay",null],["Nuna",null],["Qoyllor",null],["Sami",null],["Taruka",null],["Chaska",null],["Mayu",null],["Amancay",null],["Warmi",null],["Naira",null],["Umiña",null],["Aclla",null],["Cusi",null],["Shaya",null],["Arawiq",null],["Inkasisa",null],["Imilla",null],["Ajllita",null],["Arawi",null],["Maria","Mariazinha"],["Ana","Aninha"],["Francisca","Chica"],["Antônia","Toinha"],["Adriana",null],["Juliana","Juli"],["Fernanda","Fer"],["Patricia","Paty"],["Aline",null],["Sandra",null],["Amanda",null],["Bruna",null],["Letícia","Leti"],["Larissa","Lari"],["Simone",null],["Priscila","Pris"],["Tatiane","Tati"],["Renata","Rena"],["Luciana","Luci"],["Vanessa","Vane"],["Isabela","Bela"],["Rafaela","Rafa"],["Beatriz","Bia"],["Luana",null],["Débora","Debi"],["Viviane","Vivi"],["Eliana",null],["Iracema",null],["Tainá",null],["Janaína",null],["Dandara",null],["Dulce",null],["Aparecida","Cida"],["Conceição","Ceiça"],["Regina","Rê"],["Silvana","Silvi"],["Rosana","Rosinha"],["Cintia","Cinty"],["Edilene",null],["Marlene",null]],"apellidos":["Aguirre","Diconte","Sosa","Ferreyra","Quiroga","Maldonado","Bianchi","Kovalenko","Romano","Belmonte","Paniagua","Iturbe","Calderón","Vergara","Echeverría","Domínguez","Lombardi","Salazar","Núñez","Petrov","Ramírez","Otondo","Vázquez","Carranza"]}}</script>
+<script>
+(() => {
+"use strict";
+const D = JSON.parse(document.getElementById("data").textContent);
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+/* ---------- Catálogo indexado ---------- */
+const FAC = Object.fromEntries(D.facciones.map((f) => [f.slug, f]));
+const SUB = Object.fromEntries(D.subfacciones.map((s) => [s.slug, s]));
+const ASP = Object.fromEntries(D.aspectos.map((a) => [a.slug, a]));
+const RAS = Object.fromEntries(D.rasgos.map((a) => [a.slug, a]));
+const HAB = Object.fromEntries(D.habilidades.map((a) => [a.slug, a]));
+const ENT = Object.fromEntries(D.entrenamientos.map((a) => [a.slug, a]));
+const EQ = Object.fromEntries(D.equipo.map((a) => [a.slug, a]));
+const EQ_BY = (sub) => D.equipo.filter((e) => e.subcategoria === sub);
+const RG = D.reglas;
+const facName = (s) => FAC[s]?.nombre || SUB[s]?.nombre || s;
+const rangosDe = (f) => D.rangos[f] || [];
+const subsDe = (f) => D.subfacciones.filter((s) => s.faccion_padre === f);
+const GENEROS = ["masculino", "femenino", "no_binario", "otro"];
+const GEN_LBL = { masculino: "Masculino", femenino: "Femenino", no_binario: "No binario", otro: "Otro" };
+const ATTR = ["cuerpo", "mente", "alma"];
+const CIUDADANO = { cuerpo: 2, mente: 2, alma: 2 };
+
+function poolEsp(f, subs) {
+  const seen = new Map();
+  for (const k of [f, ...subs]) for (const e of D.especialidades[k] || []) {
+    const key = e.slug || "";
+    if (!seen.has(key)) seen.set(key, e);
+  }
+  return [...seen.values()];
+}
+const espKeyName = (slug) => {
+  if (!slug) return null;
+  for (const l of Object.values(D.especialidades)) { const e = l.find((x) => x.slug === slug); if (e) return e.nombre; }
+  return slug.split("/").pop();
+};
+
+/* ---------- Azar con semilla ---------- */
+function hash(str) { let h = 1779033703 ^ str.length; for (let i = 0; i < str.length; i++) { h = Math.imul(h ^ str.charCodeAt(i), 3432918353); h = (h << 13) | (h >>> 19); } h = Math.imul(h ^ (h >>> 16), 2246822507); h = Math.imul(h ^ (h >>> 13), 3266489909); return (h ^= h >>> 16) >>> 0; }
+function mulberry(a) { return () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+const rngFor = (field) => mulberry(hash(S.seed + "|" + field + "|" + (S.salts[field] || 0)));
+function wpick(r, items, w) {
+  const ws = items.map((x) => Math.max(0, Number(w(x)) || 0));
+  let tot = ws.reduce((a, b) => a + b, 0);
+  if (!items.length) return undefined;
+  if (tot <= 0) return items[Math.floor(r() * items.length)];
+  let x = r() * tot;
+  for (let i = 0; i < items.length; i++) { x -= ws[i]; if (x < 0) return items[i]; }
+  return items[items.length - 1];
+}
+function wsample(r, items, w, n) { const pool = items.slice(), out = []; while (out.length < n && pool.length) { const it = wpick(r, pool, w); out.push(it); pool.splice(pool.indexOf(it), 1); } return out; }
+const randInt = (r, a, b) => a + Math.floor(r() * (b - a + 1));
+function newSeed() { const c = "abcdefghjkmnpqrstuvwxyz23456789"; let s = ""; const a = new Uint32Array(8); crypto.getRandomValues(a); for (const x of a) s += c[x % c.length]; return s; }
+function gauss(r) { let u = 0, v = 0; while (u === 0) u = r(); while (v === 0) v = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+
+/* ---------- Estado ---------- */
+const ORDER = ["faccion", "subfacciones", "rango", "mando", "especialidad", "genero", "edad", "nombre", "sobrenombre", "patente", "atributos", "entrenamientos", "habilidades", "aspectos", "rasgos", "lealtades", "arma", "utilitarios", "vestidura"];
+function blank() {
+  return { seed: newSeed(), salts: {}, locks: {}, v: {}, notacion: "punto", aliados: [], nemesis: [], libres: [], historia: "", apariencia: { rostro: "", figura: "", presencia: "" }, creado_en: new Date().toISOString().replace(/\.\d+Z$/, "Z") };
+}
+let S = blank();
+const LS = "syv-pj-creador-v1";
+try { const raw = localStorage.getItem(LS); if (raw) S = Object.assign(blank(), JSON.parse(raw)); } catch (_) {}
+function save() { try { localStorage.setItem(LS, JSON.stringify(S)); } catch (_) {} }
+
+/* ---------- Requisitos y sesgos ---------- */
+function meets(req, tags) {
+  if (!req) return true;
+  const has = (t) => (t.startsWith("no:") ? !tags.has(t.slice(3)) : tags.has(t));
+  if (req.require_all && !req.require_all.every(has)) return false;
+  if (req.require_any && !req.require_any.some(has)) return false;
+  return true;
+}
+function bias(e, V) {
+  let f = 1;
+  const pert = [V.faccion, ...(V.subfacciones || [])];
+  if (e.sesgo_faccion) f *= e.sesgo_faccion.some((x) => pert.includes(x)) ? 4 : 0.1;
+  if (e.sesgo_especialidad) f *= e.sesgo_especialidad.includes(V.especialidad) ? 5 : 0.3;
+  if (e.sesgo_rango) f *= e.sesgo_rango.includes(V.rango) ? 4 : 0.05;
+  return f;
+}
+
+/* ---------- Generación por fases ---------- */
+function generate() {
+  const V = S.v, L = S.locks;
+  // Fase 1 — Afiliación
+  if (!L.faccion || !FAC[V.faccion]) V.faccion = wpick(rngFor("faccion"), D.facciones, (f) => f.probabilidad).slug;
+  const subs = subsDe(V.faccion);
+  if (!L.subfacciones) V.subfacciones = subs.length ? [wpick(rngFor("subfacciones"), subs, (s) => s.probabilidad).slug] : [];
+  else V.subfacciones = (V.subfacciones || []).filter((s) => SUB[s]?.faccion_padre === V.faccion);
+  const rl = rangosDe(V.faccion);
+  if (!L.rango || !rl.some((r) => r.slug === V.rango)) V.rango = rl.length ? wpick(rngFor("rango"), rl, (r) => r.probabilidad).slug : null;
+  const R = rl.find((r) => r.slug === V.rango) || null;
+  if (!L.mando) V.mando = R?.mando || null;
+  const pool = poolEsp(V.faccion, V.subfacciones);
+  if (!L.especialidad || !pool.some((e) => (e.slug || "") === (V.especialidad || ""))) {
+    let pick = null;
+    if (V.mando) pick = pool.find((e) => e.slug === "especialidad/combate/lider") || pool.find((e) => e.slug === "especialidad/combate/heroe");
+    if (!pick) pick = wpick(rngFor("especialidad"), pool, (e) => e.probabilidad);
+    V.especialidad = pick ? pick.slug || "" : "";
+  }
+  // Fase 2 — Identidad
+  if (!L.genero || !GENEROS.includes(V.genero)) V.genero = wpick(rngFor("genero"), Object.keys(RG.genero_pesos), (k) => RG.genero_pesos[k]);
+  const emin = R?.edad_min ?? RG.edad_default.min, emax = R?.edad_max ?? RG.edad_default.max;
+  if (!L.edad || !Number.isFinite(+V.edad)) {
+    const r = rngFor("edad"); let e = null;
+    for (let i = 0; i < 60 && e === null; i++) { const x = Math.round(RG.edad_default.mediana + gauss(r) * RG.edad_default.desvio); if (x >= emin && x <= emax) e = x; }
+    V.edad = e ?? randInt(r, emin, emax);
+  }
+  if (!L.nombre || V.nombre == null) {
+    const r = rngFor("nombre");
+    const g = V.genero === "masculino" ? "m" : V.genero === "femenino" ? "f" : r() < 0.5 ? "m" : "f";
+    const [n, ap] = D.nombres[g][Math.floor(r() * D.nombres[g].length)];
+    V.nombre = n + " " + D.nombres.apellidos[Math.floor(r() * D.nombres.apellidos.length)];
+    V._apodo = ap;
+  } else {
+    const first = V.nombre.trim().split(/\s+/)[0];
+    const hit = [...D.nombres.m, ...D.nombres.f].find((x) => x[0] === first);
+    V._apodo = hit ? hit[1] : null;
+  }
+  if (!L.sobrenombre) V.sobrenombre = rngFor("sobrenombre")() * 100 < RG.sobrenombre_prob && V._apodo ? V._apodo : null;
+  if (!L.patente || V.patente == null) { const r = rngFor("patente"), c = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; let p = ""; for (let i = 0; i < 8; i++) p += c[Math.floor(r() * c.length)]; V.patente = p; }
+  // Fase 3 — Atributos
+  if (!L.atributos || !V.atributos) V.atributos = { ...(R?.atributos_base || CIUDADANO) };
+  // Fase 4 — Formación
+  if (!L.entrenamientos) {
+    const r = rngFor("entrenamientos");
+    const base = RG.entrenamiento_base_por_rango[V.rango] ?? RG.entrenamiento_base_por_rango.default;
+    const set = ENT[base] ? [base] : [];
+    if (r() < 0.25) { const extra = wpick(r, D.entrenamientos.filter((e) => !set.includes(e.slug)), (e) => e.peso_narrativo); if (extra) set.push(extra.slug); }
+    V.entrenamientos = set;
+  }
+  if (!L.habilidades) { const h = RG.habilidad_por_especialidad[V.especialidad]; V.habilidades = h && HAB[h] ? [h] : []; }
+  // Fase 5 — Aspectos y rasgos
+  const tagsNow = new Set(rawTags(false));
+  if (!L.aspectos) {
+    const r = rngFor("aspectos");
+    const [mn, mx] = RG.aspecto_cuota_por_rango[V.rango] || RG.aspecto_cuota_por_rango.default;
+    const n = randInt(r, mn, mx), chosen = [];
+    for (let i = 0; i < n; i++) {
+      const elig = D.aspectos.filter((a) => !chosen.includes(a.slug) && (a.requiere_edad_min ?? 0) <= V.edad && meets(a.requires, tagsNow) &&
+        !(a.excluye || []).some((x) => chosen.includes(x.split("/").pop())) && !chosen.some((c) => (ASP[c].excluye || []).includes("aspecto/" + a.slug)));
+      const a = wpick(r, elig, (a) => a.peso_narrativo * bias(a, V) * (a.origen === "narrativo" ? 0.3 : 1));
+      if (!a) break; chosen.push(a.slug);
+    }
+    V.aspectos = chosen;
+  }
+  if (!L.rasgos) { const r = rngFor("rasgos"); V.rasgos = r() * 100 < RG.rasgo_prob ? [wpick(r, D.rasgos, (x) => x.peso_narrativo).slug] : []; }
+  // Fase 6 — Vínculos
+  if (!L.lealtades) V.lealtades = [V.faccion];
+  // Fase 7 — Equipo
+  const t2 = new Set(rawTags(false));
+  const espCombate = (V.especialidad || "").startsWith("especialidad/combate/");
+  const poolCombate = pool.some((e) => (e.slug || "").startsWith("especialidad/combate/"));
+  if (!L.arma) {
+    const r = rngFor("arma");
+    const armado = espCombate || r() < (poolCombate ? 0.6 : 0.35);
+    const el = EQ_BY("arma").filter((e) => meets(e.requires, t2));
+    V.arma = armado ? wpick(r, el, (e) => (e.peso_sorteo || 1) * bias(e, V))?.slug || null : null;
+  }
+  if (!L.utilitarios) {
+    const r = rngFor("utilitarios"); const [a, b] = RG.equipo_cuota.utilitario;
+    V.utilitarios = wsample(r, EQ_BY("utilitario").filter((e) => meets(e.requires, t2)), (e) => (e.peso_sorteo || 1) * bias(e, V), randInt(r, a, b)).map((e) => e.slug);
+  }
+  if (!L.vestidura) {
+    const r = rngFor("vestidura"); const [a, b] = RG.equipo_cuota.vestidura;
+    V.vestidura = randInt(r, a, b) > 0 ? wpick(r, EQ_BY("vestidura"), (e) => (e.peso_sorteo || 1) * bias(e, V))?.slug || null : null;
+  }
+  save();
+}
+
+/* ---------- Tags ---------- */
+function rawTags(withAll = true) {
+  const V = S.v, t = [];
+  if (V.faccion) t.push("faccion/" + V.faccion);
+  for (const s of V.subfacciones || []) t.push("subfaccion/" + s);
+  if (V.rango) t.push("rango/" + V.rango);
+  if (V.mando) t.push("mando/" + V.mando);
+  if (V.especialidad) t.push(V.especialidad);
+  t.push("estado/disponible");
+  for (const x of V.entrenamientos || []) t.push("entrenamiento/" + x);
+  for (const x of V.habilidades || []) t.push("habilidad/" + x);
+  if (!withAll) return t;
+  for (const x of V.aspectos || []) t.push("aspecto/" + x);
+  for (const x of V.rasgos || []) t.push("rasgo/" + x);
+  for (const x of V.lealtades || []) t.push("lealtad/" + x);
+  for (const x of S.aliados) t.push("aliado/" + x);
+  for (const x of S.nemesis) t.push("nemesis/" + x);
+  if (V.arma) t.push("equipo/arma/" + V.arma);
+  for (const x of V.utilitarios || []) t.push("equipo/utilitario/" + x);
+  if (V.vestidura) t.push("equipo/vestidura/" + V.vestidura);
+  for (const x of S.libres) t.push(x);
+  const seen = new Map(); for (const x of t) { seen.delete(x); seen.set(x, 1); } // no multiconjunto: gana el último
+  return [...seen.keys()];
+}
+const fmtTag = (t) => (S.notacion === "punto" ? t.replace(/\//g, ".") : t);
+const normTag = (t) => t.trim().replace(/\./g, "/").replace(/^\/+|\/+$/g, "");
+const validTag = (t) => t.split("/").every((s) => /^[a-z0-9_]+$/.test(s)) || /^[a-z_]+\/[A-Z0-9]{8}$/.test(t);
+
+/* ---------- Estadísticas derivadas ---------- */
+function derive() {
+  const A = { ...S.v.atributos }, mods = [];
+  for (const s of S.v.aspectos || []) for (const m of ASP[s]?.efecto || []) mods.push({ ...m, src: ASP[s].nombre });
+  const eff = { ...A }, cond = {};
+  for (const m of mods) {
+    const [k, v] = m.objetivo.split(".");
+    if (m.condicion) { (cond[v] ||= []).push(m); continue; }
+    if (k === "attr" && m.mod != null) eff[v] = (eff[v] || 0) + m.mod;
+  }
+  const sum = (stat) => mods.filter((m) => m.objetivo === "stat." + stat && !m.condicion && m.mod != null).reduce((a, m) => a + m.mod, 0);
+  const pct = (stat) => mods.filter((m) => m.objetivo === "stat." + stat && !m.condicion && m.pct != null).reduce((a, m) => a + m.pct, 0);
+  const sgn = (n) => (n ? (n > 0 ? " +" : " −") + Math.abs(n) : "");
+  const condTxt = (k) => (cond[k] || []).map((m) => (m.mod != null ? (m.mod > 0 ? "+" : "") + m.mod : m.pct + "%") + " " + m.objetivo.split(".")[1] + " en " + m.condicion).join(" · ");
+  const ini = Math.max(0, Math.min(5, Math.max(eff.cuerpo, eff.mente, eff.alma) + sum("iniciativa")));
+  const out = [
+    { k: "INICIATIVA", v: ini, f: "máx(C,M,A)" + sgn(sum("iniciativa")) + ", tope 0..5" },
+    { k: "MORAL", v: eff.alma + sum("moral"), f: "ALMA" + sgn(sum("moral")) },
+    { k: "FATIGA máx", v: eff.cuerpo + eff.alma + sum("fatiga"), f: "CUERPO + ALMA" + sgn(sum("fatiga")) },
+    { k: "ESTRESS máx", v: Math.max(1, eff.alma + sum("estress")), f: "ALMA" + sgn(sum("estress")) + ", mín. 1" },
+    { k: "SANAR", v: sum("sanar"), f: "Σ contratos, base 0" },
+    { k: "PERCEPCION", v: sum("percepcion"), f: "Σ contratos, base 0" },
+    { k: "MOVIMIENTO", v: eff.cuerpo + "×", f: "CUERPO × orden" + sgn(sum("movimiento")) + (pct("movimiento") ? ", " + pct("movimiento") + "%" : "") },
+  ];
+  for (const s of out) { const key = s.k.split(" ")[0].toLowerCase(); s.c = condTxt(key); }
+  const attrCond = ATTR.map((a) => condTxt(a)).filter(Boolean).join(" · ");
+  const esp = S.v.especialidad || "";
+  const fza = esp === "especialidad/combate/heroe" ? 3 : esp === "especialidad/combate/lider" ? 2 : 1;
+  out.push({ k: "FZA aportada", v: fza, f: "héroe 3 · líder 2 · resto 1" });
+  return { base: A, eff, stats: out, attrCond, mods };
+}
+
+/* ---------- YAML ---------- */
+const q = (s) => (s == null || s === "" ? "null" : JSON.stringify(String(s)));
+function block(s, ind) { const t = String(s || "").trim(); if (!t) return " null"; return " |\n" + t.split("\n").map((l) => (l ? ind + l : "")).join("\n"); }
+function sheetObj() {
+  const V = S.v, R = rangosDe(V.faccion).find((r) => r.slug === V.rango);
+  return {
+    identidad: { slug: V.patente, nombre: V.nombre, sobrenombre: V.sobrenombre, rol: R?.nombre || null, especialidad: espKeyName(V.especialidad), genero: V.genero, edad: +V.edad },
+    atributos: { ...V.atributos },
+    tags: rawTags().map(fmtTag),
+    historia: S.historia.trim() || null,
+    historial: [],
+    metadatos: { creado_en: S.creado_en, canonizado_en: null, ultima_actualizacion: S.creado_en },
+    extras: { semilla: S.seed },
+    apariencia: (S.apariencia.rostro || S.apariencia.figura || S.apariencia.presencia) ? { rostro: S.apariencia.rostro.trim() || null, figura: S.apariencia.figura.trim() || null, presencia: S.apariencia.presencia.trim() || null } : null,
+  };
+}
+function toYaml() {
+  const o = sheetObj(), I = o.identidad, A = o.atributos;
+  let y = "personaje:\n  identidad:\n";
+  y += `    slug: ${I.slug}\n    nombre: ${q(I.nombre)}\n    sobrenombre: ${q(I.sobrenombre)}\n    rol: ${q(I.rol)}\n    especialidad: ${q(I.especialidad)}\n    genero: ${I.genero}\n    edad: ${I.edad}\n`;
+  y += `  atributos:\n    cuerpo: ${A.cuerpo}\n    mente: ${A.mente}\n    alma: ${A.alma}\n`;
+  y += "  tags:\n" + o.tags.map((t) => "    - " + t).join("\n") + "\n";
+  y += "  historia:" + block(o.historia, "    ") + "\n";
+  y += "  historial: []\n";
+  y += `  metadatos:\n    creado_en: ${o.metadatos.creado_en}\n    canonizado_en: null\n    ultima_actualizacion: ${o.metadatos.ultima_actualizacion}\n`;
+  y += `  extras:\n    semilla: ${q(S.seed)}\n`;
+  if (!o.apariencia) y += "  apariencia: null\n";
+  else { y += "  apariencia:\n"; for (const k of ["rostro", "figura", "presencia"]) y += `    ${k}:` + block(o.apariencia[k], "      ") + "\n"; }
+  return y;
+}
+
+/* ---------- Íconos ---------- */
+const ICO = {
+  lock: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>',
+  unlock: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1"/><path d="M5.5 7V5a2.5 2.5 0 0 1 4.9-.7"/></svg>',
+  dice: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><circle cx="5.6" cy="5.6" r=".9" fill="currentColor" stroke="none"/><circle cx="10.4" cy="10.4" r=".9" fill="currentColor" stroke="none"/><circle cx="8" cy="8" r=".9" fill="currentColor" stroke="none"/></svg>',
+};
+const tools = (f) => `<div class="tools"><button type="button" class="ico" data-lock="${f}" aria-pressed="${!!S.locks[f]}" title="${S.locks[f] ? "Fijado: el sorteo lo respeta. Clic para soltar" : "Libre: se sortea. Clic para fijar"}">${S.locks[f] ? ICO.lock : ICO.unlock}<span class="sr">Fijar ${f}</span></button><button type="button" class="ico" data-roll="${f}" title="Volver a sortear este campo">${ICO.dice}<span class="sr">Sortear ${f}</span></button></div>`;
+const opt = (v, label, sel) => `<option value="${esc(v)}"${sel ? " selected" : ""}>${esc(label)}</option>`;
+const chipList = (field, items, nameFn) => items.map((s) => `<span class="chip" title="${esc(nameFn(s).d || "")}">${esc(nameFn(s).n)}<button type="button" data-rm="${field}" data-val="${esc(s)}" aria-label="Quitar ${esc(nameFn(s).n)}">×</button></span>`).join("");
+const adder = (field, items, have, nameFn, ph) => { const rest = items.filter((x) => !have.includes(x)); return rest.length ? `<select data-add="${field}" aria-label="${esc(ph)}"><option value="">${esc(ph)}</option>${rest.map((x) => opt(x, nameFn(x).n, false)).join("")}</select>` : ""; };
+
+/* ---------- Formulario ---------- */
+function renderForm() {
+  const V = S.v, R = rangosDe(V.faccion).find((r) => r.slug === V.rango);
+  const pool = poolEsp(V.faccion, V.subfacciones);
+  const espSel = pool.find((e) => (e.slug || "") === (V.especialidad || ""));
+  const subs = subsDe(V.faccion);
+  const nm = (cat) => (s) => ({ n: cat[s]?.nombre || s, d: cat[s]?.descripcion });
+  const armas = EQ_BY("arma"), uts = EQ_BY("utilitario").map((e) => e.slug), ves = EQ_BY("vestidura");
+  const aspNm = (s) => { const a = ASP[s]; if (!a) return { n: s }; const ef = (a.efecto || []).map((m) => (m.mod != null ? (m.mod > 0 ? "+" : "") + m.mod : m.pct + "%") + " " + m.objetivo.split(".")[1].toUpperCase() + (m.condicion ? " (" + m.condicion + ")" : "")).join(", "); return { n: a.nombre + (ef ? " · " + ef : ""), d: a.descripcion }; };
+  const rangoTabla = R?.atributos_base || CIUDADANO;
+  const attrsDiffer = ATTR.some((a) => V.atributos[a] !== rangoTabla[a]);
+  const h = [];
+  const fase = (n, t, p, body) => h.push(`<section class="fase"><div class="fase-h"><span class="fase-n">${n}</span><h2>${t}</h2><p>${p}</p></div>${body}</section>`);
+
+  fase(1, "Afiliación", "facción · subfacción · rango · mando · especialidad",
+    `<div class="row"><label for="f-faccion">Facción</label><div class="fld"><select id="f-faccion" data-set="faccion">${D.facciones.map((f) => opt(f.slug, f.nombre, f.slug === V.faccion)).join("")}</select><div class="desc">${esc(FAC[V.faccion]?.descripcion)}</div></div>${tools("faccion")}</div>
+     <div class="row"><span class="lbl">Subfacción</span><div class="fld">${subs.length ? `<div class="chips">${chipList("subfacciones", V.subfacciones, nm(SUB))}${adder("subfacciones", subs.map((s) => s.slug), V.subfacciones, nm(SUB), "Agregar subfacción")}</div><div class="desc">${esc(V.subfacciones.map((s) => SUB[s]?.descripcion).join(" "))}</div>` : `<div class="hint">Esta facción no tiene subfacciones en el catálogo.</div>`}</div>${subs.length ? tools("subfacciones") : "<span></span>"}</div>
+     <div class="row"><label for="f-rango">Rango</label><div class="fld">${rangosDe(V.faccion).length ? `<select id="f-rango" data-set="rango">${rangosDe(V.faccion).map((r) => opt(r.slug, `${r.nombre} · ${r.edad_min}–${r.edad_max} años${r.mando ? " · mando " + r.mando : ""}`, r.slug === V.rango)).join("")}</select>` : `<div class="hint">Sin escalera de rangos: piso civil.</div>`}</div>${tools("rango")}</div>
+     <div class="row"><label for="f-mando">Mando</label><div class="fld"><input type="text" id="f-mando" data-text="mando" value="${esc(V.mando || "")}" placeholder="sin mando" spellcheck="false"><div class="hint">${R?.mando ? `El rango implica <code>mando/${esc(R.mando)}</code>.` : "El rango no implica mando. Escribí un slug para dárselo."}</div></div>${tools("mando")}</div>
+     <div class="row"><label for="f-esp">Especialidad</label><div class="fld"><select id="f-esp" data-set="especialidad">${pool.map((e) => opt(e.slug || "", e.nombre + (e.slug ? " · " + e.slug.split("/")[1] : ""), (e.slug || "") === (V.especialidad || ""))).join("")}</select><div class="desc">${esc(espSel?.descripcion)}</div></div>${tools("especialidad")}</div>`);
+
+  fase(2, "Identidad", "género · edad · nombre · sobrenombre · patente",
+    `<div class="row"><label for="f-genero">Género</label><div class="fld"><select id="f-genero" data-set="genero">${GENEROS.map((g) => opt(g, GEN_LBL[g], g === V.genero)).join("")}</select></div>${tools("genero")}</div>
+     <div class="row"><label for="f-edad">Edad</label><div class="fld"><input type="number" id="f-edad" data-text="edad" min="12" max="90" value="${esc(V.edad)}">${R && (V.edad < R.edad_min || V.edad > R.edad_max) ? `<div class="hint warn">Fuera del rango del ${esc(R.nombre)} (${R.edad_min}–${R.edad_max}).</div>` : ""}</div>${tools("edad")}</div>
+     <div class="row"><label for="f-nombre">Nombre</label><div class="fld"><input type="text" id="f-nombre" data-text="nombre" value="${esc(V.nombre)}"></div>${tools("nombre")}</div>
+     <div class="row"><label for="f-sobre">Sobrenombre</label><div class="fld"><input type="text" id="f-sobre" data-text="sobrenombre" value="${esc(V.sobrenombre || "")}" placeholder="sin sobrenombre"><div class="hint">${RG.sobrenombre_prob}% de emitirlo, si el nombre tiene apodo curado${V._apodo ? ` (${esc(V._apodo)})` : ""}.</div></div>${tools("sobrenombre")}</div>
+     <div class="row"><label for="f-patente">Patente</label><div class="fld"><input type="text" id="f-patente" data-text="patente" value="${esc(V.patente)}" maxlength="8" spellcheck="false" style="font-family:var(--font-mono);text-transform:uppercase">${/^[A-Z0-9]{8}$/.test(V.patente) ? "" : `<div class="hint warn">La patente es ^[A-Z0-9]{8}$.</div>`}<div class="hint">Patente opaca de ejemplo. Al persistir la asigna el servidor.</div></div>${tools("patente")}</div>`);
+
+  fase(3, "Atributos", "determinísticos por rango, escala 2..7",
+    `<div class="row"><span class="lbl">Cuerpo · Mente · Alma</span><div class="fld"><div class="attrs">${ATTR.map((a) => `<div class="attr"><b>${a.toUpperCase()}</b><div class="step"><button type="button" data-step="${a}" data-d="-1" aria-label="Restar ${a}">−</button><output>${V.atributos[a]}</output><button type="button" data-step="${a}" data-d="1" aria-label="Sumar ${a}">+</button></div></div>`).join("")}</div><div class="hint">${R ? `Tabla de ${esc(R.nombre)}: ${rangoTabla.cuerpo} / ${rangoTabla.mente} / ${rangoTabla.alma}.` : "Piso civil: 2 / 2 / 2."}${attrsDiffer ? ` <span class="warn">Editado a mano: se aparta de la tabla.</span>` : ""}</div></div>${tools("atributos")}</div>`);
+
+  fase(4, "Formación", "entrenamiento base por rango · habilidad por especialidad",
+    `<div class="row"><span class="lbl">Entrenamiento</span><div class="fld"><div class="chips">${chipList("entrenamientos", V.entrenamientos, nm(ENT))}${adder("entrenamientos", Object.keys(ENT), V.entrenamientos, nm(ENT), "Agregar entrenamiento")}</div></div>${tools("entrenamientos")}</div>
+     <div class="row"><span class="lbl">Habilidades</span><div class="fld"><div class="chips">${chipList("habilidades", V.habilidades, (s) => ({ n: (HAB[s]?.nombre || s) + (HAB[s] ? " · " + HAB[s].atributo_dominante.toUpperCase() : ""), d: HAB[s]?.descripcion }))}${adder("habilidades", Object.keys(HAB), V.habilidades, nm(HAB), "Agregar habilidad")}</div><div class="hint">Una habilidad habilita la tirada contra su atributo dominante; no suma modificadores.</div></div>${tools("habilidades")}</div>`);
+
+  const [amn, amx] = RG.aspecto_cuota_por_rango[V.rango] || RG.aspecto_cuota_por_rango.default;
+  fase(5, "Aspectos", "carácter con contrato · rasgos físicos",
+    `<div class="row"><span class="lbl">Aspectos</span><div class="fld"><div class="chips">${chipList("aspectos", V.aspectos, aspNm)}${adder("aspectos", Object.keys(ASP), V.aspectos, (s) => ({ n: ASP[s].nombre }), "Agregar aspecto")}</div><div class="hint">Cuota del rango: ${amn}–${amx}. ${conflicts().map(esc).join(" ")}</div></div>${tools("aspectos")}</div>
+     <div class="row"><span class="lbl">Rasgos</span><div class="fld"><div class="chips">${chipList("rasgos", V.rasgos, nm(RAS))}${adder("rasgos", Object.keys(RAS), V.rasgos, nm(RAS), "Agregar rasgo")}</div><div class="hint">${RG.rasgo_prob}% de recibir un rasgo. Sin efecto mecánico.</div></div>${tools("rasgos")}</div>`);
+
+  const lealOpts = [...D.facciones.map((f) => f.slug), ...D.subfacciones.map((s) => s.slug)];
+  fase(6, "Vínculos", "lealtad · aliado · némesis",
+    `<div class="row"><span class="lbl">Lealtades</span><div class="fld"><div class="chips">${chipList("lealtades", V.lealtades, (s) => ({ n: facName(s) }))}${adder("lealtades", lealOpts, V.lealtades, (s) => ({ n: facName(s) }), "Agregar lealtad")}</div><div class="hint">La lealtad de base es la facción.</div></div>${tools("lealtades")}</div>
+     <div class="row"><label for="add-aliados">Aliados</label><div class="fld"><div class="chips">${S.aliados.map((s) => `<span class="chip">${esc(s)}<button type="button" data-rmx="aliados" data-val="${esc(s)}" aria-label="Quitar ${esc(s)}">×</button></span>`).join("")}<input type="text" id="add-aliados" data-addx="aliados" placeholder="patente o slug + Enter" spellcheck="false"></div></div><span></span></div>
+     <div class="row"><label for="add-nemesis">Némesis</label><div class="fld"><div class="chips">${S.nemesis.map((s) => `<span class="chip">${esc(s)}<button type="button" data-rmx="nemesis" data-val="${esc(s)}" aria-label="Quitar ${esc(s)}">×</button></span>`).join("")}<input type="text" id="add-nemesis" data-addx="nemesis" placeholder="patente o slug + Enter" spellcheck="false"></div><div class="hint">Patente (K9F2H3M4) o slug de facción o grupo. La prosa del vínculo va en su hito, no acá.</div></div><span></span></div>`);
+
+  fase(7, "Equipo", "un arma · 0–2 utilitarios · 0–1 vestidura",
+    `<div class="row"><label for="f-arma">Arma</label><div class="fld"><select id="f-arma" data-set="arma">${opt("", "Sin arma", !V.arma)}${armas.map((e) => opt(e.slug, e.nombre + (e.alcance ? " · alcance " + e.alcance : ""), e.slug === V.arma)).join("")}</select><div class="desc">${esc(EQ[V.arma]?.descripcion || "")}</div></div>${tools("arma")}</div>
+     <div class="row"><span class="lbl">Utilitarios</span><div class="fld"><div class="chips">${chipList("utilitarios", V.utilitarios, nm(EQ))}${adder("utilitarios", uts, V.utilitarios, nm(EQ), "Agregar utilitario")}</div></div>${tools("utilitarios")}</div>
+     <div class="row"><label for="f-vest">Vestidura</label><div class="fld"><select id="f-vest" data-set="vestidura">${opt("", "Sin vestidura propia", !V.vestidura)}${ves.map((e) => opt(e.slug, e.nombre, e.slug === V.vestidura)).join("")}</select><div class="desc">${esc(EQ[V.vestidura]?.descripcion || "")}</div></div>${tools("vestidura")}</div>
+     <div class="row"><label for="add-libres">Tags libres</label><div class="fld"><div class="chips">${S.libres.map((s) => `<span class="chip" style="font-family:var(--font-mono)">${esc(fmtTag(s))}<button type="button" data-rmx="libres" data-val="${esc(s)}" aria-label="Quitar ${esc(s)}">×</button></span>`).join("")}<input type="text" id="add-libres" data-addx="libres" placeholder="habilidad.personal.pianista + Enter" spellcheck="false"></div><div class="hint">Catálogo abierto: entran tags huérfanos o de categorías nuevas. Minúsculas y guion bajo.</div><div class="hint warn" id="libreErr"></div></div><span></span></div>`);
+
+  fase(8, "Prosa", "historia y apariencia · se congelan al canonizar",
+    `<div class="row"><label for="f-historia">Historia</label><div class="fld"><textarea id="f-historia" data-prose="historia" rows="7" placeholder="120–200 palabras. Ancla los tags: de dónde viene, por qué la cicatriz, a quién obedece.">${esc(S.historia)}</textarea><div class="hint" id="cnt-historia"></div>
+       <div class="claude-row" data-claude hidden><button class="btn" type="button" id="askHistoria">Escribir historia con Claude</button><button class="btn" type="button" id="stopHistoria" hidden>Detener</button><span class="status" id="stHistoria" role="status"></span></div></div><span></span></div>
+     ${["rostro", "figura", "presencia"].map((k) => `<div class="row"><label for="f-${k}">${k[0].toUpperCase() + k.slice(1)}</label><div class="fld"><textarea id="f-${k}" data-ap="${k}" rows="3" placeholder="${{ rostro: "La cara en primer plano: facciones, mirada, piel, gesto.", figura: "Cuerpo entero y porte: cómo lleva lo que viste, nunca qué viste.", presencia: "La impresión que deja: luz, aire, cómo cambia una habitación." }[k]}">${esc(S.apariencia[k])}</textarea></div><span></span></div>`).join("")}
+     <div class="row"><span class="lbl"></span><div class="fld"><div class="hint">Apariencia: 40–80 palabras por párrafo. Dice cómo se ve; no números ni nombres de prendas o armas.</div><div class="claude-row" data-claude hidden><button class="btn" type="button" id="askApariencia">Escribir apariencia con Claude</button><span class="status" id="stApariencia" role="status"></span></div></div><span></span></div>`);
+
+  const form = $("#form");
+  const act = document.activeElement, actId = act?.id, selS = act?.selectionStart, selE = act?.selectionEnd;
+  form.innerHTML = h.join("");
+  if (actId) { const el = document.getElementById(actId); if (el) { el.focus(); try { if (selS != null) el.setSelectionRange(selS, selE); } catch (_) {} } }
+  if (sampleFn) form.querySelectorAll("[data-claude]").forEach((x) => (x.hidden = false));
+  wordCount();
+}
+function conflicts() {
+  const out = [], tags = new Set(rawTags());
+  for (const s of S.v.aspectos) {
+    const a = ASP[s]; if (!a) continue;
+    if (a.requiere_edad_min && S.v.edad < a.requiere_edad_min) out.push(`${a.nombre} pide ${a.requiere_edad_min} años o más.`);
+    if (!meets(a.requires, tags)) out.push(`${a.nombre} pide ${(a.requires.require_any || a.requires.require_all).join(" o ")}.`);
+    for (const x of a.excluye || []) if (S.v.aspectos.includes(x.split("/").pop())) out.push(`${a.nombre} excluye ${ASP[x.split("/").pop()]?.nombre}.`);
+  }
+  return [...new Set(out)];
+}
+const words = (s) => (s.trim() ? s.trim().split(/\s+/).length : 0);
+function wordCount() { const el = $("#cnt-historia"); if (el) { const n = words(S.historia); el.textContent = n + " palabras" + (n && (n < 120 || n > 200) ? " · sugerido 120–200" : ""); el.className = "hint" + (n && (n < 120 || n > 200) ? " warn" : ""); } }
+
+/* ---------- Ficha ---------- */
+let tab = "ficha";
+function renderSheet() {
+  const V = S.v, R = rangosDe(V.faccion).find((r) => r.slug === V.rango), d = derive();
+  const espN = espKeyName(V.especialidad);
+  const sub = [R?.nombre, espN].filter(Boolean).join(" · ") || "Sin rango";
+  const fil = R && V.faccion ? `${R.nombre} de ${facName(V.faccion)}` : facName(V.faccion);
+  const bar = (a) => { const b = d.base[a], e = d.eff[a]; let cells = ""; for (let i = 1; i <= 7; i++) cells += `<i class="${i <= Math.min(b, e) ? "on" : i <= Math.max(b, e) ? (e > b ? "mod" : "on off") : ""}"></i>`; return `<div class="bar"><span>${a.toUpperCase()}</span><div class="cells">${cells}</div><b>${e}${e !== b ? `<sup style="font-size:10px;color:var(--accent)">${e > b ? "+" : ""}${e - b}</sup>` : ""}</b></div>`; };
+  const tags = rawTags();
+  const cls = (t) => (S.libres.includes(t) ? "c-libre" : "c-" + t.split("/")[0]);
+  const prosa = S.historia.trim();
+  $("#panelFicha").innerHTML = `
+   <div class="ficha-head">
+     <div style="min-width:0"><div class="eyebrow">Ficha de filiación · efímera</div>
+       <p class="nombre">${esc(V.nombre)}</p>
+       ${V.sobrenombre ? `<div class="alias">alias «${esc(V.sobrenombre)}»</div>` : ""}
+       <div class="sub">${esc(sub)}</div>
+       <div class="sub">${esc(GEN_LBL[V.genero])}, ${esc(V.edad)} años · ${esc(fil)}</div></div>
+     <div class="patente" title="Patente opaca ^[A-Z0-9]{8}$"><small>PATENTE</small><span>${esc(V.patente)}</span></div>
+   </div>
+   <div class="ficha-body">
+     <div><p class="sec-t"><span>Atributos</span><span>escala 2..7</span></p><div class="bars">${ATTR.map(bar).join("")}</div>${d.attrCond ? `<div class="hint" style="font-family:var(--font-mono);font-size:11px;color:var(--accent);margin-top:6px">Condicional: ${esc(d.attrCond)}</div>` : ""}</div>
+     <div><p class="sec-t"><span>Estadísticas derivadas</span><span>en caliente, no se guardan</span></p><div class="stats">${d.stats.map((s) => `<div class="stat"><div class="k">${esc(s.k)}</div><div class="v">${esc(s.v)}</div><div class="f">${esc(s.f)}</div>${s.c ? `<div class="c">${esc(s.c)}</div>` : ""}</div>`).join("")}</div></div>
+     <div><p class="sec-t"><span>Tags</span><span>${tags.length}</span></p><div class="tagwall">${tags.map((t) => `<span class="tag ${cls(t)}">${esc(fmtTag(t))}</span>`).join("")}</div></div>
+     <div><p class="sec-t"><span>Historia</span><span>${words(prosa)} palabras</span></p><div class="prosa${prosa ? "" : " empty"}">${prosa ? esc(prosa) : "Sin escribir. La prosa va al final, cuando todo lo demás está fijado."}</div></div>
+   </div>
+   <div class="foot">Semilla <code>${esc(S.seed)}</code>. Misma semilla y mismos campos fijados dan el mismo personaje; la prosa queda afuera.</div>`;
+  $("#yaml").textContent = toYaml();
+}
+function renderAll() { renderForm(); renderSheet(); renderTop(); }
+function renderTop() {
+  $("#seed").value = S.seed;
+  $("#notPunto").setAttribute("aria-pressed", S.notacion === "punto");
+  $("#notBarra").setAttribute("aria-pressed", S.notacion === "barra");
+}
+
+/* ---------- Interacción ---------- */
+const MULTI = ["subfacciones", "entrenamientos", "habilidades", "aspectos", "rasgos", "lealtades", "utilitarios"];
+function setField(f, val) { S.v[f] = val; S.locks[f] = true; generate(); renderAll(); }
+const form = $("#form");
+form.addEventListener("change", (e) => {
+  const t = e.target;
+  if (t.dataset.set) setField(t.dataset.set, t.value || (t.dataset.set === "especialidad" ? "" : null));
+  else if (t.dataset.add && t.value) setField(t.dataset.add, [...S.v[t.dataset.add], t.value]);
+});
+form.addEventListener("input", (e) => {
+  const t = e.target;
+  if (t.dataset.text) {
+    const f = t.dataset.text;
+    let val = t.value;
+    if (f === "edad") { val = parseInt(val, 10); if (!Number.isFinite(val)) return; }
+    if (f === "patente") val = val.toUpperCase();
+    if (f === "mando") val = val.trim() || null;
+    if (f === "sobrenombre") val = val.trim() ? val : null;
+    S.v[f] = val; S.locks[f] = true;
+    generate(); renderAll();
+  } else if (t.dataset.prose) { S.historia = t.value; save(); wordCount(); renderSheet(); }
+  else if (t.dataset.ap) { S.apariencia[t.dataset.ap] = t.value; save(); renderSheet(); }
+});
+form.addEventListener("keydown", (e) => {
+  const t = e.target;
+  if (e.key !== "Enter" || !t.dataset.addx) return;
+  e.preventDefault();
+  const f = t.dataset.addx, raw = t.value.trim();
+  if (!raw) return;
+  let val = raw;
+  if (f === "libres") {
+    val = normTag(raw.toLowerCase() === raw ? raw : raw);
+    if (!validTag(val)) { $("#libreErr").textContent = "Usá minúsculas, números y guion bajo en cada segmento, separados por punto."; return; }
+  } else {
+    val = /^[A-Za-z0-9]{8}$/.test(raw) && /[0-9]/.test(raw) ? raw.toUpperCase() : raw.toLowerCase().replace(/\s+/g, "_");
+    if (!/^([A-Z0-9]{8}|[a-z0-9_]+)$/.test(val)) return;
+  }
+  if (!S[f].includes(val)) S[f].push(val);
+  save(); renderAll();
+  document.getElementById("add-" + f)?.focus();
+});
+form.addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.lock) { const f = b.dataset.lock; S.locks[f] = !S.locks[f]; generate(); renderAll(); }
+  else if (b.dataset.roll) { const f = b.dataset.roll; S.locks[f] = false; S.salts[f] = (S.salts[f] || 0) + 1; generate(); renderAll(); }
+  else if (b.dataset.rm) { const f = b.dataset.rm; setField(f, S.v[f].filter((x) => x !== b.dataset.val)); }
+  else if (b.dataset.rmx) { const f = b.dataset.rmx; S[f] = S[f].filter((x) => x !== b.dataset.val); save(); renderAll(); }
+  else if (b.dataset.step) { const a = b.dataset.step; const v = Math.max(1, Math.min(7, S.v.atributos[a] + +b.dataset.d)); setField("atributos", { ...S.v.atributos, [a]: v }); }
+  else if (b.id === "askHistoria") askHistoria();
+  else if (b.id === "stopHistoria") ctlH?.abort();
+  else if (b.id === "askApariencia") askApariencia();
+});
+$("#seed").addEventListener("change", (e) => { const v = e.target.value.trim(); if (!v) return; S.seed = v; S.salts = {}; generate(); renderAll(); });
+$("#newSeed").addEventListener("click", () => { S.seed = newSeed(); S.salts = {}; generate(); renderAll(); });
+$("#rollAll").addEventListener("click", () => { S.locks = {}; S.salts = {}; S.seed = newSeed(); S.aliados = []; S.nemesis = []; S.libres = []; S.historia = ""; S.apariencia = { rostro: "", figura: "", presencia: "" }; S.creado_en = new Date().toISOString().replace(/\.\d+Z$/, "Z"); generate(); renderAll(); });
+$("#notPunto").addEventListener("click", () => { S.notacion = "punto"; save(); renderAll(); });
+$("#notBarra").addEventListener("click", () => { S.notacion = "barra"; save(); renderAll(); });
+function setTab(t) { tab = t; $("#tabFicha").setAttribute("aria-selected", t === "ficha"); $("#tabYaml").setAttribute("aria-selected", t === "yaml"); $("#panelFicha").hidden = t !== "ficha"; $("#panelYaml").hidden = t !== "yaml"; }
+$("#tabFicha").addEventListener("click", () => setTab("ficha"));
+$("#tabYaml").addEventListener("click", () => setTab("yaml"));
+$("#copyYaml").addEventListener("click", () => {
+  const txt = toYaml(), st = $("#yamlStatus");
+  navigator.clipboard.writeText(txt).then(() => { st.textContent = "Copiado."; }, () => {
+    const r = document.createRange(); r.selectNodeContents($("#yaml")); const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    st.textContent = "Texto seleccionado: copialo con Ctrl+C.";
+  });
+});
+
+/* ---------- Capacidades: Claude y descargas ---------- */
+let sampleFn = null, dl = null, ctlH = null;
+const fileBase = () => (S.v.nombre || "personaje").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") + "-" + S.v.patente;
+async function doSave(name, text, mime) {
+  const st = $("#yamlStatus");
+  try { await dl.save({ filename: name, data: new Blob([text], { type: mime }) }); st.textContent = "Guardado."; st.className = "status"; }
+  catch (e) { st.className = "status err"; st.textContent = e?.code === "declined" ? "Descarga cancelada." : e?.code === "host_unavailable" ? "Esta app no guarda archivos; abrí el artefacto en un navegador." : "No se pudo descargar acá. Copiá el YAML."; }
+}
+$("#dlMd").addEventListener("click", () => {
+  const o = sheetObj();
+  const md = "---\ntitle: " + q(o.identidad.nombre) + "\naliases:\n  - " + q(o.identidad.nombre) + (o.identidad.sobrenombre ? "\n  - " + q(o.identidad.sobrenombre) : "") + "\n" + toYaml() + "---\n\n" + (S.historia.trim() || "") + "\n";
+  doSave(fileBase() + ".md", md, "text/markdown");
+});
+$("#dlJson").addEventListener("click", () => doSave(fileBase() + ".json", JSON.stringify({ personaje: sheetObj() }, null, 2), "application/json"));
+
+function contexto() {
+  const V = S.v, sub = V.subfacciones.map((s) => `${SUB[s].nombre}: ${SUB[s].descripcion}`).join("\n");
+  const lines = [
+    `Facción: ${FAC[V.faccion]?.nombre} — ${FAC[V.faccion]?.descripcion}`,
+    sub ? "Subfacción: " + sub : "",
+    ...V.aspectos.map((s) => `Aspecto ${ASP[s]?.nombre}: ${ASP[s]?.descripcion}`),
+    ...V.rasgos.map((s) => `Rasgo ${RAS[s]?.nombre}: ${RAS[s]?.descripcion}`),
+    ...V.entrenamientos.map((s) => `Entrenamiento ${ENT[s]?.nombre}: ${ENT[s]?.descripcion}`),
+    ...[V.arma, ...V.utilitarios, V.vestidura].filter(Boolean).map((s) => `Equipo ${EQ[s]?.nombre}: ${EQ[s]?.descripcion}`),
+  ];
+  return lines.filter(Boolean).join("\n");
+}
+const errTxt = (e) => ({ not_granted: "Sin permiso para usar Claude en esta vista.", rate_limited: "Demasiados pedidos seguidos. Esperá un momento.", aborted: "Detenido." }[e?.code] || "No se pudo completar el pedido.");
+async function askHistoria() {
+  const btn = $("#askHistoria"), st = $("#stHistoria"), stop = $("#stopHistoria");
+  btn.disabled = true; stop.hidden = false; st.className = "status"; st.textContent = "Pensando…";
+  ctlH = new AbortController();
+  const prompt = `Escribí el campo "historia" de esta ficha de personaje del universo Subordinación y Valor (SyV).
+
+Reglas:
+- 120 a 200 palabras, prosa narrativa en tercera persona, castellano rioplatense sobrio. Sin título, sin listas, sin comillas de apertura.
+- La historia explica y ancla los tags, no los repite: de dónde viene, cómo aprendió lo que sabe, por qué tiene sus aspectos y rasgos, qué lo ata a sus lealtades.
+- No menciones números, atributos ni nombres de tags con su notación.
+- Fidelidad al universo: no inventes facciones, organizaciones, ciudades ni personajes con nombre propio. Usá solo los nombres que aparecen abajo; si hace falta un lugar, describilo sin bautizarlo.
+- Devolvé solo el texto de la historia.
+
+Ficha (YAML):
+${toYaml().replace(/\n  historia:[\s\S]*$/, "")}
+
+Contexto del catálogo:
+${contexto()}`;
+  try {
+    const { text } = await sampleFn(prompt, { signal: ctlH.signal, modelTier: "default", cache: false, onText: ({ text }) => { S.historia = text; const ta = $("#f-historia"); if (ta) ta.value = text; st.textContent = "Escribiendo…"; renderSheet(); } });
+    S.historia = text.trim(); save(); st.textContent = "Listo. Editala a gusto.";
+  } catch (e) { if (e?.text) S.historia = e.text; st.className = "status err"; st.textContent = errTxt(e); if (e?.code === "not_granted") document.querySelectorAll("[data-claude]").forEach((x) => (x.hidden = true)); }
+  finally { btn.disabled = false; stop.hidden = true; ctlH = null; save(); renderAll(); }
+}
+async function askApariencia() {
+  const btn = $("#askApariencia"), st = $("#stApariencia");
+  btn.disabled = true; st.className = "status"; st.textContent = "Pensando…";
+  const prompt = `Escribí la apariencia de este personaje del universo Subordinación y Valor como tres párrafos de prosa descriptiva agnóstica, en castellano rioplatense sobrio.
+
+Ejes fijos:
+- rostro: la cara en primer plano (facciones, mirada, piel, pelo, gesto habitual).
+- figura: cuerpo entero y porte; cómo LLEVA lo que viste, nunca QUÉ viste.
+- presencia: la impresión que deja, la luz, el aire, cómo cambia un lugar cuando entra.
+
+Reglas: 40 a 80 palabras por párrafo. Cada párrafo responde cómo se ve, nunca cuánto ni qué lleva: sin números, sin nombres de prendas, armas ni objetos del equipo, sin sintaxis de generador de imágenes ni directivas de render (encuadre, iluminación de estudio, estilos). Coherente con edad, género, atributos, aspectos y rasgos.
+${S.historia.trim() ? "\nHistoria del personaje:\n" + S.historia.trim() + "\n" : ""}
+Ficha (YAML):
+${toYaml().replace(/\n  historia:[\s\S]*$/, "")}
+
+Contexto del catálogo:
+${contexto()}
+
+Respondé solo con un objeto JSON: {"rostro": "...", "figura": "...", "presencia": "..."}`;
+  try {
+    const r = await sampleFn.json(prompt, { modelTier: "default", cache: false });
+    for (const k of ["rostro", "figura", "presencia"]) if (typeof r?.[k] === "string") S.apariencia[k] = r[k].trim();
+    save(); st.textContent = "Listo. Editala a gusto."; renderAll();
+    $("#stApariencia").textContent = "Listo. Editala a gusto.";
+  } catch (e) { st.className = "status err"; st.textContent = errTxt(e); }
+  finally { const b = $("#askApariencia"); if (b) b.disabled = false; }
+}
+
+/* ---------- Arranque ---------- */
+generate();
+renderAll();
+(async () => {
+  if (!window.claude?.use) return;
+  try { sampleFn = await window.claude.use("sample"); } catch (_) { sampleFn = null; }
+  if (sampleFn) document.querySelectorAll("[data-claude]").forEach((x) => (x.hidden = false));
+  try { dl = await window.claude.use("downloads"); } catch (_) { dl = null; }
+  if (dl) { $("#dlMd").hidden = false; $("#dlJson").hidden = false; }
+})();
+})();
+</script>
+</body>
+</html>
