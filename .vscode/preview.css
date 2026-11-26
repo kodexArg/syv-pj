@@ -4,7 +4,7 @@
    Diseño naranja de kodex ("Presentation Orange"): near-black cálido, glow
    naranja racionado, Nunito + DM Mono. Tokens = SSOT en
    ~/.claude/skills/kdx-reporte-html/references/design-tokens.css.
-   Solo afecta el preview de VSCode; no toca el corpus, Obsidian ni el sitio.
+   Solo afecta el preview de VSCode; no toca el corpus ni el sitio.
    ============================================================================ */
 
 /* Fuentes LOCALES (sin red): Nunito ya instalada en el sistema; para mono se usa
@@ -82,10 +82,6 @@ a { color: var(--orange-500); text-decoration: none; border-bottom: 1.5px solid 
 a:hover { color: var(--orange-400); border-bottom-color: var(--orange-400); }
 hr { border: none; border-top: var(--hairline); margin: 2.5em 0; }
 
-/* El estilo de los wikilinks (.wikilink) lo provee la extensión global
-   "Wikilinks Preview" (~/.local/share/codium-extensions/vscode-wikilinks),
-   inyectado vía contributes.markdown.previewStyles. No se define acá. */
-
 /* --- listas --- */
 ul, ol { padding-left: 1.4em; }
 li { margin: 0.3em 0; }
@@ -100,9 +96,6 @@ blockquote {
   background: none;
 }
 blockquote p { color: var(--warm-200); }
-
-/* --- callouts de Obsidian (> [!type]) si aparecen como blockquote --- */
-blockquote p:first-child strong:first-child { color: var(--orange-400); }
 
 /* --- código --- */
 code {
@@ -131,15 +124,3 @@ tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
 
 /* --- imágenes --- */
 img { max-width: 100%; height: auto; border: var(--hairline); }
-
-/* ============================================================================
-   Marcas Highlightr — protocolo de revisión de prosa de kodex
-   rojo -> reescribir · naranja/amarillo -> refactor · gris -> flujo · verde -> aprobado
-   Highlightr inyecta <mark style="background:rgb(...)">. Mapeamos a la paleta.
-   ============================================================================ */
-mark { border-radius: 3px; padding: 0 3px; color: var(--ink-1000); }
-mark[style*="rgb(255, 88, 88)"],  mark.red    { background: var(--bad); }
-mark[style*="rgb(255, 165, 0)"],  mark.orange { background: var(--orange-500); }
-mark[style*="rgb(255, 235, 59)"], mark.yellow { background: var(--orange-400); }
-mark[style*="rgb(158, 158, 158)"],mark.gray   { background: var(--ink-500); color: var(--cream-100); }
-mark[style*="rgb(76, 175, 80)"],  mark.green  { background: var(--sage-500); }
